@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avolv.ai - AI-Powered Business Automation for SMBs</title>
+  <meta name="description" content="Empowering small and medium businesses with affordable AI solutions. Automate bookings, follow-ups, lead generation, and customer engagement.">
+  <meta name="keywords" content="AI automation, small business, SMB, bookings, follow-ups, lead generation, customer engagement, CRM">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Avolv.ai - AI-Powered Business Automation">
+  <meta property="og:description" content="Automate bookings, follow-ups, lead generation, and customer engagement for your small business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --slate-950: #020617;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --emerald-600: #059669;
+      --emerald-500: #10b981;
+      --emerald-400: #34d399;
+      --emerald-300: #6ee7b7;
+      --emerald-100: #d1fae5;
+      --blue-500: #3b82f6;
+      --blue-400: #60a5fa;
+      --purple-500: #a855f7;
+      --purple-400: #c084fc;
+      --amber-500: #f59e0b;
+      --amber-400: #fbbf24;
+      --pink-500: #ec4899;
+      --cyan-500: #06b6d4;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--slate-950);
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Top Contact Bar */
+    .top-bar {
+      position: fixed; width: 100%; z-index: 50;
+      background: var(--emerald-600); color: #fff; font-size: 14px;
+    }
+    .top-bar-inner {
+      max-width: 1280px; margin: 0 auto; padding: 6px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar-tagline { color: var(--emerald-100); }
+    .top-bar-contact { display: flex; align-items: center; gap: 16px; }
+    .top-bar-contact a { display: flex; align-items: center; gap: 6px; font-weight: 600; transition: color 0.2s; }
+    .top-bar-contact a:hover { color: var(--emerald-300); }
+    .top-bar-divider { color: var(--emerald-400); }
+    
+    /* Navigation */
+    nav {
+      position: fixed; width: 100%; z-index: 40; top: 36px;
+      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--slate-400); transition: color 0.2s; font-size: 15px; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .accent-emerald { color: var(--emerald-400); font-weight: 600; }
+    .nav-links .accent-emerald:hover { color: var(--emerald-300); }
+    .nav-links .accent-purple { color: var(--purple-400); font-weight: 600; }
+    .nav-links .accent-purple:hover { color: var(--purple-300); }
+    .nav-links .accent-blue { color: var(--blue-400); font-weight: 600; }
+    .nav-links .accent-blue:hover { color: var(--blue-300); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-login { color: var(--slate-400); transition: color 0.2s; }
+    .nav-login:hover { color: #fff; }
+    .btn-primary {
+      background: var(--emerald-500); color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+    .btn-primary:hover { background: var(--emerald-400); }
+    .btn-secondary {
+      background: var(--slate-800); color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--slate-700);
+    }
+    .btn-secondary:hover { background: var(--slate-700); }
+    
+    /* Industries dropdown */
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 8px;
+      width: 200px; background: var(--slate-900); border: 1px solid var(--slate-800);
+      border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      opacity: 0; visibility: hidden; transition: all 0.2s; padding: 8px 0;
+    }
+    .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 12px; padding: 8px 16px;
+      font-size: 14px; color: var(--slate-400); transition: all 0.15s;
+    }
+    .dropdown-menu a:hover { color: #fff; background: rgba(30, 41, 59, 0.5); }
+    .dropdown-menu .icon { font-size: 18px; }
+    
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 180px 0 128px; min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    }
+    .hero-blob {
+      position: absolute; border-radius: 50%; filter: blur(100px);
+    }
+    .hero-blob-1 { width: 384px; height: 384px; background: var(--emerald-500); opacity: 0.3; top: -192px; left: -192px; }
+    .hero-blob-2 { width: 384px; height: 384px; background: var(--blue-500); opacity: 0.3; top: 33%; right: -192px; }
+    .hero-blob-3 { width: 320px; height: 320px; background: var(--purple-500); opacity: 0.3; bottom: 0; left: 33%; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 10; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(8px);
+      padding: 8px 16px; border-radius: 999px; font-size: 14px;
+      margin-bottom: 32px; border: 1px solid var(--slate-700);
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: var(--emerald-400); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .hero-badge span:last-child { color: var(--slate-300); }
+    h1 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+    h1 .gradient { background: linear-gradient(to right, var(--emerald-400), var(--blue-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-desc { font-size: 1.25rem; color: var(--slate-400); margin-bottom: 40px; line-height: 1.7; max-width: 560px; }
+    .hero-buttons { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .hero-buttons .btn-primary { padding: 16px 32px; font-size: 1.125rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25); }
+    .hero-buttons .btn-secondary { padding: 16px 32px; font-size: 1.125rem; border-radius: 12px; }
+    .hero-sub-link { color: var(--slate-400); font-size: 14px; transition: color 0.2s; }
+    .hero-sub-link:hover { color: var(--emerald-400); }
+    
+    /* Dashboard Preview */
+    .dashboard-preview {
+      background: var(--slate-900); border-radius: 16px;
+      border: 1px solid var(--slate-700); overflow: hidden;
+      box-shadow: 0 0 60px rgba(16, 185, 129, 0.15);
+    }
+    .dashboard-bar {
+      background: var(--slate-800); padding: 12px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--slate-700);
+    }
+    .dashboard-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dashboard-bar-title { margin-left: 16px; color: var(--slate-500); font-size: 14px; }
+    .dashboard-body { padding: 24px; }
+    .dashboard-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .dashboard-stat { background: rgba(30, 41, 59, 0.5); border-radius: 8px; padding: 16px; }
+    .dashboard-stat-label { color: var(--slate-500); font-size: 12px; margin-bottom: 4px; }
+    .dashboard-stat-value { font-size: 1.5rem; font-weight: 700; }
+    .dashboard-stat-change { color: var(--emerald-400); font-size: 12px; }
+    .dashboard-chart { background: rgba(30, 41, 59, 0.5); border-radius: 8px; padding: 16px; }
+    .dashboard-chart-label { color: var(--slate-500); font-size: 12px; margin-bottom: 12px; }
+    .dashboard-bars { display: flex; gap: 8px; }
+    .dashboard-bars div { flex: 1; height: 32px; border-radius: 6px; }
+    .dashboard-bars-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--slate-500); margin-top: 8px; }
+    .dashboard-agent {
+      margin-top: 24px; display: flex; align-items: center; gap: 12px;
+      background: rgba(30, 41, 59, 0.5); border-radius: 8px; padding: 16px;
+    }
+    .dashboard-agent-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--emerald-500), var(--blue-500));
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dashboard-agent-title { font-size: 14px; font-weight: 600; }
+    .dashboard-agent-desc { font-size: 12px; color: var(--slate-500); }
+    
+    /* Stats Section */
+    .stats { padding: 80px 0; background: rgba(15, 23, 42, 0.5); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+    .stat-number { font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 8px; }
+    .stat-label { color: var(--slate-500); }
+    
+    /* Features Section */
+    .features { padding: 128px 0; background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+    .section-header { text-align: center; margin-bottom: 80px; }
+    .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 24px; }
+    .section-header p { font-size: 1.25rem; color: var(--slate-400); max-width: 640px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .feature-card {
+      background: var(--slate-900); border-radius: 16px; padding: 32px;
+      border: 1px solid var(--slate-800); transition: all 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-4px); }
+    .feature-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .feature-icon svg { width: 28px; height: 28px; color: #fff; }
+    .feature-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+    .feature-card p { color: var(--slate-400); }
+    .fi-emerald { background: linear-gradient(135deg, var(--emerald-500), var(--emerald-600)); }
+    .fi-blue { background: linear-gradient(135deg, var(--blue-500), #2563eb); }
+    .fi-purple { background: linear-gradient(135deg, var(--purple-500), #7c3aed); }
+    .fi-amber { background: linear-gradient(135deg, var(--amber-500), #d97706); }
+    .fi-pink { background: linear-gradient(135deg, var(--pink-500), #db2777); }
+    .fi-cyan { background: linear-gradient(135deg, var(--cyan-500), #0891b2); }
+    
+    /* How It Works */
+    .how-it-works { padding: 128px 0; background: var(--slate-900); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+    .step-card { text-align: center; }
+    .step-number {
+      width: 80px; height: 80px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; font-size: 2.5rem; font-weight: 700;
+      border: 1px solid;
+    }
+    .step-emerald { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--emerald-400); }
+    .step-blue { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.2); color: var(--blue-400); }
+    .step-purple { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.2); color: var(--purple-400); }
+    .step-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+    .step-card p { color: var(--slate-400); }
+    
+    /* Industries */
+    .industries { padding: 128px 0; }
+    .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .industry-card {
+      background: var(--slate-900); border-radius: 16px; padding: 32px;
+      border: 1px solid var(--slate-800); text-align: center;
+      transition: all 0.3s;
+    }
+    .industry-card:hover { transform: translateY(-4px); border-color: var(--slate-600); }
+    .industry-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
+    .industry-card h3 { font-size: 1.25rem; font-weight: 700; }
+    
+    /* Integrations */
+    .integrations { padding: 128px 0; background: rgba(15, 23, 42, 0.5); }
+    .integrations-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+    .integration-card {
+      background: var(--slate-900); border-radius: 12px; padding: 24px;
+      border: 1px solid var(--slate-800); display: flex; align-items: center;
+      justify-content: center; transition: border-color 0.2s;
+    }
+    .integration-card:hover { border-color: var(--slate-700); }
+    .integration-card span { color: var(--slate-400); font-weight: 600; }
+    
+    /* CTA Section */
+    .cta { padding: 128px 0; }
+    .cta-box {
+      background: linear-gradient(135deg, var(--emerald-600), var(--emerald-600), var(--blue-500));
+      border-radius: 24px; padding: 64px; text-align: center;
+      position: relative; overflow: hidden; max-width: 896px; margin: 0 auto;
+    }
+    .cta-box h2 { font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 700; margin-bottom: 24px; }
+    .cta-box p { font-size: 1.25rem; color: var(--emerald-100); margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-btn-1 {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(5, 150, 105, 0.5); color: #fff; padding: 16px 32px;
+      border-radius: 12px; font-weight: 600; font-size: 1.125rem;
+      transition: background 0.2s; border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .cta-btn-1:hover { background: rgba(5, 150, 105, 0.7); }
+    .cta-btn-2 {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); color: #fff; padding: 16px 32px;
+      border-radius: 12px; font-weight: 600; font-size: 1.125rem;
+      transition: background 0.2s; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .cta-btn-2:hover { background: rgba(255,255,255,0.2); }
+    
+    /* Footer */
+    footer {
+      background: var(--slate-900); border-top: 1px solid var(--slate-800); padding: 64px 0;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { color: var(--slate-500); margin-bottom: 16px; max-width: 320px; }
+    .footer-brand .phone { display: flex; align-items: center; gap: 8px; color: var(--emerald-400); font-weight: 600; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-brand .phone:hover { color: var(--emerald-300); }
+    .footer-brand .email { color: var(--slate-500); font-size: 14px; transition: color 0.2s; }
+    .footer-brand .email:hover { color: #fff; }
+    .footer-col h4 { font-weight: 600; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { color: var(--slate-500); font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid var(--slate-800); padding-top: 32px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom p { color: var(--slate-600); }
+    .footer-bottom-links { display: flex; align-items: center; gap: 24px; }
+    .footer-bottom-links a { color: var(--slate-500); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #fff; }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .dashboard-preview { display: none; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .integrations-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .top-bar-tagline { display: none; }
+      .top-bar-contact { margin: 0 auto; }
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+      .integrations-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { padding: 48px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="top-bar-tagline">AI-Powered Business Automation for SMBs</span>
+      <div class="top-bar-contact">
+        <a href="tel:8134617954">
+          <i data-lucide="phone" style="width:14px;height:14px"></i>
+          (813) 461-7954
+        </a>
+        <span class="top-bar-divider">|</span>
+        <a href="mailto:support@avolv.ai">support@avolv.ai</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/">
+        <img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <div class="dropdown">
+          <a href="#industries" style="display:flex;align-items:center;gap:4px;">
+            Industries
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://app.avolv.ai/industries/pet-services"><span class="icon">🐾</span> Pet Services</a>
+            <a href="https://app.avolv.ai/industries/home-services"><span class="icon">🔧</span> Home Services</a>
+            <a href="https://app.avolv.ai/industries/dental"><span class="icon">🦷</span> Dental</a>
+            <a href="https://app.avolv.ai/industries/med-spa"><span class="icon">💅</span> Med Spa</a>
+            <a href="https://app.avolv.ai/industries/fitness"><span class="icon">💪</span> Fitness</a>
+            <a href="https://app.avolv.ai/industries/auto-services"><span class="icon">🚗</span> Auto Services</a>
+          </div>
+        </div>
+        <a href="https://app.avolv.ai/demo" class="accent-emerald">Demo</a>
+        <a href="https://app.avolv.ai/prompt-genius" class="accent-purple">✨ Prompt Genius</a>
+        <a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer" class="accent-blue">📖 University</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://app.avolv.ai/login" class="nav-login">Log In</a>
+        <a href="https://app.avolv.ai/login" class="btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="dot"></span>
+            <span>AI-Powered Business Automation</span>
+          </div>
+          <h1>Automate. Grow.<br><span class="gradient">Evolve.</span></h1>
+          <p class="hero-desc">Empowering small and medium businesses with affordable AI solutions. Automate bookings, follow-ups, lead generation, and customer engagement.</p>
+          <div class="hero-buttons">
+            <a href="https://app.avolv.ai/login" class="btn-primary">
+              Get Started <i data-lucide="arrow-right" style="width:20px;height:20px"></i>
+            </a>
+            <a href="https://app.avolv.ai/demo" class="btn-secondary">
+              <i data-lucide="play" style="width:20px;height:20px"></i>
+              See Interactive Demo
+            </a>
+          </div>
+          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="hero-sub-link">
+            Or schedule a free strategy session →
+          </a>
+        </div>
+        <div class="dashboard-preview">
+          <div class="dashboard-bar">
+            <div class="dashboard-dot" style="background:#ef4444"></div>
+            <div class="dashboard-dot" style="background:#eab308"></div>
+            <div class="dashboard-dot" style="background:#22c55e"></div>
+            <span class="dashboard-bar-title">Avolv.ai Dashboard</span>
+          </div>
+          <div class="dashboard-body">
+            <div class="dashboard-stats">
+              <div class="dashboard-stat">
+                <p class="dashboard-stat-label">Leads This Week</p>
+                <p class="dashboard-stat-value">147</p>
+                <p class="dashboard-stat-change">↑ 23%</p>
+              </div>
+              <div class="dashboard-stat">
+                <p class="dashboard-stat-label">Appointments</p>
+                <p class="dashboard-stat-value">52</p>
+                <p class="dashboard-stat-change">↑ 18%</p>
+              </div>
+              <div class="dashboard-stat">
+                <p class="dashboard-stat-label">Follow-ups</p>
+                <p class="dashboard-stat-value">89</p>
+                <p class="dashboard-stat-change">Auto-sent</p>
+              </div>
+            </div>
+            <div class="dashboard-chart">
+              <p class="dashboard-chart-label">Automation Performance</p>
+              <div class="dashboard-bars">
+                <div style="background:var(--emerald-500)"></div>
+                <div style="background:var(--blue-500)"></div>
+                <div style="background:var(--purple-500)"></div>
+              </div>
+              <div class="dashboard-bars-labels">
+                <span>Bookings</span><span>Follow-ups</span><span>Lead Gen</span>
+              </div>
+            </div>
+            <div class="dashboard-agent">
+              <div class="dashboard-agent-icon">
+                <i data-lucide="sparkles" style="width:20px;height:20px;color:#fff"></i>
+              </div>
+              <div>
+                <p class="dashboard-agent-title">AI Agent Active</p>
+                <p class="dashboard-agent-desc">12 leads qualified today</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div>
+          <p class="stat-number" style="color:var(--emerald-400)">89%</p>
+          <p class="stat-label">SMBs Using AI in 2025</p>
+        </div>
+        <div>
+          <p class="stat-number" style="color:var(--blue-400)">91%</p>
+          <p class="stat-label">Report Revenue Boost</p>
+        </div>
+        <div>
+          <p class="stat-number" style="color:var(--amber-400)">20hrs</p>
+          <p class="stat-label">Saved per Week</p>
+        </div>
+        <div>
+          <p class="stat-number" style="color:var(--purple-400)">3x</p>
+          <p class="stat-label">Lead Conversion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything You Need to <span class="gradient">Grow</span></h2>
+        <p>Powerful AI-driven tools designed specifically for small business needs.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon fi-emerald"><i data-lucide="calendar" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>Smart Scheduling</h3>
+          <p>AI-powered booking that syncs with your calendar and automatically handles rescheduling.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-blue"><i data-lucide="message-square" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>Automated Follow-ups</h3>
+          <p>Never miss a lead with intelligent SMS and email follow-up sequences.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-purple"><i data-lucide="bot" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>AI Lead Qualification</h3>
+          <p>Let AI handle initial conversations and qualify leads 24/7 while you sleep.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-amber"><i data-lucide="users" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>Customer Management</h3>
+          <p>Complete CRM with health scores, activity tracking, and relationship insights.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-pink"><i data-lucide="trending-up" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>Revenue Analytics</h3>
+          <p>Track performance, identify trends, and make data-driven decisions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-cyan"><i data-lucide="zap" style="width:28px;height:28px;color:#fff"></i></div>
+          <h3>Workflow Automation</h3>
+          <p>Build custom automation flows with our visual drag-and-drop builder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get Started in <span class="gradient">3 Simple Steps</span></h2>
+        <p>From signup to automation in under 15 minutes.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number step-emerald">1</div>
+          <h3>Connect Your Tools</h3>
+          <p>Link your calendar, email, and phone in just a few clicks.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number step-blue">2</div>
+          <h3>Choose Your Industry</h3>
+          <p>Select from pre-built templates designed for your specific business.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number step-purple">3</div>
+          <h3>Activate & Grow</h3>
+          <p>Turn on automations and watch your business scale effortlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section id="industries" class="industries">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for <span class="gradient">Your Industry</span></h2>
+        <p>Pre-configured solutions for the businesses we know best.</p>
+      </div>
+      <div class="industries-grid">
+        <a href="https://app.avolv.ai/industries/pet-services" class="industry-card">
+          <span class="industry-icon">🐾</span>
+          <h3>Pet Services</h3>
+        </a>
+        <a href="https://app.avolv.ai/industries/home-services" class="industry-card">
+          <span class="industry-icon">🔧</span>
+          <h3>Home Services</h3>
+        </a>
+        <a href="https://app.avolv.ai/industries/dental" class="industry-card">
+          <span class="industry-icon">🦷</span>
+          <h3>Dental</h3>
+        </a>
+        <a href="https://app.avolv.ai/industries/med-spa" class="industry-card">
+          <span class="industry-icon">💅</span>
+          <h3>Med Spa</h3>
+        </a>
+        <a href="https://app.avolv.ai/industries/fitness" class="industry-card">
+          <span class="industry-icon">💪</span>
+          <h3>Fitness</h3>
+        </a>
+        <a href="https://app.avolv.ai/industries/auto-services" class="industry-card">
+          <span class="industry-icon">🚗</span>
+          <h3>Auto Services</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section class="integrations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Works With Your <span class="gradient">Favorite Tools</span></h2>
+        <p>Connect to your existing stack with native integrations.</p>
+      </div>
+      <div class="integrations-grid">
+        <div class="integration-card"><span>Gmail</span></div>
+        <div class="integration-card"><span>Google Calendar</span></div>
+        <div class="integration-card"><span>Zoom</span></div>
+        <div class="integration-card"><span>Slack</span></div>
+        <div class="integration-card"><span>QuickBooks</span></div>
+        <div class="integration-card"><span>Zapier</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Evolve Your Business?</h2>
+        <p>Streamline your business today with Avolv.ai to automate operations and accelerate growth.</p>
+        <div class="cta-buttons">
+          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="cta-btn-1">
+            Free Strategy Session
+          </a>
+          <a href="tel:8134617954" class="cta-btn-2">
+            <i data-lucide="phone" style="width:20px;height:20px"></i>
+            (813) 461-7954
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" style="height:32px;margin-bottom:16px;">
+          <p>Empowering small and medium businesses with affordable AI automation solutions.</p>
+          <a href="tel:8134617954" class="phone">
+            <i data-lucide="phone" style="width:16px;height:16px"></i>
+            (813) 461-7954
+          </a>
+          <a href="mailto:support@avolv.ai" class="email">support@avolv.ai</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#features">Booking & Scheduling</a></li>
+            <li><a href="#features">Customer Follow-up</a></li>
+            <li><a href="#features">Lead Generation</a></li>
+            <li><a href="#features">AI Content Creator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="https://app.avolv.ai/industries/pet-services">Pet Services</a></li>
+            <li><a href="https://app.avolv.ai/industries/home-services">Home Services</a></li>
+            <li><a href="https://app.avolv.ai/industries/dental">Dental</a></li>
+            <li><a href="https://app.avolv.ai/industries/med-spa">Med Spa</a></li>
+            <li><a href="https://app.avolv.ai/industries/fitness">Fitness</a></li>
+            <li><a href="https://app.avolv.ai/industries/auto-services">Auto Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="mailto:support@avolv.ai">Contact Support</a></li>
+            <li><a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank">Free Strategy Session</a></li>
+            <li><a href="https://app.avolv.ai/prompt-genius">Prompt Genius</a></li>
+            <li><a href="https://university.avolv.ai" target="_blank">Avolv University</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Avolv.ai. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/sms-consent.html">SMS Terms</a>
+          <a href="https://www.linkedin.com/company/avolv-ai" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+
+</body>
+</html>
