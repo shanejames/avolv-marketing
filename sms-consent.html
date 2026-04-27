@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMS Consent & Terms - Avolv.ai</title>
-  <meta name="description" content="Avolv.ai SMS messaging consent, terms, and opt-out information.">
+  <meta name="description" content="Avolv.ai SMS messaging consent, terms, sample messages, and opt-out information. A2P 10DLC compliant.">
   <link rel="icon" type="image/png" href="/avolv-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,14 +32,15 @@
     h1 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
     .subtitle { color: #64748b; margin-bottom: 48px; font-size: 14px; }
     h2 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 40px 0 16px; }
+    h3 { color: #fff; font-weight: 700; margin-bottom: 12px; font-size: 1rem; }
     p, li { color: #94a3b8; margin-bottom: 12px; }
     ul { padding-left: 24px; margin-bottom: 16px; }
     li { margin-bottom: 8px; }
+    strong { color: #cbd5e1; }
     .highlight {
       background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
       padding: 24px; margin: 24px 0;
     }
-    .highlight h3 { color: #fff; font-weight: 700; margin-bottom: 12px; font-size: 1rem; }
     .opt-out-box {
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
       border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px;
@@ -52,6 +53,127 @@
       padding: 24px; margin: 32px 0;
     }
     .contact-box p { margin-bottom: 8px; }
+
+    /* CTA / Opt-in Form Mock Display */
+    .cta-mock {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .cta-mock-label {
+      display: inline-block;
+      background: rgba(52, 211, 153, 0.1);
+      color: #34d399;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .cta-mock h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .cta-mock-field {
+      margin-bottom: 16px;
+    }
+    .cta-mock-field label {
+      display: block;
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .cta-mock-field input[type="text"] {
+      width: 100%;
+      background: #020617;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .cta-mock-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #020617;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 14px;
+      margin: 20px 0;
+    }
+    .cta-mock-checkbox-row input[type="checkbox"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .cta-mock-checkbox-row label {
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .cta-mock-button {
+      display: inline-block;
+      background: #34d399;
+      color: #020617;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .cta-mock-note {
+      color: #64748b;
+      font-size: 12px;
+      font-style: italic;
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
+    /* Sample Messages */
+    .sample-msg {
+      background: #0f172a;
+      border-left: 3px solid #34d399;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .sample-msg-label {
+      display: block;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* Compliance callout */
+    .compliance-callout {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .compliance-callout p {
+      color: #cbd5e1;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    .compliance-callout strong {
+      color: #fff;
+    }
+
     footer {
       border-top: 1px solid #1e293b; padding: 32px 0; text-align: center;
     }
@@ -73,40 +195,88 @@
   <main>
     <div class="container">
       <h1>SMS Consent & Terms</h1>
-      <p class="subtitle">Last updated: March 2026</p>
+      <p class="subtitle">Last updated: April 2026</p>
 
-      <h2>About Our SMS Messaging</h2>
-      <p>Avolv.ai is an AI-powered business automation platform that enables small and medium businesses to communicate with their customers via SMS text messaging. Messages sent through our platform include:</p>
+      <h2>About Our SMS Messaging Program</h2>
+      <p>Avolv.ai is an AI-powered business automation platform that enables small and medium businesses to communicate with their customers via SMS text messaging. This page describes our SMS messaging program, how consent is obtained, the messages users will receive, and how to opt out.</p>
+      <p>Messages sent through the Avolv.ai platform fall into the following categories:</p>
       <ul>
         <li>Appointment reminders and confirmations</li>
-        <li>Service job notifications and updates</li>
+        <li>Service job notifications and status updates</li>
         <li>Estimate and invoice delivery</li>
-        <li>Post-service follow-up messages</li>
+        <li>Post-service follow-up communications</li>
         <li>Customer satisfaction surveys</li>
-        <li>Marketing promotions (for opted-in customers only)</li>
+        <li>Marketing promotions (only to customers who have explicitly opted in)</li>
       </ul>
 
+      <h2>Call-to-Action and Opt-In Method</h2>
+      <p>Customers opt in to receive SMS messages by completing a web form on a business's website or application powered by Avolv.ai. Below is a representative example of the opt-in form customers see at the moment of consent. The form includes a phone number field, a separate, unchecked consent checkbox, and the disclosure language required by the Telephone Consumer Protection Act (TCPA).</p>
+
+      <div class="cta-mock">
+        <span class="cta-mock-label">Example Opt-In Form (Customer-Facing)</span>
+        <h4>Sign up for service updates</h4>
+        <div class="cta-mock-field">
+          <label for="mock-name">Name</label>
+          <input type="text" id="mock-name" placeholder="Jane Doe" disabled>
+        </div>
+        <div class="cta-mock-field">
+          <label for="mock-phone">Mobile phone number</label>
+          <input type="text" id="mock-phone" placeholder="(555) 555-5555" disabled>
+        </div>
+        <div class="cta-mock-checkbox-row">
+          <input type="checkbox" id="mock-sms-consent" disabled>
+          <label for="mock-sms-consent">
+            By checking this box, I agree to receive SMS text messages from Avolv.ai and the participating business including appointment reminders, service updates, estimate and invoice delivery, and follow-up communications. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help. Consent is not a condition of purchase. View our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service.html">Terms of Service</a>.
+          </label>
+        </div>
+        <span class="cta-mock-button">Submit</span>
+        <p class="cta-mock-note">Note: This form is a non-functional reference example for compliance review. The live form is hosted on customer-facing applications operated by businesses using the Avolv.ai platform.</p>
+      </div>
+
       <h2>How Consent Is Obtained</h2>
-      <p>Customers provide consent to receive SMS messages through the following methods:</p>
+      <p>Customers provide consent to receive SMS messages through the methods described below. The Avolv.ai platform records and stores consent with a timestamp, the IP address of the request, the consent language version shown to the user, and the method of opt-in.</p>
+
       <div class="highlight">
-        <h3>Online Opt-In</h3>
-        <p>When creating an account, booking an appointment, or requesting a service through a business's website or application powered by Avolv.ai, customers provide their phone number and check a consent box agreeing to receive text message communications.</p>
+        <h3>Web Form Opt-In (Primary Method)</h3>
+        <p>When creating an account, booking an appointment, or requesting a service through a business's website or application powered by Avolv.ai, customers enter their phone number and actively check an unchecked consent box. The exact disclosure language displayed above the submit button is shown in the example form above. Consent is not a condition of purchase.</p>
       </div>
       <div class="highlight">
         <h3>Verbal Consent</h3>
-        <p>Customers may provide verbal consent when scheduling appointments or requesting services over the phone with a business. Verbal consent is logged with a timestamp in the Avolv.ai platform.</p>
+        <p>Customers may provide verbal consent when scheduling appointments or requesting services over the phone. The Avolv.ai team member or business operator reads the consent disclosure to the customer and logs the customer's verbal agreement, the timestamp, and the staff member's name in the Avolv.ai platform.</p>
       </div>
       <div class="highlight">
         <h3>Keyword Opt-In</h3>
-        <p>Customers can text <strong>START</strong> or <strong>SUBSCRIBE</strong> to a business's phone number to opt in to receiving text messages.</p>
+        <p>Customers can text <strong>START</strong>, <strong>SUBSCRIBE</strong>, or <strong>YES</strong> to a business's Avolv.ai-provisioned phone number to opt in to receiving text messages.</p>
       </div>
-      <p>All consent is recorded with a timestamp in the Avolv.ai platform for compliance purposes.</p>
+
+      <h2>Sample Messages</h2>
+      <p>Below are representative examples of the SMS messages customers will receive. All messages clearly identify the sending business and include opt-out instructions where applicable.</p>
+
+      <div class="sample-msg">
+        <span class="sample-msg-label">Appointment Reminder</span>
+        Hi Jane, this is a reminder from Arinton: your pool service is scheduled for Tomorrow, Apr 28 between 9-11am. Reply C to confirm or R to reschedule. Reply STOP to opt out.
+      </div>
+
+      <div class="sample-msg">
+        <span class="sample-msg-label">Service Update</span>
+        Arinton: Our technician has arrived at your property and is beginning service. You'll receive a completion summary when finished. Reply STOP to opt out.
+      </div>
+
+      <div class="sample-msg">
+        <span class="sample-msg-label">Invoice Delivery</span>
+        Arinton: Your invoice for service on Apr 28 is ready. View and pay: https://avolv.ai/inv/ABC123. Questions? Reply HELP. Reply STOP to opt out.
+      </div>
+
+      <div class="sample-msg">
+        <span class="sample-msg-label">Follow-Up / Satisfaction Survey</span>
+        Hi Jane, thanks for choosing Arinton! How was your recent service? Reply 1-5 (5 = excellent). Reply STOP to opt out.
+      </div>
 
       <h2>Message Frequency</h2>
-      <p>Message frequency varies based on the type of communication and the services being provided. Customers typically receive 1-10 messages per month depending on their service schedule and communication preferences. Marketing messages are limited to no more than 4 per month.</p>
+      <p>Message frequency varies based on the type of communication and the services being provided. Customers typically receive 1-10 messages per month depending on their service schedule and communication preferences. Marketing messages, where applicable, are limited to no more than 4 per month and are sent only to customers who have explicitly opted in to marketing communications.</p>
 
-      <h2>Message & Data Rates</h2>
-      <p>Standard message and data rates may apply depending on your mobile carrier and plan. Avolv.ai does not charge for SMS messages, but your carrier may.</p>
+      <h2>Message and Data Rates</h2>
+      <p>Standard message and data rates may apply depending on your mobile carrier and plan. Avolv.ai does not charge customers for SMS messages, but your wireless carrier may.</p>
 
       <h2>How to Opt Out</h2>
       <div class="opt-out-box">
@@ -114,28 +284,34 @@
         <p class="keyword">STOP</p>
         <p>to any message you receive from us.</p>
       </div>
-      <p>After texting STOP, you will receive a single confirmation message and no further messages will be sent. You may opt back in at any time by texting <strong>START</strong>.</p>
+      <p>After texting <strong>STOP</strong>, you will receive a single confirmation message and no further messages will be sent. Additional opt-out keywords accepted: <strong>OPTOUT</strong>, <strong>CANCEL</strong>, <strong>END</strong>, <strong>QUIT</strong>, <strong>UNSUBSCRIBE</strong>, <strong>REVOKE</strong>, <strong>STOPALL</strong>. You may opt back in at any time by texting <strong>START</strong>.</p>
 
-      <h2>Help & Support</h2>
-      <p>For help or questions about our SMS messaging, you can:</p>
+      <h2>Help and Support</h2>
+      <p>For help or questions about our SMS messaging program, you can:</p>
       <ul>
-        <li>Reply <strong>HELP</strong> to any text message for assistance</li>
+        <li>Reply <strong>HELP</strong> or <strong>INFO</strong> to any text message for assistance</li>
         <li>Email us at <a href="mailto:support@avolv.ai">support@avolv.ai</a></li>
         <li>Call us at <a href="tel:8134617954">(813) 461-7954</a></li>
       </ul>
 
-      <h2>Carrier Information</h2>
-      <p>SMS messages are sent from Avolv.ai's registered business phone number: <strong>(813) 851-4550</strong>. Messages are delivered through Twilio, a trusted and compliant messaging platform. Carriers are not liable for delayed or undelivered messages.</p>
+      <h2>Privacy and Data Sharing</h2>
+      <div class="compliance-callout">
+        <p><strong>Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes.</strong> All categories of information sharing described in our Privacy Policy exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+      </div>
+      <p>We respect your privacy. Phone numbers and personal information collected for SMS messaging are never sold, shared, or rented to third parties for marketing purposes. Information is used solely to deliver the messages you have consented to receive and to maintain compliance records as required by law. For complete details, please review our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service.html">Terms of Service</a>.</p>
 
-      <h2>Privacy</h2>
-      <p>We respect your privacy. Phone numbers and personal information collected for SMS messaging are never sold, shared, or rented to third parties. For more information, please review our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+      <h2>Carrier Information</h2>
+      <p>SMS messages are delivered through Twilio, a registered messaging platform compliant with carrier and regulatory requirements. Carriers are not liable for delayed or undelivered messages. Avolv.ai's primary registered messaging number is <strong>(813) 851-4550</strong>. Individual businesses using the Avolv.ai platform may also send from their own provisioned numbers.</p>
+
+      <h2>Program Eligibility</h2>
+      <p>The Avolv.ai SMS messaging program is available to customers in the United States who are 18 years of age or older. By opting in, you confirm that you are the account holder or authorized user of the mobile phone number provided.</p>
 
       <div class="contact-box">
-        <h3 style="color:#fff;font-weight:700;margin-bottom:12px;">Contact Us</h3>
+        <h3>Contact Us</h3>
         <p><strong>Avolv.ai</strong></p>
         <p>Email: <a href="mailto:support@avolv.ai">support@avolv.ai</a></p>
-        <p>Phone: <a href="tel:8134617954">(813) 461-7954</a></p>
-        <p>SMS Number: (813) 851-4550</p>
+        <p>Support phone: <a href="tel:8134617954">(813) 461-7954</a></p>
+        <p>SMS sender number: (813) 851-4550</p>
       </div>
     </div>
   </main>
@@ -144,7 +320,7 @@
     <div class="container">
       <p>© 2026 Avolv.ai. All rights reserved.</p>
       <div class="links">
-        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/privacy-policy">Privacy Policy</a>
         <a href="/terms-of-service.html">Terms of Service</a>
         <a href="/">Home</a>
       </div>
