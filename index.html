@@ -90,7 +90,7 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo { height: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
     .nav-links a { color: var(--slate-400); transition: color 0.2s; font-size: 15px; }
     .nav-links a:hover { color: #fff; }
     .nav-links .accent-emerald { color: var(--emerald-400); font-weight: 600; }
@@ -99,6 +99,10 @@
     .nav-links .accent-purple:hover { color: var(--purple-300); }
     .nav-links .accent-blue { color: var(--blue-400); font-weight: 600; }
     .nav-links .accent-blue:hover { color: var(--blue-300); }
+    .nav-links .accent-pool { color: var(--cyan-500); font-weight: 700; }
+    .nav-links .accent-pool:hover { color: #67e8f9; }
+    .nav-links .accent-home { color: var(--amber-400); font-weight: 700; }
+    .nav-links .accent-home:hover { color: #fcd34d; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-login { color: var(--slate-400); transition: color 0.2s; }
     .nav-login:hover { color: #fff; }
@@ -371,20 +375,11 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
-        <div class="dropdown">
-          <a href="#industries" style="display:flex;align-items:center;gap:4px;">
-            Industries
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </a>
-          <div class="dropdown-menu">
-            <a href="/pools.html"><span class="icon">🏊</span> Pool Services</a>
-            <a href="https://app.avolv.ai/industries/home-services"><span class="icon">🔧</span> Home Services</a>
-          </div>
-        </div>
+        <a href="/pools.html" class="accent-pool">🏊 Pool Services</a>
+        <a href="https://app.avolv.ai/industries/home-services" class="accent-home">🔧 Home Services</a>
         <a href="https://app.avolv.ai/demo" class="accent-emerald">Demo</a>
         <a href="https://app.avolv.ai/prompt-genius" class="accent-purple">✨ Prompt Genius</a>
         <a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer" class="accent-blue">📖 University</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
       </div>
       <div class="nav-right">
         <a href="https://app.avolv.ai/login" class="nav-login">Log In</a>
