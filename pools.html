@@ -1004,80 +1004,135 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   margin-top: 8px;
 }
 
-/* ─── PRICING ──────────────────────────────────────── */
-.pricing-grid {
+/* ─── WHILE YOU'RE HERE ──────────────────────────── */
+.while-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 56px;
-  align-items: stretch;
 }
 
 @media (max-width: 800px) {
-  .pricing-grid { grid-template-columns: 1fr; }
+  .while-grid { grid-template-columns: 1fr; }
 }
 
-.price-card {
+.while-card {
   background: var(--surface-2);
   border: 1px solid var(--rule);
-  border-radius: 20px;
-  padding: 40px 36px;
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.while-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(103, 232, 249, 0.3);
+}
+
+.while-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--pool-light);
   display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.2s;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.price-card.featured {
-  background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, var(--surface-2) 40%);
-  border: 1px solid var(--pool);
-  box-shadow: 0 16px 48px rgba(6, 182, 212, 0.12);
+.while-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
-.price-card .badge {
-  position: absolute;
-  top: -12px;
-  right: 24px;
-  background: var(--pool);
-  color: var(--paper);
+.while-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.while-card p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.while-quote {
+  background: rgba(6, 182, 212, 0.06);
+  border-left: 3px solid var(--pool);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 999px;
+  font-size: 13px;
+  color: var(--pool-light);
+  font-style: italic;
+  line-height: 1.5;
 }
 
-.price-card .tier {
+/* ─── PRICING ──────────────────────────────────────── */
+.single-price-card {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  padding: 0;
+  margin-top: 56px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(6, 182, 212, 0.08);
+}
+
+.single-price-card .price-header {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0.02) 100%);
+  padding: 56px 56px 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .single-price-card .price-header { padding: 40px 28px 32px; }
+}
+
+.single-price-card .tier {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   color: var(--pool-light);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.price-card .tier-name {
+.single-price-card .tier-name {
   font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 28px;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  color: var(--ink);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  font-style: italic;
 }
 
-.price-card .amount {
+.single-price-card .amount {
   font-family: 'Fraunces', serif;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 88px;
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--ink);
+  margin-bottom: 4px;
 }
 
-.price-card .amount sub {
-  font-size: 16px;
+@media (max-width: 600px) {
+  .single-price-card .amount { font-size: 64px; }
+}
+
+.single-price-card .amount sub {
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink-soft);
   vertical-align: baseline;
@@ -1085,26 +1140,57 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   margin-left: 4px;
 }
 
-.price-card .free-trial {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--tile);
-  font-weight: 600;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 0.04em;
-}
-
-.price-card .pitch {
-  font-size: 15px;
+.single-price-card .pitch {
+  font-size: 16px;
   color: var(--ink-soft);
-  margin: 18px 0 28px;
+  margin: 20px auto 28px;
   line-height: 1.55;
+  max-width: 520px;
 }
 
-.price-card .cta {
-  margin-top: auto;
-  padding-bottom: 8px;
+.single-price-card .cta-wrap {
+  margin-top: 24px;
+}
+
+.price-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+@media (max-width: 960px) {
+  .price-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .price-features { grid-template-columns: 1fr; }
+}
+
+.feature-col {
+  padding: 36px 28px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 960px) {
+  .feature-col:nth-child(even) { border-right: none; }
+  .feature-col:nth-child(2n+1) { border-right: 1px solid var(--rule); }
+}
+
+@media (max-width: 560px) {
+  .feature-col { border-right: none; }
+}
+
+.feature-col:last-child { border-right: none; }
+
+.feature-col-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--pool-light);
+  margin-bottom: 20px;
+  letter-spacing: -0.005em;
 }
 
 .price-includes {
@@ -1113,9 +1199,6 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   flex-direction: column;
   gap: 11px;
   font-size: 14px;
-  margin: 20px 0 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
 }
 
 .price-includes li {
@@ -1132,29 +1215,6 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   font-weight: 700;
   flex-shrink: 0;
   font-size: 14px;
-}
-
-.price-includes li.coming::before {
-  content: '○';
-  color: var(--sun);
-}
-
-.price-includes li.coming {
-  color: var(--ink-soft);
-}
-
-.price-includes li.coming .roadmap-tag {
-  display: inline-block;
-  margin-left: 6px;
-  font-size: 10px;
-  font-family: 'IBM Plex Mono', monospace;
-  background: rgba(251, 191, 36, 0.15);
-  color: var(--sun);
-  padding: 1px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 600;
 }
 
 .enterprise-row {
@@ -1346,6 +1406,7 @@ footer .legal {
     <a href="/" class="logo"><img src="/avolv-logo.png" alt="Avolv.ai" class="logo-img"></a>
     <ul class="nav-links">
       <li><a href="#features">How it works</a></li>
+      <li><a href="#while-here">Hands-free</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -1711,72 +1772,147 @@ footer .legal {
   </div>
 </section>
 
+<!-- ─── WHILE YOU'RE HERE ─────────────────────────── -->
+<section id="while-here">
+  <div class="container">
+    <span class="section-eyebrow">While you're at the pool</span>
+    <h2 class="section-title">Avolv works at <em>your speed</em>, in <em>your voice</em>, in <em>your language</em>.</h2>
+    <p class="section-lede">Pool service doesn't happen at a desk. You're under decks, in skimmers, on ladders, on the phone with a customer while you're driving to the next stop. Avolv is built for that. Talk to it. It listens.</p>
+
+    <div class="while-grid">
+
+      <!-- VOICE NOTES -->
+      <div class="while-card">
+        <div class="while-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="2" width="6" height="13" rx="3"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="8" y1="22" x2="16" y2="22"/>
+          </svg>
+        </div>
+        <h3>You're at the pool deck. Talk.</h3>
+        <p>Hold the button on your phone, dictate the chemical readings, the pump status, what the customer asked you about. Avolv transcribes it, attaches it to the job, and the office sees it before you've reached your truck.</p>
+        <div class="while-quote">"pH 7.8, chlorine low, pump running rough, customer wants a quote on a new heater"</div>
+      </div>
+
+      <!-- VOICE TASKS -->
+      <div class="while-card">
+        <div class="while-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>You're in the truck. Don't type.</h3>
+        <p>Voice tasks. Voice reminders. Voice follow-ups. "Remind me to call the Howards Thursday about their heater." Avolv schedules it, reminds you Thursday morning, and tracks whether you followed up. Stuff stops falling through the cracks.</p>
+        <div class="while-quote">"Avolv, remind me to call Mrs. Howard Thursday about the heater quote"</div>
+      </div>
+
+      <!-- BILINGUAL -->
+      <div class="while-card">
+        <div class="while-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>Tu técnico habla español. Tu cliente también.</h3>
+        <p>Bilingual SMS, bilingual voice notes, bilingual estimates. Your tech dictates a service report in Spanish, the customer gets it in English. Customer texts a video in Spanish, you read the AI summary in English. Both ways, automatic.</p>
+        <div class="while-quote">"La bomba hace un ruido raro" → "Pump is making a strange noise"</div>
+      </div>
+
+      <!-- VOICE TO INVOICE -->
+      <div class="while-card">
+        <div class="while-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="15" y2="17"/>
+          </svg>
+        </div>
+        <h3>You finished the job. Don't go back to the office.</h3>
+        <p>Walk the work you just did. Talk through what you replaced, what you added, what you billed for. Avolv listens, drafts the invoice, applies your service catalog pricing, and sends it for your review before you leave the driveway.</p>
+        <div class="while-quote">"Replaced the pump motor, cleaned filter, added 2 gallons of chlorine, $385 total"</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ─── PRICING ───────────────────────────────────── -->
 <section class="warm" id="pricing">
   <div class="container">
     <span class="section-eyebrow">Pricing</span>
-    <h2 class="section-title">Two tiers. <em>Real prices.</em> No surprises.</h2>
-    <p class="section-lede">No per-truck fees, no per-seat fees, no "premium tier" with the features you actually need. Pick the tier that fits your business today. Move up whenever you want, no penalty.</p>
+    <h2 class="section-title">One price. <em>Everything we build.</em></h2>
+    <p class="section-lede">No per-truck fees, no per-seat fees, no "premium tier" with the features you actually need. One price. Everything included. Up to 25 techs and unlimited customers, whether you have 1 truck or 15.</p>
 
-    <div class="pricing-grid">
-
-      <!-- STARTER -->
-      <div class="price-card">
-        <div class="tier">Starter</div>
-        <div class="tier-name">For owner-operators</div>
-        <div class="amount">$99<sub>/month</sub></div>
-        <p class="pitch">Built for a 1-truck pool service shop running everything off the phone. Same AI, same pipeline, lighter limits.</p>
-
-        <ul class="price-includes">
-          <li>SMS video-to-estimate AI (EN/ES)</li>
-          <li>Multi-video lead accumulation</li>
-          <li>CRM pipeline with drag-drop deals</li>
-          <li>Field service dispatch board</li>
-          <li>Mobile PWA for field work</li>
-          <li>Service catalog with range pricing</li>
-          <li>Branded web contact form</li>
-          <li>Inbox email lead parser (Angi, Thumbtack, Gmail)</li>
-          <li>SMS lead alerts to your phone</li>
-          <li>Voice notes with auto-transcription</li>
-          <li>Up to 3 techs</li>
-          <li>Up to 250 active customers</li>
-        </ul>
-
-        <div class="cta">
-          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="width: 100%; justify-content: center;">Book a demo →</a>
+    <div class="single-price-card">
+      <div class="price-header">
+        <div class="tier">Avolv Pro</div>
+        <div class="tier-name">The whole platform, one price</div>
+        <div class="amount">$249<sub>/month</sub></div>
+        <p class="pitch">Up to 25 techs. Unlimited customers. No setup fees. No contracts. We set it up with you, you run your business.</p>
+        <div class="cta-wrap">
+          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-sun">Book a 15-min demo →</a>
         </div>
       </div>
 
-      <!-- PRO (featured) -->
-      <div class="price-card featured">
-        <span class="badge">Most pool guys pick this</span>
-        <div class="tier">Pro</div>
-        <div class="tier-name">For growing operations</div>
-        <div class="amount">$199<sub>/month</sub></div>
-        <p class="pitch">Everything Avolv does. Voice receptionist, voice-to-invoice from the truck, full automation, and the integrations you'll actually use weekly.</p>
+      <div class="price-features">
+        <div class="feature-col">
+          <h4 class="feature-col-title">AI that does the work</h4>
+          <ul class="price-includes">
+            <li>SMS video-to-estimate AI (EN/ES)</li>
+            <li>AI Voice Receptionist (24/7 inbound calls)</li>
+            <li>Voice-to-Invoice (walk the job, talk the bill)</li>
+            <li>Voice reminders (talk, don't type)</li>
+            <li>Multi-video lead accumulation</li>
+            <li>AI agents with approval queues</li>
+            <li>Voice notes with auto-transcription</li>
+          </ul>
+        </div>
 
-        <ul class="price-includes">
-          <li>Everything in Starter, plus:</li>
-          <li>AI Voice Receptionist (24/7 inbound calls)</li>
-          <li>Voice-to-Invoice (walk the job, talk the bill)</li>
-          <li>Voice reminders ("remind me to call the Howards Thursday")</li>
-          <li>Marketing automation (email + SMS campaigns)</li>
-          <li>Surveys + follow-up sequences</li>
-          <li>Workflow automation engine</li>
-          <li>QuickBooks invoicing sync</li>
-          <li>Google Business Profile review automation</li>
-          <li>A2P SMS registration handled for you</li>
-          <li>Custom domain email sending</li>
-          <li>Concierge onboarding (we set it up with you)</li>
-          <li>Priority support, same-day response</li>
-          <li>Up to 25 techs, unlimited customers</li>
-        </ul>
+        <div class="feature-col">
+          <h4 class="feature-col-title">Run the business</h4>
+          <ul class="price-includes">
+            <li>CRM pipeline with drag-drop deals</li>
+            <li>Field service dispatch board</li>
+            <li>Mobile PWA for techs in the field</li>
+            <li>Service catalog with range pricing</li>
+            <li>Branded web contact form</li>
+            <li>Inbox email lead parser (Angi, Thumbtack, Gmail)</li>
+            <li>SMS lead alerts to your phone</li>
+          </ul>
+        </div>
 
-        <div class="cta">
-          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-sun" style="width: 100%; justify-content: center;">Book a demo →</a>
+        <div class="feature-col">
+          <h4 class="feature-col-title">Get paid + grow</h4>
+          <ul class="price-includes">
+            <li>QuickBooks invoicing sync</li>
+            <li>Marketing automation (email + SMS)</li>
+            <li>Surveys and follow-up sequences</li>
+            <li>Workflow automation engine</li>
+            <li>Google Business Profile review automation</li>
+            <li>Custom domain email sending</li>
+            <li>A2P SMS registration handled for you</li>
+          </ul>
+        </div>
+
+        <div class="feature-col">
+          <h4 class="feature-col-title">We handle the rest</h4>
+          <ul class="price-includes">
+            <li>Concierge onboarding</li>
+            <li>Priority support, same-day response</li>
+            <li>Multi-tenant data isolation</li>
+            <li>Encrypted at rest and in transit</li>
+            <li>Daily backups</li>
+            <li>Avolv University access (training)</li>
+            <li>No contracts, cancel anytime</li>
+          </ul>
         </div>
       </div>
-
     </div>
 
     <div class="enterprise-row">
@@ -1813,8 +1949,8 @@ footer .legal {
         <div class="faq-a">They know your business answered fast and got them a quote. We don't impersonate humans, but we also don't announce "Hi, I'm a bot" every text. The AI uses your business voice, signs messages with your business name, and hands off to you the moment a question gets technical or out of scope.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">"Which tier do I need?"<span class="icon">+</span></div>
-        <div class="faq-a">If you're a 1-truck operator running the whole show yourself, start on Starter at $99. You get the AI estimator, SMS pipeline, dispatch, and the field app. When you want the voice receptionist, voice-to-invoice, QuickBooks, marketing automation, or you cross 3 techs, you'll want Pro at $199. We can show you both on a 15-minute Zoom and you pick.</div>
+        <div class="faq-q">"$249 sounds high. Justify it."<span class="icon">+</span></div>
+        <div class="faq-a">Fair. Here's the math. Most pool service owners we talk to are using 4 or 5 separate tools: a scheduling app ($49-$99), QuickBooks ($30-$80), a separate texting app ($30-$50), an AI receptionist or answering service ($200-$400), a website ($50-$100), and Zapier to glue it all together ($30+). That's $400-$700/month, plus the hours every week reconciling between them. Avolv replaces all of it for $249, in one app, with everything talking to everything else. Most customers find the savings cover the cost in the first 30 days.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">"You have an AI that answers my phone? Really?"<span class="icon">+</span></div>
