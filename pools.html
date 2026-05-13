@@ -12,21 +12,26 @@
 
 <style>
 :root {
-  --ink: #0a1929;
-  --ink-soft: #142b42;
-  --paper: #f6f4ee;
-  --paper-warm: #efeae0;
-  --pool: #0096c7;
-  --pool-deep: #003554;
-  --pool-light: #90e0ef;
-  --sun: #f4a261;
-  --sun-deep: #e76f51;
-  --tile: #2a9d8f;
-  --rule: rgba(10, 25, 41, 0.12);
-  --rule-soft: rgba(10, 25, 41, 0.06);
+  /* Dark mode palette, matching index.html */
+  --ink: #f6f4ee;              /* light text on dark */
+  --ink-soft: #cbd5e1;          /* muted light text */
+  --paper: #020617;             /* deepest dark, main bg (matches slate-950) */
+  --paper-warm: #0f172a;        /* lifted dark for cards/sections (matches slate-900) */
+  --surface-2: #1e293b;         /* further lifted, for inputs and borders (matches slate-800) */
+  --pool: #06b6d4;              /* cyan accent, matches index --cyan-500 */
+  --pool-deep: #0e7490;
+  --pool-light: #67e8f9;
+  --sun: #fbbf24;
+  --sun-deep: #f59e0b;
+  --tile: #34d399;
+  --rule: rgba(246, 244, 238, 0.10);
+  --rule-soft: rgba(246, 244, 238, 0.05);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+input::placeholder, textarea::placeholder { color: var(--ink-soft); opacity: 0.5; }
+input, select { color: var(--ink); }
 
 html { scroll-behavior: smooth; }
 
@@ -54,9 +59,9 @@ nav.top {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(246, 244, 238, 0.92);
+  background: rgba(2, 6, 23, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule);
 }
 
 nav.top .container {
@@ -72,7 +77,7 @@ nav.top .container {
   font-weight: 800;
   font-size: 26px;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--paper);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -110,9 +115,9 @@ nav.top .container {
 }
 
 .nav-links a {
-  color: var(--ink);
+  color: var(--paper);
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 0.7;
   transition: opacity 0.15s;
 }
 
@@ -139,12 +144,13 @@ nav.top .container {
 }
 
 .btn-primary {
-  background: var(--ink);
+  background: var(--pool);
   color: var(--paper);
 }
 
 .btn-primary:hover {
-  background: var(--pool-deep);
+  background: var(--pool-light);
+  color: var(--paper);
   transform: translateY(-1px);
 }
 
@@ -156,6 +162,7 @@ nav.top .container {
 
 .btn-ghost:hover {
   border-color: var(--ink);
+  background: rgba(246, 244, 238, 0.04);
 }
 
 .btn-sun {
@@ -164,7 +171,7 @@ nav.top .container {
 }
 
 .btn-sun:hover {
-  background: #d65a3a;
+  background: var(--sun);
   transform: translateY(-1px);
 }
 
@@ -181,7 +188,7 @@ section.hero {
   right: -200px;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle at center, rgba(0, 150, 199, 0.18) 0%, rgba(0, 150, 199, 0) 60%);
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.18) 0%, rgba(6, 182, 212, 0) 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -192,7 +199,7 @@ section.hero {
   left: -100px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle at center, rgba(244, 162, 97, 0.12) 0%, rgba(244, 162, 97, 0) 60%);
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.16) 0%, rgba(168, 85, 247, 0) 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -250,7 +257,7 @@ h1.hero-title {
 
 h1.hero-title em {
   font-style: italic;
-  color: var(--pool-deep);
+  color: var(--pool-light);
   font-weight: 500;
 }
 
@@ -298,17 +305,17 @@ h1.hero-title em {
   width: 100%;
   max-width: 380px;
   margin: 0 auto;
-  background: var(--ink);
+  background: #000;
   border-radius: 38px;
   padding: 12px;
   box-shadow:
-    0 20px 60px rgba(0, 53, 84, 0.25),
-    0 8px 20px rgba(0, 53, 84, 0.15);
+    0 20px 60px rgba(6, 182, 212, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.4);
   transform: rotate(-2deg);
 }
 
 .phone-screen {
-  background: var(--paper);
+  background: var(--paper-warm);
   border-radius: 28px;
   overflow: hidden;
   aspect-ratio: 9 / 19;
@@ -318,7 +325,7 @@ h1.hero-title em {
 
 .phone-notch {
   height: 28px;
-  background: var(--ink);
+  background: #000;
   position: relative;
 }
 
@@ -330,14 +337,14 @@ h1.hero-title em {
   transform: translateX(-50%);
   width: 90px;
   height: 22px;
-  background: var(--ink);
+  background: #000;
   border-radius: 0 0 14px 14px;
 }
 
 .phone-header {
   padding: 14px 16px 10px;
   border-bottom: 1px solid var(--rule-soft);
-  background: var(--paper);
+  background: var(--paper-warm);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -388,7 +395,7 @@ h1.hero-title em {
 }
 
 .msg.in {
-  background: white;
+  background: var(--surface-2);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
   color: var(--ink);
@@ -403,7 +410,7 @@ h1.hero-title em {
 
 .msg.video {
   padding: 4px;
-  background: white;
+  background: var(--surface-2);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
   width: 60%;
@@ -429,8 +436,8 @@ h1.hero-title em {
 
 .msg.system {
   align-self: center;
-  background: rgba(0, 53, 84, 0.08);
-  color: var(--pool-deep);
+  background: rgba(103, 232, 249, 0.08);
+  color: var(--pool-light);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   padding: 4px 10px;
@@ -445,7 +452,7 @@ h1.hero-title em {
   font-weight: 700;
   letter-spacing: 0.06em;
   background: var(--sun);
-  color: var(--ink);
+  color: #0a1929;
   padding: 1px 6px;
   border-radius: 4px;
   margin-bottom: 4px;
@@ -455,7 +462,7 @@ h1.hero-title em {
 .phone-input {
   padding: 10px 14px;
   border-top: 1px solid var(--rule-soft);
-  background: var(--paper);
+  background: var(--paper-warm);
   display: flex;
   gap: 8px;
   align-items: center;
@@ -463,7 +470,7 @@ h1.hero-title em {
 
 .phone-input .input-box {
   flex: 1;
-  background: white;
+  background: var(--surface-2);
   border: 1px solid var(--rule);
   border-radius: 16px;
   padding: 6px 12px;
@@ -479,8 +486,10 @@ section {
 }
 
 section.dark {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--surface-2);
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 section.warm {
@@ -512,7 +521,7 @@ h2.section-title {
 
 h2.section-title em {
   font-style: italic;
-  color: var(--pool-deep);
+  color: var(--pool-light);
   font-weight: 500;
 }
 
@@ -619,7 +628,7 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   margin-bottom: 20px;
 }
 
-.feature h3 em { font-style: italic; color: var(--pool-deep); font-weight: 500; }
+.feature h3 em { font-style: italic; color: var(--pool-light); font-weight: 500; }
 
 .feature p.lede {
   font-size: 17px;
@@ -655,7 +664,7 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 
 /* ─── UI MOCKUPS ──────────────────────────────────────── */
 .mockup {
-  background: white;
+  background: var(--surface-2);
   border-radius: 12px;
   box-shadow:
     0 24px 50px rgba(0, 53, 84, 0.15),
@@ -680,7 +689,7 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 }
 .mockup-bar .url {
   flex: 1;
-  background: white;
+  background: var(--surface-2);
   border-radius: 6px;
   padding: 4px 12px;
   font-family: 'IBM Plex Mono', monospace;
@@ -729,7 +738,7 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 }
 
 .deal {
-  background: white;
+  background: var(--surface-2);
   border-radius: 6px;
   padding: 10px;
   margin-bottom: 6px;
@@ -759,7 +768,7 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 }
 .deal .tag.video {
   background: var(--sun);
-  color: var(--ink);
+  color: #0a1929;
 }
 
 /* DISPATCH MOCKUP */
@@ -996,71 +1005,125 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 }
 
 /* ─── PRICING ──────────────────────────────────────── */
-.price-card {
-  background: white;
-  border: 1px solid var(--rule);
-  border-radius: 20px;
-  padding: 48px;
-  margin-top: 56px;
+.pricing-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  box-shadow: 0 12px 32px rgba(0, 53, 84, 0.06);
+  gap: 24px;
+  margin-top: 56px;
+  align-items: stretch;
 }
 
-@media (max-width: 768px) {
-  .price-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
+@media (max-width: 800px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+.price-card {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.price-card.featured {
+  background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, var(--surface-2) 40%);
+  border: 1px solid var(--pool);
+  box-shadow: 0 16px 48px rgba(6, 182, 212, 0.12);
+}
+
+.price-card .badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: var(--pool);
+  color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
 .price-card .tier {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
-  color: var(--pool);
+  color: var(--pool-light);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
+.price-card .tier-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
 .price-card .amount {
   font-family: 'Fraunces', serif;
   font-weight: 600;
-  font-size: 72px;
+  font-size: 64px;
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--ink);
 }
 
 .price-card .amount sub {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--ink-soft);
   vertical-align: baseline;
   font-family: 'IBM Plex Sans', sans-serif;
+  margin-left: 4px;
+}
+
+.price-card .free-trial {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--tile);
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.04em;
 }
 
 .price-card .pitch {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--ink-soft);
   margin: 18px 0 28px;
   line-height: 1.55;
 }
 
-.price-includes {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
-  font-size: 14px;
+.price-card .cta {
+  margin-top: auto;
+  padding-bottom: 8px;
 }
 
-@media (max-width: 600px) { .price-includes { grid-template-columns: 1fr; } }
+.price-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-size: 14px;
+  margin: 20px 0 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
 
 .price-includes li {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   color: var(--ink);
+  line-height: 1.45;
 }
 
 .price-includes li::before {
@@ -1068,7 +1131,51 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
   color: var(--tile);
   font-weight: 700;
   flex-shrink: 0;
+  font-size: 14px;
 }
+
+.price-includes li.coming::before {
+  content: '○';
+  color: var(--sun);
+}
+
+.price-includes li.coming {
+  color: var(--ink-soft);
+}
+
+.price-includes li.coming .roadmap-tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--sun);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.enterprise-row {
+  margin-top: 32px;
+  padding: 24px 32px;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .enterprise-row { flex-direction: column; align-items: flex-start; padding: 20px 24px; }
+}
+
+.enterprise-row strong { color: var(--ink); font-weight: 600; }
+.enterprise-row .label { color: var(--ink-soft); }
 
 /* ─── FAQ ──────────────────────────────────────────── */
 .faq {
@@ -1122,13 +1229,14 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 
 /* ─── FINAL CTA ────────────────────────────────────── */
 .final-cta {
-  background: linear-gradient(135deg, var(--pool-deep) 0%, var(--ink) 100%);
-  color: var(--paper);
+  background: linear-gradient(135deg, var(--pool-deep) 0%, var(--paper-warm) 100%);
+  color: var(--ink);
   border-radius: 24px;
   padding: 80px 64px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--rule);
 }
 
 @media (max-width: 768px) {
@@ -1177,10 +1285,11 @@ section.dark .section-lede { color: rgba(246, 244, 238, 0.75); }
 
 /* ─── FOOTER ───────────────────────────────────────── */
 footer {
-  background: var(--ink);
-  color: rgba(246, 244, 238, 0.7);
+  background: var(--paper-warm);
+  color: var(--ink-soft);
   padding: 56px 0 32px;
   font-size: 14px;
+  border-top: 1px solid var(--rule);
 }
 
 footer .container {
@@ -1196,22 +1305,23 @@ footer .col h5 {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--paper);
+  color: var(--ink);
   margin-bottom: 14px;
 }
 
 footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-footer ul a { color: rgba(246, 244, 238, 0.6); text-decoration: none; }
-footer ul a:hover { color: var(--paper); }
+footer ul a { color: var(--ink-soft); text-decoration: none; opacity: 0.75; transition: opacity 0.15s; }
+footer ul a:hover { color: var(--ink); opacity: 1; }
 
 footer .legal {
-  border-top: 1px solid rgba(246, 244, 238, 0.1);
+  border-top: 1px solid var(--rule);
   padding-top: 24px;
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: rgba(246, 244, 238, 0.4);
+  color: var(--ink-soft);
+  opacity: 0.6;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -1233,7 +1343,7 @@ footer .legal {
 <!-- ─── NAVIGATION ─────────────────────────────────── -->
 <nav class="top">
   <div class="container">
-    <a href="/" class="logo"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="logo-img"></a>
+    <a href="/" class="logo"><img src="/avolv-logo.png" alt="Avolv.ai" class="logo-img"></a>
     <ul class="nav-links">
       <li><a href="#features">How it works</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -1251,7 +1361,7 @@ footer .legal {
     <div class="hero-text">
       <span class="eyebrow"><span class="pulse"></span> Built for pool service owners</span>
       <h1 class="hero-title">Your next customer just texted you a <em>video of their green pool</em>. Avolv turned it into a quote before you finished lunch.</h1>
-      <p class="hero-sub">Stop losing leads to voicemail. Stop typing the same estimate twelve times a week. Avolv answers your texts, watches the video, writes the quote, dispatches your tech, and bills the job. You run the route.</p>
+      <p class="hero-sub">Stop losing leads to voicemail. Stop typing the same estimate twelve times a week. Avolv answers your phone, drafts the quote, dispatches your tech, and bills the job. You run the route.</p>
       <div class="hero-cta">
         <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a 15-min demo →</a>
         <a href="#features" class="btn btn-ghost">See how it works</a>
@@ -1359,20 +1469,20 @@ footer .legal {
         </div>
         <div style="padding: 20px; background: var(--paper);">
           <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--sun); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--ink);">MH</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--sun); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0a1929;">MH</div>
             <div style="flex: 1;">
               <div style="font-weight: 600; font-size: 15px;">Megan Howard</div>
               <div style="font-size: 12px; color: var(--ink-soft);">(813) 555-0294 · Apollo Beach</div>
             </div>
             <span style="background: var(--sun-deep); color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">HOT</span>
           </div>
-          <div style="background: white; border-radius: 8px; padding: 14px; margin-bottom: 12px; border: 1px solid var(--rule);">
+          <div style="background: var(--surface-2); border-radius: 8px; padding: 14px; margin-bottom: 12px; border: 1px solid var(--rule);">
             <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--pool); margin-bottom: 6px; letter-spacing: 0.08em;">AI ANALYSIS · 2 videos · audio + visual</div>
             <div style="font-size: 13px; line-height: 1.55; color: var(--ink);"><strong>Service type:</strong> Green pool cleanup + pump diagnostic<br/><strong>Urgency:</strong> High (algae bloom, equipment failure)<br/><strong>Suggested range:</strong> $185-$245 cleanup · pump quote on-site</div>
           </div>
           <div style="display: flex; gap: 8px;">
             <div style="flex: 1; background: var(--pool); color: white; padding: 8px; border-radius: 6px; text-align: center; font-size: 12px; font-weight: 600;">Send Quote</div>
-            <div style="flex: 1; background: white; border: 1px solid var(--rule); padding: 8px; border-radius: 6px; text-align: center; font-size: 12px; font-weight: 600;">Assign Tech</div>
+            <div style="flex: 1; background: var(--surface-2); border: 1px solid var(--rule); padding: 8px; border-radius: 6px; text-align: center; font-size: 12px; font-weight: 600;">Assign Tech</div>
           </div>
         </div>
       </div>
@@ -1554,15 +1664,15 @@ footer .legal {
           <div class="dots"><span></span><span></span><span></span></div>
           <div class="url">yourpoolco.com / get-a-quote</div>
         </div>
-        <div style="padding: 28px 24px; background: linear-gradient(180deg, #f6f4ee 0%, #e0f4f9 100%);">
-          <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; margin-bottom: 6px; color: var(--pool-deep);">Get a free quote</div>
+        <div style="padding: 28px 24px; background: linear-gradient(180deg, var(--surface-2) 0%, rgba(6, 182, 212, 0.08) 100%);">
+          <div style="font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; margin-bottom: 6px; color: var(--pool-light);">Get a free quote</div>
           <div style="font-size: 13px; color: var(--ink-soft); margin-bottom: 18px;">We'll text you back within the hour. Usually within 10 minutes.</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-            <input type="text" placeholder="First name" style="padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: white;" disabled>
-            <input type="text" placeholder="Last name" style="padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: white;" disabled>
+            <input type="text" placeholder="First name" style="padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: var(--surface-2);" disabled>
+            <input type="text" placeholder="Last name" style="padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: var(--surface-2);" disabled>
           </div>
-          <input type="text" placeholder="Phone" value="(813) 555-0294" style="width: 100%; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: white; margin-bottom: 10px;" disabled>
-          <select style="width: 100%; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: white; margin-bottom: 10px;" disabled>
+          <input type="text" placeholder="Phone" value="(813) 555-0294" style="width: 100%; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: var(--surface-2); margin-bottom: 10px;" disabled>
+          <select style="width: 100%; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12px; background: var(--surface-2); margin-bottom: 10px;" disabled>
             <option>Green pool cleanup</option>
           </select>
           <button style="width: 100%; padding: 11px; background: var(--pool); color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer;">Request Quote →</button>
@@ -1605,30 +1715,76 @@ footer .legal {
 <section class="warm" id="pricing">
   <div class="container">
     <span class="section-eyebrow">Pricing</span>
-    <h2 class="section-title">One price. <em>Everything included.</em></h2>
-    <p class="section-lede">No per-seat fees, no per-truck fees, no "premium tier" with the features you actually need. You pay one flat price, we set everything up, you run your business.</p>
+    <h2 class="section-title">Two tiers. <em>Real prices.</em> No surprises.</h2>
+    <p class="section-lede">No per-truck fees, no per-seat fees, no "premium tier" with the features you actually need. Pick the tier that fits your business today. Move up whenever you want, no penalty.</p>
 
-    <div class="price-card">
-      <div>
-        <div class="tier">Avolv · Pool Services</div>
-        <div class="amount">$249<sub> / month</sub></div>
-        <p class="pitch">Up to 8 techs. Unlimited customers. Includes SMS at scale, website hosting, AI estimate drafts, and our team setting it all up for you. No contract, cancel anytime.</p>
-        <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-sun">Book a demo →</a>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="price-card">
+        <div class="tier">Starter</div>
+        <div class="tier-name">For owner-operators</div>
+        <div class="amount">$99<sub>/month</sub></div>
+        <p class="pitch">Built for a 1-truck pool service shop running everything off the phone. Same AI, same pipeline, lighter limits.</p>
+
+        <ul class="price-includes">
+          <li>SMS video-to-estimate AI (EN/ES)</li>
+          <li>Multi-video lead accumulation</li>
+          <li>CRM pipeline with drag-drop deals</li>
+          <li>Field service dispatch board</li>
+          <li>Mobile PWA for field work</li>
+          <li>Service catalog with range pricing</li>
+          <li>Branded web contact form</li>
+          <li>Inbox email lead parser (Angi, Thumbtack, Gmail)</li>
+          <li>SMS lead alerts to your phone</li>
+          <li>Voice notes with auto-transcription</li>
+          <li>Up to 3 techs</li>
+          <li>Up to 250 active customers</li>
+        </ul>
+
+        <div class="cta">
+          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="width: 100%; justify-content: center;">Book a demo →</a>
+        </div>
       </div>
-      <ul class="price-includes">
-        <li>SMS video-to-quote AI</li>
-        <li>Bilingual voice (EN/ES)</li>
-        <li>Pipeline + dispatch</li>
-        <li>Mobile route planner</li>
-        <li>Service catalog</li>
-        <li>QuickBooks sync</li>
-        <li>Branded website</li>
-        <li>SMS lead alerts</li>
-        <li>Email lead parser</li>
-        <li>Customer SMS workflows</li>
-        <li>Voice-to-invoice</li>
-        <li>Concierge onboarding</li>
-      </ul>
+
+      <!-- PRO (featured) -->
+      <div class="price-card featured">
+        <span class="badge">Most pool guys pick this</span>
+        <div class="tier">Pro</div>
+        <div class="tier-name">For growing operations</div>
+        <div class="amount">$199<sub>/month</sub></div>
+        <p class="pitch">Everything Avolv does. Voice receptionist, voice-to-invoice from the truck, full automation, and the integrations you'll actually use weekly.</p>
+
+        <ul class="price-includes">
+          <li>Everything in Starter, plus:</li>
+          <li>AI Voice Receptionist (24/7 inbound calls)</li>
+          <li>Voice-to-Invoice (walk the job, talk the bill)</li>
+          <li>Voice reminders ("remind me to call the Howards Thursday")</li>
+          <li>Marketing automation (email + SMS campaigns)</li>
+          <li>Surveys + follow-up sequences</li>
+          <li>Workflow automation engine</li>
+          <li>QuickBooks invoicing sync</li>
+          <li>Google Business Profile review automation</li>
+          <li>A2P SMS registration handled for you</li>
+          <li>Custom domain email sending</li>
+          <li>Concierge onboarding (we set it up with you)</li>
+          <li>Priority support, same-day response</li>
+          <li>Up to 25 techs, unlimited customers</li>
+        </ul>
+
+        <div class="cta">
+          <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-sun" style="width: 100%; justify-content: center;">Book a demo →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="enterprise-row">
+      <div>
+        <strong>Got 3+ locations or 25+ techs?</strong>
+        <span class="label"> Let's talk. We have a multi-location tier with dedicated success and custom integrations.</span>
+      </div>
+      <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Talk to Shane →</a>
     </div>
   </div>
 </section>
@@ -1642,7 +1798,7 @@ footer .legal {
     <div class="faq">
       <div class="faq-item">
         <div class="faq-q">"I already use Skimmer / Pool Service Software. Why switch?"<span class="icon">+</span></div>
-        <div class="faq-a">Skimmer is great for the route, but it doesn't answer your phone, doesn't write quotes, and doesn't capture inbound leads. Avolv handles the whole front of the business. A lot of customers actually keep Skimmer for chemicals and add Avolv for sales and dispatch. Plenty just switch entirely.</div>
+        <div class="faq-a">Skimmer is great for the chemical side of pool service. Avolv runs the front of your business: an AI voice receptionist that answers your phone, an AI estimator that reads customer videos and drafts quotes, a real CRM pipeline, marketing automation, voice-to-invoice from the truck. Most customers either keep Skimmer for water chemistry alongside Avolv or switch entirely. Side-by-side, you replace 4 or 5 separate apps with one.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">"How long does setup take?"<span class="icon">+</span></div>
@@ -1657,8 +1813,12 @@ footer .legal {
         <div class="faq-a">They know your business answered fast and got them a quote. We don't impersonate humans, but we also don't announce "Hi, I'm a bot" every text. The AI uses your business voice, signs messages with your business name, and hands off to you the moment a question gets technical or out of scope.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">"What does it cost when I grow past 8 techs?"<span class="icon">+</span></div>
-        <div class="faq-a">$249/month covers up to 8 techs. After that, we have a "+10 techs" upgrade for $399/month. That's the only tier change. There's no hidden seat math.</div>
+        <div class="faq-q">"Which tier do I need?"<span class="icon">+</span></div>
+        <div class="faq-a">If you're a 1-truck operator running the whole show yourself, start on Starter at $99. You get the AI estimator, SMS pipeline, dispatch, and the field app. When you want the voice receptionist, voice-to-invoice, QuickBooks, marketing automation, or you cross 3 techs, you'll want Pro at $199. We can show you both on a 15-minute Zoom and you pick.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">"You have an AI that answers my phone? Really?"<span class="icon">+</span></div>
+        <div class="faq-a">Yes, really. The AI Voice Receptionist (on the Pro tier) picks up your business line 24/7, talks to the caller, checks your calendar, books appointments, and drops the lead straight into your pipeline with a transcript and audio recording. Built on Twilio Voice with Whisper for speech-to-text and ElevenLabs for the natural-sounding voice. We've tuned it specifically for pool service so it knows to ask the right questions (pool size, equipment type, urgency, callback time).</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">"Is my customer data safe?"<span class="icon">+</span></div>
@@ -1690,7 +1850,7 @@ footer .legal {
 <footer>
   <div class="container">
     <div class="col">
-      <a href="/" class="logo"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="logo-img-footer"></a>
+      <a href="/" class="logo"><img src="/avolv-logo.png" alt="Avolv.ai" class="logo-img-footer"></a>
       <p style="margin-top: 14px; font-size: 13px; color: rgba(246,244,238,0.5); max-width: 280px;">Field service automation built for route-based home service businesses. Made in Apollo Beach, FL.</p>
     </div>
     <div class="col">
