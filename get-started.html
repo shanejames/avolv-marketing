@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Demo - Avolv.ai</title>
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate-950: #020617;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --emerald-600: #059669;
+      --emerald-500: #10b981;
+      --emerald-400: #34d399;
+      --emerald-300: #6ee7b7;
+      --emerald-100: #d1fae5;
+      --amber-400: #fbbf24;
+      --cyan-500: #06b6d4;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--slate-950);
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top contact bar */
+    .top-bar { position: fixed; width: 100%; z-index: 50; background: var(--emerald-600); color: #fff; font-size: 14px; }
+    .top-bar-inner { max-width: 1280px; margin: 0 auto; padding: 6px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .top-bar-tagline { color: var(--emerald-100); }
+    .top-bar-contact { display: flex; align-items: center; gap: 16px; }
+    .top-bar-contact a { display: flex; align-items: center; gap: 6px; font-weight: 600; transition: color 0.2s; }
+    .top-bar-contact a:hover { color: var(--emerald-300); }
+    .top-bar-divider { color: var(--emerald-400); }
+
+    /* Nav */
+    nav { position: fixed; width: 100%; z-index: 40; top: 36px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30, 41, 59, 0.5); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .nav-links a { color: var(--slate-400); transition: color 0.2s; font-size: 15px; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .accent-home { color: var(--amber-400); font-weight: 700; }
+    .nav-links .accent-pool { color: var(--cyan-500); font-weight: 700; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-home-link { color: var(--emerald-400); font-weight: 600; transition: color 0.2s; }
+    .nav-home-link:hover { color: var(--emerald-300); }
+
+    /* Form */
+    .form-main { padding-top: 132px; padding-bottom: 80px; }
+    .form-wrap { max-width: 620px; margin: 0 auto; }
+    .form-hero { text-align: center; margin-bottom: 36px; }
+    .form-hero .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); color: var(--emerald-300); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; margin-bottom: 18px; }
+    .form-hero h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+    .form-hero h1 span { color: var(--emerald-400); }
+    .form-hero p { color: var(--slate-400); margin-top: 14px; font-size: 16px; }
+
+    .form-card { background: var(--slate-900); border: 1px solid var(--slate-800); border-radius: 16px; padding: 36px; }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: 14px; font-weight: 600; color: var(--slate-300); margin-bottom: 8px; }
+    .field label .req { color: var(--emerald-400); }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--slate-700); background: var(--slate-950); color: #fff;
+      font-family: inherit; font-size: 15px; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--slate-600); }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--emerald-500); box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+    }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .honey { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+    .submit-btn {
+      width: 100%; background: var(--emerald-500); color: #fff; border: none;
+      padding: 15px 20px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      font-family: inherit; cursor: pointer; transition: background 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 4px 14px rgba(16,185,129,0.25);
+    }
+    .submit-btn:hover { background: var(--emerald-400); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-foot-note { text-align: center; color: var(--slate-500); font-size: 13px; margin-top: 16px; }
+    .form-foot-note a { color: var(--emerald-400); }
+    .form-error { display: none; background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.3); color: #fda4af; border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-bottom: 18px; }
+
+    /* Success state */
+    .success { display: none; text-align: center; background: var(--slate-900); border: 1px solid var(--slate-800); border-radius: 16px; padding: 56px 36px; }
+    .success .check { width: 64px; height: 64px; border-radius: 50%; background: rgba(16,185,129,0.15); color: var(--emerald-400); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .success h2 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+    .success p { color: var(--slate-400); max-width: 420px; margin: 0 auto 24px; }
+    .success .call { color: var(--emerald-400); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+
+    /* Footer */
+    footer { background: var(--slate-900); border-top: 1px solid var(--slate-800); padding: 48px 0; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--slate-600); }
+    .footer-bottom-links { display: flex; align-items: center; gap: 24px; }
+    .footer-bottom-links a { color: var(--slate-500); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #fff; }
+    .footer-bottom-links .phone { color: var(--emerald-400); font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .top-bar-tagline { display: none; }
+      .top-bar-contact { margin: 0 auto; }
+      .nav-links { display: none; }
+      .form-card { padding: 24px 20px; }
+      .form-hero h1 { font-size: 30px; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="top-bar-tagline">Built for Pool &amp; Home Service Operators</span>
+      <div class="top-bar-contact">
+        <a href="tel:8135196910"><i data-lucide="phone" style="width:14px;height:14px"></i> (813) 519-6910</a>
+        <span class="top-bar-divider">|</span>
+        <a href="mailto:support@avolv.ai">support@avolv.ai</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo"></a>
+      <div class="nav-links">
+        <a href="/" class="accent-home">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/pools.html" class="accent-pool">Pool Services</a>
+        <a href="https://app.avolv.ai/industries/home-services">Home Services</a>
+      </div>
+      <div class="nav-right">
+        <a href="/" class="nav-home-link">&larr; Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="form-main">
+    <div class="container">
+      <div class="form-wrap">
+
+        <div class="form-hero" id="formHero">
+          <span class="eyebrow"><i data-lucide="calendar-check" style="width:15px;height:15px"></i> 15-minute demo</span>
+          <h1>See Avolv run <span>your business</span>.</h1>
+          <p>Tell us a little about your operation and we'll reach out to set up a quick, no-pressure walkthrough. No slides, no pitch deck, just your business on the screen.</p>
+        </div>
+
+        <div class="form-card" id="formCard">
+          <div class="form-error" id="formError"></div>
+
+          <form id="demoForm" novalidate>
+            <!-- honeypot: real people leave this empty -->
+            <div class="honey" aria-hidden="true">
+              <label>Company website</label>
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="name">Your name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+            </div>
+
+            <div class="field">
+              <label for="business">Business name <span class="req">*</span></label>
+              <input type="text" id="business" name="business" placeholder="Sparkle Pool Co." required>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@business.com" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="industry">What kind of business?</label>
+              <select id="industry" name="industry">
+                <option value="Pool Services">Pool Services</option>
+                <option value="Home Services (HVAC / Plumbing / Electrical)">Home Services (HVAC / Plumbing / Electrical)</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Lawn Care">Lawn Care</option>
+                <option value="Other route-based service">Other route-based service</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Anything you want us to know?</label>
+              <textarea id="message" name="message" placeholder="What's eating up your time right now? Missed texts, slow estimates, no-shows, anything."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Request my demo
+              <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+            </button>
+
+            <p class="form-foot-note">Prefer to talk now? Call <a href="tel:8135196910">(813) 519-6910</a>. We never share your info.</p>
+          </form>
+        </div>
+
+        <div class="success" id="successPanel">
+          <div class="check"><i data-lucide="check" style="width:32px;height:32px"></i></div>
+          <h2>Got it, thank you.</h2>
+          <p>Your request landed with us and we'll reach out shortly to set up your walkthrough. Keep an eye on your inbox and phone.</p>
+          <a href="tel:8135196910" class="call"><i data-lucide="phone" style="width:16px;height:16px"></i> Or call us now at (813) 519-6910</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Avolv.ai. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="tel:8135196910" class="phone">(813) 519-6910</a>
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/sms-consent.html">SMS Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+
+    // NOTE: this endpoint goes live once the public demo-request route is
+    // deployed on the API. Until then, submissions will show the error notice.
+    var DEMO_ENDPOINT = "https://avolv-ai-api.onrender.com/api/public/demo-request";
+
+    var form = document.getElementById('demoForm');
+    var errorBox = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      // Honeypot: if filled, silently pretend success (likely a bot)
+      if (form.website.value) { showSuccess(); return; }
+
+      var payload = {
+        name: form.name.value.trim(),
+        business: form.business.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        industry: form.industry.value,
+        message: form.message.value.trim(),
+        source: 'avolv.ai/get-started'
+      };
+
+      if (!payload.name || !payload.business || !payload.email || !payload.phone) {
+        return showError("Please fill in your name, business, email, and phone.");
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        var res = await fetch(DEMO_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Request failed: ' + res.status);
+        showSuccess();
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Request my demo';
+        if (window.lucide) lucide.createIcons();
+        showError("Something went wrong sending that. Please try again, or call us at (813) 519-6910.");
+      }
+    });
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showSuccess() {
+      document.getElementById('formHero').style.display = 'none';
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+      if (window.lucide) lucide.createIcons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
