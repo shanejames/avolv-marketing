@@ -347,19 +347,56 @@
       .footer-grid { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; }
     }
+  
+    /* ===== Canonical top bar + nav (shared across every page) ===== */
+    :root {
+      --slate-950:#020617; --slate-900:#0f172a; --slate-800:#1e293b; --slate-700:#334155;
+      --slate-600:#475569; --slate-500:#64748b; --slate-400:#94a3b8; --slate-300:#cbd5e1;
+      --emerald-600:#059669; --emerald-500:#10b981; --emerald-400:#34d399; --emerald-300:#6ee7b7; --emerald-100:#d1fae5;
+      --blue-400:#60a5fa; --blue-300:#93c5fd; --purple-400:#c084fc; --purple-300:#d8b4fe;
+      --amber-400:#fbbf24; --cyan-500:#06b6d4;
+    }
+    .top-bar { position: fixed; width:100%; z-index:50; top:0; left:0; background: var(--emerald-600); color:#fff; font-size:14px; }
+    .top-bar-inner { max-width:1280px; margin:0 auto; padding:6px 24px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-tagline { color: var(--emerald-100); }
+    .top-bar-contact { display:flex; align-items:center; gap:16px; }
+    .top-bar-contact a { display:flex; align-items:center; gap:6px; font-weight:600; color:#fff; transition:color .2s; text-decoration:none; }
+    .top-bar-contact a:hover { color: var(--emerald-300); }
+    .top-bar-divider { color: var(--emerald-400); }
+    nav { position: fixed; width:100%; z-index:40; top:36px; left:0; background: rgba(15,23,42,0.85); backdrop-filter: blur(16px); border-bottom:1px solid rgba(30,41,59,0.5); }
+    .nav-inner { max-width:1280px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { height:32px; display:block; }
+    .nav-links { display:flex; align-items:center; gap:24px; flex-wrap:wrap; list-style:none; margin:0; padding:0; }
+    .nav-links a { color: var(--slate-400); transition:color .2s; font-size:15px; text-decoration:none; }
+    .nav-links a:hover { color:#fff; opacity:1; }
+    .nav-links .accent-emerald { color: var(--emerald-400); font-weight:600; }
+    .nav-links .accent-emerald:hover { color: var(--emerald-300); }
+    .nav-links .accent-purple { color: var(--purple-400); font-weight:600; }
+    .nav-links .accent-purple:hover { color: var(--purple-300); }
+    .nav-links .accent-blue { color: var(--blue-400); font-weight:600; }
+    .nav-links .accent-blue:hover { color: var(--blue-300); }
+    .nav-links .accent-pool { color: var(--cyan-500); font-weight:700; }
+    .nav-links .accent-pool:hover { color:#67e8f9; }
+    .nav-links .accent-home { color: var(--amber-400); font-weight:700; }
+    .nav-links .accent-home:hover { color:#fcd34d; }
+    .nav-right { display:flex; align-items:center; gap:16px; }
+    .nav-login { color: var(--slate-400); transition:color .2s; text-decoration:none; }
+    .nav-login:hover { color:#fff; }
+    .btn-primary { background: var(--emerald-500); color:#fff; padding:10px 20px; border-radius:8px; font-weight:700; transition:background .2s; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(16,185,129,0.25); text-decoration:none; }
+    .btn-primary:hover { background: var(--emerald-400); }
+    @media (max-width:768px){ .top-bar-tagline{display:none;} .top-bar-contact{margin:0 auto;} .nav-links{display:none;} }
+    /* ===== end canonical nav ===== */
+
   </style>
 </head>
 <body>
 
-  <!-- Top Contact Bar -->
+    <!-- Top Contact Bar -->
   <div class="top-bar">
     <div class="top-bar-inner">
-      <span class="top-bar-tagline">Built for Pool & Home Service Operators</span>
+      <span class="top-bar-tagline">Built for Pool &amp; Home Service Operators</span>
       <div class="top-bar-contact">
-        <a href="tel:8135196910">
-          <i data-lucide="phone" style="width:14px;height:14px"></i>
-          (813) 519-6910
-        </a>
+        <a href="tel:8135196910"><i data-lucide="phone" style="width:14px;height:14px"></i> (813) 519-6910</a>
         <span class="top-bar-divider">|</span>
         <a href="mailto:support@avolv.ai">support@avolv.ai</a>
       </div>
@@ -369,12 +406,11 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="/">
-        <img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo">
-      </a>
+      <a href="/"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo"></a>
       <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
+        <a href="/">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#how-it-works">How It Works</a>
         <a href="/pools.html" class="accent-pool">🏊 Pool Services</a>
         <a href="https://app.avolv.ai/industries/home-services" class="accent-home">🔧 Home Services</a>
         <a href="https://app.avolv.ai/demo" class="accent-emerald">Demo</a>
