@@ -310,9 +310,9 @@
 
     // Avolv website leads use the same proven endpoint Arinton's site uses.
     // BUSINESS_SLUG tells Avolv which account/pipeline the lead belongs to.
-    // IMPORTANT: confirm this slug matches Avolv's own account in the marketing
-    // lead-ingestion system. Arinton's slug is "arinton-pool-services".
-    var BUSINESS_SLUG = "avolv";
+    // This is the ONLY value that differs from Arinton (theirs: arinton-pool-services).
+    // If leads do not appear, set this to Avolv's exact team slug from the platform.
+    var BUSINESS_SLUG = "avolv-ai";
     var LEAD_ENDPOINT = "https://api.avolv.ai/api/marketing/lead-ingestion?business=" + BUSINESS_SLUG;
 
     var form = document.getElementById('demoForm');
