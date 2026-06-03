@@ -115,13 +115,26 @@ nav.top .container {
 }
 
 .nav-links a {
-  color: var(--paper);
+  color: var(--ink);
   text-decoration: none;
   opacity: 0.7;
   transition: opacity 0.15s;
 }
 
 .nav-links a:hover { opacity: 1; }
+
+/* Right-side nav cluster: tap-to-call phone + demo button */
+.nav-cta { display: flex; align-items: center; gap: 20px; }
+.nav-phone {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--pool); font-weight: 600; font-size: 15px;
+  text-decoration: none; transition: opacity 0.15s; white-space: nowrap;
+}
+.nav-phone:hover { opacity: 0.8; }
+@media (max-width: 768px) {
+  .nav-cta { gap: 12px; }
+  .nav-phone .num { display: none; }
+}
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -1474,7 +1487,13 @@ footer .legal {
       <li><a href="#pricing">What's included</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="https://scheduler.zoom.us/shane-james-ucyuzc/avolv-ai-conversation-about-your-pool-business" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a 15-min demo</a>
+    <div class="nav-cta">
+      <a href="tel:8135196910" class="nav-phone" aria-label="Call Avolv at (813) 519-6910">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="num">(813) 519-6910</span>
+      </a>
+      <a href="https://scheduler.zoom.us/shane-james-ucyuzc/avolv-ai-conversation-about-your-pool-business" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a 15-min demo</a>
+    </div>
   </div>
 </nav>
 
@@ -1578,7 +1597,7 @@ footer .legal {
     <!-- FEATURE 1 -->
     <div class="feature" style="margin-top: 80px;">
       <div>
-        <div class="feature-num">— 01 —</div>
+        <div class="feature-num">· 01 ·</div>
         <h3>Customers text you a video. <em>You get a quote.</em></h3>
         <p class="lede">When a homeowner sends you an SMS video of their pool, Avolv extracts the audio (yes, even bad cell phone audio), transcribes it in English or Spanish, watches the visuals, and writes you a draft estimate.</p>
         <ul>
@@ -1617,7 +1636,7 @@ footer .legal {
     <!-- FEATURE 2 -->
     <div class="feature flip">
       <div>
-        <div class="feature-num">— 02 —</div>
+        <div class="feature-num">· 02 ·</div>
         <h3>A pipeline that actually <em>moves leads forward</em>.</h3>
         <p class="lede">New Lead. Estimate Sent. Quote Approved. In Progress. Completed. Every stage triggers the next action automatically, so your customers never sit waiting for you to remember them.</p>
         <ul>
@@ -1662,7 +1681,7 @@ footer .legal {
     <!-- FEATURE 3 -->
     <div class="feature">
       <div>
-        <div class="feature-num">— 03 —</div>
+        <div class="feature-num">· 03 ·</div>
         <h3>A route board your techs <em>actually use</em>.</h3>
         <p class="lede">Skimmer-style mobile route planning, designed for the way a pool tech actually works. Drag a stop, check it off, hit "skip with reason," log chemicals, take a before/after photo. Done.</p>
         <ul>
@@ -1715,7 +1734,7 @@ footer .legal {
     <!-- FEATURE 4 -->
     <div class="feature flip">
       <div>
-        <div class="feature-num">— 04 —</div>
+        <div class="feature-num">· 04 ·</div>
         <h3>Estimates with a <em>service catalog you actually own</em>.</h3>
         <p class="lede">Build your service catalog once. Custom range pricing, swap-in parts, line-item math. Avolv pulls from it every time you write a quote or your AI sends one on your behalf.</p>
         <ul>
@@ -1775,7 +1794,7 @@ footer .legal {
     <!-- FEATURE 5 -->
     <div class="feature">
       <div>
-        <div class="feature-num">— 05 —</div>
+        <div class="feature-num">· 05 ·</div>
         <h3>A website that <em>feeds your pipeline</em>, not your spam folder.</h3>
         <p class="lede">We'll set up a clean website with a contact form that pipes straight into your Avolv pipeline. No Zapier middleman. No "we'll get back to you" black hole. Just a deal card that hits your phone the moment someone hits submit.</p>
         <ul>
@@ -2088,7 +2107,7 @@ footer .legal {
     </div>
     <div class="legal">
       <span>© 2026 Avolv.ai. All rights reserved.</span>
-      <span><a href="#" style="color: rgba(246,244,238,0.4);">Privacy</a> · <a href="#" style="color: rgba(246,244,238,0.4);">Terms</a></span>
+      <span><a href="/privacy-policy.html" style="color: rgba(246,244,238,0.4);">Privacy</a> · <a href="/terms-of-service.html" style="color: rgba(246,244,238,0.4);">Terms</a></span>
     </div>
   </div>
 </footer>
