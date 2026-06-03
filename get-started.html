@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Demo - Avolv.ai</title>
+  <title>Get Started - Avolv.ai</title>
   <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -208,29 +208,32 @@
       <div class="form-wrap">
 
         <div class="form-hero" id="formHero">
-          <span class="eyebrow"><i data-lucide="calendar-check" style="width:15px;height:15px"></i> 15-minute demo</span>
-          <h1>See Avolv run <span>your business</span>.</h1>
-          <p>Tell us a little about your operation and we'll reach out to set up a quick, no-pressure walkthrough. No slides, no pitch deck, just your business on the screen.</p>
+          <span class="eyebrow"><i data-lucide="zap" style="width:15px;height:15px"></i> Get started</span>
+          <h1>Let's get you <span>set up</span>.</h1>
+          <p>Tell us a little about your business and we'll reach out to get you going. No pressure, no runaround.</p>
         </div>
 
         <div class="form-card" id="formCard">
           <div class="form-error" id="formError"></div>
 
           <form id="demoForm" novalidate>
-            <!-- honeypot: real people leave this empty -->
-            <div class="honey" aria-hidden="true">
-              <label>Company website</label>
-              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            <!-- Anti-spam honeypots: real people never see or fill these. -->
+            <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+              <label for="hp_field_a">Leave empty</label>
+              <input type="text" id="hp_field_a" name="hp_field_a" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+              <label for="hp_field_b">Leave empty</label>
+              <input type="text" id="hp_field_b" name="hp_field_b" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
             </div>
 
-            <div class="field">
-              <label for="name">Your name <span class="req">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Jane Doe" required>
-            </div>
-
-            <div class="field">
-              <label for="business">Business name <span class="req">*</span></label>
-              <input type="text" id="business" name="business" placeholder="Sparkle Pool Co." required>
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+              </div>
             </div>
 
             <div class="field-row">
@@ -245,23 +248,28 @@
             </div>
 
             <div class="field">
-              <label for="industry">What kind of business?</label>
-              <select id="industry" name="industry">
-                <option value="Pool Services">Pool Services</option>
-                <option value="Home Services (HVAC / Plumbing / Electrical)">Home Services (HVAC / Plumbing / Electrical)</option>
+              <label for="propertyAddress">Business name and city <span class="req">*</span></label>
+              <input type="text" id="propertyAddress" name="propertyAddress" placeholder="Sparkle Pool Co., Tampa FL" required>
+            </div>
+
+            <div class="field">
+              <label for="serviceType">What kind of business?</label>
+              <select id="serviceType" name="serviceType">
+                <option value="Pool service">Pool service</option>
+                <option value="Home services (HVAC / plumbing / electrical)">Home services (HVAC / plumbing / electrical)</option>
                 <option value="Cleaning">Cleaning</option>
-                <option value="Lawn Care">Lawn Care</option>
+                <option value="Lawn care">Lawn care</option>
                 <option value="Other route-based service">Other route-based service</option>
               </select>
             </div>
 
             <div class="field">
               <label for="message">Anything you want us to know?</label>
-              <textarea id="message" name="message" placeholder="What's eating up your time right now? Missed texts, slow estimates, no-shows, anything."></textarea>
+              <textarea id="message" name="message" placeholder="What's eating up your time right now? Missed calls, slow estimates, no-shows, anything."></textarea>
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-              Request my demo
+              Send request
               <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
             </button>
 
@@ -272,7 +280,7 @@
         <div class="success" id="successPanel">
           <div class="check"><i data-lucide="check" style="width:32px;height:32px"></i></div>
           <h2>Got it, thank you.</h2>
-          <p>Your request landed with us and we'll reach out shortly to set up your walkthrough. Keep an eye on your inbox and phone.</p>
+          <p>Your request landed with us and we'll reach out shortly to get you started. Keep an eye on your inbox and phone.</p>
           <a href="tel:8135196910" class="call"><i data-lucide="phone" style="width:16px;height:16px"></i> Or call us now at (813) 519-6910</a>
         </div>
 
@@ -299,9 +307,12 @@
       if (window.lucide) lucide.createIcons();
     });
 
-    // NOTE: this endpoint goes live once the public demo-request route is
-    // deployed on the API. Until then, submissions will show the error notice.
-    var DEMO_ENDPOINT = "https://avolv-ai-api.onrender.com/api/public/demo-request";
+    // Avolv website leads use the same proven endpoint Arinton's site uses.
+    // BUSINESS_SLUG tells Avolv which account/pipeline the lead belongs to.
+    // IMPORTANT: confirm this slug matches Avolv's own account in the marketing
+    // lead-ingestion system. Arinton's slug is "arinton-pool-services".
+    var BUSINESS_SLUG = "avolv";
+    var LEAD_ENDPOINT = "https://api.avolv.ai/api/marketing/lead-ingestion?business=" + BUSINESS_SLUG;
 
     var form = document.getElementById('demoForm');
     var errorBox = document.getElementById('formError');
@@ -311,28 +322,30 @@
       e.preventDefault();
       errorBox.style.display = 'none';
 
-      // Honeypot: if filled, silently pretend success (likely a bot)
-      if (form.website.value) { showSuccess(); return; }
+      // Honeypots: if a bot filled them, quietly pretend success and send nothing.
+      if (form.hp_field_a.value || form.hp_field_b.value) { showSuccess(); return; }
 
       var payload = {
-        name: form.name.value.trim(),
-        business: form.business.value.trim(),
+        firstName: form.firstName.value.trim(),
+        lastName: form.lastName.value.trim(),
         email: form.email.value.trim(),
         phone: form.phone.value.trim(),
-        industry: form.industry.value,
+        propertyAddress: form.propertyAddress.value.trim(),
+        serviceType: form.serviceType.value,
         message: form.message.value.trim(),
-        source: 'avolv.ai/get-started'
+        source: 'avolv-website',
+        business: BUSINESS_SLUG
       };
 
-      if (!payload.name || !payload.business || !payload.email || !payload.phone) {
-        return showError("Please fill in your name, business, email, and phone.");
+      if (!payload.firstName || !payload.lastName || !payload.email || !payload.phone) {
+        return showError("Please fill in your name, email, and phone.");
       }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
       try {
-        var res = await fetch(DEMO_ENDPOINT, {
+        var res = await fetch(LEAD_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -341,7 +354,7 @@
         showSuccess();
       } catch (err) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Request my demo';
+        submitBtn.innerHTML = 'Send request';
         if (window.lucide) lucide.createIcons();
         showError("Something went wrong sending that. Please try again, or call us at (813) 519-6910.");
       }
