@@ -1,330 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Avolv.ai</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: #e2e8f0;
-            background: #020617;
-            min-height: 100vh;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            z-index: 50;
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
-        }
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-logo img {
-            height: 32px;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: #fff;
-        }
-        .nav-cta {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 14px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
-        }
-        .nav-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 140px 24px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: #10b981;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            top: -200px;
-            left: -200px;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #3b82f6;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.1;
-            bottom: -100px;
-            right: -100px;
-        }
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 span {
-            background: linear-gradient(135deg, #10b981, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero .subtitle {
-            color: #94a3b8;
-            font-size: 16px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Main Content */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 24px 80px;
-        }
-        .content {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 48px;
-        }
-        
-        h2 {
-            font-size: 24px;
-            color: #fff;
-            margin: 40px 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #334155;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        h2:first-child {
-            margin-top: 0;
-        }
-        h2 .icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-        
-        p {
-            margin-bottom: 16px;
-            color: #94a3b8;
-            font-size: 16px;
-        }
-        
-        ul {
-            margin: 16px 0 24px 0;
-            padding-left: 0;
-            list-style: none;
-        }
-        li {
-            margin-bottom: 12px;
-            color: #94a3b8;
-            padding-left: 28px;
-            position: relative;
-            font-size: 15px;
-        }
-        li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
-        }
-        li strong {
-            color: #e2e8f0;
-        }
-        
-        .highlight-box {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-left: 4px solid #10b981;
-            padding: 20px 24px;
-            margin: 24px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .highlight-box p {
-            margin: 0;
-            color: #10b981;
-            font-size: 15px;
-        }
-        .highlight-box strong {
-            color: #34d399;
-        }
-        
-        a {
-            color: #10b981;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: #34d399;
-            text-decoration: underline;
-        }
-        
-        /* Contact Card */
-        .contact-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 24px;
-        }
-        .contact-card ul {
-            margin: 0;
-        }
-        .contact-card li {
-            margin-bottom: 8px;
-        }
-        .contact-card li:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Footer */
-        footer {
-            background: #0f172a;
-            border-top: 1px solid #334155;
-            padding: 40px 24px;
-        }
-        .footer-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-        }
-        .footer-logo img {
-            height: 32px;
-        }
-        .footer-links {
-            display: flex;
-            gap: 32px;
-        }
-        .footer-links a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: #fff;
-        }
-        .footer-copyright {
-            color: #475569;
-            font-size: 14px;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .content {
-                padding: 24px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 16px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Avolv.ai</title>
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate-950: #020617;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --emerald-600: #059669;
+      --emerald-500: #10b981;
+      --emerald-400: #34d399;
+      --emerald-300: #6ee7b7;
+      --emerald-100: #d1fae5;
+      --blue-400: #60a5fa;
+      --purple-400: #c084fc;
+      --amber-500: #f59e0b;
+      --amber-400: #fbbf24;
+      --cyan-500: #06b6d4;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--slate-950);
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top contact bar */
+    .top-bar {
+      position: fixed; width: 100%; z-index: 50;
+      background: var(--emerald-600); color: #fff; font-size: 14px;
+    }
+    .top-bar-inner {
+      max-width: 1280px; margin: 0 auto; padding: 6px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar-tagline { color: var(--emerald-100); }
+    .top-bar-contact { display: flex; align-items: center; gap: 16px; }
+    .top-bar-contact a { display: flex; align-items: center; gap: 6px; font-weight: 600; transition: color 0.2s; }
+    .top-bar-contact a:hover { color: var(--emerald-300); }
+    .top-bar-divider { color: var(--emerald-400); }
+
+    /* Navigation */
+    nav {
+      position: fixed; width: 100%; z-index: 40; top: 36px;
+      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .nav-links a { color: var(--slate-400); transition: color 0.2s; font-size: 15px; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .accent-emerald { color: var(--emerald-400); font-weight: 600; }
+    .nav-links .accent-emerald:hover { color: var(--emerald-300); }
+    .nav-links .accent-blue { color: var(--blue-400); font-weight: 600; }
+    .nav-links .accent-blue:hover { color: #93c5fd; }
+    .nav-links .accent-pool { color: var(--cyan-500); font-weight: 700; }
+    .nav-links .accent-pool:hover { color: #67e8f9; }
+    .nav-links .accent-home { color: var(--amber-400); font-weight: 700; }
+    .nav-links .accent-home:hover { color: #fcd34d; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-home-link { color: var(--emerald-400); font-weight: 600; transition: color 0.2s; }
+    .nav-home-link:hover { color: var(--emerald-300); }
+    .btn-primary {
+      background: var(--emerald-500); color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+    .btn-primary:hover { background: var(--emerald-400); }
+
+    /* Legal page layout */
+    .legal-main { padding-top: 132px; padding-bottom: 80px; }
+    .legal-hero { text-align: center; margin-bottom: 40px; }
+    .legal-hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
+    .legal-hero h1 span { color: var(--emerald-400); }
+    .legal-hero .subtitle { color: var(--slate-400); margin-top: 10px; font-size: 15px; }
+    .legal-card {
+      background: var(--slate-900); border: 1px solid var(--slate-800);
+      border-radius: 16px; padding: 48px; max-width: 880px; margin: 0 auto;
+    }
+    .legal-card h2 {
+      font-size: 22px; font-weight: 700; color: #fff;
+      margin: 36px 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--slate-800);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .legal-card h2 .icon { font-size: 20px; }
+    .legal-card h2:first-child { margin-top: 0; }
+    .legal-card h3 { font-size: 17px; font-weight: 600; color: var(--slate-300); margin: 24px 0 10px; }
+    .legal-card h4 { font-size: 16px; font-weight: 600; color: #fff; margin: 0 0 14px; }
+    .legal-card p { color: var(--slate-400); margin-bottom: 16px; }
+    .legal-card ul, .legal-card ol { margin: 16px 0; padding-left: 22px; }
+    .legal-card li { color: var(--slate-400); margin-bottom: 8px; }
+    .legal-card li strong, .legal-card p strong { color: var(--slate-300); }
+    .legal-card a { color: var(--emerald-400); transition: color 0.2s; }
+    .legal-card a:hover { color: var(--emerald-300); text-decoration: underline; }
+
+    /* Callouts (shared) */
+    .highlight-box { background: rgba(16,185,129,0.08); border-left: 3px solid var(--emerald-500); padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+    .highlight-box p { margin: 0; color: var(--emerald-100); }
+    .warning-box { background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber-500); padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+    .warning-box p { margin: 0; color: var(--amber-400); }
+    .contact-card, .contact-box { background: var(--slate-800); border: 1px solid var(--slate-700); border-radius: 12px; padding: 24px; margin-top: 16px; }
+    .contact-card ul { list-style: none; padding-left: 0; margin: 0; }
+    .contact-card li { margin-bottom: 10px; }
+    .contact-box h3 { margin-top: 0; color: #fff; }
+    .contact-box p { margin-bottom: 8px; }
+
+    /* SMS-consent specific components (dark) */
+    .cta-mock { background: var(--slate-800); border: 1px solid var(--slate-700); border-radius: 12px; padding: 24px; margin: 20px 0; }
+    .cta-mock-label { display: inline-block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--emerald-400); font-weight: 700; margin-bottom: 12px; }
+    .cta-mock-field { margin-bottom: 14px; }
+    .cta-mock-field label { display: block; font-size: 13px; color: var(--slate-400); margin-bottom: 6px; }
+    .cta-mock-field input { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--slate-700); background: var(--slate-900); color: #fff; }
+    .cta-mock-checkbox-row { display: flex; gap: 10px; align-items: flex-start; margin: 14px 0; }
+    .cta-mock-checkbox-row input { margin-top: 4px; }
+    .cta-mock-checkbox-row label { font-size: 13px; color: var(--slate-400); line-height: 1.5; }
+    .cta-mock-button { display: inline-block; background: var(--emerald-500); color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 700; margin-top: 8px; }
+    .cta-mock-note { font-size: 12px; color: var(--slate-500); margin-top: 14px; }
+    .highlight { background: rgba(16,185,129,0.06); border: 1px solid var(--slate-800); border-left: 3px solid var(--emerald-500); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; }
+    .highlight h3 { margin-top: 0; color: var(--emerald-300); }
+    .highlight p { margin: 0; }
+    .sample-msg { background: var(--slate-800); border: 1px solid var(--slate-700); border-radius: 12px; padding: 16px 20px; margin: 14px 0; color: var(--slate-300); font-size: 14px; }
+    .sample-msg-label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--emerald-400); font-weight: 700; margin-bottom: 8px; }
+    .opt-out-box { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 12px; padding: 20px 24px; margin: 20px 0; text-align: center; }
+    .opt-out-box p { margin: 4px 0; color: var(--amber-400); }
+    .opt-out-box .keyword { font-size: 28px; font-weight: 800; color: var(--amber-400); letter-spacing: 0.1em; margin: 8px 0; }
+    .compliance-callout { background: rgba(16,185,129,0.08); border-left: 3px solid var(--emerald-500); padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+    .compliance-callout p { margin: 0; color: var(--emerald-100); }
+
+    /* Footer */
+    footer { background: var(--slate-900); border-top: 1px solid var(--slate-800); padding: 64px 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { color: var(--slate-500); margin-bottom: 16px; max-width: 320px; }
+    .footer-brand .phone { display: flex; align-items: center; gap: 8px; color: var(--emerald-400); font-weight: 600; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-brand .phone:hover { color: var(--emerald-300); }
+    .footer-brand .email { color: var(--slate-500); font-size: 14px; transition: color 0.2s; }
+    .footer-brand .email:hover { color: #fff; }
+    .footer-col h4 { font-weight: 600; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { color: var(--slate-500); font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--slate-800); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--slate-600); }
+    .footer-bottom-links { display: flex; align-items: center; gap: 24px; }
+    .footer-bottom-links a { color: var(--slate-500); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #fff; }
+
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .top-bar-tagline { display: none; }
+      .top-bar-contact { margin: 0 auto; }
+      .nav-links { display: none; }
+      .nav-right .btn-primary { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .legal-card { padding: 28px 20px; }
+      .legal-hero h1 { font-size: 30px; }
+    }
+
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/avolv-logo.png" alt="Avolv.ai" />
-            </a>
-            <div class="nav-links">
-                <a href="/#features">Features</a>
-                <a href="/#industries">Industries</a>
-                <a href="/#how-it-works">How It Works</a>
-                <a href="/login" class="nav-cta">Get Started</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <div class="hero">
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="top-bar-tagline">Built for Pool &amp; Home Service Operators</span>
+      <div class="top-bar-contact">
+        <a href="tel:8135196910">
+          <i data-lucide="phone" style="width:14px;height:14px"></i>
+          (813) 519-6910
+        </a>
+        <span class="top-bar-divider">|</span>
+        <a href="mailto:support@avolv.ai">support@avolv.ai</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/">
+        <img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="/" class="accent-home">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/pools.html" class="accent-pool">Pool Services</a>
+        <a href="https://app.avolv.ai/demo" class="accent-emerald">Demo</a>
+        <a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer" class="accent-blue">University</a>
+      </div>
+      <div class="nav-right">
+        <a href="/" class="nav-home-link">&larr; Back to Home</a>
+        <a href="https://app.avolv.ai/login" class="btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal-main">
+    <div class="container">
+      <div class="legal-hero">
         <h1>Privacy <span>Policy</span></h1>
         <p class="subtitle">Effective Date: January 8, 2026</p>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="content">
-            <h2><span class="icon">📋</span> Introduction</h2>
+      </div>
+      <div class="legal-card">
+            <h2><span class="icon">&#128203;</span> Introduction</h2>
             <p>Avolv.ai ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and web platform (collectively, the "Service").</p>
-            
+
             <div class="highlight-box">
                 <p><strong>Summary:</strong> We collect only the data necessary to provide our AI-powered automation services. We never sell your personal information to third parties.</p>
             </div>
 
-            <h2><span class="icon">📊</span> Information We Collect</h2>
+            <h2><span class="icon">&#128202;</span> Information We Collect</h2>
             <p>We collect information that you provide directly to us, including:</p>
             <ul>
                 <li><strong>Account Information:</strong> Name, email address, company name, and password when you create an account</li>
@@ -335,7 +250,7 @@
                 <li><strong>Phone Number:</strong> Mobile phone number when you opt in to receive SMS communications such as appointment reminders, service updates, and follow-up messages</li>
             </ul>
 
-            <h2><span class="icon">⚙️</span> How We Use Your Information</h2>
+            <h2><span class="icon">&#9881;&#65039;</span> How We Use Your Information</h2>
             <p>We use the information we collect to:</p>
             <ul>
                 <li>Provide, maintain, and improve our Service</li>
@@ -347,7 +262,7 @@
                 <li>Detect, investigate, and prevent fraudulent transactions and abuse</li>
             </ul>
 
-            <h2><span class="icon">🔒</span> Data Storage and Security</h2>
+            <h2><span class="icon">&#128274;</span> Data Storage and Security</h2>
             <p>We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your data is stored on secure servers with encryption at rest and in transit.</p>
             <ul>
                 <li>All data is encrypted using industry-standard TLS 1.3</li>
@@ -356,7 +271,7 @@
                 <li>Multi-factor authentication available for all accounts</li>
             </ul>
 
-            <h2><span class="icon">🤝</span> Data Sharing and Disclosure</h2>
+            <h2><span class="icon">&#129309;</span> Data Sharing and Disclosure</h2>
             <p>We do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:</p>
             <ul>
                 <li><strong>Service Providers:</strong> We may share information with third-party vendors who assist us in operating our Service (e.g., cloud hosting, analytics)</li>
@@ -366,7 +281,7 @@
                 <li><strong>Mobile Information:</strong> We do not share, sell, or distribute your mobile phone number or any SMS opt-in data with third parties or affiliates for marketing or promotional purposes</li>
             </ul>
 
-            <h2><span class="icon">✅</span> Your Rights and Choices</h2>
+            <h2><span class="icon">&#9989;</span> Your Rights and Choices</h2>
             <p>You have the following rights regarding your personal information:</p>
             <ul>
                 <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
@@ -376,45 +291,86 @@
                 <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
             </ul>
 
-            <h2><span class="icon">🔔</span> Push Notifications</h2>
+            <h2><span class="icon">&#128276;</span> Push Notifications</h2>
             <p>With your consent, we may send push notifications to your mobile device about important updates, alerts, and reminders. You can disable push notifications at any time through your device settings.</p>
 
-            <h2><span class="icon">👶</span> Children's Privacy</h2>
+            <h2><span class="icon">&#128118;</span> Children's Privacy</h2>
             <p>Our Service is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.</p>
 
-            <h2><span class="icon">🌍</span> International Data Transfers</h2>
+            <h2><span class="icon">&#127757;</span> International Data Transfers</h2>
             <p>Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your information in accordance with applicable data protection laws.</p>
 
-            <h2><span class="icon">📝</span> Changes to This Policy</h2>
+            <h2><span class="icon">&#128221;</span> Changes to This Policy</h2>
             <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Effective Date" above. Your continued use of the Service after changes indicates acceptance of the updated policy.</p>
 
-            <h2><span class="icon">📧</span> Contact Us</h2>
+            <h2><span class="icon">&#128231;</span> Contact Us</h2>
             <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
-            
+
             <div class="contact-card">
                 <ul>
                     <li><strong>Email:</strong> <a href="mailto:support@avolv.ai">support@avolv.ai</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:8135196910">(813) 519-6910</a></li>
                     <li><strong>Website:</strong> <a href="https://www.avolv.ai">www.avolv.ai</a></li>
                     <li><strong>Address:</strong> Avolv.ai, Apollo Beach, FL 33572, USA</li>
                 </ul>
             </div>
-        </div>
+      </div>
     </div>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <a href="/" class="footer-logo">
-                <img src="/avolv-logo.png" alt="Avolv.ai" />
-            </a>
-            <div class="footer-links">
-                <a href="/privacy-policy.html">Privacy Policy</a>
-                <a href="/terms-of-service.html">Terms of Service</a>
-                <a href="https://www.linkedin.com/company/avolv-ai">LinkedIn</a>
-                <a href="mailto:support@avolv.ai">Contact</a>
-            </div>
-            <p class="footer-copyright">© 2025 Avolv.ai. All rights reserved.</p>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" style="height:32px;margin-bottom:16px;">
+          <p>Empowering small and medium businesses with affordable AI automation solutions.</p>
+          <a href="tel:8135196910" class="phone">
+            <i data-lucide="phone" style="width:16px;height:16px"></i>
+            (813) 519-6910
+          </a>
+          <a href="mailto:support@avolv.ai" class="email">support@avolv.ai</a>
         </div>
-    </footer>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="/#features">Booking &amp; Scheduling</a></li>
+            <li><a href="/#features">Customer Follow-up</a></li>
+            <li><a href="/#features">Lead Generation</a></li>
+            <li><a href="/#features">AI Content Creator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="/pools.html">Pool Services</a></li>
+            <li><a href="https://app.avolv.ai/industries/home-services">Home Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="mailto:support@avolv.ai">Contact Support</a></li>
+            <li><a href="https://scheduler.zoom.us/shane-james-ucyuzc/avolv-ai-conversation-about-your-pool-business" target="_blank" rel="noopener noreferrer">Free Strategy Session</a></li>
+            <li><a href="https://app.avolv.ai/prompt-genius">Prompt Genius</a></li>
+            <li><a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">Avolv University</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Avolv.ai. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/sms-consent.html">SMS Terms</a>
+          <a href="https://www.linkedin.com/company/avolv-ai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() { if (window.lucide) lucide.createIcons(); });
+  </script>
 </body>
 </html>
