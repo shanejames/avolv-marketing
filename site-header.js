@@ -34,7 +34,7 @@
     ".av-topbar .av-contact a{color:#fff;font-weight:600;text-decoration:none;}",
     ".av-topbar .av-contact a:hover{color:#6ee7b7;}",
     ".av-topbar .av-sep{color:#34d399;}",
-    ".av-nav{background:rgba(15,23,42,0.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,41,59,0.6);}",
+    ".av-nav{position:relative;top:auto;left:auto;width:100%;background:rgba(15,23,42,0.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,41,59,0.6);}",
     ".av-nav-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}",
     ".av-logo img{height:30px;display:block;}",
     ".av-links{display:flex;align-items:center;gap:22px;}",
