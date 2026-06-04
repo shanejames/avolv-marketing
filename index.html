@@ -140,7 +140,7 @@
     /* Hero */
     .hero {
       position: relative; overflow: hidden;
-      padding: 180px 0 128px; min-height: 100vh;
+      padding: 72px 0 128px; min-height: calc(100vh - 96px);
       display: flex; align-items: center;
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     }
@@ -395,46 +395,8 @@
 </head>
 <body>
 
-      <!-- Top Contact Bar -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <span class="top-bar-tagline">Built for Pool &amp; Home Service Operators</span>
-      <div class="top-bar-contact">
-        <a href="tel:8135196910"><i data-lucide="phone" style="width:14px;height:14px"></i> (813) 519-6910</a>
-        <span class="top-bar-divider">|</span>
-        <a href="mailto:support@avolv.ai">support@avolv.ai</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo-link"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai" class="nav-logo"></a>
-      <div class="nav-links">
-        <a href="/#features">Features</a>
-        <a href="/#how-it-works">How It Works</a>
-        <a href="/pools.html" class="accent-pool">Pool Services</a>
-        <div class="dropdown">
-          <a href="/#industries" class="accent-emerald">Services ▾</a>
-          <div class="dropdown-menu">
-            <a href="/cleaning.html"><span class="icon">🧽</span> Cleaning</a>
-            <a href="/lawn.html"><span class="icon">🌿</span> Lawn Care</a>
-            <a href="/pest.html"><span class="icon">🐜</span> Pest Control</a>
-            <a href="/pressure-washing.html"><span class="icon">💦</span> Pressure Washing</a>
-            <a href="https://app.avolv.ai/industries/home-services"><span class="icon">🔧</span> Home Services</a>
-          </div>
-        </div>
-        <a href="https://app.avolv.ai/demo" class="accent-emerald">Demo</a>
-        <a href="https://app.avolv.ai/prompt-genius" class="accent-purple">Prompt Genius</a>
-        <a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer" class="accent-blue">University</a>
-      </div>
-      <div class="nav-right">
-        <a href="https://app.avolv.ai/login" class="nav-login">Log In</a>
-        <a href="/get-started.html" class="btn-primary">Get Started</a>
-      </div>
-    </div>
-  </nav>
+  <!-- Universal site header (edit site-header.js to change the nav everywhere) -->
+  <script src="site-header.js"></script>
 
   <!-- Hero Section -->
   <section class="hero">
