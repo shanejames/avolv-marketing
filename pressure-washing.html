@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avolv for Pressure Washing Companies | Stop Losing Jobs to Missed Texts</title>
+<meta name="description" content="Turn a photo into a booked wash in seconds. AI receptionist, web-form-to-pipeline, drive-time routing, reviews on autopilot. Built for pressure washing owners." />
+<meta name="keywords" content="pressure washing software, soft wash software, exterior cleaning CRM, field service platform, web lead capture, pressure washing scheduling" />
+<meta property="og:title" content="Avolv for Pressure Washing Companies" />
+<meta property="og:description" content="Turn a photo into a booked wash in seconds. AI receptionist, web-to-pipeline, routing, reviews on autopilot. Built for pressure washing pros." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avolv.ai/pressure-washing.html" />
+<link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0f1a;
+    --bg-2: #0e1525;
+    --panel: #111a2e;
+    --panel-2: #0c1322;
+    --line: rgba(148, 163, 184, 0.14);
+    --line-strong: rgba(148, 163, 184, 0.24);
+    --text: #e8edf6;
+    --muted: #93a2b8;
+    --muted-2: #6b7a92;
+    --emerald: #34d399;
+    --emerald-deep: #10b981;
+    --emerald-glow: rgba(52, 211, 153, 0.16);
+    --amber: #fbbf24;
+    --red: #f87171;
+    --display: "Bricolage Grotesque", sans-serif;
+    --body: "Spline Sans", sans-serif;
+    --maxw: 1140px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; background: radial-gradient(900px 500px at 78% -8%, var(--emerald-glow), transparent 60%), radial-gradient(700px 500px at 10% 4%, rgba(56, 189, 248, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  a { color: inherit; text-decoration: none; }
+  em { color: var(--emerald); font-style: italic; }
+  h1, h2, h3, h4 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--emerald); font-weight: 600; }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-family: var(--body); border-radius: 12px; padding: 14px 22px; transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease; cursor: pointer; border: 1px solid transparent; font-size: 15px; }
+  .btn-primary { background: linear-gradient(135deg, var(--emerald), var(--emerald-deep)); color: #04231a; box-shadow: 0 12px 30px -12px rgba(16, 185, 129, 0.7); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(16, 185, 129, 0.85); }
+  .btn-ghost { background: rgba(255,255,255,0.03); border-color: var(--line-strong); color: var(--text); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: rgba(10, 15, 26, 0.72); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--maxw); margin: 0 auto; }
+  .nav-logo { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--text); }
+  .nav-logo span { color: var(--emerald); }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a { color: var(--muted); font-size: 14.5px; font-weight: 500; transition: color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+  .nav-login { color: var(--muted); font-size: 14.5px; font-weight: 600; }
+  .nav-login:hover { color: var(--text); }
+  @media (max-width: 900px) { .nav-links { display: none; } }
+
+  /* HERO */
+  .hero { padding: 86px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  @media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .hero h1 { font-size: clamp(38px, 5.4vw, 64px); margin: 18px 0 22px; font-weight: 800; }
+  .hero p.lede { font-size: 18px; color: var(--muted); max-width: 540px; margin-bottom: 30px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+  .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; }
+  .hero-stat .n { font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--emerald); }
+  .hero-stat .l { font-size: 13px; color: var(--muted-2); }
+
+  .phone { width: 320px; max-width: 100%; margin: 0 auto; background: #060a12; border: 1px solid var(--line-strong); border-radius: 38px; padding: 12px; box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.02) inset; }
+  .phone-screen { background: var(--panel-2); border-radius: 28px; overflow: hidden; }
+  .phone-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  .phone-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--emerald-deep)); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .phone-name { font-weight: 600; font-size: 14px; }
+  .phone-sub { font-size: 11.5px; color: var(--muted-2); }
+  .phone-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 360px; }
+  .bubble { max-width: 84%; padding: 10px 14px; border-radius: 16px; font-size: 13.5px; line-height: 1.45; }
+  .bubble.them { align-self: flex-start; background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.22); color: #b8f5df; border-bottom-left-radius: 5px; }
+  .bubble.me { align-self: flex-end; background: #1c2740; color: var(--text); border-bottom-right-radius: 5px; }
+  .sys { align-self: center; font-size: 11px; color: var(--muted-2); background: rgba(255,255,255,0.04); padding: 5px 12px; border-radius: 20px; text-align: center; }
+  .phone-foot { padding: 11px 14px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted-2); text-align: center; }
+
+  section { padding: 76px 0; position: relative; }
+  .sec-head { max-width: 760px; margin-bottom: 48px; }
+  .sec-head h2 { font-size: clamp(28px, 3.6vw, 44px); margin: 14px 0 16px; }
+  .sec-head p { color: var(--muted); font-size: 17px; }
+
+  /* pain stats */
+  .stat-band { background: linear-gradient(180deg, var(--bg-2), var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 820px) { .stat-grid { grid-template-columns: 1fr; } }
+  .stat-card { border-left: 2px solid var(--emerald); padding-left: 22px; }
+  .stat-card .big { font-family: var(--display); font-weight: 800; font-size: 46px; color: var(--text); line-height: 1; }
+  .stat-card h3 { font-size: 19px; margin: 14px 0 8px; }
+  .stat-card p { color: var(--muted); font-size: 15px; }
+
+  /* feature rows */
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; padding: 40px 0; border-top: 1px solid var(--line); }
+  .feature:nth-child(even) .feature-visual { order: -1; }
+  @media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 28px; } .feature:nth-child(even) .feature-visual { order: 0; } }
+  .feature-num { font-family: var(--display); font-size: 13px; letter-spacing: 0.2em; color: var(--emerald); font-weight: 600; }
+  .feature h3 { font-size: 26px; margin: 12px 0 14px; }
+  .feature > div > p { color: var(--muted); font-size: 15px; }
+  .feature ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .feature li { display: flex; gap: 10px; font-size: 14.5px; color: var(--muted); }
+  .feature li::before { content: "✓"; color: var(--emerald); font-weight: 700; flex-shrink: 0; }
+
+  .ui-card { background: var(--panel); border: 1px solid var(--line-strong); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -34px rgba(0,0,0,0.8); }
+  .ui-bar { font-size: 11px; color: var(--muted-2); padding: 9px 14px; border-bottom: 1px solid var(--line); background: var(--panel-2); font-family: var(--body); }
+  .ui-body { padding: 16px; }
+  .lead-row { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .lead-row:last-child { border-bottom: none; }
+  .lead-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 6px; background: rgba(248,113,113,0.16); color: var(--red); margin-left: auto; }
+  .lead-badge.hot { background: rgba(52,211,153,0.16); color: var(--emerald); }
+  .lead-av { width: 34px; height: 34px; border-radius: 8px; background: #1c2740; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--emerald); flex-shrink: 0; }
+  .lead-name { font-size: 13.5px; font-weight: 600; }
+  .lead-meta { font-size: 11.5px; color: var(--muted-2); }
+
+  .timeline { position: relative; padding-left: 22px; }
+  .timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: rgba(52,211,153,0.3); }
+  .tl-row { position: relative; padding: 9px 0; }
+  .tl-row::before { content: ""; position: absolute; left: -22px; top: 14px; width: 12px; height: 12px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 0 4px rgba(52,211,153,0.15); }
+  .tl-time { font-size: 11px; color: var(--emerald); font-weight: 700; letter-spacing: 0.04em; }
+  .tl-text { font-size: 13px; color: var(--muted); }
+
+  .pipe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .pipe-col h5 { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 9px; display: flex; justify-content: space-between; }
+  .pipe-card { background: var(--panel-2); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; margin-bottom: 7px; }
+  .pipe-card .pn { font-size: 12px; font-weight: 600; }
+  .pipe-card .pm { font-size: 10.5px; color: var(--muted-2); }
+
+  .catalog { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .catalog th { text-align: left; color: var(--muted-2); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .catalog td { padding: 9px 10px; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .catalog td:first-child { color: var(--text); font-weight: 500; }
+  .catalog tr:last-child td { border-bottom: none; }
+  .tag { font-size: 10px; padding: 2px 7px; border-radius: 5px; background: rgba(52,211,153,0.12); color: var(--emerald); }
+
+  .stars { color: var(--amber); font-size: 18px; letter-spacing: 2px; }
+  .review-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+  .review-row:last-child { border-bottom: none; }
+  .review-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); flex-shrink: 0; }
+
+  /* flow */
+  .flow { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+  @media (max-width: 860px) { .flow-steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .flow-steps { grid-template-columns: 1fr; } }
+  .flow-step { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; position: relative; }
+  .flow-step::before { counter-increment: step; content: "0" counter(step); font-family: var(--display); font-size: 13px; color: var(--emerald); font-weight: 700; }
+  .flow-step h4 { font-size: 16px; margin: 10px 0 8px; }
+  .flow-step p { font-size: 13.5px; color: var(--muted); }
+
+  /* voice */
+  .voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 760px) { .voice-grid { grid-template-columns: 1fr; } }
+  .voice-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .voice-card h4 { font-size: 18px; margin-bottom: 10px; }
+  .voice-card p { font-size: 14.5px; color: var(--muted); }
+  .voice-quote { margin-top: 16px; font-size: 13px; color: var(--emerald); background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); border-radius: 10px; padding: 11px 14px; font-style: italic; }
+
+  /* the math band */
+  .mathband { background: linear-gradient(180deg, #0b1322, var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .math-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .math-pill { flex: 1; min-width: 150px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 24px 18px; text-align: center; }
+  .math-pill .mv { font-family: var(--display); font-weight: 800; font-size: 34px; color: var(--emerald); line-height: 1; }
+  .math-pill .ml { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  /* included grid */
+  .incl { background: var(--bg-2); border-top: 1px solid var(--line); }
+  .incl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  @media (max-width: 980px) { .incl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .incl-grid { grid-template-columns: 1fr; } }
+  .incl-col { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .incl-col h4 { font-size: 16px; margin-bottom: 14px; color: var(--emerald); }
+  .incl-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .incl-col li { font-size: 13px; color: var(--muted); display: flex; gap: 8px; }
+  .incl-col li::before { content: "•"; color: var(--emerald); }
+  .incl-note { margin-top: 30px; text-align: center; color: var(--muted); font-size: 15px; }
+
+  /* faq */
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q { width: 100%; text-align: left; background: none; border: none; color: var(--text); font-family: var(--display); font-weight: 600; font-size: 18px; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq-q .ic { color: var(--emerald); font-size: 22px; flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-q .ic { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-a p { color: var(--muted); font-size: 15px; padding: 0 0 22px; max-width: 760px; }
+  .faq-item.open .faq-a { max-height: 520px; }
+
+  .final { text-align: center; }
+  .final h2 { font-size: clamp(30px, 4.2vw, 50px); max-width: 820px; margin: 0 auto 22px; }
+  .final p { color: var(--muted); font-size: 17px; max-width: 620px; margin: 0 auto 32px; }
+  .final-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  footer { border-top: 1px solid var(--line); padding: 54px 0 40px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+  .foot-grid h5 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-2); margin-bottom: 14px; }
+  .foot-grid a, .foot-grid p { display: block; color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .foot-grid a:hover { color: var(--emerald); }
+  .foot-blurb { color: var(--muted-2); font-size: 13.5px; max-width: 280px; margin-top: 14px; }
+  .foot-legal { margin-top: 38px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted-2); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="https://avolv.ai/" class="nav-logo">Avolv<span>.ai</span></a>
+    <div class="nav-links">
+      <a href="https://avolv.ai/#features">Features</a>
+      <a href="https://avolv.ai/pools.html">Pool Services</a>
+      <a href="https://avolv.ai/cleaning.html">Cleaning</a>
+      <a href="pressure-washing.html" class="active">Pressure Washing</a>
+      <a href="https://app.avolv.ai/demo?v=pressurewashing">Demo</a>
+      <a href="https://university.avolv.ai">University</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://app.avolv.ai/login" class="nav-login">Log In</a>
+      <a href="https://avolv.ai/get-started.html" class="btn btn-primary" style="padding:10px 18px;">Get Started</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow">Built for pressure washing owners</div>
+      <h1>Your next customer just submitted a quote request for a <em>house and driveway wash</em>. Avolv quoted it from a photo before you finished your coffee.</h1>
+      <p class="lede">Stop running the business from a clipboard, a group text, and three other apps. Avolv answers the call, reads the photo, drafts the quote, builds the route, bills the card, and asks for the review. You run the crews.</p>
+      <div class="hero-actions">
+        <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" class="btn btn-primary">Book a 15-min demo →</a>
+        <a href="#features" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="n">60s</div><div class="l">Avg. text-to-quote</div></div>
+        <div class="hero-stat"><div class="n">24/7</div><div class="l">AI answers every call</div></div>
+        <div class="hero-stat"><div class="n">EN/ES</div><div class="l">Bilingual, both ways</div></div>
+      </div>
+    </div>
+    <div class="reveal in">
+      <div class="phone"><div class="phone-screen">
+          <div class="phone-head">
+            <div class="phone-avatar">💦</div>
+            <div><div class="phone-name">BrightWash Exteriors</div><div class="phone-sub">AI Assistant</div></div>
+          </div>
+          <div class="phone-body">
+            <div class="bubble me">Filled out your form for a house and driveway wash. Driveway's got some oil stains. Here's a photo 📸</div>
+            <div class="sys">Form lead in 0.4s · photo received · sizing surface + oil treatment</div>
+            <div class="bubble them">Hi Dana! House soft wash plus driveway with oil treatment comes to $425. Marcus has Saturday 9am open. Want me to book it? Gutter brightening is $120 more if you want the whole front fresh.</div>
+            <div class="bubble me">Add the gutters, Saturday's good.</div>
+            <div class="bubble them">Booked ✅ Saturday 9am, Marcus, house + driveway + gutters ($545), card on file. Before-and-after photos sent the moment he wraps.</div>
+          </div>
+          <div class="phone-foot">iMessage</div>
+      </div></div>
+    </div>
+  </div>
+</header>
+<section class="stat-band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The math doesn't work</div>
+      <h2>You're not losing customers. You're losing the <em>moments</em> they tried to give you their money.</h2>
+      <p>Pressure washing research and our own customer data tell the same story. The biggest leak in the business isn't churn. It's the web leads that sat in the inbox while the customer booked someone faster.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card reveal"><div class="big">1 in 3</div><h3>Web leads sit too long to win</h3><p>A form comes in while you're on a roof. By the time you quote it that night, they've booked the company that replied in ten minutes.</p></div>
+      <div class="stat-card reveal"><div class="big">2.5 hrs</div><h3>A day quoting and scheduling</h3><p>Driving out to measure, typing quotes, juggling the calendar. By the time you catch up, leads have gone cold.</p></div>
+      <div class="stat-card reveal"><div class="big">$36K/yr</div><h3>Lost revenue, typical shop</h3><p>Conservative average between slow web quotes and one-time jobs that never got a nudge to come back next year.</p></div>
+    </div>
+  </div>
+</section>
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">What Avolv does</div>
+      <h2>The things you keep wishing your business would do <em>on its own</em>.</h2>
+      <p>We didn't build a generic field service platform with a pressure washing template bolted on. We built this side-by-side with real route-based crews: real trucks, real driveways, real customers submitting forms at all hours.</p>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 01 ·</div>
+        <h3>Customers send a photo. <em>You get a quote.</em></h3>
+        <p>When a customer texts or submits a photo of the surface, Avolv reads it, sizes it against your catalog, flags add-ons like oil treatment, and drafts the estimate.</p>
+        <ul>
+          <li>Web form drops straight into the pipeline, you're pinged in 0.4 seconds</li>
+          <li>Reads photos of the house, driveway, or roof, any carrier</li>
+          <li>Sizes the surface and flags add-ons like oil treatment automatically</li>
+          <li>Bilingual: Spanish messages and voice notes translated automatically</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / leads / new</div>
+          <div class="ui-body">
+            <div class="lead-row">
+              <div class="lead-av">DH</div>
+              <div><div class="lead-name">Dana Howard</div><div class="lead-meta">(813) 555-0294 · Apollo Beach</div></div>
+              <div class="lead-badge hot">HOT</div>
+            </div>
+            <div style="margin-top:12px;font-size:11px;color:var(--muted-2);letter-spacing:0.04em;">AI ANALYSIS · web form + 1 photo · scope detected</div>
+            <div style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.7;"><strong style="color:var(--text);">Service type:</strong> House soft wash + driveway<br/><strong style="color:var(--text);">Add-ons:</strong> oil treatment, gutter brightening<br/><strong style="color:var(--text);">Suggested range:</strong> $425 to $545</div>
+            <div style="display:flex;gap:8px;margin-top:14px;">
+              <span class="btn btn-primary" style="padding:8px 16px;font-size:13px;">Send Quote</span>
+              <span class="btn btn-ghost" style="padding:8px 16px;font-size:13px;">Assign Crew</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 02 ·</div>
+        <h3>Every call answered. <em>Even at 9pm on a Saturday.</em></h3>
+        <p>A customer calls while your crews are out, or after hours. Avolv's AI receptionist picks up, answers the basics, captures the job, and books it. You stop losing work to voicemail.</p>
+        <ul>
+          <li>Answers every call 24/7, in English or Spanish</li>
+          <li>Captures the name, address, and what they need as a lead</li>
+          <li>Books straight onto the schedule when there's an opening</li>
+          <li>You wake up to booked jobs, not a full voicemail box</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / leads / after-hours</div>
+          <div class="ui-body"><div class="timeline">
+              <div class="tl-row"><div class="tl-time">9:02 PM</div><div class="tl-text">Missed-call rescued. Avolv answered, caught the details.</div></div>
+              <div class="tl-row"><div class="tl-time">9:03 PM</div><div class="tl-text">Lead created: house + driveway wash, Brandon. Tagged urgent.</div></div>
+              <div class="tl-row"><div class="tl-time">9:08 PM</div><div class="tl-text">Quote sent with a Saturday 9am slot. From your couch.</div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 03 ·</div>
+        <h3>A pipeline that actually <em>moves jobs forward</em>.</h3>
+        <p>New Lead, Estimate Sent, Booked, In Progress, Completed. Every stage triggers the next action automatically, so you stop being the air traffic controller.</p>
+        <ul>
+          <li>Drag-and-drop board, auto-advance when a quote is approved</li>
+          <li>One tap approves the price and the time, no phone tag</li>
+          <li>Customer replies "can you do Friday?" and Avolv threads it on the estimate</li>
+          <li>Text to the customer at every step, in your voice and branding</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / pipeline</div>
+          <div class="ui-body"><div class="pipe"><div class="pipe-col"><h5>New <span>4</span></h5><div class="pipe-card"><div class="pn">Dana Howard</div><div class="pm">house + driveway · photo</div></div><div class="pipe-card"><div class="pn">Eric Reyes</div><div class="pm">commercial · weekly</div></div></div><div class="pipe-col"><h5>Estimate <span>6</span></h5><div class="pipe-card"><div class="pn">The Wus</div><div class="pm">roof soft wash · $640</div></div><div class="pipe-card"><div class="pn">B. Pereira</div><div class="pm">driveway · $185</div></div></div><div class="pipe-col"><h5>Booked <span>5</span></h5><div class="pipe-card"><div class="pn">S. Hartley</div><div class="pm">Tue 9a</div></div><div class="pipe-card"><div class="pn">M. Diallo</div><div class="pm">Wed 11a</div></div></div><div class="pipe-col"><h5>Active <span>3</span></h5><div class="pipe-card"><div class="pn">F. Maldonado</div><div class="pm">Marcus · today</div></div><div class="pipe-card"><div class="pn">L. Park</div><div class="pm">Crew 2 · today</div></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 04 ·</div>
+        <h3>A route board your crews <em>actually use</em>.</h3>
+        <p>Mobile-first routing built for the way a wash crew works. Stops ordered by drive time, less windshield and more jobs. Mark it done, snap before-and-after, done.</p>
+        <ul>
+          <li>Daily stops auto-ordered by drive time, saving 60 to 90 minutes a day</li>
+          <li>A returning customer's text routes to the crew who washed them last</li>
+          <li>While you're out: overdue commercial accounts within 2 miles and warm leads on the route home</li>
+          <li>Customer auto-notified the moment the crew is on the way</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / schedule / today</div>
+          <div class="ui-body">
+            <div style="font-size:13px;font-weight:600;margin-bottom:4px;">Tuesday · April 21</div>
+            <div style="font-size:11.5px;color:var(--muted-2);margin-bottom:14px;">16 jobs · 3 crews · ordered by drive time</div>
+            <div class="lead-row"><div class="lead-av" style="font-size:11px;">9a</div><div><div class="lead-name">Howard · house + driveway</div><div class="lead-meta">Marcus</div></div><span class="lead-badge hot">2h</span></div>
+            <div class="lead-row"><div class="lead-av" style="font-size:11px;">11a</div><div><div class="lead-name">Plaza · commercial</div><div class="lead-meta">Crew 2</div></div><span class="lead-badge hot">3h</span></div>
+            <div class="lead-row"><div class="lead-av" style="font-size:11px;">2p</div><div><div class="lead-name">Reed · roof soft wash</div><div class="lead-meta">Marcus</div></div><span class="lead-badge hot">2.5h</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 05 ·</div>
+        <h3>Estimates, recurring billing, and a <em>catalog you own</em>.</h3>
+        <p>Build your catalog once. Range pricing, surface tiers, add-on line items. The AI never quotes outside your guardrails, and recurring commercial accounts auto-bill on file.</p>
+        <ul>
+          <li>Set "house soft wash $250 to $450" once, AI estimates stay inside it</li>
+          <li>Recurring commercial accounts auto-generate and auto-bill</li>
+          <li>Card on file via Stripe, charged automatically, receipt sent</li>
+          <li>Sync to QuickBooks for invoicing when you're ready</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / settings / service-catalog</div>
+          <div class="ui-body"><table class="catalog">
+              <thead><tr><th>Service</th><th>Type</th><th>Range</th></tr></thead>
+              <tbody>
+                <tr><td>House soft wash</td><td><span class="tag">One-time</span></td><td>$250 to $450</td></tr>
+                <tr><td>Driveway + oil treat</td><td><span class="tag">One-time</span></td><td>$120 to $250</td></tr>
+                <tr><td>Commercial (recurring)</td><td><span class="tag">Recurring</span></td><td>$300 to $800/mo</td></tr>
+                <tr><td>Roof soft wash</td><td><span class="tag">One-time</span></td><td>$400 to $700</td></tr>
+                <tr><td>Gutter brightening</td><td><span class="tag">Add-on</span></td><td>$120</td></tr>
+              </tbody>
+          </table></div>
+        </div>
+      </div>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="feature-num">· 06 ·</div>
+        <h3>Reviews and marketing that <em>run themselves</em>.</h3>
+        <p>Job done? Avolv texts a one-tap review link while it's still fresh. Slow week coming? It emails your list a seasonal offer. No second login, no Mailchimp.</p>
+        <ul>
+          <li>One-tap Google review request after every completed job</li>
+          <li>More 5-star reviews, higher Google rank, more inbound calls</li>
+          <li>Email and SMS campaigns to your whole customer list</li>
+          <li>Win-back sequences for customers who drifted, to fill the slow weeks</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="ui-card">
+          <div class="ui-bar">app.avolv.ai / growth</div>
+          <div class="ui-body">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <div style="font-size:13px;font-weight:600;">BrightWash Exteriors</div>
+              <div style="font-size:12px;color:var(--muted-2);">5.0 · 231 reviews</div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div style="margin-top:14px;">
+              <div class="review-row"><span class="review-dot"></span> Review request sent to Dana → 5 stars left</div>
+              <div class="review-row"><span class="review-dot"></span> Seasonal offer emailed → 1,140 contacts</div>
+              <div class="review-row"><span class="review-dot"></span> Win-back sequence → 38 lapsed, 9 rebooked</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">How a real lead flows</div>
+      <h2>A text at 7:43 AM. <em>A booked wash by 7:46.</em></h2>
+      <p>Here's what happens when a customer messages you tomorrow morning, while you're still finishing your first cup of coffee.</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step reveal"><h4>Customer sends the photo</h4><p>A web form plus a photo of the driveway: "house and driveway, some oil stains." Straight into your pipeline.</p></div>
+      <div class="flow-step reveal"><h4>Avolv reads and sizes it</h4><p>Photos analyzed, scope detected, message transcribed and translated if it came in Spanish.</p></div>
+      <div class="flow-step reveal"><h4>Quote drafted in your voice</h4><p>Pulled from your catalog. Range pricing applied. Crew availability checked against the schedule board.</p></div>
+      <div class="flow-step reveal"><h4>One tap, job booked</h4><p>Customer approves the price and the time in one tap. Avolv books it, assigns the crew, sets auto-pay, and drops the stop on the calendar.</p></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">While you're on the job</div>
+      <h2>Avolv works at <em>your speed</em>, in <em>your voice</em>, in <em>your language</em>.</h2>
+      <p>Pressure washing doesn't happen at a desk. You're on a ladder, in the truck between stops, on the phone with a customer while you drive. Avolv is built for that. Talk to it. It listens.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <h4>You're standing on site. Talk.</h4>
+        <p>Hold the button, say what the customer added, what took longer, what needs a follow-up. Avolv transcribes it, attaches it to the job, and the office sees it before you reach the truck.</p>
+        <div class="voice-quote">Customer added gutter brightening, oil treatment took longer, $545 total</div>
+      </div>
+      <div class="voice-card reveal">
+        <h4>You finished the job. Get paid before you leave.</h4>
+        <p>Wet hands, no problem. Talk through the job and Avolv drafts the invoice with your catalog pricing, charges the card on file, and sends the review request once it clears.</p>
+        <div class="voice-quote">House and driveway done, gutters brightened, $545 total, before-and-after attached</div>
+      </div>
+      <div class="voice-card reveal">
+        <h4>Tu equipo habla español. Tu cliente también.</h4>
+        <p>Bilingual texts, voice notes, and quotes. Your crew dictates a note in Spanish, the customer reads it in English. A customer texts in Spanish, you read the AI summary in English. Both ways, automatic.</p>
+        <div class="voice-quote">El cliente quiere lavar la entrada → Client wants the driveway washed</div>
+      </div>
+      <div class="voice-card reveal">
+        <h4>You're in the truck. Don't type.</h4>
+        <p>Voice reminders and follow-ups. Avolv schedules it, reminds you, and tracks whether you followed up. Stuff stops falling through the cracks.</p>
+        <div class="voice-quote">Avolv, remind me to call the Reeds Thursday about their annual wash</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mathband">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:34px;">
+      <div class="eyebrow">The math that matters</div>
+      <h2>One price. <em>Pays for itself in 30 days.</em></h2>
+      <p>Most owners we talk to are paying for five separate tools and gluing them together by hand. Avolv replaces the stack with one subscription, one login, one bill.</p>
+    </div>
+    <div class="math-row">
+      <div class="math-pill reveal"><div class="mv">5 → 1</div><div class="ml">Apps replaced with one subscription</div></div>
+      <div class="math-pill reveal"><div class="mv">8 min</div><div class="ml">After-hours message to quote in their inbox</div></div>
+      <div class="math-pill reveal"><div class="mv">24/7</div><div class="ml">AI answers every call and books it</div></div>
+      <div class="math-pill reveal"><div class="mv">$400-700</div><div class="ml">In monthly tools, replaced</div></div>
+      <div class="math-pill reveal"><div class="mv">0</div><div class="ml">Contracts. Month to month, cancel anytime</div></div>
+    </div>
+  </div>
+</section>
+<section class="incl" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">What you actually get</div>
+      <h2>Everything we build, in one app, for <em>one monthly price</em>.</h2>
+      <p>We package Avolv to fit your size and your business. Concierge setup included. No per-crew fees. No per-seat fees. No "premium tier" with the features you actually need. Every customer gets the full platform.</p>
+    </div>
+    <div class="incl-grid">
+      <div class="incl-col reveal"><h4>AI that does the work</h4><ul><li>Text and photo-to-estimate AI (EN/ES)</li><li>AI receptionist, answers every call 24/7</li><li>Voice-to-invoice (talk the bill)</li><li>Voice notes and reminders, auto-transcribed</li><li>Multi-photo lead accumulation</li><li>Estimate conversation threading</li></ul></div>
+      <div class="incl-col reveal"><h4>Run the business</h4><ul><li>CRM pipeline with drag-drop jobs</li><li>Auto-advancing stages, one-tap approve</li><li>Crew scheduling, drive-time route order</li><li>Smart routing to the last crew</li><li>Before/after photo proof on every job</li><li>Service catalog with range pricing</li></ul></div>
+      <div class="incl-col reveal"><h4>Get paid + grow</h4><ul><li>Auto-pay on file via Stripe</li><li>Recurring billing for repeat accounts</li><li>QuickBooks invoicing sync</li><li>Google review automation</li><li>Email + SMS marketing campaigns</li><li>Win-back and follow-up sequences</li></ul></div>
+      <div class="incl-col reveal"><h4>Capture + handle the rest</h4><ul><li>Branded web quote form into the pipeline</li><li>Lead parsing from Thumbtack, Yelp, Gmail</li><li>Text lead alerts to your phone</li><li>Concierge onboarding, A2P SMS handled</li><li>Encrypted, isolated, daily backups</li><li>No contracts, cancel anytime</li></ul></div>
+    </div>
+    <p class="incl-note">Running multiple locations or a big crew? We have a multi-location tier with dedicated success and custom integrations. <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" style="color:var(--emerald);font-weight:600;">Let's talk →</a></p>
+  </div>
+</section>
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Honest answers</div>
+      <h2>Questions <em>actual pressure washing pros</em> ask us.</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <button class="faq-q">I already use Jobber / Housecall Pro / ResponiBid. Why switch? <span class="ic">+</span></button>
+        <div class="faq-a"><p>Those tools are fine for scheduling and basic invoicing. Avolv runs the front of your business: an AI receptionist and estimator that reads texts, photos, and calls and drafts quotes in seconds, a real CRM pipeline, marketing and reviews on autopilot, auto-pay, voice-to-invoice from the field. Most owners either keep their scheduler alongside Avolv at first or switch entirely. Side by side, you replace 4 or 5 separate apps with one.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does setup take? <span class="ic">+</span></button>
+        <div class="faq-a"><p>About 5 business days from "yes" to live. We do it for you: phone number provisioning, A2P SMS registration, website setup, service catalog build, crew accounts, and a 60-minute training call. You don't have to be technical.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if the AI sends a wrong quote? <span class="ic">+</span></button>
+        <div class="faq-a"><p>It doesn't send. It drafts. Every AI-generated quote sits in your pipeline waiting for you to tap "send" or edit first. Your service catalog defines the price ranges, so the draft can't go outside your guardrails. Once you trust it, you can flip on auto-send for specific service types.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will my customers know they're texting a bot? <span class="ic">+</span></button>
+        <div class="faq-a"><p>They know your business answered fast and got them a quote. We don't impersonate humans, but we also don't announce "Hi, I'm a bot" on every text. The AI uses your business voice, signs with your business name, and hands off to you the moment a question gets out of scope.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much does Avolv cost? <span class="ic">+</span></button>
+        <div class="faq-a"><p>It depends on your business. The platform is the same, but how we package it for you is different. We don't publish numbers because we'd rather give you a real fit on a 15-minute call than a one-size-fits-all sticker price. What we will tell you upfront: no per-crew fees, no per-seat fees, no setup fees, no contracts. One monthly price, everything we build, cancel any time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What does Avolv replace? <span class="ic">+</span></button>
+        <div class="faq-a"><p>Most owners we talk to run 4 or 5 separate tools: a scheduling app, QuickBooks, a texting app, an answering service or AI receptionist, a website, and Zapier to glue it together. That's typically $400 to $700 a month, plus the hours every week reconciling between them. Avolv replaces all of it in one app. Most owners find it pays for itself in the first 30 days just from the tools they cancel.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my customer data safe? <span class="ic">+</span></button>
+        <div class="faq-a"><p>Yes. Multi-tenant database with row-level isolation, encrypted at rest and in transit, hosted on Render with daily backups. Every Avolv customer's data is walled off from every other customer's. We're working toward SOC 2 Type II for 2026.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I'm not technical? <span class="ic">+</span></button>
+        <div class="faq-a"><p>Most of our customers aren't. Our operators run everything from their phones. We built Avolv specifically because the existing tools were either too simple or too complex. If you can run a wash route, you can run Avolv.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="final">
+  <div class="wrap reveal">
+    <h2>Stop letting web leads <em>sit in your inbox going cold</em>.</h2>
+    <p>15 minutes on a Zoom and we'll show you exactly what Avolv would look like running your business this week. No slides, no pitch deck. We'll text a real request to a real system while you watch, then talk about what makes sense for your operation. If Avolv fits, great. If not, we'll point you somewhere that does.</p>
+    <div class="final-actions">
+      <a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business" class="btn btn-primary">Book a 15-min demo →</a>
+      <a href="tel:8135196910" class="btn btn-ghost">Or just call (813) 519-6910</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a href="https://avolv.ai/" class="nav-logo" style="font-size:20px;">Avolv<span>.ai</span></a><p class="foot-blurb">Field service automation built for route-based home service businesses. Made in Apollo Beach, FL.</p></div>
+      <div><h5>Product</h5><a href="#features">How it works</a><a href="#pricing">What's included</a><a href="#faq">FAQ</a></div>
+      <div><h5>Built for</h5><a href="https://avolv.ai/pools.html">Pool service</a><a href="https://avolv.ai/cleaning.html">Cleaning</a><a href="lawn.html">Lawn care</a><a href="pest.html">Pest control</a><a href="pressure-washing.html">Pressure washing</a></div>
+      <div><h5>Get in touch</h5><a href="mailto:hello@avolv.ai">hello@avolv.ai</a><a href="tel:8135196910">(813) 519-6910</a><a href="https://scheduler.zoom.us/r-shane-james/free-one-hour-conversation-about-your-business">Book a demo</a></div>
+    </div>
+    <div class="foot-legal"><span>© 2026 Avolv.ai. All rights reserved.</span><span><a href="https://avolv.ai/privacy-policy.html" style="color:var(--muted-2);">Privacy</a> · <a href="https://avolv.ai/terms-of-service.html" style="color:var(--muted-2);">Terms</a></span></div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('.faq-q').forEach(function (btn) { btn.addEventListener('click', function () { var item = btn.parentElement; var wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); }); if (!wasOpen) item.classList.add('open'); }); });
+  var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+</script>
+</body>
+</html>
