@@ -36,7 +36,7 @@
     ".av-topbar .av-sep{color:#60A5FA;}",
     ".av-nav{position:relative;top:auto;left:auto;width:100%;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #E2E8F0;}",
     ".av-nav-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}",
-    ".av-logo img{height:30px;display:block;}",
+    ".av-logo{display:inline-flex;align-items:center;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#0F2C57;text-decoration:none;}",
     ".av-links{display:flex;align-items:center;gap:22px;}",
     ".av-links a{color:#334155;text-decoration:none;font-size:15px;transition:color .15s;white-space:nowrap;}",
     ".av-links a:hover,.av-links a.av-active{color:#2563EB;}",
@@ -67,7 +67,7 @@
         '<div class="av-contact"><a href="tel:8135196910">(813) 519-6910</a><span class="av-sep">|</span><a href="mailto:support@avolv.ai">support@avolv.ai</a></div>' +
       '</div></div>' +
       '<nav class="av-nav"><div class="av-nav-in">' +
-        '<a class="av-logo" href="/"><img src="https://app.avolv.ai/avolv-logo.png" alt="Avolv.ai"></a>' +
+        '<a class="av-logo" href="/">AVOLV.AI</a>' +
         '<div class="av-links">' +
           '<a href="/#features">Features</a>' +
           '<a href="/#how-it-works">How It Works</a>' +
