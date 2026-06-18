@@ -1,0 +1,68 @@
+/* ============================================================
+   AVOLV.AI BRAND THEME  (single source of truth)
+   Light look: white surfaces, blue accents, navy headers.
+   Change a value here once and every page follows.
+   No black backgrounds. No green, purple, cyan, or gold.
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces (light) ---- */
+  --av-page:        #F4F7FB;   /* page background, soft blue-gray */
+  --av-surface:     #FFFFFF;   /* cards, sections, panels */
+  --av-surface-2:   #EEF3FB;   /* lifted / alternate surface, pale blue */
+  --av-surface-3:   #E6EEF9;   /* deeper tint for hovers / wells */
+
+  /* ---- Lines ---- */
+  --av-border:        #E2E8F0; /* default hairline */
+  --av-border-strong: #CBD5E1; /* heavier divider */
+
+  /* ---- Text ---- */
+  --av-heading: #0F2C57;       /* brand navy, titles */
+  --av-text:    #1E293B;       /* body copy */
+  --av-muted:   #475569;       /* secondary copy */
+  --av-faint:   #64748B;       /* captions, labels */
+  --av-on-accent: #FFFFFF;     /* text sitting on a blue/navy fill */
+
+  /* ---- Brand blues ---- */
+  --av-navy:     #0F2C57;      /* deep brand navy: top bar, footer, nav */
+  --av-navy-700: #14366B;      /* navy hover */
+  --av-blue-700: #1D4ED8;      /* deep accent / button hover */
+  --av-blue-600: #2563EB;      /* primary button */
+  --av-blue-500: #3B82F6;      /* mid accent */
+  --av-blue-400: #60A5FA;      /* bright accent / icons */
+  --av-blue-300: #93C5FD;      /* light accent */
+  --av-blue-100: #DBEAFE;      /* pale fill / chips */
+  --av-blue-50:  #EFF6FF;      /* faint wash */
+
+  /* ---- Semantic (reserved) ---- */
+  --av-red:   #EF4444;         /* errors / destructive only */
+  --av-amber: #F59E0B;         /* caution only, not decorative */
+
+  /* ---- Glows / shadows tuned for light backgrounds ---- */
+  --av-glow:     rgba(37, 99, 235, 0.16);
+  --av-shadow-sm: 0 1px 2px rgba(15, 44, 87, 0.06);
+  --av-shadow:    0 4px 14px rgba(15, 44, 87, 0.08);
+  --av-shadow-lg: 0 20px 40px rgba(15, 44, 87, 0.12);
+}
+
+/* ---- Optional helper classes (use if you want them) ---- */
+.av-btn-primary {
+  background: var(--av-blue-600); color: var(--av-on-accent);
+  padding: 10px 20px; border-radius: 8px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: var(--av-shadow); transition: background 0.2s;
+}
+.av-btn-primary:hover { background: var(--av-blue-700); }
+
+.av-btn-secondary {
+  background: var(--av-surface); color: var(--av-text);
+  padding: 10px 20px; border-radius: 8px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--av-border-strong); transition: background 0.2s;
+}
+.av-btn-secondary:hover { background: var(--av-surface-2); }
+
+.av-card {
+  background: var(--av-surface); border: 1px solid var(--av-border);
+  border-radius: 14px; box-shadow: var(--av-shadow-sm);
+}
