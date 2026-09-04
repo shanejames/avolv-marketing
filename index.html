@@ -780,6 +780,102 @@
     </div>
   </section>
 
+  <!-- Website Audit Lead Magnet -->
+  <section class="audit-cta" style="padding:128px 0;background:var(--av-navy);color:#fff;">
+    <div class="container" style="max-width:900px;margin:0 auto;padding:0 24px;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <span style="display:inline-block;padding:6px 14px;background:rgba(147,197,253,0.15);border:1px solid rgba(147,197,253,0.3);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#93C5FD;margin-bottom:20px;">Free · No signup required</span>
+        <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;letter-spacing:-0.02em;">
+          Get a free audit of your website for AI search.
+        </h2>
+        <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);max-width:640px;margin:0 auto;">
+          Two scores out of 100. One for traditional search, one for how AI assistants like ChatGPT and Claude see you. Personalized report with exactly what's costing you leads. Delivered as a branded PDF, within one business day.
+        </p>
+      </div>
+
+      <form id="audit-form" style="background:#fff;padding:32px;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,0.2);" onsubmit="return submitAudit(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div>
+            <label for="audit-url" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR WEBSITE</label>
+            <input type="url" id="audit-url" name="url" required placeholder="https://yourcompany.com"
+              style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
+          </div>
+          <div>
+            <label for="audit-email" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR EMAIL</label>
+            <input type="email" id="audit-email" name="email" required placeholder="you@yourcompany.com"
+              style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+          <div>
+            <label for="audit-name" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR NAME</label>
+            <input type="text" id="audit-name" name="name" required placeholder="First and last"
+              style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
+          </div>
+          <div>
+            <label for="audit-company" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">COMPANY NAME</label>
+            <input type="text" id="audit-company" name="company" required placeholder="Your business"
+              style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
+          </div>
+        </div>
+        <button type="submit" id="audit-submit"
+          style="width:100%;background:#2563EB;color:#fff;padding:16px;border:none;border-radius:10px;font-weight:800;font-size:1.0625rem;font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(37,99,235,0.35);transition:background 0.2s;">
+          Send Me My Free Audit &rarr;
+        </button>
+        <p style="text-align:center;font-size:12px;color:#64748B;margin-top:14px;">
+          I read every submission personally. No sales spam. If your site scores well, I'll say so.
+        </p>
+      </form>
+
+      <div id="audit-thanks" style="display:none;background:#fff;padding:40px;border-radius:14px;text-align:center;color:#0F2C57;">
+        <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">Got it. I'll send your audit within one business day.</h3>
+        <p style="color:#475569;">Check your inbox for a PDF with your two scores and the specific fixes that will move them.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  function submitAudit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('audit-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    var data = {
+      url: document.getElementById('audit-url').value,
+      email: document.getElementById('audit-email').value,
+      name: document.getElementById('audit-name').value,
+      company: document.getElementById('audit-company').value,
+      source: 'homepage-audit-widget',
+      submittedAt: new Date().toISOString()
+    };
+    // TODO: replace this endpoint with the real audit API when Shane wires it up.
+    // Current behavior: POST the lead to /api/leads/audit-request and fall back to a mailto if it fails.
+    fetch('https://app.avolv.ai/api/leads/audit-request', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){
+      if (!r.ok) throw new Error('bad status');
+      document.getElementById('audit-form').style.display = 'none';
+      document.getElementById('audit-thanks').style.display = 'block';
+    }).catch(function(){
+      // Fallback: mailto so the lead never disappears
+      var body = 'Website: ' + data.url + '\n' +
+                 'Name: ' + data.name + '\n' +
+                 'Company: ' + data.company + '\n' +
+                 'Email: ' + data.email;
+      window.location.href = 'mailto:sales@avolv.ai?subject=' +
+        encodeURIComponent('Website audit request from ' + data.company) +
+        '&body=' + encodeURIComponent(body);
+      setTimeout(function(){
+        document.getElementById('audit-form').style.display = 'none';
+        document.getElementById('audit-thanks').style.display = 'block';
+      }, 400);
+    });
+    return false;
+  }
+  </script>
+
   <!-- Integrations -->
   <section class="integrations">
     <div class="container">

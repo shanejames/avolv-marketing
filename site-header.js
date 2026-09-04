@@ -79,6 +79,13 @@
           '</div></div>' +
           '<a class="av-emer" href="https://app.avolv.ai/demo">Demo</a>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
+          '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
+            '<a class="' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html"><span class="av-ic">\uD83C\uDFCA</span> vs Skimmer</a>' +
+            '<a class="' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html"><span class="av-ic">\uD83D\uDD27</span> vs Jobber</a>' +
+            '<a class="' + act("/vs/housecall-pro.html").trim() + '" href="/vs/housecall-pro.html"><span class="av-ic">\uD83C\uDFE0</span> vs Housecall Pro</a>' +
+            '<a class="' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html"><span class="av-ic">\uD83C\uDFEB</span> vs ServiceTitan</a>' +
+            '<a class="' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html"><span class="av-ic">\uD83D\uDC1C</span> vs FieldRoutes</a>' +
+          '</div></div>' +
           '<a class="av-purp" href="https://app.avolv.ai/prompt-genius">Prompt Genius</a>' +
           '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
         '</div>' +
