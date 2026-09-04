@@ -74,12 +74,11 @@
           '<a class="av-pool' + act("/pools.html") + '" href="/pools.html">Pool Services</a>' +
           '<div class="av-dd"><a class="av-emer" href="/#industries">Services \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/cleaning.html").trim() + '" href="/cleaning.html"><span class="av-ic">\uD83E\uDDFD</span> Cleaning</a>' +
-            '<a class="' + act("/lawn.html").trim() + '" href="/lawn.html"><span class="av-ic">\uD83C\uDF3F</span> Lawn Care</a>' +
-            '<a class="' + act("/pest.html").trim() + '" href="/pest.html"><span class="av-ic">\uD83D\uDC1C</span> Pest Control</a>' +
-            '<a class="' + act("/pressure-washing.html").trim() + '" href="/pressure-washing.html"><span class="av-ic">\uD83D\uDCA6</span> Pressure Washing</a>' +
+            '<a class="' + act("/route-based-services.html").trim() + '" href="/route-based-services.html"><span class="av-ic">\uD83D\uDE9A</span> Route-Based Services</a>' +
             '<a href="https://app.avolv.ai/industries/home-services"><span class="av-ic">\uD83D\uDD27</span> Home Services</a>' +
           '</div></div>' +
           '<a class="av-emer" href="https://app.avolv.ai/demo">Demo</a>' +
+          '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
           '<a class="av-purp" href="https://app.avolv.ai/prompt-genius">Prompt Genius</a>' +
           '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
         '</div>' +

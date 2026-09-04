@@ -23,24 +23,31 @@
   </url>
 
   <url>
-    <loc>https://avolv.ai/lawn.html</loc>
+    <loc>https://avolv.ai/route-based-services.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://avolv.ai/pest.html</loc>
+    <loc>https://avolv.ai/pricing.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://avolv.ai/pressure-washing.html</loc>
+    <loc>https://avolv.ai/case-studies/resort-pool-services.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avolv.ai/about/shane-james.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>

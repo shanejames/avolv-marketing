@@ -1,0 +1,73 @@
+# Avolv.ai
+
+> Field service management software for pool and home service companies. One system for scheduling, routing, chemistry logging, invoicing, payments, and QuickBooks sync. Priced per service location. Month to month. No contract.
+
+Avolv.ai is a multi-tenant field service platform based in Apollo Beach, Florida. It is built and run by Shane James, who spent 25 years leading customer success at B2B SaaS companies including Oracle, Manta (acquired by IBM), and data.world (acquired by ServiceNow), before building Avolv.
+
+The platform is deepest in pool service, where it runs 988-pool routes for Resort Pool Services. It also supports cleaning companies (Keep It Clean is the first cleaning tenant) and route-based home services generally, including lawn care, pest control, pressure washing, window cleaning, and HOA services.
+
+Pricing is per service location, month to month, with no contract. A one-time setup fee scoped to the customer's data migration is billed separately. Typical fleet-sized operators (200 to 700 service locations) land in a $175 to $350 per month subscription range. Enterprise routes (700+ locations) are custom quoted. Most operators pay less than they were paying for their previous scheduler plus QuickBooks combined.
+
+## Contact
+
+- Phone: (813) 519-6910
+- Sales: sales@avolv.ai
+- Support: support@avolv.ai
+- Support hours: Monday through Friday, 9am to 5pm Eastern
+- Address: 5914 Menorca Lane, Apollo Beach, FL 33572, United States
+
+## Key pages
+
+- [Home](https://avolv.ai/): Product overview
+- [Pool Services](https://avolv.ai/pools.html): Field service software for pool service companies (deepest vertical)
+- [Cleaning](https://avolv.ai/cleaning.html): Field service software for residential and commercial cleaning companies
+- [Route-Based Services](https://avolv.ai/route-based-services.html): Field service software for lawn, pest, pressure washing, and other route-based home services
+- [Pricing](https://avolv.ai/pricing.html): Per-location subscription pricing, setup fees, what is included
+- [Case Study: Resort Pool Services](https://avolv.ai/case-studies/resort-pool-services.html): How Resort moved 988 pools off Skimmer with zero days of route downtime and reconciled $370,779 of invoicing to a $580 variance
+- [About Shane James](https://avolv.ai/about/shane-james.html): Founder background, credentials, and how he works with customers
+- [Get Started](https://avolv.ai/get-started.html): Contact form to schedule a demo call
+
+## What is included with every plan
+
+Every Avolv subscription includes the full platform:
+
+- AI receptionist that answers every call
+- Online booking that lands on the route
+- SMS quoting from a photo or video
+- Route optimization with drive-time (Geotab-aware for pool service)
+- Offline-first mobile field app in English and Spanish
+- Pool chemistry logging with AI meter scanning (pool tenants)
+- Photo attachments per stop
+- Recurring billing with autopay
+- Card and bank on file (Stripe Connect)
+- QuickBooks Online line-by-line sync
+- Owner's Brief daily dashboard
+- Follow-up sequences and review generation
+- Website builder with AI content
+- Marketing campaigns module
+- Proposals, contracts, e-signature
+- Pipeline CRM with AI classification
+- Voice-to-invoice from the truck
+- Technician tracking with consent
+- A2P SMS compliance handled by Avolv
+- Per-tenant email sending domain
+
+There are no per-user or per-truck fees. Unlimited techs, dispatchers, and trucks are included.
+
+## What Avolv replaces
+
+Most operators arrive at Avolv paying for four to five separate tools that do not agree with each other: a scheduling app (commonly Skimmer for pools, ZenMaid or Jobber for cleaning, PestPac or FieldRoutes for pest, Yardbook or LawnStarter for lawn), QuickBooks, a separate texting app, an AI receptionist or answering service, and Zapier to glue them together. That stack commonly runs $400 to $700 per month combined. Avolv replaces all of it in one subscription.
+
+## Frequently asked questions
+
+**How much does Avolv cost?** Priced per service location. A one-truck operator starts around $125 per month. Most fleet-sized operators pay $175 to $350 per month. Enterprise routes are custom quoted. Setup is a one-time fee scoped to your data migration.
+
+**Is there a contract?** No. Every Avolv customer is on a month-to-month subscription and can cancel any time.
+
+**Does Avolv sync with QuickBooks?** Yes. Invoices generated from the schedule push into QuickBooks Online line by line, and payments post back against the right invoice automatically. Both systems show the same number.
+
+**Can Avolv migrate my data from Skimmer or another platform?** Yes. Every account, every history record, and every recurring schedule gets moved and reconciled against QuickBooks before you rely on it. Resort Pool Services moved 988 pools with zero days of route downtime.
+
+**Where does Avolv operate?** Avolv is sold across the United States. The company is based in Apollo Beach, Florida, in the Tampa Bay area.
+
+**Who runs Avolv?** Shane James, the founder, runs sales, onboarding, and support. Customers get the founder on the phone.

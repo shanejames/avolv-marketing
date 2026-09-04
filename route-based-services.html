@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route-Based Field Service Software | Lawn, Pest, Wash | Avolv</title>
+  <meta name="description" content="One system for route-based home service businesses. Lawn care, pest control, pressure washing, and any recurring route where drive time is your margin killer.">
+  <link rel="canonical" href="https://avolv.ai/route-based-services.html">
+
+  <meta property="og:title" content="Route-Based Field Service Software | Avolv">
+  <meta property="og:description" content="Same platform that runs 988 pools every week. Built for any route-based home service where drive time, recurring billing, and one honest number matter more than a fancy vertical label.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/route-based-services.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://avolv.ai/#organization",
+        "name": "Avolv.ai",
+        "url": "https://avolv.ai/",
+        "logo": "https://app.avolv.ai/avolv-logo.png",
+        "email": "sales@avolv.ai",
+        "telephone": "+1-813-519-6910",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5914 Menorca Lane",
+          "addressLocality": "Apollo Beach",
+          "addressRegion": "FL",
+          "postalCode": "33572",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://avolv.ai/route-based-services.html#webpage",
+        "url": "https://avolv.ai/route-based-services.html",
+        "name": "Route-Based Field Service Software",
+        "description": "Field service software for lawn care, pest control, pressure washing, and other route-based home service businesses.",
+        "isPartOf": {"@id": "https://avolv.ai/#website"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avolv.ai/"},
+          {"@type": "ListItem", "position": 2, "name": "Route-Based Services", "item": "https://avolv.ai/route-based-services.html"}
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://avolv.ai/route-based-services.html#service",
+        "name": "Route-Based Field Service Software",
+        "serviceType": "Field Service Management Software",
+        "category": "Business Software",
+        "provider": {"@id": "https://avolv.ai/#organization"},
+        "areaServed": {"@type": "Country", "name": "United States"},
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Lawn care, pest control, pressure washing, and other route-based home service companies"
+        },
+        "description": "One system for recurring route-based home service businesses. Drive-time route optimization, offline-first mobile field app, recurring billing with autopay, QuickBooks Online sync, AI receptionist. Same platform that runs 988-pool routes in Florida.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "Priced per service location, month to month, no contract.",
+          "availability": "https://schema.org/InStock",
+          "seller": {"@id": "https://avolv.ai/#organization"}
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Avolv have vertical-specific features for pest control or lawn care?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avolv is a route-based field service platform first. The deepest vertical work today is pool service, where we run 988-pool routes. For pest control, lawn care, and pressure washing, the platform gives you the same route engine, recurring billing, mobile app, and QuickBooks sync. If you need something specific to your trade, we build it. Simon at Resort asked for supply catalog purchasing and got it. That model works for any vertical."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which route-based businesses does Avolv work best for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any recurring service on a route where drive time, recurring billing, and reconciling to QuickBooks matter more than a shiny vertical badge. Today: lawn care, landscaping, pest control, pressure washing, window cleaning, HOA services, and other route-based home services."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from Jobber or Housecall Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jobber and Housecall Pro are broad. They serve one-time and recurring jobs across many trades but stop where the specific work gets specific. Avolv is built around recurring route economics: drive-time optimization, chemical or supply P&L per stop, real QuickBooks reconciliation, an AI receptionist that quotes from a photo or video, and a bench of supervisors that can be paged by SMS when a tech has a question."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Priced per service location, month to month, no contract. Most operators pay less than they were paying for their old scheduler plus QuickBooks combined. Setup is a one-time fee scoped to your data migration. See the pricing page for ranges."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--av-page);
+      color: var(--av-text);
+      line-height: 1.6;
+    }
+    a { color: var(--av-blue-600); text-decoration: none; }
+    a:hover { color: var(--av-blue-700); }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--av-navy) 0%, var(--av-navy-700) 100%);
+      color: #fff;
+      padding: 96px 0 80px;
+    }
+    .hero .eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(147, 197, 253, 0.15);
+      border: 1px solid rgba(147, 197, 253, 0.3);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--av-blue-300);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero p.lede {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 720px;
+    }
+    .hero .trades {
+      margin-top: 32px;
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .hero .trade-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Honest note */
+    .honest {
+      background: var(--av-surface);
+      border-top: 1px solid var(--av-border);
+      border-bottom: 1px solid var(--av-border);
+      padding: 48px 0;
+    }
+    .honest-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--av-blue-50);
+      border-left: 4px solid var(--av-blue-600);
+      padding: 24px 28px;
+      border-radius: 10px;
+    }
+    .honest-inner h3 { color: var(--av-heading); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; }
+    .honest-inner p { color: var(--av-text); font-size: 1rem; }
+
+    /* Sections */
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--av-surface); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--av-heading);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .section-header p { color: var(--av-muted); font-size: 1.0625rem; }
+
+    /* Why route-based */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .why-card {
+      background: var(--av-surface);
+      border: 1px solid var(--av-border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .why-card h3 {
+      color: var(--av-heading);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      color: var(--av-muted);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    @media (max-width: 760px) { .why-grid { grid-template-columns: 1fr; } }
+
+    /* Proof */
+    .proof {
+      background: var(--av-navy);
+      color: #fff;
+      padding: 80px 0;
+    }
+    .proof-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .proof-num {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--av-blue-300);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .proof-inner h2 {
+      color: #fff;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .proof-inner p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.0625rem;
+      margin-bottom: 24px;
+    }
+    .proof-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--av-blue-300);
+      font-weight: 700;
+    }
+    .proof-link:hover { color: #fff; }
+
+    /* Trades */
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .trade-card {
+      background: var(--av-surface);
+      border: 1px solid var(--av-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .trade-card h3 { color: var(--av-heading); font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; }
+    .trade-card p { color: var(--av-muted); font-size: 0.9375rem; line-height: 1.55; }
+    @media (max-width: 760px) { .trades-grid { grid-template-columns: 1fr; } }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--av-page);
+      border: 1px solid var(--av-border);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .section-alt .faq-item { background: var(--av-surface); }
+    .faq-item h3 { color: var(--av-heading); font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; }
+    .faq-item p { color: var(--av-muted); font-size: 0.9375rem; line-height: 1.65; }
+
+    /* CTA */
+    .cta {
+      background: var(--av-navy);
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .cta p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.0625rem;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .cta-buttons {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; border-radius: 10px;
+      font-weight: 700; font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--av-blue-600); color: #fff; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35); }
+    .btn-primary:hover { background: var(--av-blue-700); color: #fff; }
+    .btn-secondary { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
+
+    /* Footer */
+    footer {
+      background: var(--av-navy);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0 32px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; align-items: center; }
+    footer a { color: rgba(255, 255, 255, 0.7); }
+    footer a:hover { color: var(--av-blue-300); }
+    .footer-address { font-style: normal; font-size: 13px; line-height: 1.7; color: rgba(255, 255, 255, 0.6); }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Route-Based Field Service</span>
+      <h1>One system for every route-based home service business.</h1>
+      <p class="lede">Lawn care, pest control, pressure washing, HOA services, window cleaning. If your business is a truck, a route, and a book of recurring customers, this is built for you.</p>
+      <div class="trades">
+        <span class="trade-chip">Lawn &amp; Landscaping</span>
+        <span class="trade-chip">Pest Control</span>
+        <span class="trade-chip">Pressure Washing</span>
+        <span class="trade-chip">Window Cleaning</span>
+        <span class="trade-chip">HOA Services</span>
+        <span class="trade-chip">Any recurring route</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honest note -->
+  <section class="honest">
+    <div class="container">
+      <div class="honest-inner">
+        <h3>Where Avolv is deepest today</h3>
+        <p>Avolv's most-battle-tested vertical is pool service, where we run 988-pool routes. For lawn, pest, and pressure washing, the platform gives you the same route engine, mobile app, billing, and QuickBooks sync. If your trade needs something specific, I build it. That is how supply catalog purchasing, chemical P&amp;L, and Ask the Supervisor got built for Simon at Resort. Same model works for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why route-based -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why route-based businesses need different software</h2>
+        <p>Generic field service tools serve one-time and recurring jobs across every trade. Route-based operators need the four things below or the math stops working.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Drive time is your margin</h3>
+          <p>A twelve-stop route with tight zones prints money. The same twelve stops scattered across three towns loses money. Avolv's routing is built from where your trucks actually drive, not from straight lines on a map.</p>
+        </div>
+        <div class="why-card">
+          <h3>Recurring beats one-time</h3>
+          <p>Weekly, biweekly, monthly, quarterly. Recurring plans on autopay are the difference between a business and a hustle. Avolv is built recurring-first with card and bank on file, autopay schedules, and payments that reconcile back to the right invoice on their own.</p>
+        </div>
+        <div class="why-card">
+          <h3>The mobile app has to work offline</h3>
+          <p>Your techs lose signal in backyards, behind commercial buildings, and in every parking garage that ever existed. Avolv's field app is offline-first, bilingual (EN/ES), and syncs when signal comes back instead of losing the visit.</p>
+        </div>
+        <div class="why-card">
+          <h3>One number, not four</h3>
+          <p>The scheduler, the QuickBooks file, the texting app, and the spreadsheet all disagree with each other. Avolv is one system. Invoices generated from the schedule push into QuickBooks line by line. Payments post back automatically. Both systems show the same number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof">
+    <div class="container">
+      <div class="proof-inner">
+        <div class="proof-num">988</div>
+        <h2>The same platform runs 988-pool routes every week.</h2>
+        <p>Resort Pool Services moved 988 accounts off Skimmer to Avolv with zero days of route downtime and reconciled $370,779 of invoicing to a $580 variance. That is the same engine that will run your lawn, pest, or pressure washing route.</p>
+        <a class="proof-link" href="/case-studies/resort-pool-services.html">
+          Read the Resort case study
+          <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trades -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>How it fits your trade</h2>
+        <p>Same engine. Different service catalog and different recurring cadence per business.</p>
+      </div>
+      <div class="trades-grid">
+        <div class="trade-card">
+          <h3>Lawn &amp; Landscaping</h3>
+          <p>Weekly mow routes with add-ons for seasonal services (fertilizer, mulch, cleanups). Weather-based rescheduling, recurring billing on the mow book, one-time invoicing on installs.</p>
+        </div>
+        <div class="trade-card">
+          <h3>Pest Control</h3>
+          <p>Quarterly or monthly recurring plans, one-time treatments, service catalog per pest, technician mobile app for logging applications and photos. Autopay on every recurring plan.</p>
+        </div>
+        <div class="trade-card">
+          <h3>Pressure Washing</h3>
+          <p>Photo-driven quoting (the customer texts a picture, the AI drafts an estimate), one-time and seasonal recurring, weather-based rescheduling, deposit-on-booking optional.</p>
+        </div>
+        <div class="trade-card">
+          <h3>Window Cleaning</h3>
+          <p>Recurring residential and commercial routes, per-window or per-hour pricing, before/after photos attached to the stop for the customer record.</p>
+        </div>
+        <div class="trade-card">
+          <h3>HOA &amp; Property Management</h3>
+          <p>Multi-location accounts, one master customer with dozens of stops, one invoice consolidated across the properties, monthly billing cycle aligned to their close.</p>
+        </div>
+        <div class="trade-card">
+          <h3>Something else route-based?</h3>
+          <p>If your business is a truck, a route, and recurring customers, it's likely a fit. Fifteen minutes on a call and I will tell you honestly whether Avolv is for you or not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Common questions</h2>
+        <p>What operators in these trades ask before they call.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Does Avolv have vertical-specific features for pest control or lawn care?</h3>
+          <p>Avolv is a route-based field service platform first. The deepest vertical work today is pool service, where we run 988-pool routes. For pest, lawn, and pressure washing, you get the same route engine, mobile app, billing, and QuickBooks sync. If you need something specific to your trade, I build it. Simon at Resort asked for supply catalog purchasing and got it. That model works for any vertical.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which route-based businesses does Avolv work best for?</h3>
+          <p>Any recurring service on a route where drive time, recurring billing, and reconciling to QuickBooks matter more than a shiny vertical badge. Today: lawn care, landscaping, pest control, pressure washing, window cleaning, HOA services, and other route-based home services.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is this different from Jobber or Housecall Pro?</h3>
+          <p>Jobber and Housecall Pro are broad. They serve one-time and recurring jobs across many trades but stop where the specific work gets specific. Avolv is built around recurring route economics: drive-time optimization, chemical or supply P&amp;L per stop, real QuickBooks reconciliation, an AI receptionist that quotes from a photo or video, and a bench of supervisors that can be paged by SMS when a tech has a question.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much does it cost?</h3>
+          <p>Priced per service location, month to month, no contract. Most operators pay less than they were paying for their old scheduler plus QuickBooks combined. Setup is a one-time fee scoped to your data migration. <a href="/pricing.html">See pricing</a> for ranges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Show me your route.</h2>
+      <p>Fifteen minutes and I'll tell you honestly whether Avolv is a fit for your trade. If it's not, I'll say so.</p>
+      <div class="cta-buttons">
+        <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+        <a href="tel:8135196910" class="btn btn-secondary">
+          <i data-lucide="phone" style="width:18px;height:18px"></i>
+          (813) 519-6910
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div>
+        <div>&copy; 2026 Avolv.ai. All rights reserved.</div>
+        <address class="footer-address" style="margin-top:8px;">
+          Avolv.ai · 5914 Menorca Lane · Apollo Beach, FL 33572<br>
+          <a href="tel:8135196910">(813) 519-6910</a> ·
+          <a href="mailto:sales@avolv.ai">sales@avolv.ai</a> ·
+          <a href="mailto:support@avolv.ai">support@avolv.ai</a>
+        </address>
+      </div>
+      <div>
+        <a href="/">Home</a> &middot;
+        <a href="/pricing.html">Pricing</a> &middot;
+        <a href="/pools.html">Pool Services</a> &middot;
+        <a href="/cleaning.html">Cleaning</a> &middot;
+        <a href="/case-studies/resort-pool-services.html">Case Studies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();</script>
+</body>
+</html>
