@@ -20,6 +20,8 @@ Pricing is per service location, month to month, with no contract. A one-time se
 
 - [Home](https://avolv.ai/): Product overview
 - [Pool Services](https://avolv.ai/pools.html): Field service software for pool service companies (deepest vertical)
+- [Watch the Demo](https://avolv.ai/demo/): 3-minute interactive walkthrough of Avolv running a real pool service company (Crystal Blue Pools, 420 accounts). Vertical picker routes to industry-specific demos.
+- [Pool Service Demo](https://avolv.ai/demo/pool/): The full 3-minute walkthrough showing dispatch board, AI receptionist, 60-second quotes from a customer text, chemistry from a photo of the meter, live customer tracking, and the Owner's Brief.
 - [Cleaning](https://avolv.ai/cleaning.html): Field service software for residential and commercial cleaning companies
 - [Route-Based Services](https://avolv.ai/route-based-services.html): Field service software for lawn, pest, pressure washing, and other route-based home services
 - [Pricing](https://avolv.ai/pricing.html): Per-location subscription pricing, setup fees, what is included

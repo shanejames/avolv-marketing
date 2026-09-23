@@ -77,7 +77,7 @@
             '<a class="' + act("/route-based-services.html").trim() + '" href="/route-based-services.html"><span class="av-ic">\uD83D\uDE9A</span> Route-Based Services</a>' +
             '<a href="https://app.avolv.ai/industries/home-services"><span class="av-ic">\uD83D\uDD27</span> Home Services</a>' +
           '</div></div>' +
-          '<a class="av-emer" href="https://app.avolv.ai/demo">Demo</a>' +
+          '<a class="av-emer' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html"><span class="av-ic">\uD83C\uDFCA</span> vs Skimmer</a>' +
@@ -86,7 +86,6 @@
             '<a class="' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html"><span class="av-ic">\uD83C\uDFEB</span> vs ServiceTitan</a>' +
             '<a class="' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html"><span class="av-ic">\uD83D\uDC1C</span> vs FieldRoutes</a>' +
           '</div></div>' +
-          '<a class="av-purp" href="https://app.avolv.ai/prompt-genius">Prompt Genius</a>' +
           '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
         '</div>' +
         '<div class="av-right"><a class="av-login" href="https://app.avolv.ai/login">Log In</a><a class="av-cta" href="/get-started.html">Get Started</a></div>' +
