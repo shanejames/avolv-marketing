@@ -58,8 +58,10 @@
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "USD",
+          "lowPrice": "175",
+          "highPrice": "600",
           "offerCount": "3",
-          "description": "Monthly subscription priced per service location. Month to month, no contract. One-time setup fee based on data migration complexity. Contact for pricing.",
+          "description": "Monthly subscription priced per service location. Month to month, no contract. One-time setup fee based on data migration complexity.",
           "availability": "https://schema.org/InStock",
           "seller": {"@id": "https://avolv.ai/#organization"}
         }
@@ -213,6 +215,7 @@
     .tiers-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      align-items: start;
       gap: 20px;
     }
     .tier {
@@ -483,8 +486,8 @@
         </div>
         <div class="model-card">
           <div class="model-icon"><i data-lucide="package" style="width:22px;height:22px"></i></div>
-          <h3>Everything, one price</h3>
-          <p>AI receptionist, mobile app, scheduling, routing, invoicing, payments, QuickBooks sync, marketing, reporting. Not modules. Not tiers. All of it.</p>
+          <h3>Priced by your book, not your seat</h3>
+          <p>Three tiers scale with your service location count. Every tech, every dispatcher, every truck is included at every tier. You pay for the size of the business, not the size of the team.</p>
         </div>
       </div>
     </div>
@@ -494,22 +497,30 @@
   <section class="tiers">
     <div class="container">
       <div class="section-header">
-        <h2>Three tiers by route size</h2>
-        <p>Pick the tier that fits your operation. Exact quote after a 15-minute call and a look at your route.</p>
+        <h2>Rough ranges by route size</h2>
+        <p>These are honest starting points. Exact quote after a 15-minute call and a look at your route.</p>
       </div>
       <div class="tiers-grid">
         <div class="tier">
           <div class="tier-name">Route</div>
           <div class="tier-desc">One-truck operator or a small crew running under 200 service locations.</div>
-          <div class="tier-price-line">Priced per location</div>
-          <div class="tier-price-note">All features included. Get a quote based on your route.</div>
+          <div class="tier-price-line">$175 to $350/mo</div>
+          <div class="tier-price-note">Per-location model. Everything you need to run a single-truck route.</div>
           <ul>
             <li>Unlimited users, techs, dispatchers</li>
-            <li>Full mobile field app</li>
-            <li>AI receptionist and SMS quoting</li>
+            <li>Dispatch board with route optimization</li>
+            <li>Full mobile field app (offline-first)</li>
+            <li>Bilingual EN/ES (field and customer)</li>
+            <li>Pool chemistry with AI meter scanning</li>
+            <li>SMS quoting from a photo or video</li>
+            <li>Voice-to-invoice from the truck</li>
+            <li>Photo attachments per stop</li>
+            <li>Online booking and customer portal</li>
             <li>QuickBooks Online sync</li>
-            <li>Recurring billing and autopay</li>
-            <li>Route optimization</li>
+            <li>Stripe payments and auto-pay</li>
+            <li>Recurring billing</li>
+            <li>A2P SMS compliance handled for you</li>
+            <li>Google review collection</li>
           </ul>
           <a href="/get-started.html" class="tier-cta">Get a Quote</a>
         </div>
@@ -517,15 +528,35 @@
         <div class="tier featured">
           <div class="tier-name">Fleet</div>
           <div class="tier-desc">Growing operation with multiple trucks and 200 to 700 service locations.</div>
-          <div class="tier-price-line">Priced per location</div>
+          <div class="tier-price-line">$350 to $600/mo</div>
           <div class="tier-price-note">Where most Avolv customers land today.</div>
           <ul>
-            <li>Everything in Route</li>
+            <li>Unlimited users, techs, dispatchers</li>
+            <li>Dispatch board with route optimization</li>
+            <li>Full mobile field app (offline-first)</li>
+            <li>Bilingual EN/ES (field and customer)</li>
+            <li>Pool chemistry with AI meter scanning</li>
+            <li>SMS quoting from a photo or video</li>
+            <li>Voice-to-invoice from the truck</li>
+            <li>Photo attachments per stop</li>
+            <li>Online booking and customer portal</li>
+            <li>QuickBooks Online sync</li>
+            <li>Stripe payments and auto-pay</li>
+            <li>Recurring billing</li>
+            <li>A2P SMS compliance handled for you</li>
+            <li>Google review collection</li>
+            <li><strong>AI receptionist that answers every call (24/7, bilingual)</strong></li>
+            <li>Inbound SMS routing with AI classification</li>
+            <li>Follow-up sequences and review generation</li>
             <li>Territory checks and drive-time optimization</li>
             <li>Chemical P&amp;L with labor burden</li>
             <li>Owner's Brief daily dashboard</li>
-            <li>Follow-up sequences and reviews on autopilot</li>
-            <li>Bilingual EN/ES field app</li>
+            <li>Pipeline CRM with proposals and e-sign</li>
+            <li>Marketing campaigns and website audits</li>
+            <li>Community Listener (Reddit prospect discovery)</li>
+            <li>Cold calling queue with scripts</li>
+            <li>Technician tracking (with consent)</li>
+            <li>Time tracking and expenses</li>
           </ul>
           <a href="/get-started.html" class="tier-cta">Get a Quote</a>
         </div>
@@ -533,51 +564,45 @@
         <div class="tier">
           <div class="tier-name">Enterprise Route</div>
           <div class="tier-desc">Multi-crew operation with 700+ service locations, HOAs, or property management.</div>
-          <div class="tier-price-line">Custom, priced per location</div>
+          <div class="tier-price-line">Get a Quote</div>
           <div class="tier-price-note">Resort Pool Services runs Avolv at this scale.</div>
           <ul>
-            <li>Everything in Fleet</li>
+            <li>Unlimited users, techs, dispatchers</li>
+            <li>Dispatch board with route optimization</li>
+            <li>Full mobile field app (offline-first)</li>
+            <li>Bilingual EN/ES (field and customer)</li>
+            <li>Pool chemistry with AI meter scanning</li>
+            <li>SMS quoting from a photo or video</li>
+            <li>Voice-to-invoice from the truck</li>
+            <li>Photo attachments per stop</li>
+            <li>Online booking and customer portal</li>
+            <li>QuickBooks Online sync</li>
+            <li>Stripe payments and auto-pay</li>
+            <li>Recurring billing</li>
+            <li>A2P SMS compliance handled for you</li>
+            <li>Google review collection</li>
+            <li>AI receptionist that answers every call (24/7, bilingual)</li>
+            <li>Inbound SMS routing with AI classification</li>
+            <li>Follow-up sequences and review generation</li>
+            <li>Territory checks and drive-time optimization</li>
+            <li>Chemical P&amp;L with labor burden</li>
+            <li>Owner's Brief daily dashboard</li>
+            <li>Pipeline CRM with proposals and e-sign</li>
+            <li>Marketing campaigns and website audits</li>
+            <li>Community Listener (Reddit prospect discovery)</li>
+            <li>Cold calling queue with scripts</li>
+            <li>Technician tracking (with consent)</li>
+            <li>Time tracking and expenses</li>
             <li>Ask the Supervisor SMS bench</li>
-            <li>Partner/Service Network for repair dispatch</li>
+            <li>Ask module (tenant knowledge base and Q&amp;A)</li>
+            <li>Partner / Service Network (cross-tenant repair dispatch)</li>
             <li>Per-tenant email sending domain</li>
-            <li>Supply catalog purchasing</li>
+            <li>Supply Catalog purchasing</li>
+            <li>Website Builder (Groq or Claude Sonnet)</li>
+            <li>Skimmer or custom migration pipeline</li>
             <li>Direct build access when you need something</li>
           </ul>
-          <a href="/get-started.html" class="tier-cta">Talk to Shane</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What's included -->
-  <section class="included">
-    <div class="container">
-      <div class="included-inner">
-        <div class="section-header" style="margin-bottom:20px;">
-          <h2>What's included in every plan</h2>
-          <p>Not add-ons. Not upsells. This is the platform.</p>
-        </div>
-        <div class="included-grid">
-          <div class="included-item">AI receptionist that answers every call</div>
-          <div class="included-item">Online booking that lands on the route</div>
-          <div class="included-item">SMS quoting from a photo or video</div>
-          <div class="included-item">Route optimization with drive-time</div>
-          <div class="included-item">Offline-first mobile app (EN/ES)</div>
-          <div class="included-item">Pool chemistry logging</div>
-          <div class="included-item">Recurring billing with autopay</div>
-          <div class="included-item">Card and bank on file, Stripe Connect</div>
-          <div class="included-item">QuickBooks Online line-by-line sync</div>
-          <div class="included-item">Owner's Brief dashboard</div>
-          <div class="included-item">Follow-up sequences and reviews</div>
-          <div class="included-item">Website builder with AI content</div>
-          <div class="included-item">Marketing campaigns module</div>
-          <div class="included-item">Proposals, contracts, e-signature</div>
-          <div class="included-item">Pipeline CRM with AI classification</div>
-          <div class="included-item">Voice-to-invoice from the truck</div>
-          <div class="included-item">Photo attachments per stop</div>
-          <div class="included-item">Technician tracking with consent</div>
-          <div class="included-item">A2P SMS compliance handled for you</div>
-          <div class="included-item">Per-tenant email domain</div>
+          <a href="/get-started.html" class="tier-cta">Get a Quote</a>
         </div>
       </div>
     </div>
