@@ -185,3 +185,9 @@
   .grid-2, .grid-3, .plans { grid-template-columns: 1fr; }
   .grid-4, .stats-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Check list + numbered badge (used on landing pages) */
+.checklist { list-style: none; }
+.checklist li { padding-left: 26px; position: relative; color: var(--av-text); font-size: .92rem; margin-bottom: 9px; line-height: 1.45; }
+.checklist li::before { content: '\2713'; position: absolute; left: 0; color: var(--av-blue-600); font-weight: 800; }
+.badge-num { width: 38px; height: 38px; border-radius: 10px; background: var(--av-blue-600); color: #fff; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: .95rem; }
