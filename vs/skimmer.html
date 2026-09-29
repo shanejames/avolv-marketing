@@ -235,6 +235,17 @@
     footer a { color: rgba(255,255,255,0.7); }
     footer a:hover { color: var(--av-blue-300); }
     .footer-address { font-style: normal; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+    /* Everything-Avolv feature grid */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .feature-cat { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 14px; padding: 24px; }
+    .feature-cat h3 { color: var(--av-heading); font-size: 1rem; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .feature-cat h3 .ic { color: var(--av-blue-600); display: inline-flex; }
+    .feature-cat ul { list-style: none; }
+    .feature-cat li { padding-left: 22px; position: relative; color: var(--av-text); font-size: 0.9rem; margin-bottom: 9px; line-height: 1.45; }
+    .feature-cat li::before { content: '\2713'; position: absolute; left: 0; color: var(--av-blue-600); font-weight: 800; }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -350,6 +361,100 @@
         </table>
       </div>
       <p class="compare-note">Skimmer figures reflect its public pricing and product pages as of September 2026. Confirm current terms with Skimmer before you decide.</p>
+    </div>
+  </section>
+
+  <!-- Everything Avolv does -->
+  <section class="section" id="everything">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything Avolv does</h2>
+        <p>The pool operations are the starting point. This is the rest of the business, running in the same system.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="bot" style="width:20px;height:20px"></i></span> AI that works the phones and the field</h3>
+          <ul>
+            <li>AI voice receptionist that answers, checks the calendar, and books the job</li>
+            <li>Ask Avolv assistant with voice commands and instant answers on any account</li>
+            <li>Ask the Supervisor SMS bench for techs in the field</li>
+            <li>AI meter scanning for chemistry, plus ORP alerts read off the photo</li>
+            <li>Voice-to-invoice and voice notes</li>
+            <li>Video and text to estimate</li>
+            <li>Website audits graded for Google and AI-assistant visibility</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="route" style="width:20px;height:20px"></i></span> Scheduling and the field</h3>
+          <ul>
+            <li>GPS route optimization and territory check</li>
+            <li>Dispatch board and field calendar</li>
+            <li>Pool coverage with bulk editing and tech and day filters</li>
+            <li>Service frequency library</li>
+            <li>Technician location tracking with consent</li>
+            <li>Offline-first mobile app, bilingual English and Spanish</li>
+            <li>Live-camera proof only, native iOS and Android app in progress</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="credit-card" style="width:20px;height:20px"></i></span> Billing and money</h3>
+          <ul>
+            <li>QuickBooks Online sync with line-by-line reconciliation</li>
+            <li>Stripe card payments and auto-pay</li>
+            <li>Invoice approval routing and check image masking</li>
+            <li>Multi-invoice check splitting</li>
+            <li>Chemical P&amp;L with labor burden</li>
+            <li>Supply catalog purchasing</li>
+            <li>Expenses tracking</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="trending-up" style="width:20px;height:20px"></i></span> Sales, CRM, and growth</h3>
+          <ul>
+            <li>Pipeline CRM with drag-and-drop deals</li>
+            <li>Proposals and contracts with e-signature</li>
+            <li>Two-way estimate conversations over SMS and email</li>
+            <li>Marketing campaigns and follow-up sequences</li>
+            <li>Surveys, review requests, and Google reviews</li>
+            <li>Booking and online booking</li>
+            <li>Website builder and prospect discovery</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="message-square" style="width:20px;height:20px"></i></span> Communications</h3>
+          <ul>
+            <li>Per-tenant email sending domains with bounce management</li>
+            <li>A2P-compliant SMS</li>
+            <li>Bilingual translated messaging and voice notes</li>
+            <li>Branded contact forms</li>
+            <li>Inbox parsing from Angi, Thumbtack, and Gmail</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="network" style="width:20px;height:20px"></i></span> Repairs and service network</h3>
+          <ul>
+            <li>Cross-tenant partner repair dispatch</li>
+            <li>Customer portal with an Issue button, built for every vertical</li>
+            <li>Repair work orders with SCP and Pool360 ordering</li>
+          </ul>
+        </div>
+
+        <div class="feature-cat">
+          <h3><span class="ic"><i data-lucide="database" style="width:20px;height:20px"></i></span> Data and onboarding</h3>
+          <ul>
+            <li>Skimmer import with dedupe and reconciliation</li>
+            <li>Full migration tooling, quoted upfront</li>
+            <li>Avolv University training</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 
