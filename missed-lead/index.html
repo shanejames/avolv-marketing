@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Losing Leads to Voicemail | Avolv.ai</title>
+  <meta name="description" content="A customer texts. Avolv answers, quotes, and books the job in seconds. Speed-to-lead for pool and home service companies.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stop losing leads to voicemail | Avolv.ai">
+  <meta property="og:description" content="A customer texts. Avolv answers, quotes, and books the job in seconds.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/lp/missed-lead/">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--av-page);
+      color: var(--av-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { color: var(--av-heading); letter-spacing: -0.02em; line-height: 1.12; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 72px 0 64px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--av-blue-100); color: var(--av-blue-700);
+      font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 52px; font-weight: 800; }
+    .hero .lede { color: var(--av-muted); font-size: 19px; margin-top: 18px; max-width: 30em; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn-primary {
+      background: var(--av-blue-600); color: var(--av-on-accent);
+      padding: 15px 26px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px var(--av-glow); transition: background 0.2s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    .btn-primary:hover { background: var(--av-blue-700); }
+    .btn-ghost {
+      background: var(--av-surface); color: var(--av-text);
+      padding: 15px 24px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--av-border-strong); transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: var(--av-surface-2); }
+    .hero-trust { margin-top: 22px; color: var(--av-faint); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+
+    /* ---------- Phone / SMS mockup ---------- */
+    .phone-wrap { display: flex; justify-content: center; }
+    .phone {
+      width: 320px; background: var(--av-navy); border-radius: 44px;
+      padding: 12px; box-shadow: var(--av-shadow-lg);
+    }
+    .phone-screen { background: var(--av-surface); border-radius: 34px; overflow: hidden; }
+    .phone-status {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 22px 6px; font-size: 13px; font-weight: 700; color: var(--av-heading);
+    }
+    .phone-status .dots { display: flex; gap: 5px; align-items: center; color: var(--av-faint); }
+    .sms-head {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 18px 12px; border-bottom: 1px solid var(--av-border);
+    }
+    .sms-avatar {
+      width: 38px; height: 38px; border-radius: 50%; background: var(--av-blue-100);
+      color: var(--av-blue-700); display: flex; align-items: center; justify-content: center;
+    }
+    .sms-head .who { font-size: 15px; font-weight: 700; color: var(--av-heading); }
+    .sms-head .sub { font-size: 12px; color: var(--av-faint); }
+    .sms-body { padding: 16px 16px 20px; background: var(--av-page); }
+    .bubble {
+      max-width: 82%; padding: 10px 14px; border-radius: 18px; font-size: 14.5px;
+      margin-bottom: 10px; line-height: 1.45;
+    }
+    .bubble.in { background: var(--av-surface); color: var(--av-text); border: 1px solid var(--av-border); border-bottom-left-radius: 6px; }
+    .bubble.out { background: var(--av-blue-600); color: var(--av-on-accent); margin-left: auto; border-bottom-right-radius: 6px; }
+    .who-tag { font-size: 11px; font-weight: 700; text-transform: none; margin-bottom: 4px; opacity: 0.75; }
+    .video-chip {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+      background: var(--av-surface-3); color: var(--av-muted);
+      font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 8px;
+    }
+    .booked-pill {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--av-blue-100); color: var(--av-blue-700);
+      font-weight: 700; font-size: 13.5px; padding: 10px 14px; border-radius: 12px;
+      margin: 6px auto 0; width: fit-content;
+    }
+
+    /* ---------- Problem band ---------- */
+    .band { background: var(--av-navy); color: var(--av-on-accent); padding: 56px 0; }
+    .band h2 { color: var(--av-on-accent); font-size: 32px; max-width: 18em; }
+    .band p { color: var(--av-blue-100); font-size: 18px; margin-top: 16px; max-width: 42em; }
+    .band .stat { margin-top: 26px; padding-left: 18px; border-left: 3px solid var(--av-blue-400); }
+    .band .stat b { display: block; font-size: 26px; color: var(--av-blue-300); font-weight: 800; letter-spacing: -0.02em; }
+    .band .stat span { display: block; color: var(--av-blue-100); font-size: 16px; max-width: 34em; margin-top: 6px; }
+
+    /* ---------- Steps ---------- */
+    .section { padding: 72px 0; }
+    .section-head { max-width: 34em; margin-bottom: 44px; }
+    .section-head h2 { font-size: 34px; }
+    .section-head p { color: var(--av-muted); font-size: 18px; margin-top: 14px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step {
+      background: var(--av-surface); border: 1px solid var(--av-border);
+      border-radius: 16px; padding: 28px; box-shadow: var(--av-shadow-sm);
+    }
+    .step .num {
+      width: 40px; height: 40px; border-radius: 10px; background: var(--av-blue-600);
+      color: var(--av-on-accent); font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .step h3 { font-size: 20px; }
+    .step p { color: var(--av-muted); margin-top: 10px; font-size: 15.5px; }
+
+    /* ---------- Benefits ---------- */
+    .benefits { background: var(--av-surface-2); }
+    .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .benefit {
+      background: var(--av-surface); border: 1px solid var(--av-border);
+      border-radius: 14px; padding: 24px;
+    }
+    .benefit .ic {
+      width: 42px; height: 42px; border-radius: 10px; background: var(--av-blue-100);
+      color: var(--av-blue-700); display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+    }
+    .benefit h3 { font-size: 17px; }
+    .benefit p { color: var(--av-muted); margin-top: 8px; font-size: 14.5px; }
+
+    /* ---------- Proof ---------- */
+    .proof { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 18px; padding: 36px 40px; box-shadow: var(--av-shadow-sm); }
+    .proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+    .proof blockquote { font-size: 20px; color: var(--av-heading); font-weight: 600; max-width: 30em; }
+    .proof cite { display: block; font-style: normal; color: var(--av-faint); font-size: 14px; margin-top: 12px; font-weight: 600; }
+    .proof a.read { color: var(--av-blue-700); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+    /* ---------- Form ---------- */
+    .form-section { padding: 76px 0 88px; }
+    .form-wrap { max-width: 620px; margin: 0 auto; }
+    .form-hero { text-align: center; margin-bottom: 32px; }
+    .form-hero h2 { font-size: 34px; }
+    .form-hero p { color: var(--av-muted); margin-top: 12px; font-size: 17px; }
+    .form-card { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 36px; box-shadow: var(--av-shadow); }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: 14px; font-weight: 600; color: var(--av-heading); margin-bottom: 8px; }
+    .field label .req { color: var(--av-blue-600); }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--av-border-strong); background: var(--av-page); color: var(--av-text);
+      font-family: inherit; font-size: 15px; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--av-faint); }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--av-blue-500); box-shadow: 0 0 0 3px var(--av-glow);
+    }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .submit-btn {
+      width: 100%; background: var(--av-blue-600); color: var(--av-on-accent); border: none;
+      padding: 15px 20px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      font-family: inherit; cursor: pointer; transition: background 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 4px 14px var(--av-glow);
+    }
+    .submit-btn:hover { background: var(--av-blue-700); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-foot-note { text-align: center; color: var(--av-muted); font-size: 13px; margin-top: 16px; }
+    .form-foot-note a { color: var(--av-blue-700); font-weight: 600; }
+    .form-error { display: none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); color: #b91c1c; border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-bottom: 18px; }
+    .success { display: none; text-align: center; background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 56px 36px; box-shadow: var(--av-shadow); }
+    .success .check { width: 64px; height: 64px; border-radius: 50%; background: var(--av-blue-100); color: var(--av-blue-700); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .success h2 { font-size: 26px; margin-bottom: 10px; }
+    .success p { color: var(--av-muted); max-width: 420px; margin: 0 auto 24px; }
+    .success .call { color: var(--av-blue-700); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--av-surface); border-top: 1px solid var(--av-border); padding: 40px 0; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--av-faint); }
+    .footer-bottom-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-bottom-links a { color: var(--av-muted); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--av-text); }
+    .footer-bottom-links .phone { color: var(--av-blue-700); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 40px; }
+      .phone-wrap { order: -1; }
+      .steps { grid-template-columns: 1fr; }
+      .benefit-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 48px 0 40px; }
+      .hero h1 { font-size: 34px; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 24px 20px; }
+      .proof-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal site header (edit /site-header.js to change nav everywhere) -->
+  <script src="/site-header.js"></script>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><i data-lucide="message-square-text" style="width:15px;height:15px"></i> The missed lead</span>
+          <h1>Stop losing leads to voicemail.</h1>
+          <p class="lede">A customer texts. Avolv reads it, sends a quote, and books the job into your real schedule. You find out when it is on the calendar.</p>
+          <div class="hero-cta">
+            <a href="#start" class="btn-primary">See it on your business <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+            <a href="tel:8135196910" class="btn-ghost"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a>
+          </div>
+          <p class="hero-trust"><i data-lucide="clock" style="width:16px;height:16px"></i> Answers in seconds, any hour, without you touching your phone.</p>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="dots"><i data-lucide="signal" style="width:15px;height:15px"></i><i data-lucide="wifi" style="width:15px;height:15px"></i><i data-lucide="battery-full" style="width:18px;height:18px"></i></span>
+              </div>
+              <div class="sms-head">
+                <div class="sms-avatar"><i data-lucide="user" style="width:20px;height:20px"></i></div>
+                <div>
+                  <div class="who">New lead via SMS</div>
+                  <div class="sub">Answered by Avolv</div>
+                </div>
+              </div>
+              <div class="sms-body">
+                <div class="bubble in">
+                  <div class="who-tag">Customer</div>
+                  My pool is green and getting worse. Can someone help?
+                  <div class="video-chip"><i data-lucide="video" style="width:14px;height:14px"></i> Video attached</div>
+                </div>
+                <div class="bubble out">
+                  <div class="who-tag">Avolv</div>
+                  Sorry to hear that. A green-pool cleanup runs $250. Carlos has an opening Wednesday at 9am. Want me to book it?
+                </div>
+                <div class="bubble in">
+                  <div class="who-tag">Customer</div>
+                  Yes, book Carlos.
+                </div>
+                <div class="booked-pill"><i data-lucide="check-circle-2" style="width:16px;height:16px"></i> Job #123 booked and assigned</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM BAND ============ -->
+  <section class="band">
+    <div class="container">
+      <h2>Most leads die in the first five minutes.</h2>
+      <p>A customer texts a photo of a green pool at 7pm. You are on a route or asleep. By morning they have called three other companies and booked the one who answered first.</p>
+      <div class="stat">
+        <b>First reply wins.</b>
+        <span>The job goes to whoever answers first, and no human answers that fast every time. Avolv does.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>How Avolv books the job for you</h2>
+        <p>Three steps run on their own, from the first text to a tech on the calendar.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>The text comes in</h3>
+          <p>A photo, a question, a request for a quote. Any hour, any day. Avolv picks it up the moment it lands.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Avolv answers and quotes</h3>
+          <p>It reads the request, prices it from your rates, and offers a real open slot pulled from your schedule.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>The job books itself</h3>
+          <p>The customer says yes. It is on your calendar, assigned to a tech, and you get the notification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="section benefits">
+    <div class="container">
+      <div class="benefit-grid">
+        <div class="benefit">
+          <div class="ic"><i data-lucide="zap" style="width:22px;height:22px"></i></div>
+          <h3>Answers in seconds</h3>
+          <p>Every lead gets a reply before it goes cold, day or night.</p>
+        </div>
+        <div class="benefit">
+          <div class="ic"><i data-lucide="badge-dollar-sign" style="width:22px;height:22px"></i></div>
+          <h3>Quotes from your pricing</h3>
+          <p>Prices come from your rates, so the number is right every time.</p>
+        </div>
+        <div class="benefit">
+          <div class="ic"><i data-lucide="calendar-check" style="width:22px;height:22px"></i></div>
+          <h3>Books your real schedule</h3>
+          <p>Only offers slots that are actually open and assigns the tech.</p>
+        </div>
+        <div class="benefit">
+          <div class="ic"><i data-lucide="moon" style="width:22px;height:22px"></i></div>
+          <h3>Works while you sleep</h3>
+          <p>Leads that came in overnight are booked before you wake up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="proof">
+        <div class="proof-inner">
+          <div>
+            <blockquote>"We stopped losing after-hours leads. The ones we used to miss now show up already booked."</blockquote>
+            <cite>Resort Pool Services</cite>
+          </div>
+          <a class="read" href="/case-studies/resort-pool-services.html">Read the case study <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section class="form-section" id="start">
+    <div class="container">
+      <div class="form-wrap">
+
+        <div class="form-hero" id="formHero">
+          <h2>See it on your business</h2>
+          <p>Tell us a little about what you run and we will show you how it captures and books your leads. No pressure, no runaround.</p>
+        </div>
+
+        <div class="form-card" id="formCard">
+          <div class="form-error" id="formError"></div>
+
+          <form id="demoForm" novalidate>
+            <!-- Anti-spam honeypots: real people never see or fill these. -->
+            <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+              <label for="hp_field_a">Leave empty</label>
+              <input type="text" id="hp_field_a" name="hp_field_a" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+              <label for="hp_field_b">Leave empty</label>
+              <input type="text" id="hp_field_b" name="hp_field_b" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@business.com" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="propertyAddress">Business name and city <span class="req">*</span></label>
+              <input type="text" id="propertyAddress" name="propertyAddress" placeholder="Sparkle Pool Co., Tampa FL" required>
+            </div>
+
+            <div class="field">
+              <label for="serviceType">What kind of business?</label>
+              <select id="serviceType" name="serviceType">
+                <option value="Pool service">Pool service</option>
+                <option value="Home services (HVAC / plumbing / electrical)">Home services (HVAC / plumbing / electrical)</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Lawn care">Lawn care</option>
+                <option value="Other route-based service">Other route-based service</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">How many leads are you missing right now?</label>
+              <textarea id="message" name="message" placeholder="Missed calls, slow estimates, after-hours texts, anything eating your leads."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Send request
+              <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+            </button>
+
+            <p class="form-foot-note">Prefer to talk now? Call <a href="tel:8135196910">(813) 519-6910</a>. We never share your info.</p>
+          </form>
+        </div>
+
+        <div class="success" id="successPanel">
+          <div class="check"><i data-lucide="check" style="width:32px;height:32px"></i></div>
+          <h2>Got it, thank you.</h2>
+          <p>Your request landed with us and we will reach out shortly. Keep an eye on your inbox and phone.</p>
+          <a href="tel:8135196910" class="call"><i data-lucide="phone" style="width:16px;height:16px"></i> Or call us now at (813) 519-6910</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Avolv.ai. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="tel:8135196910" class="phone">(813) 519-6910</a>
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/sms-consent.html">SMS Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+
+    // Same proven lead-ingestion endpoint the rest of the site uses.
+    // source is set to this campaign so leads are attributable to the ad.
+    var BUSINESS_SLUG = "avolv-ai";
+    var LEAD_ENDPOINT = "https://api.avolv.ai/api/marketing/lead-ingestion?business=" + BUSINESS_SLUG;
+
+    var form = document.getElementById('demoForm');
+    var errorBox = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      // Honeypots: if a bot filled them, quietly pretend success and send nothing.
+      if (form.hp_field_a.value || form.hp_field_b.value) { showSuccess(); return; }
+
+      var payload = {
+        firstName: form.firstName.value.trim(),
+        lastName: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        propertyAddress: form.propertyAddress.value.trim(),
+        serviceType: form.serviceType.value,
+        message: form.message.value.trim(),
+        source: 'lp-missed-lead',
+        business: BUSINESS_SLUG
+      };
+
+      if (!payload.firstName || !payload.lastName || !payload.email || !payload.phone) {
+        return showError("Please fill in your name, email, and phone.");
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        var res = await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Request failed: ' + res.status);
+        showSuccess();
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send request';
+        if (window.lucide) lucide.createIcons();
+        showError("Something went wrong sending that. Please try again, or call us at (813) 519-6910.");
+      }
+    });
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showSuccess() {
+      document.getElementById('formHero').style.display = 'none';
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+      if (window.lucide) lucide.createIcons();
+      document.getElementById('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+
+</body>
+</html>
