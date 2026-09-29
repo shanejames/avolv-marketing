@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch to Avolv in Minutes, Zero Route Downtime | Avolv.ai</title>
+  <meta name="description" content="Move from Skimmer, Jobber, or spreadsheets to Avolv without missing a route. We bring your data over and you stay live until you are ready.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Switch to Avolv in minutes, zero route downtime">
+  <meta property="og:description" content="Move from Skimmer, Jobber, or spreadsheets to Avolv without missing a route.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/lp/switch/">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--av-page);
+      color: var(--av-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { color: var(--av-heading); letter-spacing: -0.02em; line-height: 1.12; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 72px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--av-blue-100); color: var(--av-blue-700);
+      font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 50px; font-weight: 800; }
+    .hero .lede { color: var(--av-muted); font-size: 19px; margin-top: 18px; max-width: 30em; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn-primary {
+      background: var(--av-blue-600); color: var(--av-on-accent);
+      padding: 15px 26px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px var(--av-glow); transition: background 0.2s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    .btn-primary:hover { background: var(--av-blue-700); }
+    .btn-ghost {
+      background: var(--av-surface); color: var(--av-text);
+      padding: 15px 24px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--av-border-strong); transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: var(--av-surface-2); }
+    .hero-trust { margin-top: 22px; color: var(--av-faint); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+
+    /* ---------- Migration visual ---------- */
+    .migrate {
+      background: var(--av-surface); border: 1px solid var(--av-border);
+      border-radius: 20px; padding: 30px 26px; box-shadow: var(--av-shadow-lg); position: relative;
+    }
+    .migrate-cols { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; }
+    .migrate .lbl { font-size: 12px; font-weight: 700; color: var(--av-faint); margin-bottom: 12px; }
+    .from-stack { display: flex; flex-direction: column; gap: 10px; }
+    .app-chip {
+      display: flex; align-items: center; gap: 10px; background: var(--av-surface-2);
+      border: 1px solid var(--av-border); border-radius: 12px; padding: 10px 12px;
+      font-weight: 700; font-size: 14px; color: var(--av-muted);
+    }
+    .app-chip .glyph {
+      width: 26px; height: 26px; border-radius: 7px; background: var(--av-surface-3);
+      color: var(--av-faint); display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; flex-shrink: 0;
+    }
+    .arrow-mid {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--av-blue-600);
+      color: var(--av-on-accent); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px var(--av-glow);
+    }
+    .to-card {
+      background: var(--av-navy); color: var(--av-on-accent); border-radius: 14px;
+      padding: 22px 18px; text-align: center;
+    }
+    .to-card .brand { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+    .to-card .brand span { color: var(--av-blue-300); }
+    .to-card .rows { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+    .to-card .row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--av-blue-100); }
+    .to-card .row i { color: var(--av-blue-300); }
+    .guarantee-badge {
+      position: absolute; top: -14px; right: 20px;
+      background: var(--av-blue-600); color: var(--av-on-accent);
+      font-size: 12px; font-weight: 800; padding: 8px 14px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 18px var(--av-glow);
+    }
+
+    /* ---------- Guarantee band ---------- */
+    .band { background: var(--av-navy); color: var(--av-on-accent); padding: 60px 0; }
+    .band h2 { color: var(--av-on-accent); font-size: 34px; max-width: 20em; }
+    .band .sub { color: var(--av-blue-100); font-size: 18px; margin-top: 14px; max-width: 44em; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    .pillar { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 24px; }
+    .pillar .ic { width: 42px; height: 42px; border-radius: 10px; background: var(--av-blue-600); color: var(--av-on-accent); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .pillar h3 { color: var(--av-on-accent); font-size: 18px; }
+    .pillar p { color: var(--av-blue-100); font-size: 15px; margin-top: 8px; }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 72px 0; }
+    .section-head { max-width: 34em; margin-bottom: 44px; }
+    .section-head h2 { font-size: 34px; }
+    .section-head p { color: var(--av-muted); font-size: 18px; margin-top: 14px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 28px; box-shadow: var(--av-shadow-sm); }
+    .step .num { width: 40px; height: 40px; border-radius: 10px; background: var(--av-blue-600); color: var(--av-on-accent); font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .step h3 { font-size: 20px; }
+    .step p { color: var(--av-muted); margin-top: 10px; font-size: 15.5px; }
+
+    /* ---------- Comes over ---------- */
+    .comes { background: var(--av-surface-2); }
+    .comes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .comes-item { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 14px; padding: 22px; }
+    .comes-item .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--av-blue-100); color: var(--av-blue-700); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .comes-item h3 { font-size: 16px; }
+    .comes-item p { color: var(--av-muted); margin-top: 6px; font-size: 14px; }
+
+    /* ---------- vs chips ---------- */
+    .vs-wrap { text-align: center; }
+    .vs-wrap h2 { font-size: 28px; }
+    .vs-wrap p { color: var(--av-muted); margin-top: 10px; }
+    .vs-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
+    .vs-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--av-surface); border: 1px solid var(--av-border-strong);
+      border-radius: 999px; padding: 10px 18px; font-weight: 700; font-size: 15px; color: var(--av-heading);
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .vs-chip:hover { background: var(--av-surface-2); border-color: var(--av-blue-400); }
+    .vs-chip i { color: var(--av-blue-600); }
+
+    /* ---------- Form ---------- */
+    .form-section { padding: 76px 0 88px; }
+    .form-wrap { max-width: 620px; margin: 0 auto; }
+    .form-hero { text-align: center; margin-bottom: 32px; }
+    .form-hero h2 { font-size: 34px; }
+    .form-hero p { color: var(--av-muted); margin-top: 12px; font-size: 17px; }
+    .form-card { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 36px; box-shadow: var(--av-shadow); }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: 14px; font-weight: 600; color: var(--av-heading); margin-bottom: 8px; }
+    .field label .req { color: var(--av-blue-600); }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--av-border-strong); background: var(--av-page); color: var(--av-text);
+      font-family: inherit; font-size: 15px; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--av-faint); }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--av-blue-500); box-shadow: 0 0 0 3px var(--av-glow); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .submit-btn {
+      width: 100%; background: var(--av-blue-600); color: var(--av-on-accent); border: none;
+      padding: 15px 20px; border-radius: 10px; font-weight: 700; font-size: 16px;
+      font-family: inherit; cursor: pointer; transition: background 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 4px 14px var(--av-glow);
+    }
+    .submit-btn:hover { background: var(--av-blue-700); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-foot-note { text-align: center; color: var(--av-muted); font-size: 13px; margin-top: 16px; }
+    .form-foot-note a { color: var(--av-blue-700); font-weight: 600; }
+    .form-error { display: none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); color: #b91c1c; border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-bottom: 18px; }
+    .success { display: none; text-align: center; background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 56px 36px; box-shadow: var(--av-shadow); }
+    .success .check { width: 64px; height: 64px; border-radius: 50%; background: var(--av-blue-100); color: var(--av-blue-700); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .success h2 { font-size: 26px; margin-bottom: 10px; }
+    .success p { color: var(--av-muted); max-width: 420px; margin: 0 auto 24px; }
+    .success .call { color: var(--av-blue-700); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--av-surface); border-top: 1px solid var(--av-border); padding: 40px 0; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--av-faint); }
+    .footer-bottom-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-bottom-links a { color: var(--av-muted); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--av-text); }
+    .footer-bottom-links .phone { color: var(--av-blue-700); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 38px; }
+      .migrate { order: -1; }
+      .pillars { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .comes-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 48px 0 40px; }
+      .hero h1 { font-size: 32px; }
+      .comes-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 24px 20px; }
+      .migrate-cols { grid-template-columns: 1fr; }
+      .arrow-mid { transform: rotate(90deg); margin: 4px auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal site header (edit /site-header.js to change nav everywhere) -->
+  <script src="/site-header.js"></script>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><i data-lucide="repeat" style="width:15px;height:15px"></i> The switch</span>
+          <h1>Switch in minutes. Zero route downtime.</h1>
+          <p class="lede">Move from Skimmer, Jobber, or a pile of spreadsheets to Avolv without missing a single stop. We bring your data over and you stay live on your old system until you say go.</p>
+          <div class="hero-cta">
+            <a href="#start" class="btn-primary">Start your switch <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+            <a href="tel:8135196910" class="btn-ghost"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a>
+          </div>
+          <p class="hero-trust"><i data-lucide="shield-check" style="width:16px;height:16px"></i> We do the migration with you. No dropped routes, no lost history.</p>
+        </div>
+
+        <div class="migrate">
+          <span class="guarantee-badge"><i data-lucide="badge-check" style="width:14px;height:14px"></i> Guaranteed</span>
+          <div class="migrate-cols">
+            <div>
+              <div class="lbl">You are on</div>
+              <div class="from-stack">
+                <div class="app-chip"><span class="glyph">SK</span> Skimmer</div>
+                <div class="app-chip"><span class="glyph">JB</span> Jobber</div>
+                <div class="app-chip"><span class="glyph">QB</span> QuickBooks</div>
+                <div class="app-chip"><span class="glyph"><i data-lucide="table" style="width:14px;height:14px"></i></span> Spreadsheets</div>
+              </div>
+            </div>
+            <div class="arrow-mid"><i data-lucide="arrow-right" style="width:22px;height:22px"></i></div>
+            <div>
+              <div class="lbl">You move to</div>
+              <div class="to-card">
+                <div class="brand">Avolv<span>.ai</span></div>
+                <div class="rows">
+                  <div class="row"><i data-lucide="check" style="width:15px;height:15px"></i> Routes and stops</div>
+                  <div class="row"><i data-lucide="check" style="width:15px;height:15px"></i> Customers and history</div>
+                  <div class="row"><i data-lucide="check" style="width:15px;height:15px"></i> Pricing and invoices</div>
+                  <div class="row"><i data-lucide="check" style="width:15px;height:15px"></i> QuickBooks sync</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUARANTEE BAND ============ -->
+  <section class="band">
+    <div class="container">
+      <h2>You should not lose a day of work to change software.</h2>
+      <p class="sub">Switching usually means a scary weekend, half your data missing, and techs standing around Monday morning. We built the move so that never happens.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="ic"><i data-lucide="database" style="width:22px;height:22px"></i></div>
+          <h3>We move your data</h3>
+          <p>Customers, routes, service history, and pricing come over with you. You are not retyping it.</p>
+        </div>
+        <div class="pillar">
+          <div class="ic"><i data-lucide="git-branch" style="width:22px;height:22px"></i></div>
+          <h3>You stay live until you are ready</h3>
+          <p>Keep running on your current system while we set Avolv up beside it. You flip the switch when it looks right.</p>
+        </div>
+        <div class="pillar">
+          <div class="ic"><i data-lucide="route" style="width:22px;height:22px"></i></div>
+          <h3>Zero missed routes</h3>
+          <p>Every stop is accounted for before go-live. Your techs open the app Monday and their day is already there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW THE SWITCH WORKS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>How the switch works</h2>
+        <p>Three steps, done with you. Most operators are live within days.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Send us your export</h3>
+          <p>Pull your data out of Skimmer, Jobber, or your sheets. We handle the import and clean it up.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>We build your setup</h3>
+          <p>Routes, techs, pricing, and QuickBooks sync configured to match how you already run.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>You go live</h3>
+          <p>Review it, flip the switch, and keep working. We stay on the line through your first routes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT COMES OVER ============ -->
+  <section class="section comes">
+    <div class="container">
+      <div class="section-head">
+        <h2>Everything comes with you</h2>
+        <p>Nothing gets left behind in your old system.</p>
+      </div>
+      <div class="comes-grid">
+        <div class="comes-item">
+          <div class="ic"><i data-lucide="users" style="width:20px;height:20px"></i></div>
+          <h3>Customers</h3>
+          <p>Contacts, properties, and notes, intact.</p>
+        </div>
+        <div class="comes-item">
+          <div class="ic"><i data-lucide="map" style="width:20px;height:20px"></i></div>
+          <h3>Routes and stops</h3>
+          <p>Your days rebuilt the way you run them.</p>
+        </div>
+        <div class="comes-item">
+          <div class="ic"><i data-lucide="history" style="width:20px;height:20px"></i></div>
+          <h3>Service history</h3>
+          <p>Past visits and chemistry logs carried over.</p>
+        </div>
+        <div class="comes-item">
+          <div class="ic"><i data-lucide="link" style="width:20px;height:20px"></i></div>
+          <h3>QuickBooks</h3>
+          <p>Reconnect your sync and keep billing clean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VS CHIPS ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="vs-wrap">
+        <h2>Coming from something specific?</h2>
+        <p>See exactly how Avolv compares to what you run today.</p>
+        <div class="vs-chips">
+          <a class="vs-chip" href="/vs/skimmer.html"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> vs Skimmer</a>
+          <a class="vs-chip" href="/vs/jobber.html"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> vs Jobber</a>
+          <a class="vs-chip" href="/vs/housecall-pro.html"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> vs Housecall Pro</a>
+          <a class="vs-chip" href="/vs/servicetitan.html"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> vs ServiceTitan</a>
+          <a class="vs-chip" href="/vs/fieldroutes.html"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> vs FieldRoutes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section class="form-section" id="start">
+    <div class="container">
+      <div class="form-wrap">
+
+        <div class="form-hero" id="formHero">
+          <h2>Start your switch</h2>
+          <p>Tell us what you run today and we will map out your move to Avolv. No pressure, no runaround.</p>
+        </div>
+
+        <div class="form-card" id="formCard">
+          <div class="form-error" id="formError"></div>
+
+          <form id="demoForm" novalidate>
+            <!-- Anti-spam honeypots: real people never see or fill these. -->
+            <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+              <label for="hp_field_a">Leave empty</label>
+              <input type="text" id="hp_field_a" name="hp_field_a" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+              <label for="hp_field_b">Leave empty</label>
+              <input type="text" id="hp_field_b" name="hp_field_b" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@business.com" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="propertyAddress">Business name and city <span class="req">*</span></label>
+              <input type="text" id="propertyAddress" name="propertyAddress" placeholder="Sparkle Pool Co., Tampa FL" required>
+            </div>
+
+            <div class="field">
+              <label for="currentSoftware">What are you switching from?</label>
+              <select id="currentSoftware" name="currentSoftware">
+                <option value="Skimmer">Skimmer</option>
+                <option value="Jobber">Jobber</option>
+                <option value="Housecall Pro">Housecall Pro</option>
+                <option value="ServiceTitan">ServiceTitan</option>
+                <option value="FieldRoutes">FieldRoutes</option>
+                <option value="Spreadsheets / paper">Spreadsheets / paper</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Anything about your current setup we should know?</label>
+              <textarea id="message" name="message" placeholder="Number of techs, routes, what is holding you back from switching."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Send request
+              <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+            </button>
+
+            <p class="form-foot-note">Prefer to talk now? Call <a href="tel:8135196910">(813) 519-6910</a>. We never share your info.</p>
+          </form>
+        </div>
+
+        <div class="success" id="successPanel">
+          <div class="check"><i data-lucide="check" style="width:32px;height:32px"></i></div>
+          <h2>Got it, thank you.</h2>
+          <p>Your request landed with us and we will reach out shortly to map your move. Keep an eye on your inbox and phone.</p>
+          <a href="tel:8135196910" class="call"><i data-lucide="phone" style="width:16px;height:16px"></i> Or call us now at (813) 519-6910</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Avolv.ai. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="tel:8135196910" class="phone">(813) 519-6910</a>
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/sms-consent.html">SMS Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+
+    // Same proven lead-ingestion endpoint the rest of the site uses.
+    // source is set to this campaign so leads are attributable to the ad.
+    var BUSINESS_SLUG = "avolv-ai";
+    var LEAD_ENDPOINT = "https://api.avolv.ai/api/marketing/lead-ingestion?business=" + BUSINESS_SLUG;
+
+    var form = document.getElementById('demoForm');
+    var errorBox = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      // Honeypots: if a bot filled them, quietly pretend success and send nothing.
+      if (form.hp_field_a.value || form.hp_field_b.value) { showSuccess(); return; }
+
+      var payload = {
+        firstName: form.firstName.value.trim(),
+        lastName: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        propertyAddress: form.propertyAddress.value.trim(),
+        serviceType: form.currentSoftware.value,
+        currentSoftware: form.currentSoftware.value,
+        message: form.message.value.trim(),
+        source: 'lp-switch',
+        business: BUSINESS_SLUG
+      };
+
+      if (!payload.firstName || !payload.lastName || !payload.email || !payload.phone) {
+        return showError("Please fill in your name, email, and phone.");
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        var res = await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Request failed: ' + res.status);
+        showSuccess();
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send request';
+        if (window.lucide) lucide.createIcons();
+        showError("Something went wrong sending that. Please try again, or call us at (813) 519-6910.");
+      }
+    });
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showSuccess() {
+      document.getElementById('formHero').style.display = 'none';
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+      if (window.lucide) lucide.createIcons();
+      document.getElementById('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+
+</body>
+</html>
