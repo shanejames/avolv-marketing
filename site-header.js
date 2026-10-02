@@ -86,6 +86,7 @@
             '<a class="' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html"><span class="av-ic">\uD83C\uDFEB</span> vs ServiceTitan</a>' +
             '<a class="' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html"><span class="av-ic">\uD83D\uDC1C</span> vs FieldRoutes</a>' +
           '</div></div>' +
+          '<a class="' + act("/articles").trim() + '" href="/articles">Articles</a>' +
           '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
         '</div>' +
         '<div class="av-right"><a class="av-login" href="https://app.avolv.ai/login">Log In</a><a class="av-cta" href="/get-started.html">Get Started</a></div>' +

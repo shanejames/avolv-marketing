@@ -57,6 +57,7 @@
         '<div class="avf-col"><h4>Company</h4>' +
           '<a href="/pricing.html">Pricing</a>' +
           '<a href="/case-studies/resort-pool-services.html">Case Studies</a>' +
+          '<a href="/articles">Articles</a>' +
           '<a href="/about/shane-james.html">About Shane</a>' +
           '<a href="/vs/skimmer.html">Compare</a>' +
           '<a href="/get-started.html">Get Started</a>' +
