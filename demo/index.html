@@ -5,14 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch the Avolv demo | Avolv.ai</title>
-  <meta name="description" content="Pick your business type and watch a 3-minute walkthrough of Avolv running a real service company.">
+  <meta name="description" content="Pick your business type and watch a 3-minute walkthrough of Avolv running a real service company, from the first text to a booked, billed job.">
   <link rel="canonical" href="https://avolv.ai/demo/">
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="Watch the Avolv demo">
   <meta property="og:description" content="A 3-minute walkthrough of Avolv running a real service company. Pick your industry to start.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://avolv.ai/demo/">
+    <meta property="og:url" content="https://avolv.ai/demo/">
+  <meta property="og:image" content="https://app.avolv.ai/avolv-logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Watch the Avolv demo">
+  <meta name="twitter:description" content="A 3-minute walkthrough of Avolv running a real service company. Pick your industry to start.">
+  <meta name="twitter:image" content="https://app.avolv.ai/avolv-logo.png">>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +106,7 @@
       line-height: 1;
       margin-bottom: 16px;
     }
-    .vertical-card h3 {
+    .vertical-card h2 {
       color: var(--av-heading);
       font-size: 22px;
       font-weight: 700;
@@ -164,6 +170,48 @@
     }
   </style>
   <script type="module" src="/heycatch-analytics.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avolv.ai/#organization",
+      "name": "Avolv.ai",
+      "url": "https://avolv.ai/",
+      "logo": "https://app.avolv.ai/avolv-logo.png",
+      "email": "sales@avolv.ai",
+      "telephone": "+1-813-519-6910",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5914 Menorca Lane",
+        "addressLocality": "Apollo Beach",
+        "addressRegion": "FL",
+        "postalCode": "33572",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avolv.ai/#website",
+      "url": "https://avolv.ai/",
+      "name": "Avolv.ai",
+      "publisher": {
+        "@id": "https://avolv.ai/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://avolv.ai/demo/#webpage",
+      "url": "https://avolv.ai/demo/",
+      "name": "Watch the Avolv Demo",
+      "isPartOf": {
+        "@id": "https://avolv.ai/#website"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -181,7 +229,7 @@
       <a class="vertical-card featured" href="/demo/pool/">
         <span class="badge-live">Live now</span>
         <div class="vertical-icon">🏊</div>
-        <h3>Pool Service</h3>
+        <h2>Pool Service</h2>
         <p>Weekly service, chemistry logs, AI meter scanning, green pool video-to-quote, six-truck dispatch.</p>
         <span class="vertical-cta">Watch pool demo →</span>
       </a>
@@ -189,7 +237,7 @@
       <a class="vertical-card" href="/demo/coming-soon.html?vertical=cleaning">
         <span class="badge-preview">Preview</span>
         <div class="vertical-icon">🧽</div>
-        <h3>Cleaning</h3>
+        <h2>Cleaning</h2>
         <p>Recurring residential and commercial cleaning, crew scheduling, key management, before-and-after photos.</p>
         <span class="vertical-cta">Book a walkthrough →</span>
       </a>
@@ -197,7 +245,7 @@
       <a class="vertical-card" href="/demo/coming-soon.html?vertical=route-based">
         <span class="badge-preview">Preview</span>
         <div class="vertical-icon">🚚</div>
-        <h3>Route-Based Services</h3>
+        <h2>Route-Based Services</h2>
         <p>Lawn care, pest control, pressure washing. Recurring visits, chemical logs, seasonal pricing.</p>
         <span class="vertical-cta">Book a walkthrough →</span>
       </a>
@@ -205,7 +253,7 @@
       <a class="vertical-card" href="/demo/coming-soon.html?vertical=home-services">
         <span class="badge-preview">Preview</span>
         <div class="vertical-icon">🔧</div>
-        <h3>Home Services</h3>
+        <h2>Home Services</h2>
         <p>HVAC, plumbing, handyman. Estimates from a text, dispatch on the map, invoicing to QuickBooks.</p>
         <span class="vertical-cta">Book a walkthrough →</span>
       </a>
