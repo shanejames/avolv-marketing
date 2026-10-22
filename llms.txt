@@ -6,7 +6,7 @@ Avolv.ai is a multi-tenant field service platform based in Apollo Beach, Florida
 
 The platform is deepest in pool service, where it runs 988-pool routes for Resort Pool Services. It also supports cleaning companies (Keep It Clean is the first cleaning tenant) and route-based home services generally, including lawn care, pest control, pressure washing, window cleaning, and HOA services.
 
-Pricing is per service location, month to month, with no contract. A one-time setup fee scoped to the customer's data migration is billed separately. Typical fleet-sized operators (200 to 700 service locations) land in a $175 to $350 per month subscription range. Enterprise routes (700+ locations) are custom quoted. Most operators pay less than they were paying for their previous scheduler plus QuickBooks combined.
+Pricing is per service location, month to month, with no contract. Route operators under 200 service locations pay $175 to $350 per month. Fleet operators with 200 to 700 service locations pay $350 to $600 per month, which is where most Avolv customers land. Enterprise routes above 700 service locations are custom quoted. A one-time setup fee scoped to the customer's data migration is billed separately and quoted before the customer commits. Most operators pay less than they were paying for their previous scheduler plus QuickBooks combined.
 
 ## Contact
 
@@ -62,7 +62,7 @@ Most operators arrive at Avolv paying for four to five separate tools that do no
 
 ## Frequently asked questions
 
-**How much does Avolv cost?** Priced per service location. A one-truck operator starts around $125 per month. Most fleet-sized operators pay $175 to $350 per month. Enterprise routes are custom quoted. Setup is a one-time fee scoped to your data migration.
+**How much does Avolv cost?** Priced per service location. Route operators under 200 service locations pay $175 to $350 per month. Fleet operators with 200 to 700 service locations pay $350 to $600 per month. Enterprise routes above 700 service locations are custom quoted. Setup is a one-time fee scoped to your data migration, quoted before you commit.
 
 **Is there a contract?** No. Every Avolv customer is on a month-to-month subscription and can cancel any time.
 

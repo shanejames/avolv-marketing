@@ -43,10 +43,10 @@
           '<div class="avf-addr">Avolv.ai &middot; 5914 Menorca Lane &middot; Apollo Beach, FL 33572<br>Support: Mon-Fri, 9am-5pm ET</div>' +
         '</div>' +
         '<div class="avf-col"><h4>Platform</h4>' +
-          '<a href="/pricing.html">Booking &amp; Scheduling</a>' +
-          '<a href="/pricing.html">Customer Follow-up</a>' +
-          '<a href="/pricing.html">Lead Generation</a>' +
-          '<a href="/pricing.html">AI Content Creator</a>' +
+          '<a href="/route-based-services.html">Booking &amp; Scheduling</a>' +
+          '<a href="/pools.html">Customer Follow-up</a>' +
+          '<a href="/missed-lead/">Lead Generation</a>' +
+          '<a href="/#features">What Avolv Does</a>' +
         '</div>' +
         '<div class="avf-col"><h4>Industries</h4>' +
           '<a href="/pools.html">Pool Services</a>' +

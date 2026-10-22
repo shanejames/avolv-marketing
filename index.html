@@ -12,6 +12,12 @@
   <meta property="og:description" content="Avolv answers your texts, drafts the quote, dispatches the tech, and bills the job. You run the route.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avolv.ai/">
+  <meta property="og:image" content="https://app.avolv.ai/avolv-logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Avolv.ai: One System for Pool and Home Service">
+  <meta name="twitter:description" content="Avolv answers your texts, drafts the quote, dispatches the tech, and bills the job. You run the route.">
+  <meta name="twitter:image" content="https://app.avolv.ai/avolv-logo.png">
 
   <script type="application/ld+json">
 {
@@ -82,8 +88,28 @@
     .hero h1 .accent { color: var(--av-blue-300); }
     .hero .lede { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: 30px; }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    .hero-call { margin-top: 18px; font-size: 0.95rem; color: rgba(255,255,255,0.72); }
+    .hero-derisk { margin-top: 16px; font-size: 0.9rem; color: rgba(255,255,255,0.82); display: inline-flex; align-items: center; gap: 8px; }
+    .hero-derisk::before { content: ''; width: 7px; height: 7px; border-radius: 999px; background: var(--av-blue-300); flex: none; }
+    .hero-call { margin-top: 12px; font-size: 0.95rem; color: rgba(255,255,255,0.72); }
     .hero-call a { color: var(--av-blue-300); font-weight: 700; }
+
+    /* Customer proof band */
+    .proof-band { background: var(--av-surface); border-bottom: 1px solid var(--av-border); padding: 56px 0; }
+    .proof-head { text-align: center; max-width: 680px; margin: 0 auto 32px; }
+    .proof-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 800; color: var(--av-heading); letter-spacing: -0.01em; }
+    .proof-head p { color: var(--av-muted); font-size: 1rem; margin-top: 8px; }
+    .proof-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 980px; margin: 0 auto; }
+    .proof-card { background: var(--av-page); border: 1px solid var(--av-border); border-radius: 16px; padding: 26px 28px; display: flex; flex-direction: column; }
+    .proof-person { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .proof-avatar { width: 48px; height: 48px; border-radius: 999px; background: var(--av-blue-600); color: #fff; font-weight: 800; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+    .proof-person .pn { font-weight: 800; color: var(--av-heading); font-size: 0.98rem; line-height: 1.2; }
+    .proof-person .pr { color: var(--av-faint); font-size: 0.85rem; margin-top: 2px; }
+    .proof-quote { color: var(--av-text); font-size: 1.02rem; line-height: 1.55; margin-bottom: 14px; }
+    .proof-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .proof-metric { background: var(--av-blue-50); border: 1px solid var(--av-blue-100); color: var(--av-heading); border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; font-weight: 700; }
+    .proof-source { color: var(--av-faint); font-size: 0.8rem; margin-bottom: 14px; }
+    .proof-link { margin-top: auto; color: var(--av-blue-600); font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 6px; }
+    @media (max-width: 760px) { .proof-cards { grid-template-columns: 1fr; } }
 
     .mock { background: rgba(255,255,255,0.04); border: 1px solid rgba(147,197,253,0.22); border-radius: 18px; padding: 18px; backdrop-filter: blur(4px); box-shadow: 0 30px 70px rgba(0,0,0,0.35); }
     .mock-head { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--av-blue-300); font-weight: 600; padding: 4px 6px 14px; }
@@ -184,9 +210,10 @@
           <h1>Your next customer just <span class="accent">texted you a video.</span> Avolv handled it.</h1>
           <p class="lede">Stop losing leads to voicemail. Stop typing the same estimate twelve times a week. Avolv answers your texts, drafts the quote, dispatches your tech, and bills the job. You run the route.</p>
           <div class="hero-cta">
-            <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+            <a href="/get-started.html" class="btn btn-primary">Book a 15-min demo</a>
             <a href="/demo/" class="btn btn-secondary">See how it works</a>
           </div>
+          <div class="hero-derisk">Setup is quoted before you commit, and every plan is month to month. Cancel any time.</div>
           <div class="hero-call">Or just call Shane at <a href="tel:8135196910">(813) 519-6910</a></div>
         </div>
         <div class="mock">
@@ -219,20 +246,69 @@
     </div>
   </section>
 
+  <!-- Customer proof band -->
+  <section class="proof-band">
+    <div class="container">
+      <div class="proof-head">
+        <h2>Operators already running their book on Avolv</h2>
+        <p>Two of the companies Avolv runs today, and what changed after they switched.</p>
+      </div>
+      <div class="proof-cards">
+
+        <div class="proof-card">
+          <div class="proof-person">
+            <!-- TODO (Shane): replace initials avatar with a real photo of Simon McDonnell. See flags. -->
+            <span class="proof-avatar">SM</span>
+            <div>
+              <div class="pn">Simon McDonnell</div>
+              <div class="pr">Owner, Resort Pool Services &middot; Florida</div>
+            </div>
+          </div>
+          <p class="proof-quote">"We stopped losing after-hours leads. The ones we used to miss now show up already booked."</p>
+          <div class="proof-metrics">
+            <span class="proof-metric">988 pools migrated off Skimmer</span>
+            <span class="proof-metric">$370,779 reconciled to a $580 variance</span>
+            <span class="proof-metric">0 days of route downtime</span>
+          </div>
+          <a class="proof-link" href="/case-studies/resort-pool-services.html">Read the Resort story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-person">
+            <!-- TODO (Shane): replace initials avatar with a real photo of Julie Lavacchi. See flags. -->
+            <span class="proof-avatar">JL</span>
+            <div>
+              <div class="pn">Julie Lavacchi</div>
+              <div class="pr">Owner, Keep It Clean &middot; Naperville, IL</div>
+            </div>
+          </div>
+          <p class="proof-quote">Before Avolv, scheduling was chaos across residential and commercial, with no review generation at all. Now reviews land every week on autopilot while she grows recurring work.</p>
+          <div class="proof-metrics">
+            <span class="proof-metric">103 five-star Google reviews</span>
+            <span class="proof-metric">First cleaning company on Avolv</span>
+          </div>
+          <div class="proof-source">Google reviews, as of October 2026.</div>
+          <a class="proof-link" href="/cleaning.html">See the cleaning build <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
-        <h2>Everything you need to <span class="accent">grow</span></h2>
-        <p>AI-driven tools built for how route-based service businesses actually run.</p>
+        <h2>Avolv answers the text and <span class="accent">drafts the quote in about 60 seconds.</span></h2>
+        <p>The front of your business runs on AI. Your schedule, your invoicing, and your customer list run in the same system.</p>
       </div>
       <div class="grid-3">
-        <div class="card"><div class="ic"><i data-lucide="calendar-clock" style="width:24px;height:24px"></i></div><h3>Smart Scheduling</h3><p>AI-powered booking that syncs with your calendar and handles rescheduling on its own.</p></div>
-        <div class="card"><div class="ic"><i data-lucide="repeat" style="width:24px;height:24px"></i></div><h3>Automated Follow-ups</h3><p>Never miss a lead with intelligent SMS and email follow-up sequences.</p></div>
-        <div class="card"><div class="ic"><i data-lucide="bot" style="width:24px;height:24px"></i></div><h3>AI Lead Qualification</h3><p>Let AI handle first conversations and qualify leads around the clock while you sleep.</p></div>
-        <div class="card"><div class="ic"><i data-lucide="users" style="width:24px;height:24px"></i></div><h3>Customer Management</h3><p>A complete CRM with health scores, activity tracking, and relationship insights.</p></div>
-        <div class="card"><div class="ic"><i data-lucide="line-chart" style="width:24px;height:24px"></i></div><h3>Revenue Analytics</h3><p>Track performance, spot trends, and make decisions on real numbers.</p></div>
-        <div class="card"><div class="ic"><i data-lucide="workflow" style="width:24px;height:24px"></i></div><h3>Workflow Automation</h3><p>Build custom automation flows with a visual drag-and-drop builder.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="message-square-text" style="width:24px;height:24px"></i></div><h3>Customers text a video. Avolv drafts the quote in about 60 seconds.</h3><p>A homeowner sends a photo or a video. Avolv reads it, sizes the job against your catalog, and writes you a draft estimate, in English or Spanish.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="phone-call" style="width:24px;height:24px"></i></div><h3>An AI receptionist answers every call, 24/7, in English or Spanish.</h3><p>It picks up when your crews are out or after hours, answers the basics, captures the job, and books it onto your schedule, so you stop losing work to voicemail.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="refresh-cw" style="width:24px;height:24px"></i></div><h3>QuickBooks syncs line by line; payments post back on their own.</h3><p>Invoices from the schedule push into QuickBooks Online line by line, and payments post back against the right invoice automatically. Both systems show the same number.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="route" style="width:24px;height:24px"></i></div><h3>Routes built from where your trucks actually drive.</h3><p>Scheduling and dispatch order every stop by drive time, with GPS-aware routing that keeps your techs out of the windshield and in front of customers.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="receipt" style="width:24px;height:24px"></i></div><h3>Invoicing and recurring billing that run themselves.</h3><p>Recurring plans generate and bill on schedule, the card on file is charged automatically, and every invoice is matched to the service record that justifies it.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="users" style="width:24px;height:24px"></i></div><h3>A customer list that moves jobs forward like a pipeline.</h3><p>Every lead moves from new to booked to completed on its own, with follow-up messages and review requests firing at each step.</p></div>
       </div>
     </div>
   </section>
@@ -241,13 +317,13 @@
   <section class="section section-alt" id="how-it-works">
     <div class="container">
       <div class="section-header">
-        <h2>Get started in <span class="accent">3 simple steps</span></h2>
-        <p>From signup to automation in under 15 minutes.</p>
+        <h2>One 15-minute call, then <span class="accent">we do the migration for you</span></h2>
+        <p>You never touch a data migration yourself. We move you off your old tools, reconcile the books against QuickBooks, and go live in about 5 business days.</p>
       </div>
       <div class="steps">
-        <div class="step"><div class="num">1</div><h3>Connect your tools</h3><p>Link your calendar, email, and phone in a few clicks.</p></div>
-        <div class="step"><div class="num">2</div><h3>Choose your industry</h3><p>Select from pre-built templates designed for your specific business.</p></div>
-        <div class="step"><div class="num">3</div><h3>Activate and grow</h3><p>Turn on automations and watch your business scale.</p></div>
+        <div class="step"><div class="num">1</div><h3>One 15-minute call</h3><p>We look at your route together, show you your own business running inside Avolv, and quote both the monthly price and the one-time setup before you commit.</p></div>
+        <div class="step"><div class="num">2</div><h3>We migrate your data</h3><p>We move every account, history record, and recurring schedule off Skimmer or whatever you run now, and reconcile it against QuickBooks before you rely on it. You never touch a migration yourself.</p></div>
+        <div class="step"><div class="num">3</div><h3>You go live in about 5 business days</h3><p>We provision your phone number and A2P SMS, build your service catalog, set up your team, and run a training call. Then your route runs on Avolv.</p></div>
       </div>
     </div>
   </section>
@@ -357,7 +433,7 @@
       <h2>Stop running four apps that disagree with each other.</h2>
       <p>One system for pool and home service companies. Priced per location, month to month, no contract. See your route inside Avolv in fifteen minutes.</p>
       <div class="cta-buttons">
-        <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+        <a href="/get-started.html" class="btn btn-primary">Book a 15-min demo</a>
         <a href="/demo/" class="btn btn-secondary">Watch 3-min demo</a>
         <a href="tel:8135196910" class="btn btn-secondary"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a>
       </div>

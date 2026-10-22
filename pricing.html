@@ -11,6 +11,70 @@
   <meta property="og:description" content="One price per stop on your route. Every tech, every dispatcher, every truck included. Cancel any time.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avolv.ai/pricing.html">
+  <meta property="og:image" content="https://app.avolv.ai/avolv-logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Avolv Pricing | Per Location, Month to Month">
+  <meta name="twitter:description" content="One price per stop on your route. Every tech, every dispatcher, every truck included. Cancel any time.">
+  <meta name="twitter:image" content="https://app.avolv.ai/avolv-logo.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Avolv.ai Field Service Management",
+  "description": "Field service management software for pool and home service companies. Priced per service location, month to month, no contract. Every tech, dispatcher, and truck is included. A one-time setup fee scoped to your data migration is quoted before you commit.",
+  "brand": { "@type": "Brand", "name": "Avolv.ai" },
+  "url": "https://avolv.ai/pricing.html",
+  "image": "https://app.avolv.ai/avolv-logo.png",
+  "offers": [
+    {
+      "@type": "AggregateOffer",
+      "name": "Route",
+      "description": "One-truck operator or a small crew running under 200 service locations.",
+      "priceCurrency": "USD",
+      "lowPrice": "175",
+      "highPrice": "350",
+      "offerCount": "1",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "USD",
+        "minPrice": "175",
+        "maxPrice": "350",
+        "unitCode": "MON",
+        "referenceQuantity": { "@type": "QuantitativeValue", "value": "1", "unitCode": "MON" }
+      }
+    },
+    {
+      "@type": "AggregateOffer",
+      "name": "Fleet",
+      "description": "Growing operation with multiple trucks and 200 to 700 service locations.",
+      "priceCurrency": "USD",
+      "lowPrice": "350",
+      "highPrice": "600",
+      "offerCount": "1",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "USD",
+        "minPrice": "350",
+        "maxPrice": "600",
+        "unitCode": "MON",
+        "referenceQuantity": { "@type": "QuantitativeValue", "value": "1", "unitCode": "MON" }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise Route",
+      "description": "Multi-crew operation with 700+ service locations, HOAs, or property management. Custom quoted.",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+  </script>
+
   <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +84,25 @@
     *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page); color: var(--av-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     a { color: var(--av-blue-600); text-decoration: none; } a:hover { color: var(--av-blue-700); }
+
+    /* De-risk line under the plan cards */
+    .plan-derisk { text-align: center; max-width: 620px; margin: 28px auto 0; color: var(--av-muted); font-size: 0.95rem; }
+
+    /* Tier comparison table */
+    .compare-wrap { max-width: 980px; margin: 0 auto; overflow-x: auto; border: 1px solid var(--av-border); border-radius: 16px; background: var(--av-surface); }
+    table.compare { width: 100%; border-collapse: collapse; min-width: 640px; }
+    table.compare th, table.compare td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--av-border); font-size: 0.92rem; vertical-align: top; }
+    table.compare thead th { background: var(--av-surface-2); color: var(--av-heading); font-weight: 800; font-size: 0.9rem; position: sticky; top: 0; }
+    table.compare thead th.tier { text-align: center; }
+    table.compare thead th .who { display: block; font-weight: 500; font-size: 0.78rem; color: var(--av-faint); margin-top: 4px; }
+    table.compare thead th.featured { background: var(--av-blue-50); }
+    table.compare tbody th { font-weight: 700; color: var(--av-heading); background: var(--av-page); }
+    table.compare td.cell { text-align: center; color: var(--av-text); }
+    table.compare td.featured { background: #F7FAFF; }
+    table.compare .yes { color: var(--av-blue-600); font-weight: 800; }
+    table.compare .no { color: var(--av-faint); }
+    table.compare tbody tr.group th { background: var(--av-surface-2); color: var(--av-heading); font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    table.compare tbody tr:last-child td, table.compare tbody tr:last-child th { border-bottom: none; }
   </style>
 </head>
 <body>
@@ -126,6 +209,67 @@
           <a href="/get-started.html" class="btn btn-ghost">Get a Quote</a>
         </div>
 
+      </div>
+      <p class="plan-derisk">Setup is quoted before you commit, and every plan is month to month. Cancel any time.</p>
+    </div>
+  </section>
+
+  <!-- Tier comparison -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare the tiers <span class="accent">side by side</span></h2>
+        <p>The cards above are the summary. Here is what moves between Route, Fleet, and Enterprise Route, line by line.</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col" class="tier">Route<span class="who">Under 200 locations &middot; $175&ndash;350/mo</span></th>
+              <th scope="col" class="tier featured">Fleet<span class="who">200&ndash;700 locations &middot; $350&ndash;600/mo</span></th>
+              <th scope="col" class="tier">Enterprise Route<span class="who">700+ locations &middot; Custom quote</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group"><th scope="rowgroup" colspan="4">Core platform (included in every tier)</th></tr>
+            <tr><th scope="row">Unlimited users, techs, dispatchers</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Dispatch board with route optimization</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Full offline-first mobile field app</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Bilingual EN/ES, field and customer</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Pool chemistry with AI meter scanning</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">SMS quoting from a photo or video</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Voice-to-invoice from the truck</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Online booking and customer portal</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">QuickBooks Online sync</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Stripe payments, auto-pay, recurring billing</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">A2P SMS compliance handled for you</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Google review collection</th><td class="cell"><span class="yes">&check;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+
+            <tr class="group"><th scope="rowgroup" colspan="4">Everything in Route, plus (Fleet and up)</th></tr>
+            <tr><th scope="row">AI receptionist answering every call, 24/7</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Inbound SMS routing with AI classification</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Follow-up sequences and review generation</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Territory checks and drive-time optimization</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Chemical P&amp;L with labor burden</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Owner's Brief daily dashboard</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Pipeline CRM with proposals and e-sign</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Marketing campaigns and website audits</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Community Listener prospect discovery</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Cold calling queue with scripts</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Technician tracking (with consent), time and expenses</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="yes">&check;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+
+            <tr class="group"><th scope="rowgroup" colspan="4">Everything in Fleet, plus (Enterprise Route)</th></tr>
+            <tr><th scope="row">Ask the Supervisor SMS bench</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Ask module: tenant knowledge base and Q&amp;A</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Partner / Service Network cross-tenant dispatch</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Per-tenant email sending domain</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Supply Catalog purchasing</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Website Builder (Groq or Claude Sonnet)</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Skimmer or custom migration pipeline</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+            <tr><th scope="row">Direct build access when you need something</th><td class="cell"><span class="no">&mdash;</span></td><td class="cell featured"><span class="no">&mdash;</span></td><td class="cell"><span class="yes">&check;</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
