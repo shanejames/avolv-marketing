@@ -206,7 +206,7 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">For pool &amp; home service companies</span>
+          <span class="eyebrow">Field service software for pool &amp; home service companies</span>
           <h1>Your next customer just <span class="accent">texted you a video.</span> Avolv handled it.</h1>
           <p class="lede">Stop losing leads to voicemail. Stop typing the same estimate twelve times a week. Avolv answers your texts, drafts the quote, dispatches your tech, and bills the job. You run the route.</p>
           <div class="hero-cta">
@@ -214,7 +214,7 @@
             <a href="/demo/" class="btn btn-secondary">See how it works</a>
           </div>
           <div class="hero-derisk">Setup is quoted before you commit, and every plan is month to month. Cancel any time.</div>
-          <div class="hero-call">Or just call Shane at <a href="tel:8135196910">(813) 519-6910</a></div>
+          <div class="hero-call">Or just call Shane at <a href="tel:8135196910">(813) 519-6910</a>, or find him on <a href="https://www.linkedin.com/in/rshanejames" target="_blank" rel="noopener">LinkedIn</a>.</div>
         </div>
         <div class="mock">
           <div class="mock-head"><span class="mock-dot"></span> app.avolv.ai &middot; today's pipeline</div>
@@ -340,53 +340,6 @@
     </div>
   </section>
 
-  <!-- Website audit -->
-  <section class="section section-navy">
-    <div class="container">
-      <div class="audit-grid">
-        <div class="audit-copy">
-          <span class="eyebrow">Free &middot; No signup required</span>
-          <h2>Get a free audit of your website for AI search.</h2>
-          <p>Two scores out of 100. One for traditional search, one for how AI assistants like ChatGPT and Claude see you.</p>
-          <p>A personalized report with exactly what's costing you leads, delivered as a branded PDF within one business day.</p>
-        </div>
-        <div>
-          <form id="audit-form" style="background:#fff;padding:32px;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,0.2);" onsubmit="return submitAudit(event)">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-              <div>
-                <label for="audit-url" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR WEBSITE</label>
-                <input type="url" id="audit-url" name="url" required placeholder="https://yourcompany.com" style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
-              </div>
-              <div>
-                <label for="audit-email" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR EMAIL</label>
-                <input type="email" id="audit-email" name="email" required placeholder="you@yourcompany.com" style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
-              </div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
-              <div>
-                <label for="audit-name" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">YOUR NAME</label>
-                <input type="text" id="audit-name" name="name" required placeholder="First and last" style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
-              </div>
-              <div>
-                <label for="audit-company" style="display:block;font-size:13px;font-weight:700;color:#0F2C57;margin-bottom:6px;letter-spacing:0.02em;">COMPANY NAME</label>
-                <input type="text" id="audit-company" name="company" required placeholder="Your business" style="width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:8px;font-family:inherit;font-size:15px;color:#0F2C57;background:#F4F7FB;">
-              </div>
-            </div>
-            <button type="submit" id="audit-submit" style="width:100%;background:#2563EB;color:#fff;padding:16px;border:none;border-radius:10px;font-weight:800;font-size:1.0625rem;font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(37,99,235,0.35);transition:background 0.2s;">
-              Send Me My Free Audit &rarr;
-            </button>
-            <p style="text-align:center;font-size:12px;color:#64748B;margin-top:14px;">
-              I read every submission personally. No sales spam. If your site scores well, I'll say so.
-            </p>
-          </form>
-          <div id="audit-thanks" class="audit-thanks" style="display:none;">
-            <h3>Got it. I'll send your audit within one business day.</h3>
-            <p>Check your inbox for a PDF with your two scores and the specific fixes that will move them.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Integrations -->
   <section class="section section-alt">
@@ -439,44 +392,6 @@
   <div id="site-footer"></div>
   <script src="/site-footer.js"></script>
 
-  <script>
-  function submitAudit(e) {
-    e.preventDefault();
-    var btn = document.getElementById('audit-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    var data = {
-      url: document.getElementById('audit-url').value,
-      email: document.getElementById('audit-email').value,
-      name: document.getElementById('audit-name').value,
-      company: document.getElementById('audit-company').value,
-      source: 'homepage-audit-widget',
-      submittedAt: new Date().toISOString()
-    };
-    fetch('https://app.avolv.ai/api/leads/audit-request', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    }).then(function(r){
-      if (!r.ok) throw new Error('bad status');
-      document.getElementById('audit-form').style.display = 'none';
-      document.getElementById('audit-thanks').style.display = 'block';
-    }).catch(function(){
-      var body = 'Website: ' + data.url + '\n' +
-                 'Name: ' + data.name + '\n' +
-                 'Company: ' + data.company + '\n' +
-                 'Email: ' + data.email;
-      window.location.href = 'mailto:sales@avolv.ai?subject=' +
-        encodeURIComponent('Website audit request from ' + data.company) +
-        '&body=' + encodeURIComponent(body);
-      setTimeout(function(){
-        document.getElementById('audit-form').style.display = 'none';
-        document.getElementById('audit-thanks').style.display = 'block';
-      }, 400);
-    });
-    return false;
-  }
-  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
