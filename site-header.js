@@ -79,6 +79,7 @@
           '</div></div>' +
           '<a class="av-emer' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
+          '<a class="' + act("/customer-stories.html").trim() + '" href="/customer-stories.html">Customer Stories</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html"><span class="av-ic">\uD83C\uDFCA</span> vs Skimmer</a>' +
             '<a class="' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html"><span class="av-ic">\uD83D\uDD27</span> vs Jobber</a>' +
