@@ -35,9 +35,9 @@
     ".av-topbar .av-contact a:hover{color:#93C5FD;}",
     ".av-topbar .av-sep{color:#60A5FA;}",
     ".av-nav{position:relative;top:auto;left:auto;width:100%;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #E2E8F0;}",
-    ".av-nav-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}",
+    ".av-nav-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;}",
     ".av-logo{display:inline-flex;align-items:center;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#0F2C57;text-decoration:none;}",
-    ".av-links{display:flex;align-items:center;gap:22px;}",
+    ".av-links{display:flex;align-items:center;gap:16px;}",
     ".av-links a{color:#334155;text-decoration:none;font-size:15px;transition:color .15s;white-space:nowrap;}",
     ".av-links a:hover,.av-links a.av-active{color:#2563EB;}",
     ".av-links .av-pool{color:#334155;font-weight:600;}",
@@ -57,7 +57,26 @@
     ".av-login:hover{color:#2563EB;}",
     ".av-cta{background:#2563EB;color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(37,99,235,.25);transition:background .2s;}",
     ".av-cta:hover{background:#1D4ED8;}",
-    "@media(max-width:980px){.av-links{display:none;}.av-topbar .av-tag{display:none;}.av-topbar .av-contact{margin:0 auto;}}"
+    // Hamburger (hidden on desktop, shown under the breakpoint).
+    ".av-burger{display:none;align-items:center;justify-content:center;width:44px;height:40px;border:1px solid #E2E8F0;border-radius:10px;background:#fff;cursor:pointer;padding:0;flex:none;}",
+    ".av-burger span{display:block;width:20px;height:2px;background:#0F2C57;position:relative;transition:background .2s;}",
+    ".av-burger span::before,.av-burger span::after{content:'';position:absolute;left:0;width:20px;height:2px;background:#0F2C57;transition:transform .2s,top .2s;}",
+    ".av-burger span::before{top:-6px;}",
+    ".av-burger span::after{top:6px;}",
+    ".av-header.av-open .av-burger span{background:transparent;}",
+    ".av-header.av-open .av-burger span::before{top:0;transform:rotate(45deg);}",
+    ".av-header.av-open .av-burger span::after{top:0;transform:rotate(-45deg);}",
+    // Mobile dropdown panel.
+    ".av-mobile{display:none;border-top:1px solid #E2E8F0;background:#fff;}",
+    ".av-mobile-in{max-width:1280px;margin:0 auto;padding:8px 24px 18px;display:flex;flex-direction:column;}",
+    ".av-mobile a{display:block;padding:11px 4px;font-size:16px;color:#334155;text-decoration:none;border-bottom:1px solid #F1F5F9;font-weight:500;}",
+    ".av-mobile a:hover,.av-mobile a.av-active{color:#2563EB;}",
+    ".av-mobile .av-group{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#64748B;padding:14px 4px 2px;}",
+    ".av-mobile .av-sub{padding-left:18px;}",
+    ".av-mobile .av-m-cta{margin-top:14px;background:#2563EB;color:#fff;text-align:center;border-radius:10px;font-weight:700;padding:13px;border-bottom:none;}",
+    ".av-mobile .av-m-cta:hover{background:#1D4ED8;color:#fff;}",
+    "@media(max-width:1280px){.av-links{display:none;}.av-right{display:none;}.av-burger{display:inline-flex;}.av-header.av-open .av-mobile{display:block;}}",
+    "@media(max-width:980px){.av-topbar .av-tag{display:none;}.av-topbar .av-contact{margin:0 auto;}}"
   ].join("");
 
   var HTML =
@@ -91,7 +110,30 @@
           '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
         '</div>' +
         '<div class="av-right"><a class="av-login" href="https://app.avolv.ai/login">Log In</a><a class="av-cta" href="/get-started.html">Get Started</a></div>' +
+        '<button class="av-burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>' +
       '</div></nav>' +
+      '<div class="av-mobile"><div class="av-mobile-in">' +
+        '<a href="/#features">Features</a>' +
+        '<a href="/#how-it-works">How It Works</a>' +
+        '<a class="' + act("/pools.html").trim() + '" href="/pools.html">Pool Services</a>' +
+        '<div class="av-group">Services</div>' +
+        '<a class="av-sub ' + act("/cleaning.html").trim() + '" href="/cleaning.html">Cleaning</a>' +
+        '<a class="av-sub ' + act("/route-based-services.html").trim() + '" href="/route-based-services.html">Route-Based Services</a>' +
+        '<a class="av-sub" href="https://app.avolv.ai/industries/home-services">Home Services</a>' +
+        '<a class="' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
+        '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
+        '<a class="' + act("/customer-stories.html").trim() + '" href="/customer-stories.html">Customer Stories</a>' +
+        '<div class="av-group">Compare</div>' +
+        '<a class="av-sub ' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html">vs Skimmer</a>' +
+        '<a class="av-sub ' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html">vs Jobber</a>' +
+        '<a class="av-sub ' + act("/vs/housecall-pro.html").trim() + '" href="/vs/housecall-pro.html">vs Housecall Pro</a>' +
+        '<a class="av-sub ' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html">vs ServiceTitan</a>' +
+        '<a class="av-sub ' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html">vs FieldRoutes</a>' +
+        '<a class="' + act("/articles").trim() + '" href="/articles">Articles</a>' +
+        '<a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
+        '<a href="https://app.avolv.ai/login">Log In</a>' +
+        '<a class="av-m-cta" href="/get-started.html">Get Started</a>' +
+      '</div></div>' +
     '</div>';
 
   var style = document.createElement("style");
@@ -105,5 +147,24 @@
     mount.parentNode.removeChild(mount);
   } else {
     document.body.insertAdjacentHTML("afterbegin", HTML);
+  }
+
+  // Mobile menu toggle.
+  var header = document.querySelector(".av-header");
+  var burger = header && header.querySelector(".av-burger");
+  if (header && burger) {
+    burger.addEventListener("click", function () {
+      var open = header.classList.toggle("av-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    var panel = header.querySelector(".av-mobile");
+    if (panel) {
+      panel.addEventListener("click", function (e) {
+        if (e.target && e.target.closest && e.target.closest("a")) {
+          header.classList.remove("av-open");
+          burger.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   }
 })();
