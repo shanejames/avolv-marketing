@@ -53,6 +53,10 @@
     .cs-nums { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
     .cs-num { background: var(--av-blue-50); border: 1px solid var(--av-blue-100); border-radius: 10px; padding: 6px 10px; font-size: .8rem; color: var(--av-heading); }
     .cs-num b { color: var(--av-blue-700); }
+    .cs-story { border-top: 1px solid var(--av-border); margin-top: 4px; padding-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+    .cs-story-label { font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--av-faint); }
+    .cs-story-item .cs-story-q { font-size: .86rem; font-weight: 700; color: var(--av-heading); }
+    .cs-story-item .cs-story-a { font-size: .95rem; color: var(--av-text); margin-top: 3px; }
 
     .cs-state { text-align: center; color: var(--av-muted); padding: 48px 0; }
     .cs-cta { text-align: center; margin: 56px auto 0; }
@@ -169,6 +173,19 @@
             nums.appendChild(chip);
           });
           card.appendChild(nums);
+        }
+        if (Array.isArray(t.story) && t.story.length) {
+          var story = el('div', 'cs-story');
+          var first = t.name ? ('More from ' + t.name.split(' ')[0]) : 'More from this owner';
+          story.appendChild(el('div', 'cs-story-label', first));
+          t.story.forEach(function (s) {
+            if (!s || !s.answer) return;
+            var item = el('div', 'cs-story-item');
+            if (s.question) item.appendChild(el('div', 'cs-story-q', s.question));
+            item.appendChild(el('div', 'cs-story-a', s.answer));
+            story.appendChild(item);
+          });
+          card.appendChild(story);
         }
         var attr = el('div', 'cs-attr');
         if (t.photoUrl) {
