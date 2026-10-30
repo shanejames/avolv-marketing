@@ -58,6 +58,21 @@
     .cs-cta { text-align: center; margin: 56px auto 0; }
     .cs-cta a { display: inline-block; background: var(--av-blue-600); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; }
     .cs-cta a:hover { background: var(--av-blue-700); color: #fff; }
+
+    /* Auto-advancing carousel for the stories Shane marked to rotate. Pinned
+       stories stay in the grid below; these share one spotlight that cycles. */
+    .cs-carousel { position: relative; margin-bottom: 10px; }
+    .cs-carousel-viewport { overflow: hidden; border-radius: 16px; }
+    .cs-carousel-track { display: flex; transition: transform .5s ease; will-change: transform; }
+    .cs-slide { min-width: 100%; padding: 2px 2px 4px; }
+    .cs-slide > .cs-card, .cs-slide > .cs-quote { max-width: 680px; margin: 0 auto; }
+    .cs-arrow { position: absolute; top: 42%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--av-border); background: var(--av-surface); color: var(--av-heading); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: var(--av-shadow-sm); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .cs-arrow:hover { background: var(--av-blue-50); color: var(--av-blue-700); }
+    .cs-prev { left: -8px; } .cs-next { right: -8px; }
+    .cs-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .cs-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--av-blue-100); cursor: pointer; padding: 0; }
+    .cs-dot.is-active { background: var(--av-blue-600); }
+    @media (max-width: 620px) { .cs-arrow { display: none; } }
   </style>
   <script type="module" src="/heycatch-analytics.js"></script>
 </head>
@@ -76,11 +91,13 @@
 
       <section id="cs-videos-section" hidden>
         <h2 class="cs-section-title">On video</h2>
+        <div id="cs-videos-carousel"></div>
         <div id="cs-videos" class="cs-grid"></div>
       </section>
 
       <section id="cs-written-section" hidden>
         <h2 class="cs-section-title">In their words</h2>
+        <div id="cs-written-carousel"></div>
         <div id="cs-written" class="cs-grid"></div>
       </section>
 
@@ -113,75 +130,120 @@
         return parts.join(', ');
       }
 
-      function renderVideos(videos) {
-        var grid = document.getElementById('cs-videos');
-        videos.forEach(function (v) {
-          var card = el('div', 'cs-card');
-          var vid = document.createElement('video');
-          vid.controls = true;
-          vid.playsInline = true;
-          vid.preload = 'none';
-          if (v.posterUrl) vid.poster = v.posterUrl;
-          vid.src = v.videoUrl;
-          card.appendChild(vid);
-
-          var body = el('div', 'cs-body');
-          if (v.question) body.appendChild(el('div', 'cs-q', v.question));
-          var who = attribution(v.name, v.title, null);
-          if (who) body.appendChild(el('div', 'cs-who', who));
-          if (v.company) body.appendChild(el('div', 'cs-co', v.company));
-          card.appendChild(body);
-          grid.appendChild(card);
-        });
-        document.getElementById('cs-videos-section').hidden = false;
+      function reducedMotion() {
+        try { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; }
       }
 
-      function renderWritten(items) {
-        var grid = document.getElementById('cs-written');
-        items.forEach(function (t) {
-          var card = el('div', 'cs-quote');
-          if (t.rating) {
-            var r = Math.max(0, Math.min(5, Math.round(t.rating)));
-            card.appendChild(el('div', 'stars', '★'.repeat(r) + '☆'.repeat(5 - r)));
-          }
-          if (t.quote) {
-            var bq = el('blockquote', null, '“' + t.quote + '”');
-            card.appendChild(bq);
-          }
-          if (Array.isArray(t.numbers) && t.numbers.length) {
-            var nums = el('div', 'cs-nums');
-            t.numbers.slice(0, 3).forEach(function (n) {
-              var chip = el('div', 'cs-num');
-              var b = el('b', null, String(n.value));
-              chip.appendChild(b);
-              chip.appendChild(document.createTextNode(' ' + n.label));
-              nums.appendChild(chip);
-            });
-            card.appendChild(nums);
-          }
-          var attr = el('div', 'cs-attr');
-          if (t.photoUrl) {
-            var img = document.createElement('img');
-            img.src = t.photoUrl;
-            img.alt = t.name || 'Customer';
-            attr.appendChild(img);
-          }
-          var meta = el('div');
-          var who = attribution(t.name, t.title, t.company);
-          if (who) meta.appendChild(el('div', 'cs-who', who));
-          attr.appendChild(meta);
-          if (t.logoUrl) {
-            var logo = document.createElement('img');
-            logo.src = t.logoUrl;
-            logo.alt = (t.company || 'Customer') + ' logo';
-            logo.className = 'cs-logo';
-            logo.style.marginLeft = 'auto';
-            attr.appendChild(logo);
-          }
-          card.appendChild(attr);
-          grid.appendChild(card);
+      function videoCard(v) {
+        var card = el('div', 'cs-card');
+        var vid = document.createElement('video');
+        vid.controls = true;
+        vid.playsInline = true;
+        vid.preload = 'none';
+        if (v.posterUrl) vid.poster = v.posterUrl;
+        vid.src = v.videoUrl;
+        card.appendChild(vid);
+
+        var body = el('div', 'cs-body');
+        if (v.question) body.appendChild(el('div', 'cs-q', v.question));
+        var who = attribution(v.name, v.title, null);
+        if (who) body.appendChild(el('div', 'cs-who', who));
+        if (v.company) body.appendChild(el('div', 'cs-co', v.company));
+        card.appendChild(body);
+        return card;
+      }
+
+      function writtenCard(t) {
+        var card = el('div', 'cs-quote');
+        if (t.rating) {
+          var r = Math.max(0, Math.min(5, Math.round(t.rating)));
+          card.appendChild(el('div', 'stars', '★'.repeat(r) + '☆'.repeat(5 - r)));
+        }
+        if (t.quote) card.appendChild(el('blockquote', null, '“' + t.quote + '”'));
+        if (Array.isArray(t.numbers) && t.numbers.length) {
+          var nums = el('div', 'cs-nums');
+          t.numbers.slice(0, 3).forEach(function (n) {
+            var chip = el('div', 'cs-num');
+            chip.appendChild(el('b', null, String(n.value)));
+            chip.appendChild(document.createTextNode(' ' + n.label));
+            nums.appendChild(chip);
+          });
+          card.appendChild(nums);
+        }
+        var attr = el('div', 'cs-attr');
+        if (t.photoUrl) {
+          var img = document.createElement('img');
+          img.src = t.photoUrl;
+          img.alt = t.name || 'Customer';
+          attr.appendChild(img);
+        }
+        var meta = el('div');
+        var who = attribution(t.name, t.title, t.company);
+        if (who) meta.appendChild(el('div', 'cs-who', who));
+        attr.appendChild(meta);
+        if (t.logoUrl) {
+          var logo = document.createElement('img');
+          logo.src = t.logoUrl;
+          logo.alt = (t.company || 'Customer') + ' logo';
+          logo.className = 'cs-logo';
+          logo.style.marginLeft = 'auto';
+          attr.appendChild(logo);
+        }
+        card.appendChild(attr);
+        return card;
+      }
+
+      // Auto-advancing carousel. Pauses on hover and while a video inside is
+      // playing, so it never skips a story mid-watch. Honors reduced-motion.
+      function buildCarousel(items, renderOne) {
+        var root = el('div', 'cs-carousel');
+        var viewport = el('div', 'cs-carousel-viewport');
+        var track = el('div', 'cs-carousel-track');
+        items.forEach(function (it) {
+          var slide = el('div', 'cs-slide');
+          slide.appendChild(renderOne(it));
+          track.appendChild(slide);
         });
-        document.getElementById('cs-written-section').hidden = false;
+        viewport.appendChild(track);
+        root.appendChild(viewport);
+
+        var idx = 0, timer = null, paused = false;
+        function show(n) { idx = (n + items.length) % items.length; track.style.transform = 'translateX(-' + (idx * 100) + '%)'; dotEls.forEach(function (d, i) { d.className = 'cs-dot' + (i === idx ? ' is-active' : ''); }); }
+
+        var dots = el('div', 'cs-dots');
+        var dotEls = items.map(function (_, i) {
+          var d = el('button', 'cs-dot'); d.type = 'button'; d.setAttribute('aria-label', 'Go to story ' + (i + 1));
+          d.addEventListener('click', function () { show(i); restart(); });
+          dots.appendChild(d); return d;
+        });
+
+        if (items.length > 1) {
+          var prev = el('button', 'cs-arrow cs-prev', '‹'); prev.type = 'button'; prev.setAttribute('aria-label', 'Previous story'); prev.addEventListener('click', function () { show(idx - 1); restart(); });
+          var next = el('button', 'cs-arrow cs-next', '›'); next.type = 'button'; next.setAttribute('aria-label', 'Next story'); next.addEventListener('click', function () { show(idx + 1); restart(); });
+          root.appendChild(prev); root.appendChild(next); root.appendChild(dots);
+        }
+
+        function start() { if (items.length > 1 && !reducedMotion()) timer = setInterval(function () { if (!paused) show(idx + 1); }, 6000); }
+        function restart() { if (timer) { clearInterval(timer); timer = null; } start(); }
+        root.addEventListener('mouseenter', function () { paused = true; });
+        root.addEventListener('mouseleave', function () { paused = false; });
+        root.addEventListener('play', function () { paused = true; }, true);
+        root.addEventListener('pause', function () { paused = false; }, true);
+        root.addEventListener('ended', function () { paused = false; }, true);
+
+        show(0); start();
+        return root;
+      }
+
+      // Rotating items go in the carousel; the rest stay pinned in the grid.
+      function renderSection(items, sectionId, carouselId, gridId, renderOne) {
+        if (!items.length) return;
+        var rotating = items.filter(function (x) { return x && x.rotate; });
+        var pinned = items.filter(function (x) { return !(x && x.rotate); });
+        if (rotating.length) document.getElementById(carouselId).appendChild(buildCarousel(rotating, renderOne));
+        var grid = document.getElementById(gridId);
+        pinned.forEach(function (x) { grid.appendChild(renderOne(x)); });
+        document.getElementById(sectionId).hidden = false;
       }
 
       fetch(FEED, { headers: { 'Accept': 'application/json' } })
@@ -190,8 +252,8 @@
           document.getElementById('cs-loading').hidden = true;
           var videos = Array.isArray(data.videos) ? data.videos : [];
           var written = Array.isArray(data.testimonials) ? data.testimonials : [];
-          if (videos.length) renderVideos(videos);
-          if (written.length) renderWritten(written);
+          renderSection(videos, 'cs-videos-section', 'cs-videos-carousel', 'cs-videos', videoCard);
+          renderSection(written, 'cs-written-section', 'cs-written-carousel', 'cs-written', writtenCard);
           if (!videos.length && !written.length) document.getElementById('cs-empty').hidden = false;
         })
         .catch(function () {
