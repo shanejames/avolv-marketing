@@ -29,6 +29,16 @@
     return bits.length ? '&mdash; ' + bits.join(', ') : '';
   }
 
+  // Point case-study links at the query form (case-study.html?c=slug), which
+  // works with no server rewrite. A clean /case-studies/<slug> path only works
+  // once the Render rewrite is set on the avolv.ai site; this avoids depending
+  // on it. Non case-study links (an override like /cleaning.html) pass through.
+  function storyHref(url) {
+    if (!url) return '';
+    var m = /^\/case-studies\/(.+?)\/?$/.exec(url);
+    return m ? '/case-study.html?c=' + encodeURIComponent(m[1]) : url;
+  }
+
   function row(t, i) {
     var hasImg = !!t.cardImageUrl;
     var rev = i % 2 === 1; // alternate the photo side
@@ -59,7 +69,7 @@
     }
     if (t.cardSource) parts.push('<div class="op-source">' + esc(t.cardSource) + '</div>');
     if (t.storyUrl) {
-      parts.push('<a class="op-link" href="' + esc(t.storyUrl) + '">Read the story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>');
+      parts.push('<a class="op-link" href="' + esc(storyHref(t.storyUrl)) + '">Read the story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>');
     }
     parts.push('</div>');
     parts.push('</div>');
