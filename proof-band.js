@@ -33,7 +33,10 @@
     var hasImg = !!t.cardImageUrl;
     var rev = i % 2 === 1; // alternate the photo side
     var parts = [];
-    parts.push('<div class="op-row' + (rev ? ' rev' : '') + '">');
+    // With a photo: two columns, alternating side. Without one: a single
+    // centered column so the card is never squeezed into an empty image slot.
+    var cls = hasImg ? ('op-row' + (rev ? ' rev' : '')) : 'op-row solo';
+    parts.push('<div class="' + cls + '">');
     if (hasImg) {
       parts.push('<div class="op-media"><img src="' + esc(t.cardImageUrl) + '" alt="' + esc(t.company || t.name || 'Customer') + '" loading="lazy"></div>');
     }
