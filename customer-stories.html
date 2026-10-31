@@ -92,6 +92,16 @@
     .cs-logos-track img:hover { filter: none; opacity: 1; }
     @keyframes cs-logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { .cs-logos-track { animation: none; } }
+
+    /* Stronger card edges so each story reads as its own panel against the soft
+       page background. The theme's default border and shadow were too faint to
+       tell one card from the next or from the page. A defined border plus a real
+       shadow separates them (darkening the white fill would move it toward the
+       page colour and separate them less). */
+    .cs-card, .cs-quote {
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 18px rgba(15, 44, 87, 0.10), 0 1px 3px rgba(15, 44, 87, 0.08);
+    }
   </style>
   <script type="module" src="/heycatch-analytics.js"></script>
 </head>
