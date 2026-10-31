@@ -116,17 +116,14 @@
     .proof-band.op-navy { background: linear-gradient(135deg, var(--av-navy) 0%, var(--av-navy-700) 100%); border-bottom: none; padding: 72px 0; }
     .op-navy .proof-head h2 { color: #fff; }
     .op-navy .proof-head p { color: rgba(255,255,255,0.8); }
-    .op-stack { display: flex; flex-direction: column; gap: 48px; max-width: 1060px; margin: 0 auto; }
-    .op-row { display: grid; grid-template-columns: 520px 1fr; gap: 44px; align-items: center; }
-    .op-row.rev { grid-template-columns: 1fr 520px; }
-    .op-row.rev .op-media { order: 2; }
-    /* No photo yet: drop the two-column grid so the content centers full width
-       instead of being squeezed into the empty image column. */
-    .op-row.solo { display: block; }
-    /* Show the whole uploaded graphic at its natural shape, never cropped. */
-    .op-media img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(147,197,253,0.28); box-shadow: 0 18px 44px rgba(0,0,0,0.38); }
-    .op-content.full { max-width: 760px; margin: 0 auto; text-align: center; }
-    .op-content.full .op-metrics { justify-content: center; }
+    /* Full-width banner cards: the uploaded graphic runs across the top of the
+       card at full size, with the text below it. One card per row so wide,
+       detailed graphics get room and are never cropped. */
+    .op-stack { display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto; }
+    .op-card { background: rgba(147,197,253,0.05); border: 1px solid rgba(147,197,253,0.16); border-radius: 20px; overflow: hidden; }
+    .op-banner { width: 100%; background: #0b2149; line-height: 0; }
+    .op-banner img { width: 100%; height: auto; display: block; }
+    .op-body { padding: 28px 32px 30px; }
     .op-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--av-blue-300); margin-bottom: 12px; }
     .op-headline { font-size: clamp(1.5rem, 2.6vw, 2.05rem); font-weight: 800; color: #fff; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 12px; }
     .op-desc { color: rgba(255,255,255,0.82); font-size: 1.02rem; line-height: 1.6; margin-bottom: 18px; }
@@ -138,11 +135,8 @@
     .op-source { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 12px; }
     .op-link { color: var(--av-blue-300); font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px; }
     .op-link:hover { color: #fff; }
-    @media (max-width: 860px) {
-      .op-row, .op-row.rev { grid-template-columns: 1fr; gap: 24px; }
-      .op-row.rev .op-media { order: 0; }
-      .op-content.full { text-align: left; }
-      .op-content.full .op-metrics { justify-content: flex-start; }
+    @media (max-width: 620px) {
+      .op-body { padding: 22px 20px 24px; }
     }
 
     .mock { background: rgba(255,255,255,0.04); border: 1px solid rgba(147,197,253,0.22); border-radius: 18px; padding: 18px; backdrop-filter: blur(4px); box-shadow: 0 30px 70px rgba(0,0,0,0.35); }

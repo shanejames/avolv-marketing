@@ -39,18 +39,16 @@
     return m ? '/case-study.html?c=' + encodeURIComponent(m[1]) : url;
   }
 
-  function row(t, i) {
+  function row(t) {
     var hasImg = !!t.cardImageUrl;
-    var rev = i % 2 === 1; // alternate the photo side
     var parts = [];
-    // With a photo: two columns, alternating side. Without one: a single
-    // centered column so the card is never squeezed into an empty image slot.
-    var cls = hasImg ? ('op-row' + (rev ? ' rev' : '')) : 'op-row solo';
-    parts.push('<div class="' + cls + '">');
+    // Full-width banner card: the graphic across the top (full size, never
+    // cropped), with the text below it.
+    parts.push('<div class="op-card">');
     if (hasImg) {
-      parts.push('<div class="op-media"><img src="' + esc(t.cardImageUrl) + '" alt="' + esc(t.company || t.name || 'Customer') + '" loading="lazy"></div>');
+      parts.push('<div class="op-banner"><img src="' + esc(t.cardImageUrl) + '" alt="' + esc(t.company || t.name || 'Customer') + '" loading="lazy"></div>');
     }
-    parts.push('<div class="op-content' + (hasImg ? '' : ' full') + '">');
+    parts.push('<div class="op-body">');
     var eyebrow = t.vertical || 'Customer Success';
     parts.push('<span class="op-eyebrow">' + esc(eyebrow) + '</span>');
     parts.push('<h3 class="op-headline">' + esc(t.cardHeadline || t.company || t.name || '') + '</h3>');
