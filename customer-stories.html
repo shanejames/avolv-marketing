@@ -47,7 +47,7 @@
     .cs-quote { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 22px; box-shadow: var(--av-shadow-sm); display: flex; flex-direction: column; gap: 12px; }
     .cs-quote .stars { color: var(--av-amber); font-size: .95rem; letter-spacing: 1px; }
     .cs-quote blockquote { color: var(--av-text); font-size: 1.02rem; line-height: 1.6; }
-    .cs-quote .cs-attr { display: flex; align-items: center; gap: 12px; margin-top: 4px; }
+    .cs-quote .cs-attr { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--av-border); }
     .cs-quote .cs-attr img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--av-border); }
     .cs-quote .cs-logo { max-height: 30px; max-width: 120px; object-fit: contain; }
     .cs-nums { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
@@ -188,6 +188,30 @@
 
       function writtenCard(t) {
         var card = el('div', 'cs-quote');
+
+        // Attribution (photo + name/title, with the logo on the right) sits at
+        // the TOP of the card as a header, above the stars and quote.
+        var attr = el('div', 'cs-attr');
+        if (t.photoUrl) {
+          var pimg = document.createElement('img');
+          pimg.src = t.photoUrl;
+          pimg.alt = t.name || 'Customer';
+          attr.appendChild(pimg);
+        }
+        var meta = el('div');
+        var who = attribution(t.name, t.title, t.company);
+        if (who) meta.appendChild(el('div', 'cs-who', who));
+        attr.appendChild(meta);
+        if (t.logoUrl) {
+          var logo = document.createElement('img');
+          logo.src = t.logoUrl;
+          logo.alt = (t.company || 'Customer') + ' logo';
+          logo.className = 'cs-logo';
+          logo.style.marginLeft = 'auto';
+          attr.appendChild(logo);
+        }
+        if (who || t.photoUrl || t.logoUrl) card.appendChild(attr);
+
         if (t.rating) {
           var r = Math.max(0, Math.min(5, Math.round(t.rating)));
           card.appendChild(el('div', 'stars', '★'.repeat(r) + '☆'.repeat(5 - r)));
@@ -216,26 +240,6 @@
           });
           card.appendChild(story);
         }
-        var attr = el('div', 'cs-attr');
-        if (t.photoUrl) {
-          var img = document.createElement('img');
-          img.src = t.photoUrl;
-          img.alt = t.name || 'Customer';
-          attr.appendChild(img);
-        }
-        var meta = el('div');
-        var who = attribution(t.name, t.title, t.company);
-        if (who) meta.appendChild(el('div', 'cs-who', who));
-        attr.appendChild(meta);
-        if (t.logoUrl) {
-          var logo = document.createElement('img');
-          logo.src = t.logoUrl;
-          logo.alt = (t.company || 'Customer') + ' logo';
-          logo.className = 'cs-logo';
-          logo.style.marginLeft = 'auto';
-          attr.appendChild(logo);
-        }
-        card.appendChild(attr);
         return card;
       }
 
