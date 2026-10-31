@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Story | Avolv.ai</title>
+  <meta name="description" content="How a pool and home-service operator runs their whole book on Avolv.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://app.avolv.ai/avolv-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://app.avolv.ai/avolv-logo.png">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page); color: var(--av-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--av-blue-600); text-decoration: none; } a:hover { color: var(--av-blue-700); }
+    .metastrip { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; max-width: 900px; margin: 32px auto 0; }
+    .meta { background: rgba(255,255,255,0.06); border: 1px solid rgba(147,197,253,0.2); border-radius: 12px; padding: 16px 18px; }
+    .meta .ml { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--av-blue-300); margin-bottom: 4px; }
+    .meta .mv { color: #fff; font-weight: 600; font-size: .95rem; }
+    .cs-state { max-width: 760px; margin: 0 auto; padding: 80px 24px; text-align: center; color: var(--av-muted); }
+    .cs-state h1 { color: var(--av-heading); font-size: 1.6rem; margin-bottom: 12px; }
+    @media (max-width: 720px) { .metastrip { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 860px) { #cs-stats { grid-template-columns: 1fr 1fr !important; } }
+  </style>
+  <script type="module" src="/heycatch-analytics.js"></script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <main id="cs-root">
+    <div class="cs-state" id="cs-loading">Loading the story...</div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+
+  <script>
+    (function () {
+      var API = 'https://api.avolv.ai/api/public/stories/case-study/';
+
+      // Slug comes from the clean URL /case-studies/<slug> (via the Render
+      // rewrite) or from ?c=<slug> / ?slug=<slug>, which works with no rewrite.
+      function getSlug() {
+        var qs = new URLSearchParams(location.search);
+        var q = qs.get('c') || qs.get('slug');
+        if (q) return q.trim();
+        var m = location.pathname.match(/\/case-studies\/([^\/]+?)(?:\.html)?\/?$/i);
+        return m ? decodeURIComponent(m[1]) : '';
+      }
+
+      function esc(s) {
+        return String(s == null ? '' : s)
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      }
+      // Escape, then turn **highlight** into the blue accent span.
+      function accent(s) {
+        return esc(s).replace(/\*\*(.+?)\*\*/g, '<span class="accent">$1</span>');
+      }
+      // Lucide icon names are lowercase letters and dashes only.
+      function safeIcon(s) {
+        var v = String(s || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
+        return v || 'check';
+      }
+      function paras(arr) {
+        return (Array.isArray(arr) ? arr : []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+      }
+
+      function render(data) {
+        var cs = data.caseStudy || {};
+        var company = data.company || '';
+        var owner = data.name || '';
+        var html = [];
+
+        // Hero
+        html.push('<section class="hero"><div class="container">');
+        if (cs.eyebrow) html.push('<span class="eyebrow">' + esc(cs.eyebrow) + '</span>');
+        if (cs.headline) html.push('<h1>' + accent(cs.headline) + '</h1>');
+        if (cs.subhead) html.push('<p class="lede">' + esc(cs.subhead) + '</p>');
+        var metas = [];
+        if (company) metas.push('<div class="meta"><div class="ml">Company</div><div class="mv">' + esc(company) + '</div></div>');
+        if (owner) metas.push('<div class="meta"><div class="ml">Owner</div><div class="mv">' + esc(owner) + '</div></div>');
+        if (cs.market) metas.push('<div class="meta"><div class="ml">Market</div><div class="mv">' + esc(cs.market) + '</div></div>');
+        if (cs.beforeTools) metas.push('<div class="meta"><div class="ml">Before Avolv</div><div class="mv">' + esc(cs.beforeTools) + '</div></div>');
+        if (metas.length) html.push('<div class="metastrip">' + metas.join('') + '</div>');
+        html.push('</div></section>');
+
+        // Stat tiles
+        var stats = Array.isArray(cs.stats) ? cs.stats.filter(function (s) { return s && (s.big || s.small); }) : [];
+        if (stats.length) {
+          var n = Math.min(stats.length, 4);
+          html.push('<section class="section-alt" style="padding:48px 0;border-bottom:1px solid var(--av-border);"><div class="container">');
+          html.push('<div class="stats-grid" id="cs-stats" style="grid-template-columns:repeat(' + n + ',minmax(0,1fr))">');
+          stats.forEach(function (s) {
+            html.push('<div class="stat-card"><div class="big">' + esc(s.big) + '</div><div class="small">' + esc(s.small) + '</div></div>');
+          });
+          html.push('</div></div></section>');
+        }
+
+        // Narrative body
+        var body = Array.isArray(cs.body) ? cs.body.filter(function (s) { return s && (s.heading || (s.paragraphs && s.paragraphs.length)); }) : [];
+        if (body.length) {
+          html.push('<section class="section"><div class="container"><div class="prose">');
+          body.forEach(function (s) {
+            if (s.heading) html.push('<h2>' + esc(s.heading) + '</h2>');
+            html.push(paras(s.paragraphs));
+          });
+          html.push('</div></div></section>');
+        }
+
+        // What we built for them
+        var built = Array.isArray(cs.built) ? cs.built.filter(function (b) { return b && (b.title || b.text); }) : [];
+        if (built.length) {
+          html.push('<section class="section section-alt"><div class="container">');
+          if (cs.builtHeading) html.push('<div class="section-header"><h2>' + accent(cs.builtHeading) + '</h2></div>');
+          html.push('<div class="grid-3">');
+          built.forEach(function (b) {
+            html.push('<div class="card"><div class="ic"><i data-lucide="' + safeIcon(b.icon) + '" style="width:24px;height:24px"></i></div><h3>' + esc(b.title) + '</h3><p>' + esc(b.text) + '</p></div>');
+          });
+          html.push('</div></div></section>');
+        }
+
+        // Closing
+        var closing = cs.closing || {};
+        if (closing.heading || (closing.paragraphs && closing.paragraphs.length)) {
+          html.push('<section class="section"><div class="container"><div class="prose">');
+          if (closing.heading) html.push('<h2 style="margin-top:0;">' + esc(closing.heading) + '</h2>');
+          html.push(paras(closing.paragraphs));
+          html.push('</div></div></section>');
+        }
+
+        // CTA
+        html.push('<section class="cta"><div class="container">');
+        html.push('<h2>' + esc(cs.ctaHeading || 'Want to see your own route inside Avolv?') + '</h2>');
+        html.push('<p>Fifteen minutes and I will show you what your business looks like running on one system. You get me, not a sales team.</p>');
+        html.push('<div class="cta-buttons"><a href="/get-started.html" class="btn btn-primary">Get Started</a>');
+        html.push('<a href="tel:8135196910" class="btn btn-secondary"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a></div>');
+        html.push('</div></section>');
+
+        document.getElementById('cs-root').innerHTML = html.join('');
+
+        // Head: title, description, canonical.
+        var plainHead = String(cs.headline || '').replace(/\*\*/g, '');
+        document.title = (company ? company + ': ' : '') + (plainHead || 'Customer Story') + ' | Avolv.ai';
+        var desc = cs.subhead || plainHead || '';
+        var md = document.querySelector('meta[name="description"]');
+        if (md && desc) md.setAttribute('content', desc);
+        if (cs.slug) {
+          var link = document.createElement('link');
+          link.rel = 'canonical';
+          link.href = 'https://avolv.ai/case-studies/' + cs.slug;
+          document.head.appendChild(link);
+        }
+
+        if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+      }
+
+      function notFound() {
+        document.getElementById('cs-root').innerHTML =
+          '<div class="cs-state"><h1>Story not found</h1><p>This customer story is not available. <a href="/customer-stories.html">See all customer stories</a>.</p></div>';
+      }
+
+      var slug = getSlug();
+      if (!slug) { notFound(); return; }
+
+      fetch(API + encodeURIComponent(slug), { headers: { Accept: 'application/json' } })
+        .then(function (r) { if (r.status === 404) { notFound(); return null; } if (!r.ok) throw new Error('feed ' + r.status); return r.json(); })
+        .then(function (data) { if (data && data.caseStudy) render(data); })
+        .catch(function () {
+          document.getElementById('cs-root').innerHTML =
+            '<div class="cs-state"><h1>Could not load the story</h1><p>Please try again in a moment, or <a href="/customer-stories.html">see all customer stories</a>.</p></div>';
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -247,13 +247,16 @@
   </section>
 
   <!-- Customer proof band -->
-  <section class="proof-band">
+  <!-- Operators proof band. The cards below are the fallback shown before the
+       feed loads (and if it ever fails). On load, proof-band.js replaces them
+       with whatever Shane has featured from the References section in the app. -->
+  <section class="proof-band" id="proof-band">
     <div class="container">
       <div class="proof-head">
         <h2>Operators already running their book on Avolv</h2>
-        <p>Two of the companies Avolv runs today, and what changed after they switched.</p>
+        <p id="proof-sub">Two of the companies Avolv runs today, and what changed after they switched.</p>
       </div>
-      <div class="proof-cards">
+      <div class="proof-cards" id="proof-cards">
 
         <div class="proof-card">
           <div class="proof-person">
@@ -397,5 +400,6 @@
       if (window.lucide) lucide.createIcons();
     });
   </script>
+  <script src="/proof-band.js" defer></script>
 </body>
 </html>
