@@ -77,6 +77,21 @@
     .cs-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--av-blue-100); cursor: pointer; padding: 0; }
     .cs-dot.is-active { background: var(--av-blue-600); }
     @media (max-width: 620px) { .cs-arrow { display: none; } }
+
+    /* Approved-logo marquee: a single row of customer logos that scrolls on its
+       own, right under the hero. Logos come from the same feed (only items the
+       customer approved a logo for). The track holds the set twice and animates
+       to -50% for a seamless loop; hover pauses it. */
+    .cs-logos { max-width: 1180px; margin: 10px auto 0; padding: 0 24px; }
+    .cs-logos-mask { position: relative; overflow: hidden; padding: 6px 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .cs-logos-track { display: flex; align-items: center; gap: 56px; width: max-content; animation: cs-logos-scroll 40s linear infinite; }
+    .cs-logos-mask:hover .cs-logos-track { animation-play-state: paused; }
+    .cs-logos-track img { height: 40px; max-width: 150px; object-fit: contain; flex: none; filter: grayscale(1); opacity: .65; transition: filter .2s ease, opacity .2s ease; }
+    .cs-logos-track img:hover { filter: none; opacity: 1; }
+    @keyframes cs-logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .cs-logos-track { animation: none; } }
   </style>
   <script type="module" src="/heycatch-analytics.js"></script>
 </head>
@@ -88,6 +103,10 @@
     <section class="cs-hero">
       <h1>Customer stories</h1>
       <p>Real pool and home-service owners on what changed after moving to Avolv, in their own words.</p>
+    </section>
+
+    <section id="cs-logos-section" class="cs-logos" hidden aria-label="Customers using Avolv">
+      <div class="cs-logos-mask"><div class="cs-logos-track" id="cs-logos-track"></div></div>
     </section>
 
     <div class="cs-wrap">
@@ -263,12 +282,38 @@
         document.getElementById(sectionId).hidden = false;
       }
 
+      // Build the scrolling logo strip from every approved logo in the feed
+      // (an item only carries logoUrl when the customer approved it). Deduped by
+      // URL, then the set is repeated so the row is wide enough to loop smoothly.
+      function buildLogoStrip(videos, written) {
+        var seen = {}, logos = [];
+        [].concat(videos, written).forEach(function (t) {
+          if (t && t.logoUrl && !seen[t.logoUrl]) { seen[t.logoUrl] = 1; logos.push({ url: t.logoUrl, alt: (t.company || 'Customer') + ' logo' }); }
+        });
+        if (!logos.length) return;
+        var set = logos.slice();
+        while (set.length < 8) set = set.concat(logos);
+        var track = document.getElementById('cs-logos-track');
+        for (var pass = 0; pass < 2; pass++) {
+          set.forEach(function (l, i) {
+            var img = document.createElement('img');
+            img.src = l.url; img.alt = pass === 0 ? l.alt : ''; img.loading = 'lazy';
+            if (pass === 1) img.setAttribute('aria-hidden', 'true');
+            track.appendChild(img);
+          });
+        }
+        // Slower for more logos so the pace stays even regardless of how many.
+        track.style.animationDuration = Math.max(25, set.length * 4) + 's';
+        document.getElementById('cs-logos-section').hidden = false;
+      }
+
       fetch(FEED, { headers: { 'Accept': 'application/json' } })
         .then(function (r) { if (!r.ok) throw new Error('feed ' + r.status); return r.json(); })
         .then(function (data) {
           document.getElementById('cs-loading').hidden = true;
           var videos = Array.isArray(data.videos) ? data.videos : [];
           var written = Array.isArray(data.testimonials) ? data.testimonials : [];
+          buildLogoStrip(videos, written);
           renderSection(videos, 'cs-videos-section', 'cs-videos-carousel', 'cs-videos', videoCard);
           renderSection(written, 'cs-written-section', 'cs-written-carousel', 'cs-written', writtenCard);
           if (!videos.length && !written.length) document.getElementById('cs-empty').hidden = false;
