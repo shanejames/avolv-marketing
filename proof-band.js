@@ -1,15 +1,19 @@
 /* ===========================================================================
  * proof-band.js  ->  /proof-band.js
- * Added 2026-10-31.
+ * Added 2026-10-31. Redesigned to the navy, photo-led layout 2026-10-31.
  *
  * Fills the homepage "Operators already running their book on Avolv" band from
  * the live stories feed. Shane picks who shows here with the "Feature on
- * homepage" toggle on each reference in the app; nothing here is hand-coded.
+ * homepage" toggle in the app, and uploads each one's story photo there too.
+ *
+ * When there are featured customers, this turns the band navy and renders one
+ * story per row: photo on one side, and on the other an eyebrow, headline,
+ * description, metric chips, a quote box with attribution, and a link to the
+ * full case study. Rows alternate the photo side.
  *
  * The static cards in index.html stay as the fallback: if the feed is slow,
  * empty, or down, they remain, so the homepage is never blank and search
- * engines always see real content. Once the feed returns featured customers,
- * their cards replace the fallback.
+ * engines always see real content.
  * ========================================================================= */
 (function () {
   var FEED = 'https://api.avolv.ai/api/public/stories';
@@ -20,28 +24,41 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  function personLine(t) {
-    var title = t.title || 'Owner';
-    var loc = t.cardLocation || t.vertical || '';
-    return esc(title) + (t.company ? ', ' + esc(t.company) : '') + (loc ? ' &middot; ' + esc(loc) : '');
+  function attribution(t) {
+    var bits = [t.name, t.title, t.company].filter(Boolean).map(esc);
+    return bits.length ? '&mdash; ' + bits.join(', ') : '';
   }
 
-  function card(t) {
+  function row(t, i) {
+    var hasImg = !!t.cardImageUrl;
+    var rev = i % 2 === 1; // alternate the photo side
     var parts = [];
-    parts.push('<div class="proof-card">');
-    parts.push('<div class="proof-person"><div><div class="pn">' + esc(t.name || t.company || '') + '</div>');
-    parts.push('<div class="pr">' + personLine(t) + '</div></div></div>');
-    if (t.cardQuote) parts.push('<p class="proof-quote">"' + esc(t.cardQuote) + '"</p>');
+    parts.push('<div class="op-row' + (rev ? ' rev' : '') + '">');
+    if (hasImg) {
+      parts.push('<div class="op-media"><img src="' + esc(t.cardImageUrl) + '" alt="' + esc(t.company || t.name || 'Customer') + '" loading="lazy"></div>');
+    }
+    parts.push('<div class="op-content' + (hasImg ? '' : ' full') + '">');
+    var eyebrow = t.vertical || 'Customer Success';
+    parts.push('<span class="op-eyebrow">' + esc(eyebrow) + '</span>');
+    parts.push('<h3 class="op-headline">' + esc(t.cardHeadline || t.company || t.name || '') + '</h3>');
+    if (t.cardDescription) parts.push('<p class="op-desc">' + esc(t.cardDescription) + '</p>');
     var metrics = Array.isArray(t.cardMetrics) ? t.cardMetrics.filter(Boolean) : [];
     if (metrics.length) {
-      parts.push('<div class="proof-metrics">');
-      metrics.forEach(function (m) { parts.push('<span class="proof-metric">' + esc(m) + '</span>'); });
+      parts.push('<div class="op-metrics">');
+      metrics.forEach(function (m) { parts.push('<span class="op-metric">' + esc(m) + '</span>'); });
       parts.push('</div>');
     }
-    if (t.cardSource) parts.push('<div class="proof-source">' + esc(t.cardSource) + '</div>');
-    if (t.storyUrl) {
-      parts.push('<a class="proof-link" href="' + esc(t.storyUrl) + '">Read the story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>');
+    if (t.cardQuote) {
+      parts.push('<div class="op-quote"><p>"' + esc(t.cardQuote) + '"</p>');
+      var attr = attribution(t);
+      if (attr) parts.push('<div class="op-attr">' + attr + '</div>');
+      parts.push('</div>');
     }
+    if (t.cardSource) parts.push('<div class="op-source">' + esc(t.cardSource) + '</div>');
+    if (t.storyUrl) {
+      parts.push('<a class="op-link" href="' + esc(t.storyUrl) + '">Read the story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>');
+    }
+    parts.push('</div>');
     parts.push('</div>');
     return parts.join('');
   }
@@ -49,7 +66,10 @@
   function render(featured) {
     var wrap = document.getElementById('proof-cards');
     if (!wrap) return;
-    wrap.innerHTML = featured.map(card).join('');
+    var band = document.getElementById('proof-band');
+    if (band) band.classList.add('op-navy');
+    wrap.className = 'op-stack';
+    wrap.innerHTML = featured.map(row).join('');
     var sub = document.getElementById('proof-sub');
     if (sub) sub.textContent = 'The companies Avolv runs today, and what changed after they switched.';
     if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
