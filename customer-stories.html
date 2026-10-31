@@ -295,8 +295,13 @@
       // Build the scrolling logo strip from every approved logo in the feed
       // (an item only carries logoUrl when the customer approved it). Deduped by
       // URL, then the set is repeated so the row is wide enough to loop smoothly.
-      function buildLogoStrip(videos, written) {
+      function buildLogoStrip(videos, written, feedLogos) {
         var seen = {}, logos = [];
+        // The dedicated logo wall (includes logos promoted on their own), then
+        // any logos riding on published videos/testimonials. Deduped by URL.
+        (feedLogos || []).forEach(function (l) {
+          if (l && l.logoUrl && !seen[l.logoUrl]) { seen[l.logoUrl] = 1; logos.push({ url: l.logoUrl, alt: (l.company || 'Customer') + ' logo' }); }
+        });
         [].concat(videos, written).forEach(function (t) {
           if (t && t.logoUrl && !seen[t.logoUrl]) { seen[t.logoUrl] = 1; logos.push({ url: t.logoUrl, alt: (t.company || 'Customer') + ' logo' }); }
         });
@@ -323,7 +328,7 @@
           document.getElementById('cs-loading').hidden = true;
           var videos = Array.isArray(data.videos) ? data.videos : [];
           var written = Array.isArray(data.testimonials) ? data.testimonials : [];
-          buildLogoStrip(videos, written);
+          buildLogoStrip(videos, written, Array.isArray(data.logos) ? data.logos : []);
           renderSection(videos, 'cs-videos-section', 'cs-videos-carousel', 'cs-videos', videoCard);
           renderSection(written, 'cs-written-section', 'cs-written-carousel', 'cs-written', writtenCard);
           if (!videos.length && !written.length) document.getElementById('cs-empty').hidden = false;
