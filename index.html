@@ -363,6 +363,14 @@
   </section>
 
   <!-- Industries -->
+  <!-- Website videos (added 2026-11-05). Filled by /site-videos.js from the app's
+       public feed. The section and each slot stay hidden until a video is
+       published to that slot in Grow Avolv > Website videos. -->
+  <section class="section" id="site-videos-section" data-avolv-video-section style="display:none">
+    <div data-avolv-video="homepage-primary" style="display:none"></div>
+    <div data-avolv-video="homepage-secondary" style="display:none;margin-top:56px"></div>
+  </section>
+
   <section class="section" id="industries">
     <div class="container">
       <div class="section-header">
@@ -436,5 +444,6 @@
     });
   </script>
   <script src="/proof-band.js" defer></script>
+  <script src="/site-videos.js" defer></script>
 </body>
 </html>
