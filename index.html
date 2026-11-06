@@ -4,49 +4,232 @@
   <link rel="stylesheet" href="/avolv-theme.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avolv Apps: Paid Add-Ons for Studio, Workforce, and Compliance</title>
-  <meta name="description" content="Avolv Apps are paid add-on products that extend the core platform: Avolv Studio for marketing video, Avolv Workforce for hiring and training technicians, and Avolv Compliance for state health-department records.">
-  <link rel="canonical" href="https://avolv.ai/apps/">
-  <meta property="og:title" content="Avolv Apps: paid add-ons for pool and home service companies">
-  <meta property="og:description" content="Extend Avolv with Studio, Workforce, and Compliance. Turn the apps on when you need them.">
+  <title>Avolv.ai: One System for Pool and Home Service Companies</title>
+  <meta name="description" content="Avolv answers your texts, drafts the quote, dispatches the tech, and bills the job. One system for pool and home service companies.">
+  <link rel="canonical" href="https://avolv.ai/">
+
+  <meta property="og:title" content="Avolv.ai: One System for Pool and Home Service">
+  <meta property="og:description" content="Avolv answers your texts, drafts the quote, dispatches the tech, and bills the job. You run the route.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://avolv.ai/apps/">
+  <meta property="og:url" content="https://avolv.ai/">
   <meta property="og:image" content="https://app.avolv.ai/avolv-logo.png">
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Avolv Apps">
-  <meta name="twitter:description" content="Paid add-ons that extend the Avolv core platform.">
+  <meta name="twitter:title" content="Avolv.ai: One System for Pool and Home Service">
+  <meta name="twitter:description" content="Avolv answers your texts, drafts the quote, dispatches the tech, and bills the job. You run the route.">
   <meta name="twitter:image" content="https://app.avolv.ai/avolv-logo.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avolv.ai/#organization",
+      "name": "Avolv.ai",
+      "url": "https://avolv.ai/",
+      "logo": "https://app.avolv.ai/avolv-logo.png",
+      "email": "sales@avolv.ai",
+      "telephone": "+1-813-519-6910",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5914 Menorca Lane",
+        "addressLocality": "Apollo Beach",
+        "addressRegion": "FL",
+        "postalCode": "33572",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avolv.ai/#website",
+      "url": "https://avolv.ai/",
+      "name": "Avolv.ai",
+      "publisher": { "@id": "https://avolv.ai/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Avolv.ai?", "acceptedAnswer": { "@type": "Answer", "text": "Avolv is field service management software built for pool and home service companies. It runs your scheduling, routing, chemistry logs, invoicing, payments, and QuickBooks sync in one system. The mobile app works offline when techs lose signal in a backyard." } },
+        { "@type": "Question", "name": "How much does Avolv cost?", "acceptedAnswer": { "@type": "Answer", "text": "Priced per service location, month to month, with no contract. Most operators pay less than they were paying for their old scheduling app plus QuickBooks combined. Setup is a one-time fee scoped to your data migration, quoted before you commit." } },
+        { "@type": "Question", "name": "Where does Avolv operate?", "acceptedAnswer": { "@type": "Answer", "text": "Avolv is sold across the United States. The company is based in Apollo Beach, Florida, in the Tampa Bay area, and support hours are Monday through Friday, 9am to 5pm Eastern." } },
+        { "@type": "Question", "name": "Does Avolv sync with QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoices generated from the schedule push into QuickBooks Online line by line, and payments post back against the right invoice on their own. Both systems show the same number." } },
+        { "@type": "Question", "name": "Can Avolv migrate my data from Skimmer or another platform?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every account, every history record, and every recurring schedule gets moved and reconciled against QuickBooks before you rely on it. One Florida operation moved 988 pools with zero days of route downtime." } }
+      ]
+    }
+  ]
+}
+  </script>
+
   <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
   <style>
     *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page); color: var(--av-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: var(--av-blue-600); text-decoration: none; } a:hover { color: var(--av-blue-700); }
-    .app-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--av-blue-50); border: 1px solid var(--av-blue-100); color: var(--av-blue-700); font-size: 0.78rem; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px; }
-    .app-row { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
-    .app-row h2 { color: var(--av-heading); font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
-    .app-row .sub { color: var(--av-muted); font-size: 1.08rem; margin-bottom: 20px; }
-    .app-row p { margin-bottom: 16px; font-size: 1.02rem; }
-    .app-list { list-style: none; }
-    .app-list li { padding-left: 28px; position: relative; margin-bottom: 11px; font-size: 1rem; line-height: 1.5; }
-    .app-list li::before { content: '\2713'; position: absolute; left: 0; color: var(--av-blue-600); font-weight: 800; }
-    .app-aside { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 28px 30px; box-shadow: var(--av-shadow-sm); }
-    .app-aside h3 { color: var(--av-heading); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px; }
-    .app-aside p { color: var(--av-muted); font-size: 0.98rem; margin: 0; }
-    @media (max-width: 860px) { .app-row { grid-template-columns: 1fr; gap: 24px; } }
+    a { color: var(--av-blue-600); text-decoration: none; }
+    a:hover { color: var(--av-blue-700); }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+    .btn-primary { background: var(--av-blue-600); color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .btn-primary:hover { background: var(--av-blue-700); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.22); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.16); color: #fff; }
+
+    .hero { background: radial-gradient(120% 130% at 85% 0%, #17346b 0%, #0f2c57 45%, #0b2149 100%); color: #fff; padding: 84px 0 88px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-block; padding: 6px 14px; background: rgba(147,197,253,0.15); border: 1px solid rgba(147,197,253,0.32); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--av-blue-300); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.35rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .hero h1 .accent { color: var(--av-blue-300); }
+    .hero .lede { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: 30px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .hero-derisk { margin-top: 16px; font-size: 0.9rem; color: rgba(255,255,255,0.82); display: inline-flex; align-items: center; gap: 8px; }
+    .hero-derisk::before { content: ''; width: 7px; height: 7px; border-radius: 999px; background: var(--av-blue-300); flex: none; }
+    .hero-call { margin-top: 12px; font-size: 0.95rem; color: rgba(255,255,255,0.72); }
+    .hero-call a { color: var(--av-blue-300); font-weight: 700; }
+
+    /* Customer proof band */
+    .proof-band { background: var(--av-surface); border-bottom: 1px solid var(--av-border); padding: 56px 0; }
+    .proof-head { text-align: center; max-width: 680px; margin: 0 auto 32px; }
+    .proof-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 800; color: var(--av-heading); letter-spacing: -0.01em; }
+    .proof-head p { color: var(--av-muted); font-size: 1rem; margin-top: 8px; }
+    .proof-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 980px; margin: 0 auto; }
+    .proof-card { background: var(--av-page); border: 1px solid var(--av-border); border-radius: 16px; padding: 26px 28px; display: flex; flex-direction: column; }
+    .proof-person { margin-bottom: 16px; }
+    .proof-person .pn { font-weight: 800; color: var(--av-heading); font-size: 0.98rem; line-height: 1.2; }
+    .proof-person .pr { color: var(--av-faint); font-size: 0.85rem; margin-top: 2px; }
+    .proof-quote { color: var(--av-text); font-size: 1.02rem; line-height: 1.55; margin-bottom: 14px; }
+    .proof-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .proof-metric { background: var(--av-blue-50); border: 1px solid var(--av-blue-100); color: var(--av-heading); border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; font-weight: 700; }
+    .proof-source { color: var(--av-faint); font-size: 0.8rem; margin-bottom: 14px; }
+    .proof-link { margin-top: auto; color: var(--av-blue-600); font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 6px; }
+    @media (max-width: 760px) { .proof-cards { grid-template-columns: 1fr; } }
+
+    /* Dynamic "Operators" band: navy, one story per row with a photo. Added when
+       proof-band.js has featured customers to show. The static fallback above
+       keeps the light look. */
+    .proof-band.op-navy { background: linear-gradient(135deg, var(--av-navy) 0%, var(--av-navy-700) 100%); border-bottom: none; padding: 72px 0; }
+    .op-navy .proof-head h2 { color: #fff; }
+    .op-navy .proof-head p { color: rgba(255,255,255,0.8); }
+    .op-stack { display: flex; flex-direction: column; gap: 48px; max-width: 1060px; margin: 0 auto; }
+    .op-row { display: grid; grid-template-columns: 520px 1fr; gap: 44px; align-items: center; }
+    .op-row.rev { grid-template-columns: 1fr 520px; }
+    .op-row.rev .op-media { order: 2; }
+    /* No photo yet: drop the two-column grid so the content centers full width
+       instead of being squeezed into the empty image column. */
+    .op-row.solo { display: block; }
+    /* Show the whole uploaded graphic at its natural shape, never cropped. */
+    .op-media img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(147,197,253,0.28); box-shadow: 0 18px 44px rgba(0,0,0,0.38); }
+    .op-content.full { max-width: 760px; margin: 0 auto; text-align: center; }
+    .op-content.full .op-metrics { justify-content: center; }
+    .op-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--av-blue-300); margin-bottom: 12px; }
+    .op-headline { font-size: clamp(1.5rem, 2.6vw, 2.05rem); font-weight: 800; color: #fff; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .op-desc { color: rgba(255,255,255,0.82); font-size: 1.02rem; line-height: 1.6; margin-bottom: 18px; }
+    .op-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .op-metric { background: rgba(147,197,253,0.12); border: 1px solid rgba(147,197,253,0.24); color: #eaf2ff; border-radius: 999px; padding: 6px 13px; font-size: 0.82rem; font-weight: 700; }
+    .op-quote { background: rgba(147,197,253,0.08); border: 1px solid rgba(147,197,253,0.18); border-radius: 14px; padding: 18px 20px; margin-bottom: 14px; }
+    .op-quote p { color: #fff; font-style: italic; font-size: 1.04rem; line-height: 1.5; }
+    .op-attr { color: var(--av-blue-300); font-size: 0.85rem; font-weight: 700; margin-top: 10px; }
+    .op-source { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 12px; }
+    .op-link { color: var(--av-blue-300); font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px; }
+    .op-link:hover { color: #fff; }
+    @media (max-width: 860px) {
+      .op-row, .op-row.rev { grid-template-columns: 1fr; gap: 24px; }
+      .op-row.rev .op-media { order: 0; }
+      .op-content.full { text-align: left; }
+      .op-content.full .op-metrics { justify-content: flex-start; }
+    }
+
+    .mock { background: rgba(255,255,255,0.04); border: 1px solid rgba(147,197,253,0.22); border-radius: 18px; padding: 18px; backdrop-filter: blur(4px); box-shadow: 0 30px 70px rgba(0,0,0,0.35); }
+    .mock-head { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--av-blue-300); font-weight: 600; padding: 4px 6px 14px; }
+    .mock-dot { width: 10px; height: 10px; border-radius: 999px; background: #4d8bff; box-shadow: 0 0 0 4px rgba(77,139,255,0.2); }
+    .mock-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 14px; }
+    .mock-stat { background: #fff; border-radius: 12px; padding: 14px; }
+    .ms-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--av-faint); }
+    .ms-val { font-size: 1.5rem; font-weight: 800; color: var(--av-heading); line-height: 1.1; margin: 4px 0 2px; }
+    .ms-sub { font-size: 11px; color: var(--av-muted); }
+    .mock-pipe { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+    .mp-row { display: grid; grid-template-columns: 74px 1fr; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 12px; color: var(--av-muted); font-weight: 600; }
+    .mp-row:last-child { margin-bottom: 0; }
+    .mp-bar { height: 12px; background: var(--av-surface-2); border-radius: 999px; overflow: hidden; }
+    .mp-bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #4d8bff, #2563EB); }
+    .mock-note { background: var(--av-blue-50); border: 1px solid var(--av-blue-100); border-radius: 12px; padding: 12px 14px; font-size: 13px; color: var(--av-heading); font-weight: 700; }
+    .mock-note small { display: block; font-weight: 500; color: var(--av-muted); margin-top: 3px; }
+    .mock-note .mn-ic { display: inline-flex; width: 18px; height: 18px; border-radius: 999px; background: var(--av-blue-600); color: #fff; align-items: center; justify-content: center; font-size: 11px; margin-right: 6px; vertical-align: middle; }
+
+    .stats { background: var(--av-surface); border-bottom: 1px solid var(--av-border); padding: 40px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .stat-card { background: var(--av-page); border: 1px solid var(--av-border); border-radius: 14px; padding: 22px; text-align: center; }
+    .stat-card .big { font-size: 1.75rem; font-weight: 800; color: var(--av-blue-600); line-height: 1.1; }
+    .stat-card .small { font-size: 0.85rem; color: var(--av-muted); margin-top: 6px; }
+
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--av-surface); }
+    .section-navy { background: linear-gradient(135deg, var(--av-navy) 0%, var(--av-navy-700) 100%); color: #fff; }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+    .section-header h2 { font-size: clamp(1.6rem, 3vw, 2.35rem); font-weight: 800; color: var(--av-heading); letter-spacing: -0.01em; margin-bottom: 12px; }
+    .section-navy .section-header h2 { color: #fff; }
+    .section-header h2 .accent { color: var(--av-blue-600); }
+    .section-header p { color: var(--av-muted); font-size: 1.05rem; }
+    .section-navy .section-header p { color: rgba(255,255,255,0.8); }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .card { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 28px; transition: transform 0.15s, box-shadow 0.15s; }
+    .section-alt .card { background: var(--av-page); }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--av-shadow-lg); }
+    .card .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--av-blue-50); color: var(--av-blue-600); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .card h3 { font-size: 1.1rem; font-weight: 800; color: var(--av-heading); margin-bottom: 8px; }
+    .card p { color: var(--av-muted); font-size: 0.95rem; }
+
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .step { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 30px 28px; }
+    .step .num { width: 40px; height: 40px; border-radius: 12px; background: var(--av-blue-600); color: #fff; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .step h3 { font-size: 1.1rem; font-weight: 800; color: var(--av-heading); margin-bottom: 8px; }
+    .step p { color: var(--av-muted); font-size: 0.95rem; }
+
+    .ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .ind { display: block; background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 26px; text-align: center; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+    .ind:hover { transform: translateY(-3px); box-shadow: var(--av-shadow-lg); border-color: var(--av-blue-300); }
+    .ind .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--av-blue-50); color: var(--av-blue-600); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .ind h3 { font-size: 1.02rem; font-weight: 800; color: var(--av-heading); }
+
+    .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .audit-copy h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 800; margin-bottom: 16px; }
+    .audit-copy p { color: rgba(255,255,255,0.82); font-size: 1.02rem; margin-bottom: 12px; }
+    .audit-thanks { background: #fff; border-radius: 14px; padding: 40px 32px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .audit-thanks h3 { color: var(--av-heading); font-size: 1.25rem; font-weight: 800; margin-bottom: 10px; }
+    .audit-thanks p { color: var(--av-muted); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .chip { display: inline-flex; align-items: center; gap: 10px; background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 999px; padding: 14px 24px; font-weight: 700; color: var(--av-heading); font-size: 0.95rem; }
+    .section-alt .chip { background: var(--av-page); }
+    .chip .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--av-blue-500); }
+
+    .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 12px; padding: 24px 28px; }
+    .section-alt .faq-item { background: var(--av-page); }
+    .faq-item h3 { color: var(--av-heading); font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; }
+    .faq-item p { color: var(--av-muted); font-size: 0.95rem; line-height: 1.65; }
+
+    .cta { background: linear-gradient(135deg, var(--av-navy) 0%, var(--av-navy-700) 100%); color: #fff; padding: 84px 0; text-align: center; }
+    .cta h2 { font-size: clamp(1.6rem, 3vw, 2.35rem); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .cta p { color: rgba(255,255,255,0.82); font-size: 1.08rem; max-width: 600px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .grid-3, .steps { grid-template-columns: 1fr; }
+      .ind-grid { grid-template-columns: 1fr 1fr; }
+      .audit-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
   </style>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Avolv Apps",
-  "url": "https://avolv.ai/apps/",
-  "about": "Paid add-on products that extend the Avolv core platform."
-}
-  </script>
+  <script type="module" src="/heycatch-analytics.js"></script>
 </head>
 <body>
 
@@ -56,80 +239,185 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <span class="eyebrow">Avolv Apps</span>
-      <h1>Add what your business needs, when it needs it</h1>
-      <p class="lede">Every Avolv customer runs on the core platform. These paid apps turn on specialized work that not every operator needs, so you only pay for the capability you use.</p>
-    </div>
-  </section>
-
-  <!-- Studio -->
-  <section class="section" id="studio">
-    <div class="container">
-      <div class="app-row">
+      <div class="hero-grid">
         <div>
-          <span class="app-tag"><i data-lucide="plus-circle" style="width:14px;height:14px"></i> Paid add-on</span>
-          <h2>Avolv Studio</h2>
-          <p class="sub">Marketing video and ads, made from the work you already do.</p>
-          <p>Studio turns a few details about your business, your website, and your customer reviews into a finished promotional video. You approve the script before anything is produced, then Studio generates the video in the sizes you need for social, your website, and paid ads.</p>
-          <ul class="app-list">
-            <li>AI-drafted scripts built from your own business details and reviews.</li>
-            <li>Approve-before-produce, so nothing goes out without your sign-off.</li>
-            <li>Vertical, square, and widescreen cuts from one production.</li>
-            <li>No videographer, no editing software, no agency retainer.</li>
-          </ul>
+          <span class="eyebrow">Field service software for pool &amp; home service companies</span>
+          <h1>Your next customer just <span class="accent">texted you a video.</span> Avolv handled it.</h1>
+          <p class="lede">Stop losing leads to voicemail. Stop typing the same estimate twelve times a week. Avolv answers your texts, drafts the quote, dispatches your tech, and bills the job. You run the route.</p>
+          <div class="hero-cta">
+            <a href="/get-started.html" class="btn btn-primary">Book a 15-min demo</a>
+            <a href="/demo/" class="btn btn-secondary">See how it works</a>
+          </div>
+          <div class="hero-derisk">Setup is quoted before you commit, and every plan is month to month. Cancel any time.</div>
+          <div class="hero-call">Or just call Shane at <a href="tel:8135196910">(813) 519-6910</a>, or find him on <a href="https://www.linkedin.com/in/rshanejames" target="_blank" rel="noopener">LinkedIn</a>.</div>
         </div>
-        <div class="app-aside">
-          <h3>Who it's for</h3>
-          <p>Owners who know they should be marketing but do not have the time, the budget, or the equipment to produce video on their own.</p>
+        <div class="mock">
+          <div class="mock-head"><span class="mock-dot"></span> app.avolv.ai &middot; today's pipeline</div>
+          <div class="mock-stats">
+            <div class="mock-stat"><div class="ms-label">New Leads</div><div class="ms-val">12</div><div class="ms-sub">SMS, web, Angi</div></div>
+            <div class="mock-stat"><div class="ms-label">Quotes Sent</div><div class="ms-val">62s</div><div class="ms-sub">avg text-to-quote</div></div>
+            <div class="mock-stat"><div class="ms-label">Jobs Booked</div><div class="ms-val">$4,180</div><div class="ms-sub">today</div></div>
+          </div>
+          <div class="mock-pipe">
+            <div class="mp-row"><span>Leads</span><div class="mp-bar"><i style="width:100%"></i></div></div>
+            <div class="mp-row"><span>Estimates</span><div class="mp-bar"><i style="width:68%"></i></div></div>
+            <div class="mp-row"><span>Booked</span><div class="mp-bar"><i style="width:44%"></i></div></div>
+          </div>
+          <div class="mock-note"><span class="mn-ic">&check;</span> Avolv AI just replied to Megan H. <small>Green pool cleanup &middot; Carlos booked Wed 9am</small></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Workforce -->
-  <section class="section section-alt" id="workforce">
+  <!-- Stat strip -->
+  <section class="stats">
     <div class="container">
-      <div class="app-row">
-        <div>
-          <span class="app-tag"><i data-lucide="plus-circle" style="width:14px;height:14px"></i> Paid add-on</span>
-          <h2>Avolv Workforce</h2>
-          <p class="sub">Find, train, and keep the technicians your business runs on.</p>
-          <p>Hiring and training is the hardest part of running a service company, and most software leaves you to solve it alone. Workforce gives you a training library your techs learn from, assessments that confirm they understood it, and a coaching assistant that watches how a new hire uses the app in the field and guides them as they go.</p>
-          <ul class="app-list">
-            <li>A baseline curriculum built for your trade, ready to use on day one.</li>
-            <li>Your own video lessons and written steps layered on top.</li>
-            <li>End-of-section assessments answered by typing or by voice.</li>
-            <li>A coaching assistant that helps new hires, with a manager signing off on anything tied to pay or certification.</li>
-          </ul>
-        </div>
-        <div class="app-aside">
-          <h3>Who it's for</h3>
-          <p>Companies that are growing their crew and losing time and money every time a new technician ramps up slowly or does the job wrong.</p>
-        </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="big">38%</div><div class="small">Of service calls go unanswered</div></div>
+        <div class="stat-card"><div class="big">62 sec</div><div class="small">Average text-to-quote with Avolv</div></div>
+        <div class="stat-card"><div class="big">$47K</div><div class="small">Lost annual revenue per truck</div></div>
+        <div class="stat-card"><div class="big">EN / ES</div><div class="small">Bilingual voice notes built in</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Compliance -->
-  <section class="section" id="compliance">
+  <!-- Customer proof band -->
+  <!-- Operators proof band. The cards below are the fallback shown before the
+       feed loads (and if it ever fails). On load, proof-band.js replaces them
+       with whatever Shane has featured from the References section in the app. -->
+  <section class="proof-band" id="proof-band">
     <div class="container">
-      <div class="app-row">
-        <div>
-          <span class="app-tag"><i data-lucide="plus-circle" style="width:14px;height:14px"></i> Paid add-on</span>
-          <h2>Avolv Compliance</h2>
-          <p class="sub">Stay audit-ready for your state's health-department rules.</p>
-          <p>Commercial work comes with records you have to keep and inspections you have to pass. Compliance applies your state's rules to every visit, captures the readings and proof your techs log in the field, and produces the report an inspector expects, with a tamper-evident history behind it.</p>
-          <ul class="app-list">
-            <li>State-specific rule sets your business owner reviews and accepts.</li>
-            <li>Field logging with live-camera proof tied to each visit.</li>
-            <li>Official report export, including the Florida DH 921.</li>
-            <li>A tamper-evident audit trail and an inspection-readiness checklist.</li>
-          </ul>
+      <div class="proof-head">
+        <h2>Operators already running their book on Avolv</h2>
+        <p id="proof-sub">Two of the companies Avolv runs today, and what changed after they switched.</p>
+      </div>
+      <div class="proof-cards" id="proof-cards">
+
+        <div class="proof-card">
+          <div class="proof-person">
+            <div>
+              <div class="pn">Simon McDonnell</div>
+              <div class="pr">Owner, Resort Pool Services &middot; Florida</div>
+            </div>
+          </div>
+          <p class="proof-quote">"We stopped losing after-hours leads. The ones we used to miss now show up already booked."</p>
+          <div class="proof-metrics">
+            <span class="proof-metric">988 pools migrated off Skimmer</span>
+            <span class="proof-metric">$370,779 reconciled to a $580 variance</span>
+            <span class="proof-metric">0 days of route downtime</span>
+          </div>
+          <a class="proof-link" href="/case-studies/resort-pool-services.html">Read the Resort story <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
         </div>
-        <div class="app-aside">
-          <h3>Who it's for</h3>
-          <p>Operators running commercial pools or other regulated work who need to prove compliance and protect the business from fines.</p>
+
+        <div class="proof-card">
+          <div class="proof-person">
+            <div>
+              <div class="pn">Julie Lavacchi</div>
+              <div class="pr">Owner, Keep It Clean &middot; Naperville, IL</div>
+            </div>
+          </div>
+          <p class="proof-quote">Before Avolv, scheduling was chaos across residential and commercial, with no review generation at all. Now reviews land every week on autopilot while she grows recurring work.</p>
+          <div class="proof-metrics">
+            <span class="proof-metric">103 five-star Google reviews</span>
+            <span class="proof-metric">First cleaning company on Avolv</span>
+          </div>
+          <div class="proof-source">Google reviews, as of October 2026.</div>
+          <a class="proof-link" href="/cleaning.html">See the cleaning build <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Avolv answers the text and <span class="accent">drafts the quote in about 60 seconds.</span></h2>
+        <p>The front of your business runs on AI. Your schedule, your invoicing, and your customer list run in the same system.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="ic"><i data-lucide="message-square-text" style="width:24px;height:24px"></i></div><h3>Customers text a video. Avolv drafts the quote in about 60 seconds.</h3><p>A homeowner sends a photo or a video. Avolv reads it, sizes the job against your catalog, and writes you a draft estimate, in English or Spanish.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="phone-call" style="width:24px;height:24px"></i></div><h3>An AI receptionist answers every call, 24/7, in English or Spanish.</h3><p>It picks up when your crews are out or after hours, answers the basics, captures the job, and books it onto your schedule, so you stop losing work to voicemail.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="refresh-cw" style="width:24px;height:24px"></i></div><h3>QuickBooks syncs line by line; payments post back on their own.</h3><p>Invoices from the schedule push into QuickBooks Online line by line, and payments post back against the right invoice automatically. Both systems show the same number.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="route" style="width:24px;height:24px"></i></div><h3>Routes built from where your trucks actually drive.</h3><p>Scheduling and dispatch order every stop by drive time, with GPS-aware routing that keeps your techs out of the windshield and in front of customers.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="receipt" style="width:24px;height:24px"></i></div><h3>Invoicing and recurring billing that run themselves.</h3><p>Recurring plans generate and bill on schedule, the card on file is charged automatically, and every invoice is matched to the service record that justifies it.</p></div>
+        <div class="card"><div class="ic"><i data-lucide="users" style="width:24px;height:24px"></i></div><h3>A customer list that moves jobs forward like a pipeline.</h3><p>Every lead moves from new to booked to completed on its own, with follow-up messages and review requests firing at each step.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>One 15-minute call, then <span class="accent">we do the migration for you</span></h2>
+        <p>You never touch a data migration yourself. We move you off your old tools, reconcile the books against QuickBooks, and go live in about 5 business days.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>One 15-minute call</h3><p>We look at your route together, show you your own business running inside Avolv, and quote both the monthly price and the one-time setup before you commit.</p></div>
+        <div class="step"><div class="num">2</div><h3>We migrate your data</h3><p>We move every account, history record, and recurring schedule off Skimmer or whatever you run now, and reconcile it against QuickBooks before you rely on it. You never touch a migration yourself.</p></div>
+        <div class="step"><div class="num">3</div><h3>You go live in about 5 business days</h3><p>We provision your phone number and A2P SMS, build your service catalog, set up your team, and run a training call. Then your route runs on Avolv.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <!-- Website videos (added 2026-11-05). Filled by /site-videos.js from the app's
+       public feed. The section and each slot stay hidden until a video is
+       published to that slot in Grow Avolv > Website videos. -->
+  <section class="section" id="site-videos-section" data-avolv-video-section style="display:none">
+    <div data-avolv-video="homepage-primary" style="display:none"></div>
+    <div data-avolv-video="homepage-secondary" style="display:none;margin-top:56px"></div>
+  </section>
+
+  <section class="section" id="industries">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for <span class="accent">route-based service</span></h2>
+        <p>We go deep instead of wide. Avolv is purpose-built for pool and home service operators tired of losing leads to voicemail.</p>
+      </div>
+      <div class="ind-grid">
+        <a class="ind" href="/pools.html"><div class="ic"><i data-lucide="waves" style="width:26px;height:26px"></i></div><h3>Pool Services</h3></a>
+        <a class="ind" href="/cleaning.html"><div class="ic"><i data-lucide="sparkles" style="width:26px;height:26px"></i></div><h3>Cleaning Services</h3></a>
+        <a class="ind" href="/route-based-services.html"><div class="ic"><i data-lucide="route" style="width:26px;height:26px"></i></div><h3>Route-Based Services</h3></a>
+        <a class="ind" href="/route-based-services.html"><div class="ic"><i data-lucide="wrench" style="width:26px;height:26px"></i></div><h3>Home Services</h3></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Integrations -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Works with your <span class="accent">favorite tools</span></h2>
+        <p>Connect to your existing stack with native integrations.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><span class="dot"></span> QuickBooks</span>
+        <span class="chip"><span class="dot"></span> Stripe</span>
+        <span class="chip"><span class="dot"></span> Twilio</span>
+        <span class="chip"><span class="dot"></span> Geotab</span>
+        <span class="chip"><span class="dot"></span> Gmail</span>
+        <span class="chip"><span class="dot"></span> Google Calendar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Common <span class="accent">questions</span></h2>
+        <p>What operators ask before they call.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><h3>What is Avolv.ai?</h3><p>Avolv is field service management software built for pool and home service companies. It runs your scheduling, routing, chemistry logs, invoicing, payments, and QuickBooks sync in one system. The mobile app works offline when techs lose signal in a backyard.</p></div>
+        <div class="faq-item"><h3>How much does Avolv cost?</h3><p>Priced per service location, month to month, with no contract. Most operators pay less than they were paying for their old scheduling app plus QuickBooks combined. Setup is a one-time fee scoped to your data migration, quoted before you commit.</p></div>
+        <div class="faq-item"><h3>Where does Avolv operate?</h3><p>Avolv is sold across the United States. The company is based in Apollo Beach, Florida, in the Tampa Bay area, and support hours are Monday through Friday, 9am to 5pm Eastern.</p></div>
+        <div class="faq-item"><h3>Does Avolv sync with QuickBooks?</h3><p>Yes. Invoices generated from the schedule push into QuickBooks Online line by line, and payments post back against the right invoice on their own. Both systems show the same number.</p></div>
+        <div class="faq-item"><h3>Can Avolv migrate my data from Skimmer or another platform?</h3><p>Yes. Every account, every history record, and every recurring schedule gets moved and reconciled against QuickBooks before you rely on it. One Florida operation moved 988 pools with zero days of route downtime.</p></div>
       </div>
     </div>
   </section>
@@ -137,10 +425,11 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container">
-      <h2>Turn on what you need</h2>
-      <p>Every app runs on top of the Avolv core platform. Tell us how you work and we'll show you which ones earn their place.</p>
+      <h2>Stop running four apps that disagree with each other.</h2>
+      <p>One system for pool and home service companies. Priced per location, month to month, no contract. See your route inside Avolv in fifteen minutes.</p>
       <div class="cta-buttons">
-        <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+        <a href="/get-started.html" class="btn btn-primary">Book a 15-min demo</a>
+        <a href="/demo/" class="btn btn-secondary">Watch 3-min demo</a>
         <a href="tel:8135196910" class="btn btn-secondary"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a>
       </div>
     </div>
@@ -148,6 +437,13 @@
 
   <div id="site-footer"></div>
   <script src="/site-footer.js"></script>
-  <script>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)lucide.createIcons();});</script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+  <script src="/proof-band.js" defer></script>
+  <script src="/site-videos.js" defer></script>
 </body>
 </html>
