@@ -37,7 +37,7 @@
     ".av-nav{position:relative;top:auto;left:auto;width:100%;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #E2E8F0;}",
     ".av-nav-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;}",
     ".av-logo{display:inline-flex;align-items:center;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#0F2C57;text-decoration:none;}",
-    ".av-links{display:flex;align-items:center;gap:16px;}",
+    ".av-links{display:flex;align-items:center;gap:30px;}",
     ".av-links a{color:#334155;text-decoration:none;font-size:15px;transition:color .15s;white-space:nowrap;}",
     ".av-links a:hover,.av-links a.av-active{color:#2563EB;}",
     ".av-links .av-pool{color:#334155;font-weight:600;}",
