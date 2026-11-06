@@ -100,9 +100,9 @@
             '<a href="https://app.avolv.ai/industries/home-services"><span class="av-ic">\uD83D\uDD27</span> Home Services</a>' +
           '</div></div>' +
           '<div class="av-dd"><a class="av-emer" href="/apps/">Apps \u25BE</a><div class="av-dd-menu">' +
-            '<a href="/apps/#studio"><span class="av-ic">\uD83C\uDFAC</span> Avolv Studio</a>' +
-            '<a href="/apps/#workforce"><span class="av-ic">\uD83C\uDF93</span> Avolv Workforce</a>' +
-            '<a href="/apps/#compliance"><span class="av-ic">\u2705</span> Avolv Compliance</a>' +
+            '<a class="' + act("/apps/studio/").trim() + '" href="/apps/studio/"><span class="av-ic">\uD83C\uDFAC</span> Avolv Studio</a>' +
+            '<a class="' + act("/apps/workforce/").trim() + '" href="/apps/workforce/"><span class="av-ic">\uD83C\uDF93</span> Avolv Workforce</a>' +
+            '<a class="' + act("/apps/compliance/").trim() + '" href="/apps/compliance/"><span class="av-ic">\u2705</span> Avolv Compliance</a>' +
           '</div></div>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
@@ -134,9 +134,9 @@
         '<a class="av-sub ' + act("/route-based-services.html").trim() + '" href="/route-based-services.html">Route-Based Services</a>' +
         '<a class="av-sub" href="https://app.avolv.ai/industries/home-services">Home Services</a>' +
         '<div class="av-group">Apps</div>' +
-        '<a class="av-sub ' + act("/apps/").trim() + '" href="/apps/#studio">Avolv Studio</a>' +
-        '<a class="av-sub" href="/apps/#workforce">Avolv Workforce</a>' +
-        '<a class="av-sub" href="/apps/#compliance">Avolv Compliance</a>' +
+        '<a class="av-sub ' + act("/apps/studio/").trim() + '" href="/apps/studio/">Avolv Studio</a>' +
+        '<a class="av-sub ' + act("/apps/workforce/").trim() + '" href="/apps/workforce/">Avolv Workforce</a>' +
+        '<a class="av-sub ' + act("/apps/compliance/").trim() + '" href="/apps/compliance/">Avolv Compliance</a>' +
         '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
         '<div class="av-group">Compare</div>' +
         '<a class="av-sub ' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html">vs Skimmer</a>' +
