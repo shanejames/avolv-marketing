@@ -55,10 +55,11 @@
           '<a href="/route-based-services.html">Home Services</a>' +
         '</div>' +
         '<div class="avf-col"><h4>Company</h4>' +
+          '<a href="/about/">About Us</a>' +
+          '<a href="/careers/">Careers</a>' +
           '<a href="/pricing.html">Pricing</a>' +
           '<a href="/case-studies/resort-pool-services.html">Case Studies</a>' +
           '<a href="/articles">Articles</a>' +
-          '<a href="/about/shane-james.html">About Shane</a>' +
           '<a href="/vs/skimmer.html">Compare</a>' +
           '<a href="/get-started.html">Get Started</a>' +
           '<a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">Avolv University</a>' +

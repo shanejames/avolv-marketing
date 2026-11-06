@@ -88,17 +88,18 @@
       '<nav class="av-nav"><div class="av-nav-in">' +
         '<a class="av-logo" href="/">AVOLV.AI</a>' +
         '<div class="av-links">' +
-          '<a href="/#features">Features</a>' +
-          '<a href="/#how-it-works">How It Works</a>' +
+          '<div class="av-dd"><a class="av-emer" href="/#features">Product \u25BE</a><div class="av-dd-menu">' +
+            '<a href="/#features"><span class="av-ic">\u2728</span> Features</a>' +
+            '<a href="/#how-it-works"><span class="av-ic">\u2699\uFE0F</span> How It Works</a>' +
+            '<a class="' + act("/demo/").trim() + '" href="/demo/"><span class="av-ic">\u25B6\uFE0F</span> Demo</a>' +
+          '</div></div>' +
           '<a class="av-pool' + act("/pools.html") + '" href="/pools.html">Pool Services</a>' +
-          '<div class="av-dd"><a class="av-emer" href="/#industries">Services \u25BE</a><div class="av-dd-menu">' +
+          '<div class="av-dd"><a class="av-emer" href="/#industries">Industries \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/cleaning.html").trim() + '" href="/cleaning.html"><span class="av-ic">\uD83E\uDDFD</span> Cleaning</a>' +
             '<a class="' + act("/route-based-services.html").trim() + '" href="/route-based-services.html"><span class="av-ic">\uD83D\uDE9A</span> Route-Based Services</a>' +
             '<a href="https://app.avolv.ai/industries/home-services"><span class="av-ic">\uD83D\uDD27</span> Home Services</a>' +
           '</div></div>' +
-          '<a class="av-emer' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
-          '<a class="' + act("/customer-stories.html").trim() + '" href="/customer-stories.html">Customer Stories</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html"><span class="av-ic">\uD83C\uDFCA</span> vs Skimmer</a>' +
             '<a class="' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html"><span class="av-ic">\uD83D\uDD27</span> vs Jobber</a>' +
@@ -106,31 +107,43 @@
             '<a class="' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html"><span class="av-ic">\uD83C\uDFEB</span> vs ServiceTitan</a>' +
             '<a class="' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html"><span class="av-ic">\uD83D\uDC1C</span> vs FieldRoutes</a>' +
           '</div></div>' +
-          '<a class="' + act("/articles").trim() + '" href="/articles">Articles</a>' +
-          '<a class="av-blue" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
+          '<div class="av-dd"><a class="av-emer" href="/customer-stories.html">Resources \u25BE</a><div class="av-dd-menu">' +
+            '<a class="' + act("/customer-stories.html").trim() + '" href="/customer-stories.html"><span class="av-ic">\u2B50</span> Customer Stories</a>' +
+            '<a class="' + act("/articles").trim() + '" href="/articles"><span class="av-ic">\uD83D\uDCDD</span> Articles</a>' +
+            '<a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer"><span class="av-ic">\uD83C\uDF93</span> University</a>' +
+          '</div></div>' +
+          '<div class="av-dd"><a class="av-emer" href="/about/">Company \u25BE</a><div class="av-dd-menu">' +
+            '<a class="' + act("/about/").trim() + '" href="/about/"><span class="av-ic">\uD83C\uDFE2</span> About Us</a>' +
+            '<a class="' + act("/careers/").trim() + '" href="/careers/"><span class="av-ic">\uD83D\uDCBC</span> Careers</a>' +
+          '</div></div>' +
         '</div>' +
         '<div class="av-right"><a class="av-login" href="https://app.avolv.ai/login">Log In</a><a class="av-cta" href="/get-started.html">Get Started</a></div>' +
         '<button class="av-burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>' +
       '</div></nav>' +
       '<div class="av-mobile"><div class="av-mobile-in">' +
-        '<a href="/#features">Features</a>' +
-        '<a href="/#how-it-works">How It Works</a>' +
+        '<div class="av-group">Product</div>' +
+        '<a class="av-sub" href="/#features">Features</a>' +
+        '<a class="av-sub" href="/#how-it-works">How It Works</a>' +
+        '<a class="av-sub ' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
         '<a class="' + act("/pools.html").trim() + '" href="/pools.html">Pool Services</a>' +
-        '<div class="av-group">Services</div>' +
+        '<div class="av-group">Industries</div>' +
         '<a class="av-sub ' + act("/cleaning.html").trim() + '" href="/cleaning.html">Cleaning</a>' +
         '<a class="av-sub ' + act("/route-based-services.html").trim() + '" href="/route-based-services.html">Route-Based Services</a>' +
         '<a class="av-sub" href="https://app.avolv.ai/industries/home-services">Home Services</a>' +
-        '<a class="' + act("/demo/").trim() + '" href="/demo/">Demo</a>' +
         '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
-        '<a class="' + act("/customer-stories.html").trim() + '" href="/customer-stories.html">Customer Stories</a>' +
         '<div class="av-group">Compare</div>' +
         '<a class="av-sub ' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html">vs Skimmer</a>' +
         '<a class="av-sub ' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html">vs Jobber</a>' +
         '<a class="av-sub ' + act("/vs/housecall-pro.html").trim() + '" href="/vs/housecall-pro.html">vs Housecall Pro</a>' +
         '<a class="av-sub ' + act("/vs/servicetitan.html").trim() + '" href="/vs/servicetitan.html">vs ServiceTitan</a>' +
         '<a class="av-sub ' + act("/vs/fieldroutes.html").trim() + '" href="/vs/fieldroutes.html">vs FieldRoutes</a>' +
-        '<a class="' + act("/articles").trim() + '" href="/articles">Articles</a>' +
-        '<a href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
+        '<div class="av-group">Resources</div>' +
+        '<a class="av-sub ' + act("/customer-stories.html").trim() + '" href="/customer-stories.html">Customer Stories</a>' +
+        '<a class="av-sub ' + act("/articles").trim() + '" href="/articles">Articles</a>' +
+        '<a class="av-sub" href="https://university.avolv.ai" target="_blank" rel="noopener noreferrer">University</a>' +
+        '<div class="av-group">Company</div>' +
+        '<a class="av-sub ' + act("/about/").trim() + '" href="/about/">About Us</a>' +
+        '<a class="av-sub ' + act("/careers/").trim() + '" href="/careers/">Careers</a>' +
         '<a href="https://app.avolv.ai/login">Log In</a>' +
         '<a class="av-m-cta" href="/get-started.html">Get Started</a>' +
       '</div></div>' +
