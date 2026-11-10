@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painting Contractor Software | Avolv.ai</title>
+  <meta name="description" content="Software for residential and commercial painting contractors. Surface takeoff and paint-math estimating, color schedules, a visualizer, and EPA RRP lead-safe records.">
+  <link rel="canonical" href="https://avolv.ai/painting.html">
+  <meta property="og:title" content="Painting Contractor Software | Avolv.ai">
+  <meta property="og:description" content="From a walkthrough to a priced estimate with the paint math done. Avolv runs the quote, the color schedule, the crew, and the lead-safe paperwork.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/painting.html">
+  <meta property="og:image" content="https://avolv.ai/og/painting.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Avolv painting contractor software">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Painting Contractor Software | Avolv.ai">
+  <meta name="twitter:description" content="From a walkthrough to a priced estimate with the paint math done. Avolv runs the quote, the color schedule, the crew, and the lead-safe paperwork.">
+  <meta name="twitter:image" content="https://avolv.ai/og/painting.png">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page); color: var(--av-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--av-blue-600); text-decoration: none; } a:hover { color: var(--av-blue-700); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 26px; }
+    .hero-stats .hs .n { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
+    .hero-stats .hs .l { font-size: .8rem; color: rgba(255,255,255,.7); margin-top: 4px; }
+    .chat { background: rgba(255,255,255,0.05); border: 1px solid rgba(147,197,253,0.22); border-radius: 20px; padding: 18px; box-shadow: 0 30px 70px rgba(0,0,0,0.35); }
+    .chat-head { display: flex; align-items: center; gap: 10px; color: var(--av-blue-300); font-size: 13px; font-weight: 600; padding: 4px 6px 14px; }
+    .chat-dot { width: 10px; height: 10px; border-radius: 999px; background: #4d8bff; box-shadow: 0 0 0 4px rgba(77,139,255,0.2); }
+    .bubble { max-width: 82%; padding: 11px 15px; border-radius: 16px; font-size: 14px; line-height: 1.45; margin-bottom: 10px; }
+    .bubble.in { background: #fff; color: var(--av-text); border-bottom-left-radius: 5px; }
+    .bubble.out { background: linear-gradient(135deg,#4d8bff,#2563EB); color: #fff; margin-left: auto; border-bottom-right-radius: 5px; }
+    .vidchip { display: inline-flex; align-items: center; gap: 8px; background: var(--av-surface-2); color: var(--av-heading); border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+    .sysline { font-size: 11.5px; color: var(--av-blue-300); text-align: center; margin: 4px 0 12px; }
+    .chat-name { color: rgba(255,255,255,0.75); font-size: 12px; margin-bottom: 12px; padding-left: 6px; }
+    .snippet { margin-top: 14px; background: var(--av-surface-2); border-left: 3px solid var(--av-blue-500); border-radius: 8px; padding: 12px 14px; font-size: .9rem; color: var(--av-heading); font-style: italic; }
+    .statrow { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+    .statrow .stat-card .big { font-size: 1.5rem; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } .statrow { grid-template-columns: 1fr 1fr; } }
+  </style>
+  <script type="module" src="/heycatch-analytics.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avolv.ai/#organization",
+      "name": "Avolv.ai",
+      "url": "https://avolv.ai/",
+      "logo": "https://app.avolv.ai/avolv-logo.png",
+      "email": "sales@avolv.ai",
+      "telephone": "+1-813-519-6910",
+      "address": { "@type": "PostalAddress", "streetAddress": "5914 Menorca Lane", "addressLocality": "Apollo Beach", "addressRegion": "FL", "postalCode": "33572", "addressCountry": "US" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avolv.ai/#website",
+      "url": "https://avolv.ai/",
+      "name": "Avolv.ai",
+      "publisher": { "@id": "https://avolv.ai/#organization" }
+    }    ,
+    {
+      "@type": "WebPage",
+      "@id": "https://avolv.ai/painting.html#webpage",
+      "url": "https://avolv.ai/painting.html",
+      "name": "Painting Contractor Software",
+      "isPartOf": { "@id": "https://avolv.ai/#website" }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "I estimate in a spreadsheet and a proposal tool. Why switch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A spreadsheet does the math and a proposal tool makes it look nice, but you are still measuring, pricing, and typing it all twice. Avolv does the surface takeoff, prices the job against your rates, builds the color schedule, and sends the proposal from one system, so the estimate stops eating your evenings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the surface takeoff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avolv sizes the surfaces from a walkthrough and applies your coats, coverage, and spread rates to price the job, and you confirm the numbers before the proposal goes out. It gets a priced, defensible estimate in front of the customer in minutes, with your own rates as the guardrails."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it handle both residential and commercial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Residential repaints bill with a deposit and a final invoice, and commercial jobs bill in progress draws as phases are completed. Both run through the same takeoff, color schedule, scheduling, and compliance tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the EPA RRP lead-safe piece work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homes built before 1978 are flagged for RRP automatically, and the lead-safe records are captured on the job and kept with a tamper-evident history on the same compliance engine the rest of Avolv runs on. The records exist and hold up when you need to produce them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Avolv cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the size of your business. We would rather give you a real fit on a 15-minute call than a one-size-fits-all sticker. What we tell you upfront: no per-seat fees, no setup fees during promotions, and no contracts. One monthly price, everything we build, cancel any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does setup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 5 business days from \"yes\" to live. We do it for you: phone number provisioning, A2P SMS registration, your labor and paint rates, crew accounts, and a training call. You do not have to be technical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my customer data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Multi-tenant database with row-level isolation, encrypted at rest and in transit, hosted with daily backups. Every Avolv customer's data is walled off from every other customer's. We are working toward SOC 2 Type II for 2026."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Built for painting contractors</span>
+          <h1><span class="accent">Painting contractor software</span> that does the surface math and prices the job for you.</h1>
+          <p class="lede">Residential repaints and commercial jobs both come down to surfaces, coats, and coverage. Avolv measures the work, prices it against your rates, builds the color schedule the crew paints from, dispatches the job, and keeps the EPA RRP lead-safe records for pre-1978 homes.</p>
+          <div class="hero-cta">
+            <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+            <a href="/demo/" class="btn btn-secondary">See how it works</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hs"><div class="n">Takeoff</div><div class="l">Surface math done for you</div></div>
+            <div class="hs"><div class="n">Color</div><div class="l">Schedule and visualizer</div></div>
+            <div class="hs"><div class="n">RRP</div><div class="l">Lead-safe records built in</div></div>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-head"><span class="chat-dot"></span> Messages</div>
+          <div class="chat-name">Marcus Bell &middot; (813) 555-0288</div>
+          <div class="bubble in">Looking to repaint the interior, 3 bed 2 bath, walls and trim. Here's a walkthrough.</div>
+          <div class="vidchip"><i data-lucide="video" style="width:15px;height:15px"></i> Video &middot; 1</div>
+          <div class="sysline">Walkthrough received &middot; surfaces traced &middot; coats and coverage calculated</div>
+          <div class="bubble out">Thanks Marcus. Walls and trim across the three bedrooms and both baths, two coats, comes to $4,200 to $4,800 with your paint. Want the color schedule and a start date?</div>
+          <div class="bubble in">Send it over.</div>
+          <div class="sysline">Proposal and color schedule sent &middot; e-signed &middot; crew booked for the 14th</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>The job is won or lost on the <span class="accent">estimate</span>, and the estimate takes all night.</h2>
+        <p>Measuring surfaces, counting coats, pricing paint and labor, then typing it all into a proposal. Painting contractors lose their evenings to it, and a slow or wrong number costs the job either way.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="big" style="font-size:2.2rem;color:var(--av-blue-600);font-weight:800">Evenings</div><h3 style="margin-top:8px">Estimating after the workday ends</h3><p>You measured on site, now you are pricing at the kitchen table at 9pm. The homeowner already has two other quotes in their inbox.</p></div>
+        <div class="card"><div class="big" style="font-size:2.2rem;color:var(--av-blue-600);font-weight:800">Takeoff</div><h3 style="margin-top:8px">Surface math that has to be right</h3><p>Miss the square footage or the coats and the margin is gone before the first wall is cut in. Get it wrong the other way and you lose the bid.</p></div>
+        <div class="card"><div class="big" style="font-size:2.2rem;color:var(--av-blue-600);font-weight:800">Pre-1978</div><h3 style="margin-top:8px">Lead-safe paperwork on older homes</h3><p>EPA RRP rules apply to any home built before 1978. The records have to exist and hold up, and a binder in the truck is not a system.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The work you wish the business would do <span class="accent">on its own.</span></h2>
+        <p>We built this with a working painting contractor, residential and commercial, so the estimating and the paperwork match how real jobs get priced and run.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="badge-num">01</div><h3>Surface takeoff and paint math</h3><p>Avolv sizes the surfaces from a walkthrough, applies coats and coverage, and prices the job against your labor and material rates. The number that takes you an evening takes minutes.</p><ul class="checklist"><li>Surfaces traced and squared from photos or a video</li><li>Coats, coverage, and spread rate figured for you</li><li>Priced against your own labor and paint rates</li><li>Stays inside your guardrails, every time</li></ul></div>
+        <div class="card"><div class="badge-num">02</div><h3>A color schedule the crew paints from</h3><p>Rooms, surfaces, products, and colors in one schedule the crew works off in the field. No more loose notes about which white goes on the trim.</p><ul class="checklist"><li>Color and product assigned per room and surface</li><li>The crew sees exactly what goes where</li><li>Interior and exterior schedules both supported</li><li>Shared with the customer for sign-off</li></ul></div>
+        <div class="card"><div class="badge-num">03</div><h3>A visualizer the customer can see</h3><p>Show the customer the colors on the space before a drop cloth comes out. Seeing it decided makes the sale and cuts the change orders.</p><ul class="checklist"><li>Colors previewed on the room or elevation</li><li>Options compared side by side</li><li>Decisions locked before the crew starts</li><li>Fewer surprises and repaints later</li></ul></div>
+        <div class="card"><div class="badge-num">04</div><h3>EPA RRP lead-safe records</h3><p>For any home built before 1978, the lead-safe records are captured as part of the job and kept in a record that holds up, built on the same compliance engine the rest of Avolv runs on.</p><ul class="checklist"><li>Pre-1978 homes flagged for RRP automatically</li><li>Field proof captured on the mobile app</li><li>Records kept with a tamper-evident history</li><li>Ready when you need to produce them</li></ul></div>
+        <div class="card"><div class="badge-num">05</div><h3>Proposals, e-sign, and progress billing</h3><p>The estimate becomes a proposal the customer signs on their phone. Residential bills in full, commercial bills in progress draws as the work is completed.</p><ul class="checklist"><li>Branded proposals with e-signature</li><li>Residential deposit and final billing</li><li>Commercial progress draws as phases complete</li><li>Stripe payments and QuickBooks sync</li></ul></div>
+        <div class="card"><div class="badge-num">06</div><h3>The front of the business, handled</h3><p>Every call answered, a real pipeline, crew scheduling, and a mobile app. The painting tools sit on top of the same system that runs the rest of the business.</p><ul class="checklist"><li>AI receptionist answers every call, day or night</li><li>Pipeline that moves each lead to a booked job</li><li>Crew scheduling with drive-time routing</li><li>Mobile app for the crew in the field</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>A walkthrough at noon. <span class="accent">A signed proposal by dinner.</span></h2>
+        <p>Here is what happens when a homeowner sends you a walkthrough of the job this afternoon.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card step"><div class="num">1</div><h3>Customer sends the job</h3><p>"Repaint the interior, walls and trim." Plus a short video walkthrough of the rooms.</p></div>
+        <div class="card step"><div class="num">2</div><h3>Avolv does the takeoff</h3><p>Surfaces traced, coats and coverage calculated, and the job priced against your rates. You confirm before it goes out.</p></div>
+        <div class="card step"><div class="num">3</div><h3>Color schedule and proposal</h3><p>A color schedule is built and a branded proposal is sent. Pre-1978 homes are flagged for RRP automatically.</p></div>
+        <div class="card step"><div class="num">4</div><h3>Signed, scheduled, billed</h3><p>The customer e-signs, the crew is booked, the deposit is charged, and progress draws are set for a commercial job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything we build, in one app, for <span class="accent">one monthly price.</span></h2>
+        <p>The painting tools ride on top of the full Avolv platform. Concierge setup included, no per-seat fees, no premium tier holding back the features you need.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><h3>Estimate and sell</h3><ul class="checklist"><li>Surface takeoff and paint-math pricing</li><li>Color schedule for the crew</li><li>Visualizer for the customer</li><li>Text and video-to-estimate, day or night</li></ul></div>
+        <div class="card"><h3>Run the job</h3><ul class="checklist"><li>Branded proposals with e-signature</li><li>Crew scheduling with drive-time routing</li><li>Mobile app for the crew in the field</li><li>Residential and commercial both supported</li></ul></div>
+        <div class="card"><h3>Stay compliant</h3><ul class="checklist"><li>EPA RRP flagging for pre-1978 homes</li><li>Field proof captured on site</li><li>Tamper-evident record history</li><li>Ready to produce on request</li></ul></div>
+        <div class="card"><h3>Get paid and grow</h3><ul class="checklist"><li>Deposits, final billing, and commercial draws</li><li>Stripe payments and QuickBooks sync</li><li>Google review requests after every job</li><li>No contracts, cancel anytime</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Questions <span class="accent">actual painting contractors</span> ask us.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><h3>I estimate in a spreadsheet and a proposal tool. Why switch?</h3><p>A spreadsheet does the math and a proposal tool makes it look nice, but you are still measuring, pricing, and typing it all twice. Avolv does the surface takeoff, prices the job against your rates, builds the color schedule, and sends the proposal from one system, so the estimate stops eating your evenings.</p></div>
+        <div class="faq-item"><h3>How accurate is the surface takeoff?</h3><p>Avolv sizes the surfaces from a walkthrough and applies your coats, coverage, and spread rates to price the job, and you confirm the numbers before the proposal goes out. It gets a priced, defensible estimate in front of the customer in minutes, with your own rates as the guardrails.</p></div>
+        <div class="faq-item"><h3>Does it handle both residential and commercial?</h3><p>Yes. Residential repaints bill with a deposit and a final invoice, and commercial jobs bill in progress draws as phases are completed. Both run through the same takeoff, color schedule, scheduling, and compliance tools.</p></div>
+        <div class="faq-item"><h3>How does the EPA RRP lead-safe piece work?</h3><p>Homes built before 1978 are flagged for RRP automatically, and the lead-safe records are captured on the job and kept with a tamper-evident history on the same compliance engine the rest of Avolv runs on. The records exist and hold up when you need to produce them.</p></div>
+        <div class="faq-item"><h3>How much does Avolv cost?</h3><p>It depends on the size of your business. We would rather give you a real fit on a 15-minute call than a one-size-fits-all sticker. What we tell you upfront: no per-seat fees, no setup fees during promotions, and no contracts. One monthly price, everything we build, cancel any time.</p></div>
+        <div class="faq-item"><h3>How long does setup take?</h3><p>About 5 business days from "yes" to live. We do it for you: phone number provisioning, A2P SMS registration, your labor and paint rates, crew accounts, and a training call. You do not have to be technical.</p></div>
+        <div class="faq-item"><h3>Is my customer data safe?</h3><p>Yes. Multi-tenant database with row-level isolation, encrypted at rest and in transit, hosted with daily backups. Every Avolv customer's data is walled off from every other customer's. We are working toward SOC 2 Type II for 2026.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Get your evenings back and still send the quote first.</h2>
+      <p>Fifteen minutes on a Zoom and we'll show you exactly what Avolv would look like running your painting business. We'll take off a real job from a walkthrough while you watch, then talk about what makes sense. If Avolv fits, great. If not, we'll point you somewhere that does.</p>
+      <div class="cta-buttons">
+        <a href="/get-started.html" class="btn btn-primary">Book a 15-min demo</a>
+        <a href="tel:8135196910" class="btn btn-secondary"><i data-lucide="phone" style="width:18px;height:18px"></i> (813) 519-6910</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)lucide.createIcons();});</script>
+</body>
+</html>

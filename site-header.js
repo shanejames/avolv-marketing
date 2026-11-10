@@ -97,6 +97,9 @@
             '<a class="av-pool ' + act("/pools.html").trim() + '" href="/pools.html"><span class="av-ic">\uD83C\uDFCA</span> Pool Services</a>' +
             '<a class="' + act("/cleaning.html").trim() + '" href="/cleaning.html"><span class="av-ic">\uD83E\uDDFD</span> Cleaning</a>' +
             '<a class="' + act("/route-based-services.html").trim() + '" href="/route-based-services.html"><span class="av-ic">\uD83D\uDE9A</span> Route-Based Services</a>' +
+            '<a class="' + act("/lighting.html").trim() + '" href="/lighting.html"><span class="av-ic">\uD83D\uDCA1</span> Lighting</a>' +
+            '<a class="' + act("/painting.html").trim() + '" href="/painting.html"><span class="av-ic">\uD83C\uDFA8</span> Painting</a>' +
+            '<a class="' + act("/legal.html").trim() + '" href="/legal.html"><span class="av-ic">\u2696\uFE0F</span> Legal</a>' +
             '<a href="https://app.avolv.ai/industries/home-services"><span class="av-ic">\uD83D\uDD27</span> Home Services</a>' +
           '</div></div>' +
           '<div class="av-dd"><a class="av-emer" href="/apps/">Apps \u25BE</a><div class="av-dd-menu">' +
@@ -132,6 +135,9 @@
         '<a class="av-sub ' + act("/pools.html").trim() + '" href="/pools.html">Pool Services</a>' +
         '<a class="av-sub ' + act("/cleaning.html").trim() + '" href="/cleaning.html">Cleaning</a>' +
         '<a class="av-sub ' + act("/route-based-services.html").trim() + '" href="/route-based-services.html">Route-Based Services</a>' +
+        '<a class="av-sub ' + act("/lighting.html").trim() + '" href="/lighting.html">Lighting</a>' +
+        '<a class="av-sub ' + act("/painting.html").trim() + '" href="/painting.html">Painting</a>' +
+        '<a class="av-sub ' + act("/legal.html").trim() + '" href="/legal.html">Legal</a>' +
         '<a class="av-sub" href="https://app.avolv.ai/industries/home-services">Home Services</a>' +
         '<div class="av-group">Apps</div>' +
         '<a class="av-sub ' + act("/apps/studio/").trim() + '" href="/apps/studio/">Avolv Studio</a>' +
