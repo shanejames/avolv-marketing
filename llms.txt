@@ -27,6 +27,10 @@ Pricing is per service location, month to month, with no contract. Route operato
 - [Lighting](https://avolv.ai/lighting.html): Software for holiday, roofline, and landscape lighting companies, with photo-to-quote roofline detection and season scheduling
 - [Painting](https://avolv.ai/painting.html): Software for residential and commercial painting contractors, with surface takeoff estimating, color schedules, and EPA RRP records
 - [Legal](https://avolv.ai/legal.html): Practice software for estate and transactional attorneys (wills, trusts, contracts), with a matter workspace, signing ceremony, and client vault
+- [Avolv Service Network](https://avolv.ai/apps/service-network/): Paid add-on for cross-company and in-house repair dispatch, with triage, pricing, an approval gate, and billing
+- [Avolv Support Ticketing](https://avolv.ai/apps/support-ticketing/): Paid add-on help desk with tickets from the app, email, and web, plus assignment, SLAs, and an API to connect Jira
+- [Avolv Learning Center](https://avolv.ai/apps/learning-center/): Paid add-on learning hub with courses, guided walkthroughs, and help videos, with progress tracking
+- [Avolv Social Media Hub](https://avolv.ai/apps/social-media-hub/): Paid add-on to schedule and manage posts across Facebook, Instagram, LinkedIn, and X from one content calendar
 - [Pricing](https://avolv.ai/pricing.html): Per-location subscription pricing, setup fees, what is included
 - [Case Study: Resort Pool Services](https://avolv.ai/case-studies/resort-pool-services.html): How Resort moved 988 pools off Skimmer with zero days of route downtime and reconciled $370,779 of invoicing to a $580 variance
 - [About Shane James](https://avolv.ai/about/shane-james.html): Founder background, credentials, and how he works with customers

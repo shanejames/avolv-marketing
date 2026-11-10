@@ -106,6 +106,10 @@
             '<a class="' + act("/apps/studio/").trim() + '" href="/apps/studio/"><span class="av-ic">\uD83C\uDFAC</span> Avolv Studio</a>' +
             '<a class="' + act("/apps/workforce/").trim() + '" href="/apps/workforce/"><span class="av-ic">\uD83C\uDF93</span> Avolv Workforce</a>' +
             '<a class="' + act("/apps/compliance/").trim() + '" href="/apps/compliance/"><span class="av-ic">\u2705</span> Avolv Compliance</a>' +
+            '<a class="' + act("/apps/service-network/").trim() + '" href="/apps/service-network/"><span class="av-ic">\uD83E\uDD1D</span> Avolv Service Network</a>' +
+            '<a class="' + act("/apps/support-ticketing/").trim() + '" href="/apps/support-ticketing/"><span class="av-ic">\uD83C\uDFAB</span> Avolv Support Ticketing</a>' +
+            '<a class="' + act("/apps/learning-center/").trim() + '" href="/apps/learning-center/"><span class="av-ic">\uD83D\uDCDA</span> Avolv Learning Center</a>' +
+            '<a class="' + act("/apps/social-media-hub/").trim() + '" href="/apps/social-media-hub/"><span class="av-ic">\uD83D\uDCE3</span> Avolv Social Media Hub</a>' +
           '</div></div>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
@@ -143,6 +147,10 @@
         '<a class="av-sub ' + act("/apps/studio/").trim() + '" href="/apps/studio/">Avolv Studio</a>' +
         '<a class="av-sub ' + act("/apps/workforce/").trim() + '" href="/apps/workforce/">Avolv Workforce</a>' +
         '<a class="av-sub ' + act("/apps/compliance/").trim() + '" href="/apps/compliance/">Avolv Compliance</a>' +
+        '<a class="av-sub ' + act("/apps/service-network/").trim() + '" href="/apps/service-network/">Avolv Service Network</a>' +
+        '<a class="av-sub ' + act("/apps/support-ticketing/").trim() + '" href="/apps/support-ticketing/">Avolv Support Ticketing</a>' +
+        '<a class="av-sub ' + act("/apps/learning-center/").trim() + '" href="/apps/learning-center/">Avolv Learning Center</a>' +
+        '<a class="av-sub ' + act("/apps/social-media-hub/").trim() + '" href="/apps/social-media-hub/">Avolv Social Media Hub</a>' +
         '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
         '<div class="av-group">Compare</div>' +
         '<a class="av-sub ' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html">vs Skimmer</a>' +
