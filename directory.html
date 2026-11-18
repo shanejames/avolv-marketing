@@ -184,6 +184,7 @@
             <button class="btn btn-primary btn-sm" onclick="openMatch()">Get matched free</button>
           </div>
           <div id="results"></div>
+          <div id="citybrowse" style="margin-top:28px"></div>
           <div class="foot-note">
             Are you a listed business and want your listing removed?
             <a onclick="openOptOut()">Opt out here</a>.
@@ -415,7 +416,29 @@
     document.getElementById('herostats').innerHTML =
       '<div><b>Florida</b>statewide coverage</div><div><b>Free</b>to claim your listing</div><div><b>Local</b>pros, real reviews</div>';
 
+    // Browse by city: internal links to the server-rendered /pool-companies/<city> pages.
+    function loadCities() {
+      fetch(API + '/api/public/directory-pages/cities.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          var cities = (d && d.cities) || [];
+          if (!cities.length) return;
+          var top = cities.slice(0, 30);
+          document.getElementById('citybrowse').innerHTML =
+            '<div class="lbl plain">Browse pool companies by city</div>'
+            + '<div style="display:flex;flex-wrap:wrap;gap:10px">'
+            + top.map(function (c) {
+                return '<a href="/pool-companies/' + encodeURIComponent(c.slug) + '" '
+                  + 'style="background:#fff;border:1px solid #e6ecf3;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:#1366ad">'
+                  + esc(c.city) + ' (' + c.count + ')</a>';
+              }).join('')
+            + '</div>';
+        })
+        .catch(function () { /* no city block if it fails */ });
+    }
+
     load();
+    loadCities();
   </script>
 </body>
 </html>
