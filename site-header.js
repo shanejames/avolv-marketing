@@ -112,6 +112,7 @@
             '<a class="' + act("/apps/social-media-hub/").trim() + '" href="/apps/social-media-hub/"><span class="av-ic">\uD83D\uDCE3</span> Avolv Social Media Hub</a>' +
           '</div></div>' +
           '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
+          '<a class="' + act("/directory.html").trim() + '" href="/directory.html">Find a Pro</a>' +
           '<div class="av-dd"><a class="av-emer" href="#">Compare \u25BE</a><div class="av-dd-menu">' +
             '<a class="' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html"><span class="av-ic">\uD83C\uDFCA</span> vs Skimmer</a>' +
             '<a class="' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html"><span class="av-ic">\uD83D\uDD27</span> vs Jobber</a>' +
@@ -152,6 +153,7 @@
         '<a class="av-sub ' + act("/apps/learning-center/").trim() + '" href="/apps/learning-center/">Avolv Learning Center</a>' +
         '<a class="av-sub ' + act("/apps/social-media-hub/").trim() + '" href="/apps/social-media-hub/">Avolv Social Media Hub</a>' +
         '<a class="' + act("/pricing.html").trim() + '" href="/pricing.html">Pricing</a>' +
+        '<a class="' + act("/directory.html").trim() + '" href="/directory.html">Find a Pro</a>' +
         '<div class="av-group">Compare</div>' +
         '<a class="av-sub ' + act("/vs/skimmer.html").trim() + '" href="/vs/skimmer.html">vs Skimmer</a>' +
         '<a class="av-sub ' + act("/vs/jobber.html").trim() + '" href="/vs/jobber.html">vs Jobber</a>' +
