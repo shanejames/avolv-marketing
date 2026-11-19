@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Stories | Avolv.ai</title>
+  <meta name="description" content="Real pool and home-service owners on what changed after moving to Avolv. Video testimonials and customer stories in their own words.">
+  <link rel="canonical" href="https://avolv.ai/customer-stories.html">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Customer Stories","url":"https://avolv.ai/customer-stories.html","isPartOf":{"@type":"WebSite","name":"Avolv.ai","url":"https://avolv.ai/"},"about":{"@type":"Organization","name":"Avolv.ai"}}
+  </script>
+  <meta property="og:title" content="Customer Stories | Avolv.ai">
+  <meta property="og:description" content="Real owners on what changed after moving to Avolv, in their own words.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/customer-stories.html">
+  <meta property="og:image" content="https://avolv.ai/og/default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Avolv.ai field service software for pool and home service companies">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Customer Stories | Avolv.ai">
+  <meta name="twitter:description" content="Real owners on what changed after moving to Avolv, in their own words.">
+  <meta name="twitter:image" content="https://avolv.ai/og/default.png">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page); color: var(--av-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--av-blue-600); text-decoration: none; } a:hover { color: var(--av-blue-700); }
+
+    .cs-hero { max-width: 900px; margin: 0 auto; padding: 56px 24px 24px; text-align: center; }
+    .cs-hero h1 { color: var(--av-heading); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.1; }
+    .cs-hero p { color: var(--av-muted); font-size: 1.1rem; margin-top: 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    .cs-wrap { max-width: 1180px; margin: 0 auto; padding: 24px 24px 72px; }
+    .cs-section-title { color: var(--av-heading); font-size: 1.35rem; font-weight: 700; margin: 40px 0 18px; }
+
+    .cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    @media (max-width: 900px) { .cs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .cs-grid { grid-template-columns: 1fr; } }
+    /* The video row runs two-up instead of three, so each clip gets more width.
+       That makes the landscape players noticeably larger; the shorter max-height
+       below keeps tall portrait phone clips from towering. */
+    #cs-videos { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 620px) { #cs-videos { grid-template-columns: 1fr; } }
+
+    .cs-card { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; overflow: hidden; box-shadow: var(--av-shadow-sm); display: flex; flex-direction: column; }
+    /* Size each clip to its own shape: landscape fills the card width, a vertical
+       phone clip shows as a centered portrait player capped in height. No forced
+       16:9 box, so a portrait recording no longer gets black bars down the sides. */
+    .cs-card video { display: block; width: auto; height: auto; max-width: 100%; max-height: 360px; margin: 0 auto; background: var(--av-surface); }
+    /* Portrait and landscape clips are different heights now, so let each video
+       card keep its own height instead of stretching to the tallest in its row. */
+    #cs-videos { align-items: start; }
+    .cs-card .cs-body { padding: 14px 16px 16px; }
+    .cs-q { font-size: .82rem; color: var(--av-faint); font-weight: 600; }
+    .cs-who { margin-top: 8px; font-weight: 700; color: var(--av-heading); }
+    .cs-co { color: var(--av-muted); font-size: .9rem; }
+
+    .cs-quote { background: var(--av-surface); border: 1px solid var(--av-border); border-radius: 16px; padding: 22px; box-shadow: var(--av-shadow-sm); display: flex; flex-direction: column; gap: 12px; }
+    .cs-quote .stars { color: var(--av-amber); font-size: .95rem; letter-spacing: 1px; }
+    .cs-quote blockquote { color: var(--av-text); font-size: 1.02rem; line-height: 1.6; }
+    .cs-quote .cs-attr { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--av-border); }
+    .cs-quote .cs-attr img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--av-border); }
+    .cs-quote .cs-logo { max-height: 30px; max-width: 120px; object-fit: contain; }
+    .cs-nums { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .cs-num { background: var(--av-blue-50); border: 1px solid var(--av-blue-100); border-radius: 10px; padding: 6px 10px; font-size: .8rem; color: var(--av-heading); }
+    .cs-num b { color: var(--av-blue-700); }
+    .cs-story { border-top: 1px solid var(--av-border); margin-top: 4px; padding-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+    .cs-story-label { font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--av-faint); }
+    .cs-story-item .cs-story-q { font-size: .86rem; font-weight: 700; color: var(--av-heading); }
+    .cs-story-item .cs-story-a { font-size: .95rem; color: var(--av-text); margin-top: 3px; }
+
+    .cs-state { text-align: center; color: var(--av-muted); padding: 48px 0; }
+    .cs-cta { text-align: center; margin: 56px auto 0; }
+    .cs-cta a { display: inline-block; background: var(--av-blue-600); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; }
+    .cs-cta a:hover { background: var(--av-blue-700); color: #fff; }
+
+    /* Auto-advancing carousel for the stories Shane marked to rotate. Pinned
+       stories stay in the grid below; these share one spotlight that cycles. */
+    .cs-carousel { position: relative; margin-bottom: 10px; }
+    .cs-carousel-viewport { overflow: hidden; border-radius: 16px; }
+    .cs-carousel-track { display: flex; transition: transform .5s ease; will-change: transform; }
+    .cs-slide { min-width: 100%; padding: 2px 2px 4px; }
+    .cs-slide > .cs-card, .cs-slide > .cs-quote { max-width: 680px; margin: 0 auto; }
+    .cs-arrow { position: absolute; top: 42%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--av-border); background: var(--av-surface); color: var(--av-heading); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: var(--av-shadow-sm); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .cs-arrow:hover { background: var(--av-blue-50); color: var(--av-blue-700); }
+    .cs-prev { left: -8px; } .cs-next { right: -8px; }
+    .cs-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .cs-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--av-blue-100); cursor: pointer; padding: 0; }
+    .cs-dot.is-active { background: var(--av-blue-600); }
+    @media (max-width: 620px) { .cs-arrow { display: none; } }
+
+    /* Approved-logo marquee: a single row of customer logos that scrolls on its
+       own, right under the hero. Logos come from the same feed (only items the
+       customer approved a logo for). The track holds the set twice and animates
+       to -50% for a seamless loop; hover pauses it. */
+    .cs-logos { max-width: 1180px; margin: 10px auto 0; padding: 0 24px; }
+    .cs-logos-mask { position: relative; overflow: hidden; padding: 6px 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .cs-logos-track { display: flex; align-items: center; gap: 56px; width: max-content; animation: cs-logos-scroll 40s linear infinite; }
+    .cs-logos-mask:hover .cs-logos-track { animation-play-state: paused; }
+    .cs-logos-track img { height: 40px; max-width: 150px; object-fit: contain; flex: none; filter: grayscale(1); opacity: .65; transition: filter .2s ease, opacity .2s ease; }
+    .cs-logos-track img:hover { filter: none; opacity: 1; }
+    @keyframes cs-logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .cs-logos-track { animation: none; } }
+
+    /* Stronger card edges so each story reads as its own panel against the soft
+       page background. The theme's default border and shadow were too faint to
+       tell one card from the next or from the page. A defined border plus a real
+       shadow separates them (darkening the white fill would move it toward the
+       page colour and separate them less). */
+    .cs-card, .cs-quote {
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 18px rgba(15, 44, 87, 0.10), 0 1px 3px rgba(15, 44, 87, 0.08);
+    }
+  </style>
+  <script type="module" src="/heycatch-analytics.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <main>
+    <section class="cs-hero">
+      <h1>Customer stories</h1>
+      <p>Real pool and home-service owners on what changed after moving to Avolv, in their own words.</p>
+    </section>
+
+    <section id="cs-logos-section" class="cs-logos" hidden aria-label="Customers using Avolv">
+      <div class="cs-logos-mask"><div class="cs-logos-track" id="cs-logos-track"></div></div>
+    </section>
+
+    <div class="cs-wrap">
+      <div id="cs-loading" class="cs-state">Loading stories&hellip;</div>
+
+      <section id="cs-videos-section" hidden>
+        <h2 class="cs-section-title">On video</h2>
+        <div id="cs-videos-carousel"></div>
+        <div id="cs-videos" class="cs-grid"></div>
+      </section>
+
+      <section id="cs-written-section" hidden>
+        <h2 class="cs-section-title">In their words</h2>
+        <div id="cs-written-carousel"></div>
+        <div id="cs-written" class="cs-grid"></div>
+      </section>
+
+      <div id="cs-empty" class="cs-state" hidden>Customer stories are on the way. Check back soon.</div>
+
+      <div class="cs-cta">
+        <a href="/get-started.html">See Avolv for your business</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+
+  <script>
+    (function () {
+      var FEED = 'https://api.avolv.ai/api/public/stories';
+
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+      function attribution(name, title, company) {
+        var parts = [];
+        if (name) parts.push(name);
+        if (title) parts.push(title);
+        if (company) parts.push(company);
+        return parts.join(', ');
+      }
+
+      function reducedMotion() {
+        try { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; }
+      }
+
+      function videoCard(v) {
+        var card = el('div', 'cs-card');
+        var vid = document.createElement('video');
+        vid.controls = true;
+        vid.playsInline = true;
+        vid.preload = 'none';
+        if (v.posterUrl) vid.poster = v.posterUrl;
+        vid.src = v.videoUrl;
+        card.appendChild(vid);
+
+        var body = el('div', 'cs-body');
+        if (v.question) body.appendChild(el('div', 'cs-q', v.question));
+        var who = attribution(v.name, v.title, null);
+        if (who) body.appendChild(el('div', 'cs-who', who));
+        if (v.company) body.appendChild(el('div', 'cs-co', v.company));
+        card.appendChild(body);
+        return card;
+      }
+
+      function writtenCard(t) {
+        var card = el('div', 'cs-quote');
+
+        // Attribution (photo + name/title, with the logo on the right) sits at
+        // the TOP of the card as a header, above the stars and quote.
+        var attr = el('div', 'cs-attr');
+        if (t.photoUrl) {
+          var pimg = document.createElement('img');
+          pimg.src = t.photoUrl;
+          pimg.alt = t.name || 'Customer';
+          attr.appendChild(pimg);
+        }
+        var meta = el('div');
+        var who = attribution(t.name, t.title, t.company);
+        if (who) meta.appendChild(el('div', 'cs-who', who));
+        attr.appendChild(meta);
+        if (t.logoUrl) {
+          var logo = document.createElement('img');
+          logo.src = t.logoUrl;
+          logo.alt = (t.company || 'Customer') + ' logo';
+          logo.className = 'cs-logo';
+          logo.style.marginLeft = 'auto';
+          attr.appendChild(logo);
+        }
+        if (who || t.photoUrl || t.logoUrl) card.appendChild(attr);
+
+        if (t.rating) {
+          var r = Math.max(0, Math.min(5, Math.round(t.rating)));
+          card.appendChild(el('div', 'stars', '★'.repeat(r) + '☆'.repeat(5 - r)));
+        }
+        if (t.quote) card.appendChild(el('blockquote', null, '“' + t.quote + '”'));
+        if (Array.isArray(t.numbers) && t.numbers.length) {
+          var nums = el('div', 'cs-nums');
+          t.numbers.slice(0, 3).forEach(function (n) {
+            var chip = el('div', 'cs-num');
+            chip.appendChild(el('b', null, String(n.value)));
+            chip.appendChild(document.createTextNode(' ' + n.label));
+            nums.appendChild(chip);
+          });
+          card.appendChild(nums);
+        }
+        if (Array.isArray(t.story) && t.story.length) {
+          var story = el('div', 'cs-story');
+          var first = t.name ? ('More from ' + t.name.split(' ')[0]) : 'More from this owner';
+          story.appendChild(el('div', 'cs-story-label', first));
+          t.story.forEach(function (s) {
+            if (!s || !s.answer) return;
+            var item = el('div', 'cs-story-item');
+            if (s.question) item.appendChild(el('div', 'cs-story-q', s.question));
+            item.appendChild(el('div', 'cs-story-a', s.answer));
+            story.appendChild(item);
+          });
+          card.appendChild(story);
+        }
+        return card;
+      }
+
+      // Auto-advancing carousel. Pauses on hover and while a video inside is
+      // playing, so it never skips a story mid-watch. Honors reduced-motion.
+      function buildCarousel(items, renderOne) {
+        var root = el('div', 'cs-carousel');
+        var viewport = el('div', 'cs-carousel-viewport');
+        var track = el('div', 'cs-carousel-track');
+        items.forEach(function (it) {
+          var slide = el('div', 'cs-slide');
+          slide.appendChild(renderOne(it));
+          track.appendChild(slide);
+        });
+        viewport.appendChild(track);
+        root.appendChild(viewport);
+
+        var idx = 0, timer = null, paused = false;
+        function show(n) { idx = (n + items.length) % items.length; track.style.transform = 'translateX(-' + (idx * 100) + '%)'; dotEls.forEach(function (d, i) { d.className = 'cs-dot' + (i === idx ? ' is-active' : ''); }); }
+
+        var dots = el('div', 'cs-dots');
+        var dotEls = items.map(function (_, i) {
+          var d = el('button', 'cs-dot'); d.type = 'button'; d.setAttribute('aria-label', 'Go to story ' + (i + 1));
+          d.addEventListener('click', function () { show(i); restart(); });
+          dots.appendChild(d); return d;
+        });
+
+        if (items.length > 1) {
+          var prev = el('button', 'cs-arrow cs-prev', '‹'); prev.type = 'button'; prev.setAttribute('aria-label', 'Previous story'); prev.addEventListener('click', function () { show(idx - 1); restart(); });
+          var next = el('button', 'cs-arrow cs-next', '›'); next.type = 'button'; next.setAttribute('aria-label', 'Next story'); next.addEventListener('click', function () { show(idx + 1); restart(); });
+          root.appendChild(prev); root.appendChild(next); root.appendChild(dots);
+        }
+
+        function start() { if (items.length > 1 && !reducedMotion()) timer = setInterval(function () { if (!paused) show(idx + 1); }, 6000); }
+        function restart() { if (timer) { clearInterval(timer); timer = null; } start(); }
+        root.addEventListener('mouseenter', function () { paused = true; });
+        root.addEventListener('mouseleave', function () { paused = false; });
+        root.addEventListener('play', function () { paused = true; }, true);
+        root.addEventListener('pause', function () { paused = false; }, true);
+        root.addEventListener('ended', function () { paused = false; }, true);
+
+        show(0); start();
+        return root;
+      }
+
+      // Rotating items go in the carousel; the rest stay pinned in the grid.
+      function renderSection(items, sectionId, carouselId, gridId, renderOne) {
+        if (!items.length) return;
+        var rotating = items.filter(function (x) { return x && x.rotate; });
+        var pinned = items.filter(function (x) { return !(x && x.rotate); });
+        if (rotating.length) document.getElementById(carouselId).appendChild(buildCarousel(rotating, renderOne));
+        var grid = document.getElementById(gridId);
+        pinned.forEach(function (x) { grid.appendChild(renderOne(x)); });
+        document.getElementById(sectionId).hidden = false;
+      }
+
+      // Build the scrolling logo strip from every approved logo in the feed
+      // (an item only carries logoUrl when the customer approved it). Deduped by
+      // URL, then the set is repeated so the row is wide enough to loop smoothly.
+      function buildLogoStrip(videos, written, feedLogos) {
+        var seen = {}, logos = [];
+        // The dedicated logo wall (includes logos promoted on their own), then
+        // any logos riding on published videos/testimonials. Deduped by URL.
+        (feedLogos || []).forEach(function (l) {
+          if (l && l.logoUrl && !seen[l.logoUrl]) { seen[l.logoUrl] = 1; logos.push({ url: l.logoUrl, alt: (l.company || 'Customer') + ' logo' }); }
+        });
+        [].concat(videos, written).forEach(function (t) {
+          if (t && t.logoUrl && !seen[t.logoUrl]) { seen[t.logoUrl] = 1; logos.push({ url: t.logoUrl, alt: (t.company || 'Customer') + ' logo' }); }
+        });
+        if (!logos.length) return;
+        var set = logos.slice();
+        while (set.length < 8) set = set.concat(logos);
+        var track = document.getElementById('cs-logos-track');
+        for (var pass = 0; pass < 2; pass++) {
+          set.forEach(function (l, i) {
+            var img = document.createElement('img');
+            img.src = l.url; img.alt = pass === 0 ? l.alt : ''; img.loading = 'lazy';
+            if (pass === 1) img.setAttribute('aria-hidden', 'true');
+            track.appendChild(img);
+          });
+        }
+        // Slower for more logos so the pace stays even regardless of how many.
+        track.style.animationDuration = Math.max(25, set.length * 4) + 's';
+        document.getElementById('cs-logos-section').hidden = false;
+      }
+
+      fetch(FEED, { headers: { 'Accept': 'application/json' } })
+        .then(function (r) { if (!r.ok) throw new Error('feed ' + r.status); return r.json(); })
+        .then(function (data) {
+          document.getElementById('cs-loading').hidden = true;
+          var videos = Array.isArray(data.videos) ? data.videos : [];
+          var written = Array.isArray(data.testimonials) ? data.testimonials : [];
+          buildLogoStrip(videos, written, Array.isArray(data.logos) ? data.logos : []);
+          renderSection(videos, 'cs-videos-section', 'cs-videos-carousel', 'cs-videos', videoCard);
+          renderSection(written, 'cs-written-section', 'cs-written-carousel', 'cs-written', writtenCard);
+          if (!videos.length && !written.length) document.getElementById('cs-empty').hidden = false;
+        })
+        .catch(function () {
+          document.getElementById('cs-loading').hidden = true;
+          document.getElementById('cs-empty').hidden = false;
+        });
+    })();
+  </script>
+</body>
+</html>
