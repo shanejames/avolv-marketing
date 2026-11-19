@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Your Listing | Avolv.ai Directory</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page,#f3f6fa); color: var(--av-text,#132134); line-height: 1.6; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 22px 70px; }
+    .card { background: #fff; border: 1px solid #e6ecf3; border-radius: 16px; padding: 28px; }
+    h1 { font-size: 1.7rem; font-weight: 800; color: #0f2c57; letter-spacing: -.5px; }
+    .sub { color: #5b6b7f; margin-top: 6px; }
+    .verified { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: #1f9d6b; background: #e7f6ef; border-radius: 999px; padding: 4px 12px; margin-bottom: 16px; }
+    label { display: block; font-size: 12px; font-weight: 700; color: #3c4a5c; margin: 16px 0 5px; }
+    input, textarea { width: 100%; border: 1.5px solid #e0e7ef; border-radius: 9px; padding: 11px 13px; font-family: inherit; font-size: 15px; outline: none; }
+    input:focus, textarea:focus { border-color: var(--av-blue-600,#1a7ad1); }
+    .btn { border: none; cursor: pointer; font-weight: 700; font-size: 15px; font-family: inherit; border-radius: 10px; padding: 13px 24px; background: var(--av-blue-600,#1a7ad1); color: #fff; margin-top: 22px; }
+    .btn:disabled { opacity: .5; }
+    .msg { margin-top: 14px; font-size: 14px; font-weight: 600; }
+    .msg.ok { color: #1f9d6b; }
+    .msg.err { color: #e0352b; }
+    .state { text-align: center; padding: 30px 0; color: #5b6b7f; }
+    .state h1 { color: #0f2c57; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="state" id="loading"><p>Verifying your link...</p></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+
+  <script>
+    var API = 'https://api.avolv.ai';
+    function token() { return new URLSearchParams(location.search).get('token') || ''; }
+    function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+    function el(id){ return document.getElementById(id); }
+
+    function showInvalid(message) {
+      el('card').innerHTML = '<div class="state"><h1>Link not valid</h1><p>'
+        + esc(message || 'This link is invalid or has expired. Request a new one from your listing.')
+        + '</p></div>';
+    }
+
+    function showForm(l) {
+      el('card').innerHTML =
+        '<div class="verified">&#10003; Verified owner</div>'
+        + '<h1>Manage ' + esc(l.name) + '</h1>'
+        + '<p class="sub">Your listing is confirmed and live. Update your details below.</p>'
+        + '<label>Phone</label><input id="f-phone" value="' + esc(l.phone || '') + '">'
+        + '<label>Website</label><input id="f-website" value="' + esc(l.website || '') + '">'
+        + '<label>Contact email</label><input id="f-email" type="email" value="' + esc(l.email || '') + '">'
+        + '<label>About your business</label><textarea id="f-desc" rows="4" placeholder="What you do, areas served, what sets you apart...">' + esc(l.description || '') + '</textarea>'
+        + '<button class="btn" id="save">Save my listing</button>'
+        + '<div class="msg" id="result"></div>';
+      el('save').addEventListener('click', save);
+    }
+
+    function save() {
+      var btn = el('save'); btn.disabled = true;
+      var body = {
+        phone: el('f-phone').value.trim(),
+        website: el('f-website').value.trim(),
+        email: el('f-email').value.trim(),
+        description: el('f-desc').value.trim()
+      };
+      fetch(API + '/api/public/directory/claim/manage?token=' + encodeURIComponent(token()), {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+      })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          var m = el('result');
+          if (res.ok) { m.textContent = 'Saved. Your listing is updated.'; m.className = 'msg ok'; }
+          else { m.textContent = (res.d && res.d.error) || 'Could not save.'; m.className = 'msg err'; }
+        })
+        .catch(function () { btn.disabled = false; el('result').textContent = 'Network error, try again.'; el('result').className = 'msg err'; });
+    }
+
+    (function init() {
+      if (!token()) { showInvalid('No token in this link.'); return; }
+      // GET verifies ownership and returns the listing to manage.
+      fetch(API + '/api/public/directory/claim/verify?token=' + encodeURIComponent(token()))
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok && res.d && res.d.listing) showForm(res.d.listing);
+          else showInvalid(res.d && res.d.error);
+        })
+        .catch(function () { showInvalid('We could not reach the server. Try again shortly.'); });
+    })();
+  </script>
+</body>
+</html>

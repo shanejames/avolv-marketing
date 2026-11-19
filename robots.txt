@@ -53,3 +53,4 @@ Allow: /
 
 Sitemap: https://avolv.ai/sitemap.xml
 Sitemap: https://avolv.ai/articles/sitemap.xml
+Sitemap: https://avolv.ai/pool-companies/sitemap.xml
