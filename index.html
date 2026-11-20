@@ -234,13 +234,13 @@
   </style>
   <script type="module" src="/heycatch-analytics.js"></script>
 </head>
-<body>
+<body data-avolv-page="home">
 
   <div id="site-header"></div>
   <script src="/site-header.js"></script>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" data-avolv-section="s1">
     <div class="container">
       <div class="hero-grid">
         <div>
@@ -273,7 +273,7 @@
   </section>
 
   <!-- Stat strip -->
-  <section class="stats">
+  <section class="stats" data-avolv-section="s2">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card"><div class="big">38%</div><div class="small">Of service calls go unanswered</div></div>
@@ -288,7 +288,7 @@
   <!-- Operators proof band. The cards below are the fallback shown before the
        feed loads (and if it ever fails). On load, proof-band.js replaces them
        with whatever Shane has featured from the References section in the app. -->
-  <section class="proof-band" id="proof-band">
+  <section class="proof-band" id="proof-band" data-avolv-section="s3">
     <div class="container">
       <div class="proof-head">
         <h2>Operators already running their book on Avolv</h2>
@@ -333,7 +333,7 @@
   </section>
 
   <!-- Features -->
-  <section class="section" id="features">
+  <section class="section" id="features" data-avolv-section="s4">
     <div class="container">
       <div class="section-header">
         <h2>Avolv answers the text and <span class="accent">drafts the quote in about 60 seconds.</span></h2>
@@ -351,7 +351,7 @@
   </section>
 
   <!-- Steps -->
-  <section class="section section-alt" id="how-it-works">
+  <section class="section section-alt" id="how-it-works" data-avolv-section="s5">
     <div class="container">
       <div class="section-header">
         <h2>One 15-minute call, then <span class="accent">we do the migration for you</span></h2>
@@ -369,12 +369,12 @@
   <!-- Website videos (added 2026-11-05). Filled by /site-videos.js from the app's
        public feed. The section and each slot stay hidden until a video is
        published to that slot in Grow Avolv > Website videos. -->
-  <section class="section" id="site-videos-section" data-avolv-video-section style="display:none">
+  <section class="section" id="site-videos-section" data-avolv-video-section style="display:none" data-avolv-section="s6">
     <div data-avolv-video="homepage-primary" style="display:none"></div>
     <div data-avolv-video="homepage-secondary" style="display:none;margin-top:56px"></div>
   </section>
 
-  <section class="section" id="industries">
+  <section class="section" id="industries" data-avolv-section="s7">
     <div class="container">
       <div class="section-header">
         <h2>Built for <span class="accent">route-based service</span></h2>
@@ -391,7 +391,7 @@
 
 
   <!-- Integrations -->
-  <section class="section section-alt">
+  <section class="section section-alt" data-avolv-section="s8">
     <div class="container">
       <div class="section-header">
         <h2>Works with your <span class="accent">favorite tools</span></h2>
@@ -409,7 +409,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section" data-avolv-section="s9">
     <div class="container">
       <div class="section-header">
         <h2>Common <span class="accent">questions</span></h2>
@@ -426,7 +426,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta">
+  <section class="cta" data-avolv-section="s10">
     <div class="container">
       <h2>Stop running four apps that disagree with each other.</h2>
       <p>One system for pool and home service companies. Priced per location, month to month, no contract. See your route inside Avolv in fifteen minutes.</p>

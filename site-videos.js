@@ -175,9 +175,63 @@
     if (ref) parent.insertBefore(sec, ref);
   }
 
+  // Build a standalone page section for a content block (video, image, story,
+  // article) the page-order editor placed. `.av-block` self-centers, so a bare
+  // section is enough.
+  function buildContentSection(entry, index) {
+    var html = blockHtml(entry, index);
+    if (!html) return null;
+    var sec = document.createElement('section');
+    sec.className = 'av-content-section';
+    sec.setAttribute('data-avolv-content', '1');
+    sec.innerHTML = html;
+    wireCaptions(sec);
+    return sec;
+  }
+
+  // Page builder: arrange the page's hand-coded sections and injected content
+  // blocks into one saved order. Native entries move (or hide) the existing
+  // <section data-avolv-section="..."> nodes; content entries are rendered in
+  // place. Runs only when the app has a saved layout for this page; otherwise the
+  // page renders exactly as authored.
+  function applyLayout(entries) {
+    var natives = {};
+    Array.prototype.forEach.call(document.querySelectorAll('[data-avolv-section]'), function (el) {
+      natives[el.getAttribute('data-avolv-section')] = el;
+    });
+    var anchor = null;
+    for (var k in natives) {
+      var el = natives[k];
+      if (!anchor) { anchor = el; continue; }
+      if (anchor.compareDocumentPosition(el) & 2 /* PRECEDING */) anchor = el;
+    }
+    if (!anchor || !anchor.parentNode) return;
+    var parent = anchor.parentNode;
+    var marker = document.createComment('avolv-layout');
+    parent.insertBefore(marker, anchor);
+    var frag = document.createDocumentFragment();
+    var ci = 0;
+    entries.forEach(function (entry) {
+      if (!entry) return;
+      if (entry.kind === 'native') {
+        var node = natives[entry.nativeKey];
+        if (!node) return;
+        node.style.display = entry.hidden ? 'none' : '';
+        frag.appendChild(node);
+      } else {
+        if (entry.hidden) return;
+        var sec = buildContentSection(entry, ci++);
+        if (sec) frag.appendChild(sec);
+      }
+    });
+    parent.insertBefore(frag, marker);
+    parent.removeChild(marker);
+  }
+
   function run() {
     var containers = Array.prototype.slice.call(document.querySelectorAll('[data-avolv-zone],[data-avolv-video]'));
-    if (!containers.length) return;
+    var pageSlug = document.body ? document.body.getAttribute('data-avolv-page') : null;
+    if (!containers.length && !pageSlug) return;
     injectStyles();
 
     fetch(FEED, { headers: { Accept: 'application/json' } })
@@ -204,20 +258,27 @@
           filledAny = true;
         });
 
+        var layout = (pageSlug && data.layout && data.layout[pageSlug]) || null;
+        var hasLayout = !!(layout && layout.length);
+
         document.querySelectorAll('[data-avolv-video-section]').forEach(function (sec) {
           var has = sec.querySelector('[data-avolv-zone],[data-avolv-video]');
           if (has && has.style.display !== 'none') {
             sec.style.display = '';
-            // Lift the section up the page if a spot was set in the app. The
-            // value is an offset from the bottom; 0 leaves it where it is.
-            var slot = has.getAttribute('data-avolv-zone') || has.getAttribute('data-avolv-video');
-            var list = (slot && bySlot[slot]) || [];
-            var offset = 0;
-            list.forEach(function (b) { var p = (b && b.pagePosition) || 0; if (p > offset) offset = p; });
-            if (offset > 0) relocateSection(sec, offset);
+            // Legacy single-section move. The page builder (below) owns ordering
+            // when a layout exists, so only run this when it does not.
+            if (!hasLayout) {
+              var slot = has.getAttribute('data-avolv-zone') || has.getAttribute('data-avolv-video');
+              var list = (slot && bySlot[slot]) || [];
+              var offset = 0;
+              list.forEach(function (b) { var p = (b && b.pagePosition) || 0; if (p > offset) offset = p; });
+              if (offset > 0) relocateSection(sec, offset);
+            }
           }
         });
-        if (!filledAny) return;
+
+        // Page builder: apply the saved top-to-bottom order for this page.
+        if (hasLayout) applyLayout(layout);
       })
       .catch(function () { /* feed down: zones stay hidden, page is unaffected */ });
   }
