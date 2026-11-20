@@ -64,7 +64,13 @@
         + '<label>Website</label><input id="f-website" value="' + esc(l.website || '') + '">'
         + '<label>Contact email</label><input id="f-email" type="email" value="' + esc(l.email || '') + '">'
         + '<label>About your business</label><textarea id="f-desc" rows="4" placeholder="What you do, areas served, what sets you apart...">' + esc(l.description || '') + '</textarea>'
-        + '<button class="btn" id="save">Save my listing</button>'
+        + '<label style="display:flex;gap:9px;align-items:flex-start;font-weight:400;font-size:14px;color:#44566a;margin-top:10px">'
+        +   '<input type="checkbox" id="f-consent-email" style="width:auto;margin-top:3px" checked>'
+        +   '<span>I agree to receive emails from Avolv about my listing and related services.</span></label>'
+        + '<label style="display:flex;gap:9px;align-items:flex-start;font-weight:400;font-size:14px;color:#44566a;margin-top:8px">'
+        +   '<input type="checkbox" id="f-consent-text" style="width:auto;margin-top:3px" checked>'
+        +   '<span>You can also text me at the phone number above. Message and data rates may apply.</span></label>'
+        + '<button class="btn" id="save" style="margin-top:14px">Save my listing</button>'
         + '<div class="msg" id="result"></div>';
       el('save').addEventListener('click', save);
     }
@@ -75,7 +81,9 @@
         phone: el('f-phone').value.trim(),
         website: el('f-website').value.trim(),
         email: el('f-email').value.trim(),
-        description: el('f-desc').value.trim()
+        description: el('f-desc').value.trim(),
+        marketingConsent: el('f-consent-email').checked,
+        smsConsent: el('f-consent-text').checked
       };
       fetch(API + '/api/public/directory/claim/manage?token=' + encodeURIComponent(token()), {
         method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
