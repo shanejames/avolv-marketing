@@ -157,6 +157,24 @@
     });
   }
 
+  // Relocate a revealed section up the page by `offset` sections, counted from
+  // the bottom (0 = leave it where the page authored it). The spot among the
+  // sibling <section> elements is recomputed live, so the app never needs to
+  // know how many sections a page has.
+  function relocateSection(sec, offset) {
+    var parent = sec.parentNode;
+    if (!parent) return;
+    var sibs = Array.prototype.slice.call(parent.children).filter(function (el) {
+      return el !== sec && el.tagName === 'SECTION';
+    });
+    var L = sibs.length;
+    if (!L) return;
+    var p = Math.max(0, Math.min(offset, L));
+    if (p === 0) return;
+    var ref = sibs[L - p];
+    if (ref) parent.insertBefore(sec, ref);
+  }
+
   function run() {
     var containers = Array.prototype.slice.call(document.querySelectorAll('[data-avolv-zone],[data-avolv-video]'));
     if (!containers.length) return;
@@ -188,7 +206,16 @@
 
         document.querySelectorAll('[data-avolv-video-section]').forEach(function (sec) {
           var has = sec.querySelector('[data-avolv-zone],[data-avolv-video]');
-          if (has && has.style.display !== 'none') sec.style.display = '';
+          if (has && has.style.display !== 'none') {
+            sec.style.display = '';
+            // Lift the section up the page if a spot was set in the app. The
+            // value is an offset from the bottom; 0 leaves it where it is.
+            var slot = has.getAttribute('data-avolv-zone') || has.getAttribute('data-avolv-video');
+            var list = (slot && bySlot[slot]) || [];
+            var offset = 0;
+            list.forEach(function (b) { var p = (b && b.pagePosition) || 0; if (p > offset) offset = p; });
+            if (offset > 0) relocateSection(sec, offset);
+          }
         });
         if (!filledAny) return;
       })
