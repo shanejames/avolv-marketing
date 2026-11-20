@@ -96,6 +96,13 @@
         if (metas.length) html.push('<div class="metastrip">' + metas.join('') + '</div>');
         html.push('</div></section>');
 
+        // Optional video the owner attached in the case-study editor.
+        if (cs.videoUrl) {
+          html.push('<section class="section" style="padding-top:40px;padding-bottom:0"><div class="container" style="max-width:860px">');
+          html.push('<video controls playsinline preload="metadata" style="width:100%;border-radius:16px;background:#000;box-shadow:0 10px 40px rgba(0,0,0,.18)"' + (cs.videoPosterUrl ? ' poster="' + esc(cs.videoPosterUrl) + '"' : '') + '><source src="' + esc(cs.videoUrl) + '"></video>');
+          html.push('</div></section>');
+        }
+
         // Stat tiles
         var stats = Array.isArray(cs.stats) ? cs.stats.filter(function (s) { return s && (s.big || s.small); }) : [];
         if (stats.length) {
