@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove My Listing | Avolv.ai Directory</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page,#f3f6fa); color: var(--av-text,#132134); line-height: 1.6; }
+    .wrap { max-width: 560px; margin: 0 auto; padding: 48px 22px 70px; }
+    .card { background: #fff; border: 1px solid #e6ecf3; border-radius: 16px; padding: 28px; }
+    h1 { font-size: 1.5rem; font-weight: 800; color: #0f2c57; letter-spacing: -.5px; }
+    .sub { color: #5b6b7f; margin-top: 8px; }
+    .btn { border: none; cursor: pointer; font-weight: 700; font-size: 15px; font-family: inherit; border-radius: 10px; padding: 13px 24px; background: var(--av-blue-600,#1a7ad1); color: #fff; margin-top: 22px; }
+    .btn.danger { background: #e0352b; }
+    .btn:disabled { opacity: .5; }
+    .state { text-align: center; padding: 20px 0; color: #5b6b7f; }
+    .state h1 { color: #0f2c57; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="state" id="loading"><p>Loading...</p></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+
+  <script>
+    var API = 'https://api.avolv.ai';
+    function token() { return new URLSearchParams(location.search).get('token') || ''; }
+    function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+    function el(id){ return document.getElementById(id); }
+
+    function showInvalid(message) {
+      el('card').innerHTML = '<div class="state"><h1>Link not valid</h1><p>'
+        + esc(message || 'This link is invalid or has expired.')
+        + '</p></div>';
+    }
+
+    function showConfirm() {
+      el('card').innerHTML =
+        '<h1>Remove your business from the directory?</h1>'
+        + '<p class="sub">We will take your listing down and stop contacting you about it. This happens right away.</p>'
+        + '<button class="btn danger" id="go">Remove my business</button>'
+        + '<div class="state" id="result"></div>';
+      el('go').addEventListener('click', optOut);
+    }
+
+    function optOut() {
+      var btn = el('go'); btn.disabled = true;
+      fetch(API + '/api/public/directory/claim/opt-out', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: token() })
+      })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            var name = res.d && res.d.name ? res.d.name : 'Your business';
+            el('card').innerHTML = '<div class="state"><h1>Done</h1><p>'
+              + esc(name) + ' has been removed from the directory, and we won\'t contact you about it again.</p></div>';
+          } else {
+            btn.disabled = false;
+            el('result').textContent = (res.d && res.d.error) || 'Could not process that. Try again.';
+          }
+        })
+        .catch(function () { btn.disabled = false; el('result').textContent = 'Network error, try again.'; });
+    }
+
+    (function init() {
+      if (!token()) { showInvalid('No token in this link.'); return; }
+      showConfirm();
+    })();
+  </script>
+</body>
+</html>
