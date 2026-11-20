@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/avolv-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Pool &amp; Home Service Pro Near You | Avolv.ai Directory</title>
+  <meta name="description" content="The nationwide directory of pool and home-service companies, including cleaning, lighting, pressure washing, repair, and construction. Search by city or state, compare pros, and request a quote.">
+  <link rel="canonical" href="https://avolv.ai/directory.html">
+  <meta property="og:title" content="Find a Pool &amp; Home Service Pro Near You | Avolv.ai Directory">
+  <meta property="og:description" content="The nationwide directory of pool and home-service companies, including cleaning, lighting, pressure washing, repair, and construction.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avolv.ai/directory.html">
+  <meta property="og:image" content="https://avolv.ai/og/pools.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find a Pool &amp; Home Service Pro Near You | Avolv.ai Directory">
+  <meta name="twitter:image" content="https://avolv.ai/og/pools.png">
+  <link rel="icon" type="image/png" href="https://app.avolv.ai/avolv-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--av-page, #f3f6fa); color: var(--av-text, #132134); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--av-blue-600, #1a7ad1); text-decoration: none; }
+
+    .wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .dir-hero { background: radial-gradient(120% 130% at 85% 0%, #17346b 0%, #0f2c57 45%, #0b2149 100%); color: #fff; padding: 64px 0 120px; }
+    .dir-hero h1 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; letter-spacing: -.5px; max-width: 760px; line-height: 1.12; }
+    .dir-hero p.sub { margin-top: 14px; font-size: 1.12rem; color: rgba(255,255,255,.82); max-width: 640px; }
+    .searchbox { margin-top: 30px; background: #fff; border-radius: 16px; padding: 14px; display: flex; gap: 10px; flex-wrap: wrap; box-shadow: 0 30px 60px -24px rgba(6,20,45,.6); max-width: 1000px; }
+    .searchbox .field { flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; padding: 6px 12px; }
+    .searchbox .field + .field { border-left: 1px solid #e6ecf3; }
+    .searchbox label { font-size: 11px; font-weight: 800; color: #5b6b7f; text-transform: uppercase; letter-spacing: .6px; }
+    .searchbox select, .searchbox input { border: none; outline: none; font-size: 15px; font-family: inherit; color: #132134; background: transparent; font-weight: 600; width: 100%; }
+    .btn { border: none; cursor: pointer; font-weight: 700; font-size: 15px; font-family: inherit; border-radius: 10px; padding: 12px 22px; transition: filter .15s; }
+    .btn:hover { filter: brightness(1.07); }
+    .btn-primary { background: var(--av-blue-600, #1a7ad1); color: #fff; }
+    .btn-ghost { background: #fff; color: var(--av-blue-700, #1366ad); border: 1.5px solid var(--av-blue-600, #1a7ad1); }
+    .btn-sm { padding: 9px 16px; font-size: 13.5px; }
+    .searchbox .btn-primary { flex: 0 0 auto; align-self: stretch; }
+    .herostats { display: flex; gap: 32px; margin-top: 26px; color: rgba(255,255,255,.7); font-size: 14px; flex-wrap: wrap; }
+    .herostats b { display: block; color: #fff; font-size: 1.5rem; font-weight: 800; line-height: 1; }
+
+    /* Board */
+    .board { margin-top: -78px; padding-bottom: 80px; position: relative; z-index: 2; }
+    .layout { display: grid; grid-template-columns: 250px 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
+
+    .card { background: #fff; border: 1px solid #e6ecf3; border-radius: 14px; }
+    .side .card { padding: 16px 18px; }
+    .side h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #5b6b7f; margin: 14px 0 8px; }
+    .side h4:first-child { margin-top: 0; }
+    .side a.filt { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; font-size: 14px; color: #3c4a5c; cursor: pointer; font-weight: 600; }
+    .side a.filt.on { color: var(--av-blue-700, #1366ad); }
+    .promo { background: linear-gradient(150deg,#0d4f86,#1a7ad1); color: #fff; margin-top: 18px; border: none; border-radius: 14px; padding: 20px; }
+    .promo .t { font-size: 11px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; color: #bfe0ff; }
+    .promo h3 { font-size: 17px; margin: 8px 0 6px; line-height: 1.25; }
+    .promo p { font-size: 13px; color: #d9ecfb; margin-bottom: 14px; }
+    .promo .btn { background: #fff; color: #0d4f86; width: 100%; }
+
+    .resbar { display: flex; align-items: center; margin-bottom: 14px; gap: 12px; flex-wrap: wrap; }
+    .resbar .count { font-size: 14px; color: #5b6b7f; }
+    .resbar .count b { color: #132134; }
+
+    .lbl { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: #c7881a; margin: 6px 2px 12px; }
+    .lbl.plain { color: #5b6b7f; }
+    .lbl::after { content: ""; flex: 1; height: 1px; background: #e6ecf3; }
+
+    .listing { background: #fff; border: 1px solid #e6ecf3; border-radius: 14px; padding: 18px; display: grid; grid-template-columns: 64px 1fr auto; gap: 16px; margin-bottom: 14px; position: relative; }
+    .listing.feat { border-color: #f3d79a; box-shadow: 0 0 0 1px #f6e2b0 inset; }
+    .listing.feat::before { content: "Featured"; position: absolute; top: -9px; left: 18px; background: #f0a830; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .4px; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; }
+    .lg { width: 64px; height: 64px; border-radius: 12px; background: #eef6fd; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--av-blue-700,#1366ad); font-size: 19px; overflow: hidden; }
+    .lg img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+    .listing.unclaimed .lg { background: #eef1f5; color: #9aa8b8; }
+    .rate { color: #a9791a; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+    .rate .s { color: #f0a830; }
+    .lname { font-size: 17px; font-weight: 800; color: #0d4f86; display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    .lnamelink { color: #0d4f86; text-decoration: none; }
+    .lnamelink:hover { text-decoration: underline; }
+    .verif { font-size: 11px; font-weight: 700; color: #1f9d6b; background: #e7f6ef; border-radius: 999px; padding: 2px 9px; }
+    .ghost { font-size: 11px; font-weight: 700; color: #8a98a8; background: #f0f2f5; border-radius: 999px; padding: 2px 9px; }
+    .meta { display: flex; gap: 14px; flex-wrap: wrap; color: #5b6b7f; font-size: 13px; margin-top: 6px; }
+    .desc { margin-top: 8px; font-size: 14px; color: #44566a; max-width: 64ch; }
+    .lright { display: flex; flex-direction: column; gap: 8px; min-width: 150px; }
+    .lright .btn { width: 100%; text-align: center; }
+    @media (max-width: 640px) { .listing { grid-template-columns: 48px 1fr; } .lright { grid-column: 1 / -1; flex-direction: row; } }
+
+    .leadcap { background: #f6fbff; border: 1px dashed #b9d4ec; border-radius: 14px; padding: 18px 20px; margin: 4px 0 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .leadcap .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--av-blue-600,#1a7ad1); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .leadcap b { display: block; font-size: 15px; }
+    .leadcap p { font-size: 13px; color: #5b6b7f; }
+    .leadcap .btn { margin-left: auto; }
+
+    .empty { background: #fff; border: 1px solid #e6ecf3; border-radius: 14px; padding: 48px 28px; text-align: center; color: #5b6b7f; }
+    .empty h3 { color: #132134; font-size: 20px; margin-bottom: 8px; }
+
+    /* Modal */
+    .modal-bg { position: fixed; inset: 0; background: rgba(10,25,48,.55); display: none; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+    .modal-bg.on { display: flex; }
+    .modal { background: #fff; border-radius: 16px; width: 100%; max-width: 440px; padding: 24px; }
+    .modal h3 { font-size: 19px; font-weight: 800; }
+    .modal p.m { font-size: 13.5px; color: #5b6b7f; margin: 4px 0 16px; }
+    .modal label { display: block; font-size: 12px; font-weight: 700; color: #3c4a5c; margin: 10px 0 4px; }
+    .modal input, .modal textarea, .modal select { width: 100%; border: 1.5px solid #e0e7ef; border-radius: 9px; padding: 10px 12px; font-family: inherit; font-size: 14px; outline: none; }
+    .modal input:focus, .modal textarea:focus { border-color: var(--av-blue-600,#1a7ad1); }
+    .modal .row { display: flex; gap: 10px; }
+    .modal .row > * { flex: 1; }
+    .modal .actions { display: flex; gap: 10px; margin-top: 18px; }
+    .modal .msg { font-size: 13px; margin-top: 10px; }
+    .modal .msg.ok { color: #1f9d6b; }
+    .modal .msg.err { color: #e0352b; }
+    .foot-note { text-align: center; font-size: 13px; color: #8a98a8; padding: 10px 0 0; }
+    .foot-note a { color: var(--av-blue-600,#1a7ad1); font-weight: 600; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <script src="/site-header.js"></script>
+
+  <section class="dir-hero">
+    <div class="wrap">
+      <h1>Find a trusted pool &amp; home-service pro near you</h1>
+      <p class="sub">The nationwide directory of pool and home-service companies, powered by Avolv.</p>
+      <div class="searchbox">
+        <div class="field">
+          <label>I'm looking for</label>
+          <select id="f-category">
+            <option value="">All services</option>
+            <option value="POOL_SERVICE">Pool cleaning &amp; service</option>
+            <option value="POOL_REPAIR">Repair &amp; equipment</option>
+            <option value="POOL_CONSTRUCTION">Pool construction</option>
+            <option value="CLEANING">Cleaning</option>
+            <option value="LIGHTING">Lighting</option>
+            <option value="PRESSURE_WASHING">Pressure washing</option>
+            <option value="HOA_MGMT">HOA &amp; management</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>City</label>
+          <input id="f-city" placeholder="e.g. Tampa" />
+        </div>
+        <div class="field">
+          <label>State</label>
+          <input id="f-state" placeholder="e.g. FL" maxlength="20" />
+        </div>
+        <div class="field">
+          <label>ZIP</label>
+          <input id="f-zip" placeholder="e.g. 33606" inputmode="numeric" />
+        </div>
+        <button class="btn btn-primary" onclick="runSearch()">Search</button>
+      </div>
+      <div class="herostats" id="herostats"></div>
+    </div>
+  </section>
+
+  <div class="board">
+    <div class="wrap">
+      <div class="layout">
+        <aside class="side">
+          <div class="card">
+            <h4>Service type</h4>
+            <a class="filt on" data-cat="" onclick="pickCat(this)">All services</a>
+            <a class="filt" data-cat="POOL_SERVICE" onclick="pickCat(this)">Pool cleaning &amp; service</a>
+            <a class="filt" data-cat="POOL_REPAIR" onclick="pickCat(this)">Repair &amp; equipment</a>
+            <a class="filt" data-cat="POOL_CONSTRUCTION" onclick="pickCat(this)">Pool construction</a>
+            <a class="filt" data-cat="CLEANING" onclick="pickCat(this)">Cleaning</a>
+            <a class="filt" data-cat="LIGHTING" onclick="pickCat(this)">Lighting</a>
+            <a class="filt" data-cat="PRESSURE_WASHING" onclick="pickCat(this)">Pressure washing</a>
+            <a class="filt" data-cat="HOA_MGMT" onclick="pickCat(this)">HOA &amp; management</a>
+          </div>
+          <div class="promo">
+            <div class="t">For pool companies</div>
+            <h3>Is your company listed?</h3>
+            <p>Claim your free listing to add photos, services, and start receiving quote requests from local buyers.</p>
+            <button class="btn" onclick="openClaimSearch()">Claim your business</button>
+          </div>
+        </aside>
+
+        <main>
+          <div class="resbar">
+            <div class="count" id="rescount">Loading pool companies...</div>
+          </div>
+          <div id="featured-wrap"></div>
+          <div class="leadcap">
+            <div class="ic"><i data-lucide="mail"></i></div>
+            <div>
+              <b>Not sure who to pick?</b>
+              <p>Tell us about your project once and we'll match you with local pros.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openMatch()">Get matched free</button>
+          </div>
+          <div id="results"></div>
+          <div id="citybrowse" style="margin-top:28px"></div>
+          <div class="foot-note">
+            Are you a listed business and want your listing removed?
+            <a onclick="openOptOut()">Opt out here</a>.
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js"></script>
+
+  <!-- Quote / match / claim / opt-out modal -->
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <script>
+    var API = 'https://api.avolv.ai';
+    var state = { category: '', city: '', stateCode: '', zip: '', q: '' };
+
+    // Capture UTM for attribution so leads tie back to Facebook / Google.
+    function utm() {
+      var p = new URLSearchParams(location.search);
+      return {
+        utmSource: p.get('utm_source') || '',
+        utmMedium: p.get('utm_medium') || '',
+        utmCampaign: p.get('utm_campaign') || ''
+      };
+    }
+
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+    function initials(name) {
+      return String(name || '?').split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+    }
+
+    function catLabel(c) {
+      return ({ POOL_SERVICE: 'Pool service', POOL_REPAIR: 'Repair & equipment', POOL_CONSTRUCTION: 'Construction',
+        CLEANING: 'Cleaning', LIGHTING: 'Lighting', PRESSURE_WASHING: 'Pressure washing', HOA: 'HOA',
+        PROPERTY_MANAGEMENT: 'Property management' }[c]) || 'Service'; }
+
+    function listingHTML(l, featured) {
+      var claimed = l.tier && l.tier !== 'UNCLAIMED';
+      var cls = 'listing' + (featured ? ' feat' : '') + (claimed ? '' : ' unclaimed');
+      var badge = claimed ? '<span class="verif">&#10003; Verified</span>' : '<span class="ghost">Unclaimed</span>';
+      var loc = [l.city, l.state].filter(Boolean).join(', ');
+      var profile = l.profilePath ? esc(l.profilePath) : '';
+      var viewBtn = profile ? '<a class="btn btn-ghost btn-sm" href="' + profile + '">View profile</a>' : '';
+      var right = claimed
+        ? '<button class="btn btn-primary btn-sm" onclick="openQuote(\'' + l.id + '\',\'' + esc(l.name).replace(/'/g, "\\'") + '\')">Request a quote</button>'
+          + viewBtn
+          + (l.website ? '<a class="btn btn-ghost btn-sm" href="' + esc(l.website) + '" target="_blank" rel="noopener">Visit site</a>' : '')
+        : '<button class="btn btn-primary btn-sm" onclick="openClaim(\'' + l.id + '\',\'' + esc(l.name).replace(/'/g, "\\'") + '\')">Claim this business</button>'
+          + viewBtn
+          + '<button class="btn btn-ghost btn-sm" onclick="openQuote(\'' + l.id + '\',\'' + esc(l.name).replace(/'/g, "\\'") + '\')">Request a quote</button>';
+      var mark = l.logoUrl
+        ? '<div class="lg"><img src="' + esc(l.logoUrl) + '" alt="' + esc(l.name) + ' logo" loading="lazy"></div>'
+        : '<div class="lg">' + esc(initials(l.name)) + '</div>';
+      var rating = (l.rating != null && l.rating !== '')
+        ? '<span class="rate"><span class="s">&#9733;</span> ' + Number(l.rating).toFixed(1)
+          + (l.reviewCount ? ' (' + l.reviewCount + ')' : '') + '</span>'
+        : '';
+      return '<div class="' + cls + '">'
+        + mark
+        + '<div><div class="lname">' + (profile ? '<a href="' + profile + '" class="lnamelink">' + esc(l.name) + '</a>' : esc(l.name)) + ' ' + badge + '</div>'
+        + '<div class="meta"><span>' + esc(catLabel(l.category)) + '</span>'
+        + rating
+        + (loc ? '<span>&#128205; ' + esc(loc) + '</span>' : '')
+        + (l.phone ? '<span>&#9742; ' + esc(l.phone) + '</span>' : '') + '</div>'
+        + (l.description ? '<div class="desc">' + esc(l.description) + '</div>' : '')
+        + '</div><div class="lright">' + right + '</div></div>';
+    }
+
+    function render(data) {
+      var fw = document.getElementById('featured-wrap');
+      var rw = document.getElementById('results');
+      var rc = document.getElementById('rescount');
+
+      if ((!data.rows || !data.rows.length) && (!data.featured || !data.featured.length)) {
+        fw.innerHTML = '';
+        rw.innerHTML = '<div class="empty"><h3>Our directory is launching soon</h3>'
+          + '<p>We are building the most complete list of pool and home-service companies across the country. '
+          + 'Check back shortly, or claim your business to be among the first listed.</p></div>';
+        rc.textContent = '';
+        return;
+      }
+
+      var where = state.city ? (' near ' + state.city)
+        : (state.zip ? (' near ' + state.zip)
+        : (state.stateCode ? (' in ' + state.stateCode.toUpperCase()) : ' nationwide'));
+      rc.innerHTML = 'Showing <b>' + (data.rows ? data.rows.length : 0) + '</b> of <b>' + (data.total || 0) + '</b> companies' + where;
+
+      fw.innerHTML = '';
+      if (data.featured && data.featured.length) {
+        fw.innerHTML = '<div class="lbl">Sponsored &amp; featured</div>'
+          + data.featured.map(function (l) { return listingHTML(l, true); }).join('');
+      }
+      var featIds = {};
+      (data.featured || []).forEach(function (l) { featIds[l.id] = 1; });
+      var rest = (data.rows || []).filter(function (l) { return !featIds[l.id]; });
+      rw.innerHTML = '<div class="lbl plain">All companies</div>'
+        + (rest.length ? rest.map(function (l) { return listingHTML(l, false); }).join('')
+          : '<div class="empty"><p>No companies match that search yet. Try a nearby city, or clear a filter.</p></div>');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function load() {
+      var qs = new URLSearchParams();
+      if (state.category) qs.set('category', state.category);
+      if (state.city) qs.set('city', state.city);
+      if (state.stateCode) qs.set('state', state.stateCode);
+      if (state.zip) qs.set('zip', state.zip);
+      if (state.q) qs.set('q', state.q);
+      fetch(API + '/api/public/directory?' + qs.toString())
+        .then(function (r) { return r.json(); })
+        .then(render)
+        .catch(function () {
+          document.getElementById('results').innerHTML =
+            '<div class="empty"><h3>Our directory is launching soon</h3><p>Check back shortly.</p></div>';
+          document.getElementById('rescount').textContent = '';
+        });
+    }
+
+    function runSearch() {
+      state.category = document.getElementById('f-category').value;
+      state.city = document.getElementById('f-city').value.trim();
+      state.stateCode = document.getElementById('f-state').value.trim();
+      state.zip = document.getElementById('f-zip').value.trim();
+      load();
+    }
+    function pickCat(el) {
+      document.querySelectorAll('.side a.filt').forEach(function (a) { a.classList.remove('on'); });
+      el.classList.add('on');
+      state.category = el.getAttribute('data-cat');
+      document.getElementById('f-category').value = state.category;
+      load();
+    }
+
+    // ── Modals ──
+    function closeModal() { document.getElementById('modal-bg').classList.remove('on'); }
+    document.getElementById('modal-bg').addEventListener('click', function (e) { if (e.target.id === 'modal-bg') closeModal(); });
+
+    function openQuote(id, name) {
+      document.getElementById('modal').innerHTML =
+        '<h3>Request a quote</h3><p class="m">From ' + esc(name) + '. We\'ll pass your request straight to them.</p>'
+        + '<label>Your name</label><input id="q-name">'
+        + '<div class="row"><div><label>Email</label><input id="q-email" type="email"></div>'
+        + '<div><label>Phone</label><input id="q-phone"></div></div>'
+        + '<label>What do you need?</label><textarea id="q-msg" rows="3" placeholder="Weekly pool service, a lighting install, pressure washing..."></textarea>'
+        + '<div class="msg" id="q-result"></div>'
+        + '<div class="actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button>'
+        + '<button class="btn btn-primary" style="flex:1" onclick="submitLead(\'' + id + '\')">Send request</button></div>';
+      document.getElementById('modal-bg').classList.add('on');
+    }
+    function openMatch() {
+      document.getElementById('modal').innerHTML =
+        '<h3>Get matched with local pros</h3><p class="m">Tell us about your pool and we\'ll connect you.</p>'
+        + '<label>Your name</label><input id="q-name">'
+        + '<div class="row"><div><label>Email</label><input id="q-email" type="email"></div>'
+        + '<div><label>ZIP</label><input id="q-zip"></div></div>'
+        + '<label>What do you need?</label><textarea id="q-msg" rows="3"></textarea>'
+        + '<div class="msg" id="q-result"></div>'
+        + '<div class="actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button>'
+        + '<button class="btn btn-primary" style="flex:1" onclick="submitMatch()">Get matched</button></div>';
+      document.getElementById('modal-bg').classList.add('on');
+    }
+    function openClaim(id, name) {
+      document.getElementById('modal').innerHTML =
+        '<h3>Claim ' + esc(name) + '</h3><p class="m">Confirm you own this business. We\'ll verify and hand you the listing.</p>'
+        + '<label>Your name</label><input id="c-name">'
+        + '<div class="row"><div><label>Business email</label><input id="c-email" type="email"></div>'
+        + '<div><label>Phone</label><input id="c-phone"></div></div>'
+        + '<label>Anything to add?</label><textarea id="c-msg" rows="2"></textarea>'
+        + '<div class="msg" id="c-result"></div>'
+        + '<div class="actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button>'
+        + '<button class="btn btn-primary" style="flex:1" onclick="submitClaim(\'' + id + '\')">Submit claim</button></div>';
+      document.getElementById('modal-bg').classList.add('on');
+    }
+    function openClaimSearch() {
+      alert('Find your business in the list below, then click "Claim this business" on your listing.');
+    }
+    function openOptOut() {
+      document.getElementById('modal').innerHTML =
+        '<h3>Opt out of the directory</h3><p class="m">Enter the listing name and your email. We remove the listing right away.</p>'
+        + '<label>Business name</label><input id="o-name">'
+        + '<label>Your email</label><input id="o-email" type="email">'
+        + '<div class="msg" id="o-result"></div>'
+        + '<div class="actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button>'
+        + '<button class="btn btn-primary" style="flex:1" onclick="submitOptOut()">Request removal</button></div>';
+      document.getElementById('modal-bg').classList.add('on');
+    }
+
+    function val(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
+    function showMsg(id, text, ok) { var e = document.getElementById(id); if (e) { e.textContent = text; e.className = 'msg ' + (ok ? 'ok' : 'err'); } }
+
+    function submitLead(id) {
+      var body = Object.assign({ consumerName: val('q-name'), consumerEmail: val('q-email'),
+        consumerPhone: val('q-phone'), message: val('q-msg') }, utm());
+      if (!body.consumerEmail && !body.consumerPhone) return showMsg('q-result', 'Add an email or phone so they can reach you.', false);
+      fetch(API + '/api/public/directory/' + id + '/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) { if (res.ok) { showMsg('q-result', 'Sent. They\'ll be in touch soon.', true); setTimeout(closeModal, 1400); }
+          else showMsg('q-result', res.d.error || 'Something went wrong.', false); })
+        .catch(function () { showMsg('q-result', 'Network error, try again.', false); });
+    }
+    function submitMatch() {
+      // Match requests attach to the first featured listing when present, else need a city.
+      var any = (window._lastFeatured && window._lastFeatured[0]) ? window._lastFeatured[0].id : null;
+      if (!any) { showMsg('q-result', 'Pick a company from the list to request a quote.', false); return; }
+      var body = Object.assign({ consumerName: val('q-name'), consumerEmail: val('q-email'),
+        zip: val('q-zip'), message: val('q-msg'), serviceType: 'MATCH REQUEST' }, utm());
+      fetch(API + '/api/public/directory/' + any + '/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) { if (res.ok) { showMsg('q-result', 'Got it. We\'ll match you shortly.', true); setTimeout(closeModal, 1400); }
+          else showMsg('q-result', res.d.error || 'Something went wrong.', false); })
+        .catch(function () { showMsg('q-result', 'Network error, try again.', false); });
+    }
+    function submitClaim(id) {
+      var body = { name: val('c-name'), email: val('c-email'), phone: val('c-phone'), message: val('c-msg') };
+      if (!body.email) return showMsg('c-result', 'A business email is required.', false);
+      fetch(API + '/api/public/directory/' + id + '/claim', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) { if (res.ok) { showMsg('c-result', 'Claim submitted. We\'ll verify and reach out.', true); setTimeout(closeModal, 1600); }
+          else showMsg('c-result', res.d.error || 'Something went wrong.', false); })
+        .catch(function () { showMsg('c-result', 'Network error, try again.', false); });
+    }
+    function submitOptOut() {
+      // Opt-out needs the listing id. Look it up by name from the loaded set.
+      var name = val('o-name').toLowerCase();
+      var match = (window._allLoaded || []).find(function (l) { return (l.name || '').toLowerCase().indexOf(name) >= 0; });
+      if (!match) return showMsg('o-result', 'We could not find that listing. Search for it first, then opt out from your listing.', false);
+      fetch(API + '/api/public/directory/' + match.id + '/opt-out', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: val('o-email') }) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) { if (res.ok) { showMsg('o-result', 'Removed. It will drop off shortly.', true); setTimeout(function () { closeModal(); load(); }, 1500); }
+          else showMsg('o-result', res.d.error || 'Something went wrong.', false); })
+        .catch(function () { showMsg('o-result', 'Network error, try again.', false); });
+    }
+
+    // Keep a copy of loaded listings for opt-out lookup + match.
+    var _render = render;
+    render = function (data) { window._allLoaded = (data.rows || []).concat(data.featured || []); window._lastFeatured = data.featured || []; _render(data); };
+
+    document.getElementById('herostats').innerHTML =
+      '<div><b>Nationwide</b>coverage</div><div><b>Free</b>to claim your listing</div><div><b>Local</b>pros, real reviews</div>';
+
+    // Browse by city: internal links to the server-rendered /pool-companies/<city> pages.
+    function loadCities() {
+      fetch(API + '/api/public/directory-pages/cities.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          var cities = (d && d.cities) || [];
+          if (!cities.length) return;
+          var top = cities.slice(0, 30);
+          document.getElementById('citybrowse').innerHTML =
+            '<div class="lbl plain">Browse pool companies by city</div>'
+            + '<div style="display:flex;flex-wrap:wrap;gap:10px">'
+            + top.map(function (c) {
+                var href = c.url || ('/pool-companies/' + encodeURIComponent(c.slug));
+                var label = c.state ? (esc(c.city) + ', ' + esc(c.state)) : esc(c.city);
+                return '<a href="' + esc(href) + '" '
+                  + 'style="background:#fff;border:1px solid #e6ecf3;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:#1366ad">'
+                  + label + ' (' + c.count + ')</a>';
+              }).join('')
+            + '</div>';
+        })
+        .catch(function () { /* no city block if it fails */ });
+    }
+
+    load();
+    loadCities();
+  </script>
+</body>
+</html>
