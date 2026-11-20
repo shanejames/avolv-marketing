@@ -189,6 +189,27 @@
     return sec;
   }
 
+  // Apply text overrides to a native section: swap in the owner's edited text for
+  // any element tagged data-avolv-edit. Button keys (btn1-label / btn1-href) map
+  // to the anchor tagged data-avolv-edit="btn1". Untouched fields keep the HTML.
+  function applyOverrides(sec, ov) {
+    if (!ov) return;
+    for (var key in ov) {
+      if (!Object.prototype.hasOwnProperty.call(ov, key)) continue;
+      var val = ov[key];
+      if (val == null || val === '') continue;
+      var b = /^(btn\d+)-(label|href)$/.exec(key);
+      if (b) {
+        var a = sec.querySelector('[data-avolv-edit="' + b[1] + '"]');
+        if (!a) continue;
+        if (b[2] === 'href') a.setAttribute('href', val); else a.textContent = val;
+      } else {
+        var el = sec.querySelector('[data-avolv-edit="' + key + '"]');
+        if (el) el.textContent = val;
+      }
+    }
+  }
+
   // Page builder: arrange the page's hand-coded sections and injected content
   // blocks into one saved order. Native entries move (or hide) the existing
   // <section data-avolv-section="..."> nodes; content entries are rendered in
@@ -217,6 +238,7 @@
         var node = natives[entry.nativeKey];
         if (!node) return;
         node.style.display = entry.hidden ? 'none' : '';
+        if (entry.overrides) applyOverrides(node, entry.overrides);
         frag.appendChild(node);
       } else {
         if (entry.hidden) return;
